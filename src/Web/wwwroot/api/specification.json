@@ -1,0 +1,5663 @@
+{
+  "x-generator": "NSwag v14.0.0.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))",
+  "openapi": "3.0.0",
+  "info": {
+    "title": "NiceShop API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/TodoItems": {
+      "get": {
+        "tags": [
+          "TodoItems"
+        ],
+        "operationId": "GetTodoItemsWithPagination",
+        "parameters": [
+          {
+            "name": "ListId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "PageNumber",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaginatedListOfTodoItemBriefDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "TodoItems"
+        ],
+        "operationId": "CreateTodoItem",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTodoItemCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/TodoItems/{id}": {
+      "put": {
+        "tags": [
+          "TodoItems"
+        ],
+        "operationId": "UpdateTodoItem",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTodoItemCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "TodoItems"
+        ],
+        "operationId": "DeleteTodoItem",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/TodoItems/UpdateDetail/{id}": {
+      "put": {
+        "tags": [
+          "TodoItems"
+        ],
+        "operationId": "UpdateTodoItemDetail",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTodoItemDetailCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/TodoLists": {
+      "get": {
+        "tags": [
+          "TodoLists"
+        ],
+        "operationId": "GetTodoLists",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TodosVm"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "TodoLists"
+        ],
+        "operationId": "CreateTodoList",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTodoListCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/TodoLists/{id}": {
+      "put": {
+        "tags": [
+          "TodoLists"
+        ],
+        "operationId": "UpdateTodoList",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTodoListCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "TodoLists"
+        ],
+        "operationId": "DeleteTodoList",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/WeatherForecasts": {
+      "get": {
+        "tags": [
+          "WeatherForecasts"
+        ],
+        "operationId": "GetWeatherForecasts",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/Articles/GetAll": {
+      "get": {
+        "tags": [
+          "Articles"
+        ],
+        "operationId": "Articles_GetAll",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/Users/Login": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "operationId": "Users_Login",
+        "parameters": [
+          {
+            "name": "useCookies",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "x-position": 2
+          },
+          {
+            "name": "useSessionCookies",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "x-position": 3
+          }
+        ],
+        "requestBody": {
+          "x-name": "login",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Users/Register": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "operationId": "Users_Register",
+        "parameters": [
+          {
+            "name": "Features",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {}
+            },
+            "x-position": 2
+          },
+          {
+            "name": "Request.HttpContext.Features",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {}
+            },
+            "x-position": 3
+          },
+          {
+            "name": "Request.HttpContext.Request",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/HttpRequest"
+            },
+            "x-position": 4
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Features",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {}
+            },
+            "x-position": 5
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Request",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/HttpRequest"
+            },
+            "x-position": 6
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Response",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/HttpResponse"
+            },
+            "x-position": 7
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.Id",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 8
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.RemoteIpAddress",
+            "in": "query",
+            "schema": {
+              "nullable": true,
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/IPAddress"
+                }
+              ]
+            },
+            "x-position": 9
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.RemotePort",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 10
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.LocalIpAddress",
+            "in": "query",
+            "schema": {
+              "nullable": true,
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/IPAddress"
+                }
+              ]
+            },
+            "x-position": 11
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.LocalPort",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 12
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.Archived",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 13
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.Extensions",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {}
+            },
+            "x-position": 14
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 15
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.HasPrivateKey",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 16
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.PrivateKey.KeySize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 17
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.PrivateKey.LegalKeySizes",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/KeySizes"
+              }
+            },
+            "x-position": 18
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.PrivateKey.SignatureAlgorithm",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 19
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.PrivateKey.KeyExchangeAlgorithm",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 20
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.IssuerName.Name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 21
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.IssuerName.Oid.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 22
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.IssuerName.Oid.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 23
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.IssuerName.RawData",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            },
+            "x-position": 24
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.NotAfter",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "x-position": 25
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.NotBefore",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "x-position": 26
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.PublicKey.EncodedKeyValue.Oid.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 27
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.PublicKey.EncodedKeyValue.Oid.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 28
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.PublicKey.EncodedKeyValue.RawData",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            },
+            "x-position": 29
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.PublicKey.EncodedParameters.Oid.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 30
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.PublicKey.EncodedParameters.Oid.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 31
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.PublicKey.EncodedParameters.RawData",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            },
+            "x-position": 32
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.PublicKey.Key.KeySize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 33
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.PublicKey.Key.LegalKeySizes",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/KeySizes"
+              }
+            },
+            "x-position": 34
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.PublicKey.Key.SignatureAlgorithm",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 35
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.PublicKey.Key.KeyExchangeAlgorithm",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 36
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.PublicKey.Oid.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 37
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.PublicKey.Oid.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 38
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.RawData",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            },
+            "x-position": 39
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.RawDataMemory.Length",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 40
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.RawDataMemory.IsEmpty",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 41
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.SerialNumber",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 42
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.SignatureAlgorithm.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 43
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.SignatureAlgorithm.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 44
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.SubjectName.Name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 45
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.SubjectName.Oid.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 46
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.SubjectName.Oid.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 47
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.SubjectName.RawData",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            },
+            "x-position": 48
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.Thumbprint",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 49
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.Version",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 50
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.Handle",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/IntPtr"
+            },
+            "x-position": 51
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.Issuer",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 52
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.Subject",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 53
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.SerialNumberBytes.Length",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 54
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Connection.ClientCertificate.SerialNumberBytes.IsEmpty",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 55
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.WebSockets.IsWebSocketRequest",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 56
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.WebSockets.WebSocketRequestedProtocols",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 57
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.User.Claims",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Claim"
+              }
+            },
+            "x-position": 58
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.User.Identities",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ClaimsIdentity"
+              }
+            },
+            "x-position": 59
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.User.Identity.Name",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 60
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.User.Identity.AuthenticationType",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 61
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.User.Identity.IsAuthenticated",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 62
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Items",
+            "in": "query",
+            "schema": {
+              "type": "object",
+              "additionalProperties": {}
+            },
+            "x-position": 63
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.RequestServices",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/IServiceProvider"
+            },
+            "x-position": 64
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.TraceIdentifier",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 65
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Session.IsAvailable",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 66
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Session.Id",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 67
+          },
+          {
+            "name": "Request.HttpContext.Response.HttpContext.Session.Keys",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 68
+          },
+          {
+            "name": "Request.HttpContext.Response.StatusCode",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 69
+          },
+          {
+            "name": "Request.HttpContext.Response.Headers",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {}
+            },
+            "x-position": 70
+          },
+          {
+            "name": "Request.HttpContext.Response.Body.CanRead",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 71
+          },
+          {
+            "name": "Request.HttpContext.Response.Body.CanWrite",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 72
+          },
+          {
+            "name": "Request.HttpContext.Response.Body.CanSeek",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 73
+          },
+          {
+            "name": "Request.HttpContext.Response.Body.CanTimeout",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 74
+          },
+          {
+            "name": "Request.HttpContext.Response.Body.Length",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "x-position": 75
+          },
+          {
+            "name": "Request.HttpContext.Response.Body.Position",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "x-position": 76
+          },
+          {
+            "name": "Request.HttpContext.Response.Body.ReadTimeout",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 77
+          },
+          {
+            "name": "Request.HttpContext.Response.Body.WriteTimeout",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 78
+          },
+          {
+            "name": "Request.HttpContext.Response.BodyWriter.CanGetUnflushedBytes",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 79
+          },
+          {
+            "name": "Request.HttpContext.Response.BodyWriter.UnflushedBytes",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "x-position": 80
+          },
+          {
+            "name": "Request.HttpContext.Response.ContentLength",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "nullable": true
+            },
+            "x-position": 81
+          },
+          {
+            "name": "Request.HttpContext.Response.ContentType",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 82
+          },
+          {
+            "name": "Request.HttpContext.Response.Cookies",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/IResponseCookies"
+            },
+            "x-position": 83
+          },
+          {
+            "name": "Request.HttpContext.Response.HasStarted",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 84
+          },
+          {
+            "name": "Request.HttpContext.Connection.Id",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 85
+          },
+          {
+            "name": "Request.HttpContext.Connection.RemoteIpAddress",
+            "in": "query",
+            "schema": {
+              "nullable": true,
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/IPAddress"
+                }
+              ]
+            },
+            "x-position": 86
+          },
+          {
+            "name": "Request.HttpContext.Connection.RemotePort",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 87
+          },
+          {
+            "name": "Request.HttpContext.Connection.LocalIpAddress",
+            "in": "query",
+            "schema": {
+              "nullable": true,
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/IPAddress"
+                }
+              ]
+            },
+            "x-position": 88
+          },
+          {
+            "name": "Request.HttpContext.Connection.LocalPort",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 89
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.Archived",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 90
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.Extensions",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {}
+            },
+            "x-position": 91
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 92
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.HasPrivateKey",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 93
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.PrivateKey.KeySize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 94
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.PrivateKey.LegalKeySizes",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/KeySizes"
+              }
+            },
+            "x-position": 95
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.PrivateKey.SignatureAlgorithm",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 96
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.PrivateKey.KeyExchangeAlgorithm",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 97
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.IssuerName.Name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 98
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.IssuerName.Oid.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 99
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.IssuerName.Oid.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 100
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.IssuerName.RawData",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            },
+            "x-position": 101
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.NotAfter",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "x-position": 102
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.NotBefore",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "x-position": 103
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.PublicKey.EncodedKeyValue.Oid.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 104
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.PublicKey.EncodedKeyValue.Oid.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 105
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.PublicKey.EncodedKeyValue.RawData",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            },
+            "x-position": 106
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.PublicKey.EncodedParameters.Oid.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 107
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.PublicKey.EncodedParameters.Oid.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 108
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.PublicKey.EncodedParameters.RawData",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            },
+            "x-position": 109
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.PublicKey.Key.KeySize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 110
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.PublicKey.Key.LegalKeySizes",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/KeySizes"
+              }
+            },
+            "x-position": 111
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.PublicKey.Key.SignatureAlgorithm",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 112
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.PublicKey.Key.KeyExchangeAlgorithm",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 113
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.PublicKey.Oid.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 114
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.PublicKey.Oid.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 115
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.RawData",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            },
+            "x-position": 116
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.RawDataMemory.Length",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 117
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.RawDataMemory.IsEmpty",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 118
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.SerialNumber",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 119
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.SignatureAlgorithm.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 120
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.SignatureAlgorithm.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 121
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.SubjectName.Name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 122
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.SubjectName.Oid.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 123
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.SubjectName.Oid.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 124
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.SubjectName.RawData",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            },
+            "x-position": 125
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.Thumbprint",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 126
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.Version",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 127
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.Handle",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/IntPtr"
+            },
+            "x-position": 128
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.Issuer",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 129
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.Subject",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 130
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.SerialNumberBytes.Length",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 131
+          },
+          {
+            "name": "Request.HttpContext.Connection.ClientCertificate.SerialNumberBytes.IsEmpty",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 132
+          },
+          {
+            "name": "Request.HttpContext.WebSockets.IsWebSocketRequest",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 133
+          },
+          {
+            "name": "Request.HttpContext.WebSockets.WebSocketRequestedProtocols",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 134
+          },
+          {
+            "name": "Request.HttpContext.User.Claims",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Claim"
+              }
+            },
+            "x-position": 135
+          },
+          {
+            "name": "Request.HttpContext.User.Identities",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ClaimsIdentity"
+              }
+            },
+            "x-position": 136
+          },
+          {
+            "name": "Request.HttpContext.User.Identity.Name",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 137
+          },
+          {
+            "name": "Request.HttpContext.User.Identity.AuthenticationType",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 138
+          },
+          {
+            "name": "Request.HttpContext.User.Identity.IsAuthenticated",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 139
+          },
+          {
+            "name": "Request.HttpContext.Items",
+            "in": "query",
+            "schema": {
+              "type": "object",
+              "additionalProperties": {}
+            },
+            "x-position": 140
+          },
+          {
+            "name": "Request.HttpContext.RequestServices",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/IServiceProvider"
+            },
+            "x-position": 141
+          },
+          {
+            "name": "Request.HttpContext.TraceIdentifier",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 142
+          },
+          {
+            "name": "Request.HttpContext.Session.IsAvailable",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 143
+          },
+          {
+            "name": "Request.HttpContext.Session.Id",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 144
+          },
+          {
+            "name": "Request.HttpContext.Session.Keys",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 145
+          },
+          {
+            "name": "Request.Method",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 146
+          },
+          {
+            "name": "Request.Scheme",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 147
+          },
+          {
+            "name": "Request.IsHttps",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 148
+          },
+          {
+            "name": "Request.Host.Value",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 149
+          },
+          {
+            "name": "Request.Host.HasValue",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 150
+          },
+          {
+            "name": "Request.Host.Host",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 151
+          },
+          {
+            "name": "Request.Host.Port",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-position": 152
+          },
+          {
+            "name": "Request.PathBase",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/PathString"
+            },
+            "x-position": 153
+          },
+          {
+            "name": "Request.Path",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/PathString"
+            },
+            "x-position": 154
+          },
+          {
+            "name": "Request.QueryString.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 155
+          },
+          {
+            "name": "Request.QueryString.HasValue",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 156
+          },
+          {
+            "name": "Request.Query",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {}
+            },
+            "x-position": 157
+          },
+          {
+            "name": "Request.Protocol",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 158
+          },
+          {
+            "name": "Request.Headers",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {}
+            },
+            "x-position": 159
+          },
+          {
+            "name": "Request.Cookies",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {}
+            },
+            "x-position": 160
+          },
+          {
+            "name": "Request.ContentLength",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "nullable": true
+            },
+            "x-position": 161
+          },
+          {
+            "name": "Request.ContentType",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 162
+          },
+          {
+            "name": "Request.Body.CanRead",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 163
+          },
+          {
+            "name": "Request.Body.CanWrite",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 164
+          },
+          {
+            "name": "Request.Body.CanSeek",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 165
+          },
+          {
+            "name": "Request.Body.CanTimeout",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 166
+          },
+          {
+            "name": "Request.Body.Length",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "x-position": 167
+          },
+          {
+            "name": "Request.Body.Position",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "x-position": 168
+          },
+          {
+            "name": "Request.Body.ReadTimeout",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 169
+          },
+          {
+            "name": "Request.Body.WriteTimeout",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 170
+          },
+          {
+            "name": "Request.BodyReader",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/PipeReader"
+            },
+            "x-position": 171
+          },
+          {
+            "name": "Request.HasFormContentType",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 172
+          },
+          {
+            "name": "Request.Form",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {}
+            },
+            "x-position": 173
+          },
+          {
+            "name": "Request.RouteValues",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {}
+            },
+            "x-position": 174
+          },
+          {
+            "name": "Response.HttpContext.Features",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {}
+            },
+            "x-position": 175
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Features",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {}
+            },
+            "x-position": 176
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Request",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/HttpRequest"
+            },
+            "x-position": 177
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Response",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/HttpResponse"
+            },
+            "x-position": 178
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.Id",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 179
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.RemoteIpAddress",
+            "in": "query",
+            "schema": {
+              "nullable": true,
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/IPAddress"
+                }
+              ]
+            },
+            "x-position": 180
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.RemotePort",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 181
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.LocalIpAddress",
+            "in": "query",
+            "schema": {
+              "nullable": true,
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/IPAddress"
+                }
+              ]
+            },
+            "x-position": 182
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.LocalPort",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 183
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.Archived",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 184
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.Extensions",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {}
+            },
+            "x-position": 185
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 186
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.HasPrivateKey",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 187
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.PrivateKey.KeySize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 188
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.PrivateKey.LegalKeySizes",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/KeySizes"
+              }
+            },
+            "x-position": 189
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.PrivateKey.SignatureAlgorithm",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 190
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.PrivateKey.KeyExchangeAlgorithm",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 191
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.IssuerName.Name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 192
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.IssuerName.Oid.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 193
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.IssuerName.Oid.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 194
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.IssuerName.RawData",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            },
+            "x-position": 195
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.NotAfter",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "x-position": 196
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.NotBefore",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "x-position": 197
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.PublicKey.EncodedKeyValue.Oid.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 198
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.PublicKey.EncodedKeyValue.Oid.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 199
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.PublicKey.EncodedKeyValue.RawData",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            },
+            "x-position": 200
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.PublicKey.EncodedParameters.Oid.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 201
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.PublicKey.EncodedParameters.Oid.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 202
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.PublicKey.EncodedParameters.RawData",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            },
+            "x-position": 203
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.PublicKey.Key.KeySize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 204
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.PublicKey.Key.LegalKeySizes",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/KeySizes"
+              }
+            },
+            "x-position": 205
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.PublicKey.Key.SignatureAlgorithm",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 206
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.PublicKey.Key.KeyExchangeAlgorithm",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 207
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.PublicKey.Oid.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 208
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.PublicKey.Oid.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 209
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.RawData",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            },
+            "x-position": 210
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.RawDataMemory.Length",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 211
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.RawDataMemory.IsEmpty",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 212
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.SerialNumber",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 213
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.SignatureAlgorithm.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 214
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.SignatureAlgorithm.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 215
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.SubjectName.Name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 216
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.SubjectName.Oid.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 217
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.SubjectName.Oid.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 218
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.SubjectName.RawData",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            },
+            "x-position": 219
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.Thumbprint",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 220
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.Version",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 221
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.Handle",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/IntPtr"
+            },
+            "x-position": 222
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.Issuer",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 223
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.Subject",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 224
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.SerialNumberBytes.Length",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 225
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Connection.ClientCertificate.SerialNumberBytes.IsEmpty",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 226
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.WebSockets.IsWebSocketRequest",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 227
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.WebSockets.WebSocketRequestedProtocols",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 228
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.User.Claims",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Claim"
+              }
+            },
+            "x-position": 229
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.User.Identities",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ClaimsIdentity"
+              }
+            },
+            "x-position": 230
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.User.Identity.Name",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 231
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.User.Identity.AuthenticationType",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 232
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.User.Identity.IsAuthenticated",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 233
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Items",
+            "in": "query",
+            "schema": {
+              "type": "object",
+              "additionalProperties": {}
+            },
+            "x-position": 234
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.RequestServices",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/IServiceProvider"
+            },
+            "x-position": 235
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.TraceIdentifier",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 236
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Session.IsAvailable",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 237
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Session.Id",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 238
+          },
+          {
+            "name": "Response.HttpContext.Request.HttpContext.Session.Keys",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 239
+          },
+          {
+            "name": "Response.HttpContext.Request.Method",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 240
+          },
+          {
+            "name": "Response.HttpContext.Request.Scheme",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 241
+          },
+          {
+            "name": "Response.HttpContext.Request.IsHttps",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 242
+          },
+          {
+            "name": "Response.HttpContext.Request.Host.Value",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 243
+          },
+          {
+            "name": "Response.HttpContext.Request.Host.HasValue",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 244
+          },
+          {
+            "name": "Response.HttpContext.Request.Host.Host",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 245
+          },
+          {
+            "name": "Response.HttpContext.Request.Host.Port",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-position": 246
+          },
+          {
+            "name": "Response.HttpContext.Request.PathBase",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/PathString"
+            },
+            "x-position": 247
+          },
+          {
+            "name": "Response.HttpContext.Request.Path",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/PathString"
+            },
+            "x-position": 248
+          },
+          {
+            "name": "Response.HttpContext.Request.QueryString.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 249
+          },
+          {
+            "name": "Response.HttpContext.Request.QueryString.HasValue",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 250
+          },
+          {
+            "name": "Response.HttpContext.Request.Query",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {}
+            },
+            "x-position": 251
+          },
+          {
+            "name": "Response.HttpContext.Request.Protocol",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 252
+          },
+          {
+            "name": "Response.HttpContext.Request.Headers",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {}
+            },
+            "x-position": 253
+          },
+          {
+            "name": "Response.HttpContext.Request.Cookies",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {}
+            },
+            "x-position": 254
+          },
+          {
+            "name": "Response.HttpContext.Request.ContentLength",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "nullable": true
+            },
+            "x-position": 255
+          },
+          {
+            "name": "Response.HttpContext.Request.ContentType",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 256
+          },
+          {
+            "name": "Response.HttpContext.Request.Body.CanRead",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 257
+          },
+          {
+            "name": "Response.HttpContext.Request.Body.CanWrite",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 258
+          },
+          {
+            "name": "Response.HttpContext.Request.Body.CanSeek",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 259
+          },
+          {
+            "name": "Response.HttpContext.Request.Body.CanTimeout",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 260
+          },
+          {
+            "name": "Response.HttpContext.Request.Body.Length",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "x-position": 261
+          },
+          {
+            "name": "Response.HttpContext.Request.Body.Position",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "x-position": 262
+          },
+          {
+            "name": "Response.HttpContext.Request.Body.ReadTimeout",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 263
+          },
+          {
+            "name": "Response.HttpContext.Request.Body.WriteTimeout",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 264
+          },
+          {
+            "name": "Response.HttpContext.Request.BodyReader",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/PipeReader"
+            },
+            "x-position": 265
+          },
+          {
+            "name": "Response.HttpContext.Request.HasFormContentType",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 266
+          },
+          {
+            "name": "Response.HttpContext.Request.Form",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {}
+            },
+            "x-position": 267
+          },
+          {
+            "name": "Response.HttpContext.Request.RouteValues",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {}
+            },
+            "x-position": 268
+          },
+          {
+            "name": "Response.HttpContext.Response",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/HttpResponse"
+            },
+            "x-position": 269
+          },
+          {
+            "name": "Response.HttpContext.Connection.Id",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 270
+          },
+          {
+            "name": "Response.HttpContext.Connection.RemoteIpAddress",
+            "in": "query",
+            "schema": {
+              "nullable": true,
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/IPAddress"
+                }
+              ]
+            },
+            "x-position": 271
+          },
+          {
+            "name": "Response.HttpContext.Connection.RemotePort",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 272
+          },
+          {
+            "name": "Response.HttpContext.Connection.LocalIpAddress",
+            "in": "query",
+            "schema": {
+              "nullable": true,
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/IPAddress"
+                }
+              ]
+            },
+            "x-position": 273
+          },
+          {
+            "name": "Response.HttpContext.Connection.LocalPort",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 274
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.Archived",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 275
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.Extensions",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {}
+            },
+            "x-position": 276
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 277
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.HasPrivateKey",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 278
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.PrivateKey.KeySize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 279
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.PrivateKey.LegalKeySizes",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/KeySizes"
+              }
+            },
+            "x-position": 280
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.PrivateKey.SignatureAlgorithm",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 281
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.PrivateKey.KeyExchangeAlgorithm",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 282
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.IssuerName.Name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 283
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.IssuerName.Oid.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 284
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.IssuerName.Oid.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 285
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.IssuerName.RawData",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            },
+            "x-position": 286
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.NotAfter",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "x-position": 287
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.NotBefore",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "x-position": 288
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.PublicKey.EncodedKeyValue.Oid.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 289
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.PublicKey.EncodedKeyValue.Oid.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 290
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.PublicKey.EncodedKeyValue.RawData",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            },
+            "x-position": 291
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.PublicKey.EncodedParameters.Oid.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 292
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.PublicKey.EncodedParameters.Oid.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 293
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.PublicKey.EncodedParameters.RawData",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            },
+            "x-position": 294
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.PublicKey.Key.KeySize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 295
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.PublicKey.Key.LegalKeySizes",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/KeySizes"
+              }
+            },
+            "x-position": 296
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.PublicKey.Key.SignatureAlgorithm",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 297
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.PublicKey.Key.KeyExchangeAlgorithm",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 298
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.PublicKey.Oid.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 299
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.PublicKey.Oid.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 300
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.RawData",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            },
+            "x-position": 301
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.RawDataMemory.Length",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 302
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.RawDataMemory.IsEmpty",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 303
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.SerialNumber",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 304
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.SignatureAlgorithm.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 305
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.SignatureAlgorithm.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 306
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.SubjectName.Name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 307
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.SubjectName.Oid.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 308
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.SubjectName.Oid.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 309
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.SubjectName.RawData",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            },
+            "x-position": 310
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.Thumbprint",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 311
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.Version",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 312
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.Handle",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/IntPtr"
+            },
+            "x-position": 313
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.Issuer",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 314
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.Subject",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 315
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.SerialNumberBytes.Length",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 316
+          },
+          {
+            "name": "Response.HttpContext.Connection.ClientCertificate.SerialNumberBytes.IsEmpty",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 317
+          },
+          {
+            "name": "Response.HttpContext.WebSockets.IsWebSocketRequest",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 318
+          },
+          {
+            "name": "Response.HttpContext.WebSockets.WebSocketRequestedProtocols",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 319
+          },
+          {
+            "name": "Response.HttpContext.User.Claims",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Claim"
+              }
+            },
+            "x-position": 320
+          },
+          {
+            "name": "Response.HttpContext.User.Identities",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ClaimsIdentity"
+              }
+            },
+            "x-position": 321
+          },
+          {
+            "name": "Response.HttpContext.User.Identity.Name",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 322
+          },
+          {
+            "name": "Response.HttpContext.User.Identity.AuthenticationType",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 323
+          },
+          {
+            "name": "Response.HttpContext.User.Identity.IsAuthenticated",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 324
+          },
+          {
+            "name": "Response.HttpContext.Items",
+            "in": "query",
+            "schema": {
+              "type": "object",
+              "additionalProperties": {}
+            },
+            "x-position": 325
+          },
+          {
+            "name": "Response.HttpContext.RequestServices",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/IServiceProvider"
+            },
+            "x-position": 326
+          },
+          {
+            "name": "Response.HttpContext.TraceIdentifier",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 327
+          },
+          {
+            "name": "Response.HttpContext.Session.IsAvailable",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 328
+          },
+          {
+            "name": "Response.HttpContext.Session.Id",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 329
+          },
+          {
+            "name": "Response.HttpContext.Session.Keys",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 330
+          },
+          {
+            "name": "Response.StatusCode",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 331
+          },
+          {
+            "name": "Response.Headers",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {}
+            },
+            "x-position": 332
+          },
+          {
+            "name": "Response.Body.CanRead",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 333
+          },
+          {
+            "name": "Response.Body.CanWrite",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 334
+          },
+          {
+            "name": "Response.Body.CanSeek",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 335
+          },
+          {
+            "name": "Response.Body.CanTimeout",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 336
+          },
+          {
+            "name": "Response.Body.Length",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "x-position": 337
+          },
+          {
+            "name": "Response.Body.Position",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "x-position": 338
+          },
+          {
+            "name": "Response.Body.ReadTimeout",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 339
+          },
+          {
+            "name": "Response.Body.WriteTimeout",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 340
+          },
+          {
+            "name": "Response.BodyWriter.CanGetUnflushedBytes",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 341
+          },
+          {
+            "name": "Response.BodyWriter.UnflushedBytes",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "x-position": 342
+          },
+          {
+            "name": "Response.ContentLength",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "nullable": true
+            },
+            "x-position": 343
+          },
+          {
+            "name": "Response.ContentType",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 344
+          },
+          {
+            "name": "Response.Cookies",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/IResponseCookies"
+            },
+            "x-position": 345
+          },
+          {
+            "name": "Response.HasStarted",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 346
+          },
+          {
+            "name": "Connection.Id",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 347
+          },
+          {
+            "name": "Connection.RemoteIpAddress",
+            "in": "query",
+            "schema": {
+              "nullable": true,
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/IPAddress"
+                }
+              ]
+            },
+            "x-position": 348
+          },
+          {
+            "name": "Connection.RemotePort",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 349
+          },
+          {
+            "name": "Connection.LocalIpAddress",
+            "in": "query",
+            "schema": {
+              "nullable": true,
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/IPAddress"
+                }
+              ]
+            },
+            "x-position": 350
+          },
+          {
+            "name": "Connection.LocalPort",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 351
+          },
+          {
+            "name": "Connection.ClientCertificate.Archived",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 352
+          },
+          {
+            "name": "Connection.ClientCertificate.Extensions",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {}
+            },
+            "x-position": 353
+          },
+          {
+            "name": "Connection.ClientCertificate.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 354
+          },
+          {
+            "name": "Connection.ClientCertificate.HasPrivateKey",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 355
+          },
+          {
+            "name": "Connection.ClientCertificate.PrivateKey.KeySize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 356
+          },
+          {
+            "name": "Connection.ClientCertificate.PrivateKey.LegalKeySizes",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/KeySizes"
+              }
+            },
+            "x-position": 357
+          },
+          {
+            "name": "Connection.ClientCertificate.PrivateKey.SignatureAlgorithm",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 358
+          },
+          {
+            "name": "Connection.ClientCertificate.PrivateKey.KeyExchangeAlgorithm",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 359
+          },
+          {
+            "name": "Connection.ClientCertificate.IssuerName.Name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 360
+          },
+          {
+            "name": "Connection.ClientCertificate.IssuerName.Oid.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 361
+          },
+          {
+            "name": "Connection.ClientCertificate.IssuerName.Oid.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 362
+          },
+          {
+            "name": "Connection.ClientCertificate.IssuerName.RawData",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            },
+            "x-position": 363
+          },
+          {
+            "name": "Connection.ClientCertificate.NotAfter",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "x-position": 364
+          },
+          {
+            "name": "Connection.ClientCertificate.NotBefore",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "x-position": 365
+          },
+          {
+            "name": "Connection.ClientCertificate.PublicKey.EncodedKeyValue.Oid.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 366
+          },
+          {
+            "name": "Connection.ClientCertificate.PublicKey.EncodedKeyValue.Oid.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 367
+          },
+          {
+            "name": "Connection.ClientCertificate.PublicKey.EncodedKeyValue.RawData",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            },
+            "x-position": 368
+          },
+          {
+            "name": "Connection.ClientCertificate.PublicKey.EncodedParameters.Oid.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 369
+          },
+          {
+            "name": "Connection.ClientCertificate.PublicKey.EncodedParameters.Oid.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 370
+          },
+          {
+            "name": "Connection.ClientCertificate.PublicKey.EncodedParameters.RawData",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            },
+            "x-position": 371
+          },
+          {
+            "name": "Connection.ClientCertificate.PublicKey.Key.KeySize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 372
+          },
+          {
+            "name": "Connection.ClientCertificate.PublicKey.Key.LegalKeySizes",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/KeySizes"
+              }
+            },
+            "x-position": 373
+          },
+          {
+            "name": "Connection.ClientCertificate.PublicKey.Key.SignatureAlgorithm",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 374
+          },
+          {
+            "name": "Connection.ClientCertificate.PublicKey.Key.KeyExchangeAlgorithm",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 375
+          },
+          {
+            "name": "Connection.ClientCertificate.PublicKey.Oid.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 376
+          },
+          {
+            "name": "Connection.ClientCertificate.PublicKey.Oid.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 377
+          },
+          {
+            "name": "Connection.ClientCertificate.RawData",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            },
+            "x-position": 378
+          },
+          {
+            "name": "Connection.ClientCertificate.RawDataMemory.Length",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 379
+          },
+          {
+            "name": "Connection.ClientCertificate.RawDataMemory.IsEmpty",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 380
+          },
+          {
+            "name": "Connection.ClientCertificate.SerialNumber",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 381
+          },
+          {
+            "name": "Connection.ClientCertificate.SignatureAlgorithm.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 382
+          },
+          {
+            "name": "Connection.ClientCertificate.SignatureAlgorithm.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 383
+          },
+          {
+            "name": "Connection.ClientCertificate.SubjectName.Name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 384
+          },
+          {
+            "name": "Connection.ClientCertificate.SubjectName.Oid.Value",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 385
+          },
+          {
+            "name": "Connection.ClientCertificate.SubjectName.Oid.FriendlyName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 386
+          },
+          {
+            "name": "Connection.ClientCertificate.SubjectName.RawData",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            },
+            "x-position": 387
+          },
+          {
+            "name": "Connection.ClientCertificate.Thumbprint",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 388
+          },
+          {
+            "name": "Connection.ClientCertificate.Version",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 389
+          },
+          {
+            "name": "Connection.ClientCertificate.Handle",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/IntPtr"
+            },
+            "x-position": 390
+          },
+          {
+            "name": "Connection.ClientCertificate.Issuer",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 391
+          },
+          {
+            "name": "Connection.ClientCertificate.Subject",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 392
+          },
+          {
+            "name": "Connection.ClientCertificate.SerialNumberBytes.Length",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 393
+          },
+          {
+            "name": "Connection.ClientCertificate.SerialNumberBytes.IsEmpty",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 394
+          },
+          {
+            "name": "WebSockets.IsWebSocketRequest",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 395
+          },
+          {
+            "name": "WebSockets.WebSocketRequestedProtocols",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 396
+          },
+          {
+            "name": "User.Claims",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Claim"
+              }
+            },
+            "x-position": 397
+          },
+          {
+            "name": "User.Identities",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ClaimsIdentity"
+              }
+            },
+            "x-position": 398
+          },
+          {
+            "name": "User.Identity.Name",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 399
+          },
+          {
+            "name": "User.Identity.AuthenticationType",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 400
+          },
+          {
+            "name": "User.Identity.IsAuthenticated",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 401
+          },
+          {
+            "name": "Items",
+            "in": "query",
+            "schema": {
+              "type": "object",
+              "additionalProperties": {}
+            },
+            "x-position": 402
+          },
+          {
+            "name": "RequestServices",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/IServiceProvider"
+            },
+            "x-position": 403
+          },
+          {
+            "name": "TraceIdentifier",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 404
+          },
+          {
+            "name": "Session.IsAvailable",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 405
+          },
+          {
+            "name": "Session.Id",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 406
+          },
+          {
+            "name": "Session.Keys",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 407
+          }
+        ],
+        "requestBody": {
+          "x-name": "registration",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "PaginatedListOfTodoItemBriefDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TodoItemBriefDto"
+            }
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "hasPreviousPage": {
+            "type": "boolean"
+          },
+          "hasNextPage": {
+            "type": "boolean"
+          }
+        }
+      },
+      "TodoItemBriefDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "listId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "done": {
+            "type": "boolean"
+          }
+        }
+      },
+      "CreateTodoItemCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "listId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "UpdateTodoItemCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "done": {
+            "type": "boolean"
+          }
+        }
+      },
+      "UpdateTodoItemDetailCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "listId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "priority": {
+            "$ref": "#/components/schemas/PriorityLevel"
+          },
+          "note": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PriorityLevel": {
+        "type": "integer",
+        "description": "",
+        "x-enumNames": [
+          "None",
+          "Low",
+          "Medium",
+          "High"
+        ],
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "TodosVm": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "priorityLevels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LookupDto"
+            }
+          },
+          "lists": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TodoListDto"
+            }
+          }
+        }
+      },
+      "LookupDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "TodoListDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "colour": {
+            "type": "string",
+            "nullable": true
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TodoItemDto"
+            }
+          }
+        }
+      },
+      "TodoItemDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "listId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "done": {
+            "type": "boolean"
+          },
+          "priority": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "note": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CreateTodoListCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "UpdateTodoListCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "WeatherForecast": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "temperatureC": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "temperatureF": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "summary": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "LoginRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "twoFactorCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "twoFactorRecoveryCode": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "RegisterRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "HttpRequest": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "httpContext": {
+            "$ref": "#/components/schemas/HttpContext"
+          },
+          "method": {
+            "type": "string"
+          },
+          "scheme": {
+            "type": "string"
+          },
+          "isHttps": {
+            "type": "boolean"
+          },
+          "host": {
+            "$ref": "#/components/schemas/HostString"
+          },
+          "pathBase": {
+            "$ref": "#/components/schemas/PathString"
+          },
+          "path": {
+            "$ref": "#/components/schemas/PathString"
+          },
+          "queryString": {
+            "$ref": "#/components/schemas/QueryString"
+          },
+          "query": {
+            "type": "array",
+            "items": {}
+          },
+          "protocol": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "array",
+            "items": {}
+          },
+          "cookies": {
+            "type": "array",
+            "items": {}
+          },
+          "contentLength": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "contentType": {
+            "type": "string",
+            "nullable": true
+          },
+          "body": {
+            "$ref": "#/components/schemas/Stream"
+          },
+          "bodyReader": {
+            "$ref": "#/components/schemas/PipeReader"
+          },
+          "hasFormContentType": {
+            "type": "boolean"
+          },
+          "form": {
+            "type": "array",
+            "items": {}
+          },
+          "routeValues": {
+            "type": "array",
+            "items": {}
+          }
+        }
+      },
+      "HttpContext": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "features": {
+            "type": "array",
+            "items": {}
+          },
+          "request": {
+            "$ref": "#/components/schemas/HttpRequest"
+          },
+          "response": {
+            "$ref": "#/components/schemas/HttpResponse"
+          },
+          "connection": {
+            "$ref": "#/components/schemas/ConnectionInfo"
+          },
+          "webSockets": {
+            "$ref": "#/components/schemas/WebSocketManager"
+          },
+          "user": {
+            "$ref": "#/components/schemas/ClaimsPrincipal"
+          },
+          "items": {
+            "type": "object",
+            "additionalProperties": {}
+          },
+          "requestServices": {
+            "$ref": "#/components/schemas/IServiceProvider"
+          },
+          "requestAborted": {
+            "$ref": "#/components/schemas/CancellationToken"
+          },
+          "traceIdentifier": {
+            "type": "string"
+          },
+          "session": {
+            "$ref": "#/components/schemas/ISession"
+          }
+        }
+      },
+      "HttpResponse": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "httpContext": {
+            "$ref": "#/components/schemas/HttpContext"
+          },
+          "statusCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "headers": {
+            "type": "array",
+            "items": {}
+          },
+          "body": {
+            "$ref": "#/components/schemas/Stream"
+          },
+          "bodyWriter": {
+            "$ref": "#/components/schemas/PipeWriter"
+          },
+          "contentLength": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "contentType": {
+            "type": "string",
+            "nullable": true
+          },
+          "cookies": {
+            "$ref": "#/components/schemas/IResponseCookies"
+          },
+          "hasStarted": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Stream": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/MarshalByRefObject"
+          },
+          {
+            "type": "object",
+            "x-abstract": true,
+            "additionalProperties": false,
+            "properties": {
+              "canRead": {
+                "type": "boolean"
+              },
+              "canWrite": {
+                "type": "boolean"
+              },
+              "canSeek": {
+                "type": "boolean"
+              },
+              "canTimeout": {
+                "type": "boolean"
+              },
+              "length": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "position": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "readTimeout": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "writeTimeout": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "MarshalByRefObject": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false
+      },
+      "PipeWriter": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "canGetUnflushedBytes": {
+            "type": "boolean"
+          },
+          "unflushedBytes": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "IResponseCookies": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false
+      },
+      "ConnectionInfo": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "remoteIpAddress": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/IPAddress"
+              }
+            ]
+          },
+          "remotePort": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "localIpAddress": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/IPAddress"
+              }
+            ]
+          },
+          "localPort": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "clientCertificate": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/X509Certificate2"
+              }
+            ]
+          }
+        }
+      },
+      "IPAddress": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "isIPv4": {
+            "type": "boolean"
+          },
+          "isIPv6": {
+            "type": "boolean"
+          },
+          "privateAddress": {
+            "type": "integer"
+          },
+          "addressFamily": {
+            "$ref": "#/components/schemas/AddressFamily"
+          },
+          "scopeId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "isIPv6Multicast": {
+            "type": "boolean"
+          },
+          "isIPv6LinkLocal": {
+            "type": "boolean"
+          },
+          "isIPv6SiteLocal": {
+            "type": "boolean"
+          },
+          "isIPv6Teredo": {
+            "type": "boolean"
+          },
+          "isIPv6UniqueLocal": {
+            "type": "boolean"
+          },
+          "isIPv4MappedToIPv6": {
+            "type": "boolean"
+          },
+          "address": {
+            "type": "integer",
+            "format": "int64",
+            "deprecated": true,
+            "x-deprecatedMessage": "IPAddress.Address is address family dependent and has been deprecated. Use IPAddress.Equals to perform comparisons instead."
+          }
+        }
+      },
+      "AddressFamily": {
+        "type": "integer",
+        "description": "",
+        "x-enumNames": [
+          "Unspecified",
+          "Unix",
+          "InterNetwork",
+          "ImpLink",
+          "Pup",
+          "Chaos",
+          "NS",
+          "Ipx",
+          "Iso",
+          "Osi",
+          "Ecma",
+          "DataKit",
+          "Ccitt",
+          "Sna",
+          "DecNet",
+          "DataLink",
+          "Lat",
+          "HyperChannel",
+          "AppleTalk",
+          "NetBios",
+          "VoiceView",
+          "FireFox",
+          "Banyan",
+          "Atm",
+          "InterNetworkV6",
+          "Cluster",
+          "Ieee12844",
+          "Irda",
+          "NetworkDesigners",
+          "Max",
+          "Packet",
+          "ControllerAreaNetwork",
+          "Unknown"
+        ],
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          6,
+          7,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          28,
+          29,
+          65536,
+          65537,
+          -1
+        ]
+      },
+      "X509Certificate2": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/X509Certificate"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "pal": {
+                "$ref": "#/components/schemas/ICertificatePal"
+              },
+              "archived": {
+                "type": "boolean"
+              },
+              "extensions": {
+                "type": "array",
+                "items": {}
+              },
+              "friendlyName": {
+                "type": "string"
+              },
+              "hasPrivateKey": {
+                "type": "boolean"
+              },
+              "privateKey": {
+                "deprecated": true,
+                "x-deprecatedMessage": "X509Certificate2.PrivateKey is obsolete. Use the appropriate method to get the private key, such as GetRSAPrivateKey, or use the CopyWithPrivateKey method to create a new instance with a private key.",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/AsymmetricAlgorithm"
+                  }
+                ]
+              },
+              "issuerName": {
+                "$ref": "#/components/schemas/X500DistinguishedName"
+              },
+              "notAfter": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "notBefore": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "publicKey": {
+                "$ref": "#/components/schemas/PublicKey"
+              },
+              "rawData": {
+                "type": "string",
+                "format": "byte"
+              },
+              "rawDataMemory": {
+                "$ref": "#/components/schemas/ReadOnlyMemoryOfByte"
+              },
+              "serialNumber": {
+                "type": "string"
+              },
+              "signatureAlgorithm": {
+                "$ref": "#/components/schemas/Oid"
+              },
+              "subjectName": {
+                "$ref": "#/components/schemas/X500DistinguishedName"
+              },
+              "thumbprint": {
+                "type": "string"
+              },
+              "version": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "ICertificatePal": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "version": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "archived": {
+            "type": "boolean"
+          },
+          "friendlyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "subjectName": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/X500DistinguishedName"
+              }
+            ]
+          },
+          "issuerName": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/X500DistinguishedName"
+              }
+            ]
+          },
+          "extensions": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/X509Extension"
+            }
+          }
+        }
+      },
+      "X500DistinguishedName": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AsnEncodedData"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "AsnEncodedData": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "oid": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Oid"
+              }
+            ]
+          },
+          "rawData": {
+            "type": "string",
+            "format": "byte"
+          }
+        }
+      },
+      "Oid": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "friendlyName": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "X509Extension": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AsnEncodedData"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "critical": {
+                "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "AsymmetricAlgorithm": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "keySize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "legalKeySizes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KeySizes"
+            }
+          },
+          "signatureAlgorithm": {
+            "type": "string",
+            "nullable": true
+          },
+          "keyExchangeAlgorithm": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "KeySizes": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "minSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "maxSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "skipSize": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "PublicKey": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "encodedKeyValue": {
+            "$ref": "#/components/schemas/AsnEncodedData"
+          },
+          "encodedParameters": {
+            "$ref": "#/components/schemas/AsnEncodedData"
+          },
+          "key": {
+            "deprecated": true,
+            "x-deprecatedMessage": "PublicKey.Key is obsolete. Use the appropriate method to get the public key, such as GetRSAPublicKey.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/AsymmetricAlgorithm"
+              }
+            ]
+          },
+          "oid": {
+            "$ref": "#/components/schemas/Oid"
+          }
+        }
+      },
+      "ReadOnlyMemoryOfByte": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "empty": {
+            "$ref": "#/components/schemas/ReadOnlyMemoryOfByte"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isEmpty": {
+            "type": "boolean"
+          },
+          "span": {
+            "$ref": "#/components/schemas/ReadOnlySpanOfByte"
+          }
+        }
+      },
+      "ReadOnlySpanOfByte": {
+        "type": "object",
+        "deprecated": true,
+        "x-deprecatedMessage": "Types with embedded references are not supported in this version of your compiler.",
+        "additionalProperties": false,
+        "properties": {
+          "item": {
+            "$ref": "#/components/schemas/Byte"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isEmpty": {
+            "type": "boolean"
+          },
+          "empty": {
+            "$ref": "#/components/schemas/ReadOnlySpanOfByte"
+          }
+        }
+      },
+      "Byte": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "X509Certificate": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "handle": {
+            "$ref": "#/components/schemas/IntPtr"
+          },
+          "issuer": {
+            "type": "string"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "serialNumberBytes": {
+            "$ref": "#/components/schemas/ReadOnlyMemoryOfByte"
+          },
+          "pal": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ICertificatePalCore"
+              }
+            ]
+          }
+        }
+      },
+      "IntPtr": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "size": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "maxValue": {
+            "$ref": "#/components/schemas/IntPtr"
+          },
+          "minValue": {
+            "$ref": "#/components/schemas/IntPtr"
+          },
+          "system.Numerics.IAdditiveIdentity<nint,nint>.AdditiveIdentity": {
+            "$ref": "#/components/schemas/IntPtr"
+          },
+          "system.Numerics.IBinaryNumber<nint>.AllBitsSet": {
+            "$ref": "#/components/schemas/IntPtr"
+          },
+          "system.Numerics.IMinMaxValue<nint>.MinValue": {
+            "$ref": "#/components/schemas/IntPtr"
+          },
+          "system.Numerics.IMinMaxValue<nint>.MaxValue": {
+            "$ref": "#/components/schemas/IntPtr"
+          },
+          "system.Numerics.IMultiplicativeIdentity<nint,nint>.MultiplicativeIdentity": {
+            "$ref": "#/components/schemas/IntPtr"
+          },
+          "system.Numerics.INumberBase<nint>.One": {
+            "$ref": "#/components/schemas/IntPtr"
+          },
+          "system.Numerics.INumberBase<nint>.Radix": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "system.Numerics.INumberBase<nint>.Zero": {
+            "$ref": "#/components/schemas/IntPtr"
+          },
+          "system.Numerics.ISignedNumber<nint>.NegativeOne": {
+            "$ref": "#/components/schemas/IntPtr"
+          }
+        }
+      },
+      "ICertificatePalCore": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "hasPrivateKey": {
+            "type": "boolean"
+          },
+          "handle": {
+            "$ref": "#/components/schemas/IntPtr"
+          },
+          "issuer": {
+            "type": "string",
+            "nullable": true
+          },
+          "subject": {
+            "type": "string",
+            "nullable": true
+          },
+          "legacyIssuer": {
+            "type": "string",
+            "nullable": true
+          },
+          "legacySubject": {
+            "type": "string",
+            "nullable": true
+          },
+          "thumbprint": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "keyAlgorithm": {
+            "type": "string",
+            "nullable": true
+          },
+          "keyAlgorithmParameters": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "publicKeyValue": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "serialNumber": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "signatureAlgorithm": {
+            "type": "string",
+            "nullable": true
+          },
+          "notAfter": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "notBefore": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "rawData": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          }
+        }
+      },
+      "WebSocketManager": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "isWebSocketRequest": {
+            "type": "boolean"
+          },
+          "webSocketRequestedProtocols": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "ClaimsPrincipal": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "claims": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Claim"
+            }
+          },
+          "customSerializationData": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "current": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ClaimsPrincipal"
+              }
+            ]
+          },
+          "identities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClaimsIdentity"
+            }
+          },
+          "identity": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/IIdentity"
+              }
+            ]
+          }
+        }
+      },
+      "Claim": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "customSerializationData": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "issuer": {
+            "type": "string"
+          },
+          "originalIssuer": {
+            "type": "string"
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "subject": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ClaimsIdentity"
+              }
+            ]
+          },
+          "type": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          },
+          "valueType": {
+            "type": "string"
+          }
+        }
+      },
+      "ClaimsIdentity": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "authenticationType": {
+            "type": "string",
+            "nullable": true
+          },
+          "isAuthenticated": {
+            "type": "boolean"
+          },
+          "actor": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ClaimsIdentity"
+              }
+            ]
+          },
+          "bootstrapContext": {
+            "nullable": true
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Claim"
+            }
+          },
+          "customSerializationData": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "externalClaims": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Claim"
+              }
+            }
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "nameClaimType": {
+            "type": "string"
+          },
+          "roleClaimType": {
+            "type": "string"
+          }
+        }
+      },
+      "IIdentity": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "authenticationType": {
+            "type": "string",
+            "nullable": true
+          },
+          "isAuthenticated": {
+            "type": "boolean"
+          }
+        }
+      },
+      "IServiceProvider": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false
+      },
+      "CancellationToken": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "none": {
+            "$ref": "#/components/schemas/CancellationToken"
+          },
+          "isCancellationRequested": {
+            "type": "boolean"
+          },
+          "canBeCanceled": {
+            "type": "boolean"
+          },
+          "waitHandle": {
+            "$ref": "#/components/schemas/WaitHandle"
+          }
+        }
+      },
+      "WaitHandle": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/MarshalByRefObject"
+          },
+          {
+            "type": "object",
+            "x-abstract": true,
+            "additionalProperties": false,
+            "properties": {
+              "handle": {
+                "deprecated": true,
+                "x-deprecatedMessage": "WaitHandle.Handle has been deprecated. Use the SafeWaitHandle property instead.",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/IntPtr"
+                  }
+                ]
+              },
+              "safeWaitHandle": {
+                "$ref": "#/components/schemas/SafeWaitHandle"
+              }
+            }
+          }
+        ]
+      },
+      "SafeWaitHandle": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SafeHandleZeroOrMinusOneIsInvalid"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "SafeHandleZeroOrMinusOneIsInvalid": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SafeHandle"
+          },
+          {
+            "type": "object",
+            "x-abstract": true,
+            "additionalProperties": false,
+            "properties": {
+              "isInvalid": {
+                "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "SafeHandle": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CriticalFinalizerObject"
+          },
+          {
+            "type": "object",
+            "x-abstract": true,
+            "additionalProperties": false,
+            "properties": {
+              "ownsHandle": {
+                "type": "boolean"
+              },
+              "isClosed": {
+                "type": "boolean"
+              },
+              "isInvalid": {
+                "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "CriticalFinalizerObject": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false
+      },
+      "ISession": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "isAvailable": {
+            "type": "boolean"
+          },
+          "id": {
+            "type": "string"
+          },
+          "keys": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "HostString": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "hasValue": {
+            "type": "boolean"
+          },
+          "host": {
+            "type": "string"
+          },
+          "port": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        }
+      },
+      "PathString": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "hasValue": {
+            "type": "boolean"
+          }
+        }
+      },
+      "QueryString": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "hasValue": {
+            "type": "boolean"
+          }
+        }
+      },
+      "PipeReader": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "JWT": {
+        "type": "apiKey",
+        "description": "Type into the textbox: Bearer {your JWT token}.",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "JWT": []
+    }
+  ]
+}

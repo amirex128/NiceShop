@@ -69,15 +69,25 @@ public class ApplicationDbContextInitialiser
     {
         // Default roles
         var administratorRole = new IdentityRole(Roles.Administrator);
-
         if (_roleManager.Roles.All(r => r.Name != administratorRole.Name))
         {
             await _roleManager.CreateAsync(administratorRole);
         }
-
-        // Default users
+        
+        var employeeRole = new IdentityRole(Roles.Employee);
+        if (_roleManager.Roles.All(r => r.Name != employeeRole.Name))
+        {
+            await _roleManager.CreateAsync(employeeRole);
+        }
+        
+        var customerRole = new IdentityRole(Roles.Customer);
+        if (_roleManager.Roles.All(r => r.Name != customerRole.Name))
+        {
+            await _roleManager.CreateAsync(customerRole);
+        }
+        
+        
         var administrator = new User { UserName = "admin@localhost", Email = "admin@localhost" };
-
         if (_userManager.Users.All(u => u.UserName != administrator.UserName))
         {
             await _userManager.CreateAsync(administrator, "@Aa6766581");
@@ -87,22 +97,23 @@ public class ApplicationDbContextInitialiser
             }
         }
 
-        var customerRole = new IdentityRole(Roles.Customer);
-
-        if (_roleManager.Roles.All(r => r.Name != customerRole.Name))
-        {
-            await _roleManager.CreateAsync(customerRole);
-        }
-
-        // Default users
         var customer = new User { UserName = "customer@localhost", Email = "customer@localhost" };
-
         if (_userManager.Users.All(u => u.UserName != customer.UserName))
         {
             await _userManager.CreateAsync(customer, "@Aa6766581");
             if (!string.IsNullOrWhiteSpace(customerRole.Name))
             {
                 await _userManager.AddToRolesAsync(customer, new [] { customerRole.Name });
+            }
+        }
+        
+        var employee = new User { UserName = "employee@localhost", Email = "employee@localhost" };
+        if (_userManager.Users.All(u => u.UserName != employee.UserName))
+        {
+            await _userManager.CreateAsync(employee, "@Aa6766581");
+            if (!string.IsNullOrWhiteSpace(employeeRole.Name))
+            {
+                await _userManager.AddToRolesAsync(employee, new [] { employeeRole.Name });
             }
         }
 

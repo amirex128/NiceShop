@@ -1,2 +1,3 @@
 
-;csharpsquid:S125="Remove this commented out code.(¯”õÏ
+scsharpsquid:S4487"ORemove this unread private field '_role' or refactor the code to use its value.(ýÇ²Ø8¢é›ŽÃ1
+;csharpsquid:S125?"Remove this commented out code.(¯”õÏ

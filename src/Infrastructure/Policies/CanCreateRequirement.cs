@@ -14,11 +14,13 @@ public class CanCreateRequirementHandler : AuthorizationHandler<CanCreateRequire
 {
     private readonly IHttpContextAccessor _httpContextAccessor;
     private readonly UserManager<User> _user;
+    private readonly RoleManager<IdentityRole> _role;
 
-    public CanCreateRequirementHandler(IHttpContextAccessor httpContextAccessor,UserManager<User> _user)
+    public CanCreateRequirementHandler(IHttpContextAccessor httpContextAccessor,UserManager<User> user,RoleManager<IdentityRole> role)
     {
         _httpContextAccessor = httpContextAccessor;
-        this._user = _user;
+        _user = user;
+        _role = role;
     }
 
     protected override async Task HandleRequirementAsync(AuthorizationHandlerContext context,
@@ -32,7 +34,7 @@ public class CanCreateRequirementHandler : AuthorizationHandler<CanCreateRequire
             {
                 var user = await _user.FindByIdAsync(findFirstValue);
                 if (user is not null)
-                {
+                { 
                     if (user.Id == "")
                     {
                         context.Succeed(requirement);

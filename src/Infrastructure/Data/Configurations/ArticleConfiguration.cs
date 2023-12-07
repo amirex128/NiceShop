@@ -10,6 +10,5 @@ public class ArticleConfiguration : IEntityTypeConfiguration<Article>
     {
         builder.HasKey(p => p.Id);
         builder.HasOne(p => p.Media).WithMany().HasForeignKey(p=> p.MediaId).OnDelete(DeleteBehavior.SetNull);
-        builder.HasOne(p => p.User).WithMany(p => p.Articles).HasForeignKey(p => p.UserId);
     }
 }

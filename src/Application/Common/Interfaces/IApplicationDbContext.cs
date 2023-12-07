@@ -6,17 +6,20 @@ public interface IApplicationDbContext
 {
     public DbSet<User> Users { get; }
     public DbSet<Customer> Customers { get; }
+    public DbSet<Employee> Employees { get; }
     public DbSet<Address> Addresses { get; }
     public DbSet<Article> Articles { get; }
     public DbSet<Basket> Baskets { get; }
     public DbSet<BasketItem> BasketItems { get; }
     public DbSet<Category> Categories { get; }
     public DbSet<City> Cities { get; }
-    public DbSet<Coupon> Coupons { get; }
-    public DbSet<Media> Media { get; }
+    public DbSet<Coupon> Coupon { get; }
+    public DbSet<CouponPercentage> CouponPercentage { get; }
+    public DbSet<CouponFixedAmount> CouponFixedAmount { get; }
     public DbSet<Order> Orders { get; }
     public DbSet<OrderItem> OrderItems { get; }
     public DbSet<OTP> OTPs { get; }
+    public DbSet<Media> Medias { get; }
     public DbSet<Product> Products { get; }
     public DbSet<ProductAttribute> ProductAttributes { get; }
     public DbSet<ProductVariant> ProductVariants { get; }
@@ -30,5 +33,7 @@ public interface IApplicationDbContext
 
     DbSet<TodoItem> TodoItems { get; }
 
-    Task<int> SaveChangesAsync(CancellationToken cancellationToken);
+    Task<int> SaveChangesAsync(CancellationToken cancellationToken); 
+    int SaveChanges();
+    ValueTask DisposeAsync();
 }

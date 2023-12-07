@@ -1,0 +1,86 @@
+syntax = "proto3";
+
+option go_package = ".;svc";
+
+package service;
+// The service definition.
+service Service {
+  rpc Suggested (SuggestedRequest) returns (SuggestedResponse);
+  rpc GetPackages(GetPackagesRequest) returns (GetPackagesResponse);
+  rpc SetImpression(SetImpressionRequest) returns (SetImpressionResponse);
+}
+
+message SuggestedRequest {
+  double UserLatitude = 1;
+  double UserLongitude = 2;
+  optional string UserSessionID = 3;
+  repeated string Spots = 10 ;
+  optional uint64 VendorSuperTypeID = 4;
+  uint64 UserID = 5;
+}
+
+message SuggestedResponse {
+  repeated SingleSpotResponse Response = 100;
+}
+
+message SingleSpotResponse {
+  string Spot = 1;
+  repeated SuggestedCampaigns Campaigns = 100;
+}
+
+message SuggestedCampaigns{
+  uint32 VendorID = 1;
+  string CampaignHash = 10;
+}
+
+// Packages
+message GetPackagesRequest{
+  double Latitude = 1;
+  double Longitude = 10 ;
+  int64 SuperType = 20;
+}
+
+message GetPackagesResponse{
+  string Status = 1;
+  repeated Package Packages = 100;
+}
+
+message Package{
+  double Price = 1;
+  int64 VendorID = 5;
+  string PackageID = 30;
+}
+
+enum Shift{
+  BREAKFAST = 0;
+  LUNCH = 1;
+  EVENING_MEAL = 2;
+  DINNER = 3;
+  ALL = 4;
+}
+
+message VendorSuperType{
+  string Name = 1;
+  string Alias = 2 ;
+}
+
+message Area{
+  int64 ID = 1;
+  string Name = 2;
+  double Latitude = 10;
+  double Longitude = 20;
+  bool IsActivated = 30;
+}
+
+message SetImpressionRequest{
+  string UserSessionID = 1;
+  uint64 UserID = 2;
+  repeated SpotCampaigns SpotCampaignsList = 20;
+}
+
+message SpotCampaigns{
+  string Spot = 1 ;
+  string PackageHash = 10;
+}
+
+message SetImpressionResponse{}

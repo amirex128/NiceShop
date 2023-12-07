@@ -16862,8 +16862,8 @@
     </schema>
     <schema id="5572" parent="5510" name="dbo">
       <Current>1</Current>
-      <IntrospectionTimestamp>2023-11-30.13:40:17.723</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2023-11-30.10:10:17</LocalIntrospectionTimestamp>
+      <IntrospectionTimestamp>2023-12-07.12:38:49.983</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2023-12-07.09:08:49</LocalIntrospectionTimestamp>
       <ObjectId>1</ObjectId>
     </schema>
     <schema id="5573" parent="5510" name="guest">
@@ -16872,5 +16872,2453 @@
     <schema id="5574" parent="5510" name="sys">
       <ObjectId>4</ObjectId>
     </schema>
+    <table id="5575" parent="5572" name="Addresses">
+      <CreatedTimestamp>2023-12-07.12:38:39.187</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.533</ModifiedTimestamp>
+      <ObjectId>1293963686</ObjectId>
+    </table>
+    <table id="5576" parent="5572" name="ArticleCategory">
+      <CreatedTimestamp>2023-12-07.12:38:39.203</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.533</ModifiedTimestamp>
+      <ObjectId>1645964940</ObjectId>
+    </table>
+    <table id="5577" parent="5572" name="Articles">
+      <CreatedTimestamp>2023-12-07.12:38:39.193</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.537</ModifiedTimestamp>
+      <ObjectId>1453964256</ObjectId>
+    </table>
+    <table id="5578" parent="5572" name="BasketItems">
+      <CreatedTimestamp>2023-12-07.12:38:39.190</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.543</ModifiedTimestamp>
+      <ObjectId>1373963971</ObjectId>
+    </table>
+    <table id="5579" parent="5572" name="Baskets">
+      <CreatedTimestamp>2023-12-07.12:38:39.160</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.547</ModifiedTimestamp>
+      <ObjectId>797961919</ObjectId>
+    </table>
+    <table id="5580" parent="5572" name="Categories">
+      <CreatedTimestamp>2023-12-07.12:38:39.110</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.547</ModifiedTimestamp>
+      <ObjectId>157959639</ObjectId>
+    </table>
+    <table id="5581" parent="5572" name="CategoryProduct">
+      <CreatedTimestamp>2023-12-07.12:38:39.140</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.547</ModifiedTimestamp>
+      <ObjectId>429960608</ObjectId>
+    </table>
+    <table id="5582" parent="5572" name="Cities">
+      <CreatedTimestamp>2023-12-07.12:38:39.150</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.557</ModifiedTimestamp>
+      <ObjectId>653961406</ObjectId>
+    </table>
+    <table id="5583" parent="5572" name="Coupon">
+      <CreatedTimestamp>2023-12-07.12:38:39.113</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.160</ModifiedTimestamp>
+      <ObjectId>205959810</ObjectId>
+    </table>
+    <table id="5584" parent="5572" name="CouponProduct">
+      <CreatedTimestamp>2023-12-07.12:38:39.143</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.560</ModifiedTimestamp>
+      <ObjectId>493960836</ObjectId>
+    </table>
+    <table id="5585" parent="5572" name="MediaProduct">
+      <CreatedTimestamp>2023-12-07.12:38:39.197</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.560</ModifiedTimestamp>
+      <ObjectId>1517964484</ObjectId>
+    </table>
+    <table id="5586" parent="5572" name="Medias">
+      <CreatedTimestamp>2023-12-07.12:38:39.160</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.563</ModifiedTimestamp>
+      <ObjectId>861962147</ObjectId>
+    </table>
+    <table id="5587" parent="5572" name="OTPs">
+      <CreatedTimestamp>2023-12-07.12:38:39.163</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.573</ModifiedTimestamp>
+      <ObjectId>909962318</ObjectId>
+    </table>
+    <table id="5588" parent="5572" name="OrderItems">
+      <CreatedTimestamp>2023-12-07.12:38:39.207</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.570</ModifiedTimestamp>
+      <ObjectId>1709965168</ObjectId>
+    </table>
+    <table id="5589" parent="5572" name="Orders">
+      <CreatedTimestamp>2023-12-07.12:38:39.200</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.573</ModifiedTimestamp>
+      <ObjectId>1581964712</ObjectId>
+    </table>
+    <table id="5590" parent="5572" name="ProductAttributes">
+      <CreatedTimestamp>2023-12-07.12:38:39.147</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.573</ModifiedTimestamp>
+      <ObjectId>557961064</ObjectId>
+    </table>
+    <table id="5591" parent="5572" name="ProductReviews">
+      <CreatedTimestamp>2023-12-07.12:38:39.167</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.580</ModifiedTimestamp>
+      <ObjectId>957962489</ObjectId>
+    </table>
+    <table id="5592" parent="5572" name="ProductVariants">
+      <CreatedTimestamp>2023-12-07.12:38:39.150</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.580</ModifiedTimestamp>
+      <ObjectId>605961235</ObjectId>
+    </table>
+    <table id="5593" parent="5572" name="Products">
+      <CreatedTimestamp>2023-12-07.12:38:39.117</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.213</ModifiedTimestamp>
+      <ObjectId>237959924</ObjectId>
+    </table>
+    <table id="5594" parent="5572" name="Provinces">
+      <CreatedTimestamp>2023-12-07.12:38:39.120</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.187</ModifiedTimestamp>
+      <ObjectId>269960038</ObjectId>
+    </table>
+    <table id="5595" parent="5572" name="Returns">
+      <CreatedTimestamp>2023-12-07.12:38:39.210</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.590</ModifiedTimestamp>
+      <ObjectId>1789965453</ObjectId>
+    </table>
+    <table id="5596" parent="5572" name="RoleClaims">
+      <CreatedTimestamp>2023-12-07.12:38:39.153</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.590</ModifiedTimestamp>
+      <ObjectId>701961577</ObjectId>
+    </table>
+    <table id="5597" parent="5572" name="Roles">
+      <CreatedTimestamp>2023-12-07.12:38:39.127</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.590</ModifiedTimestamp>
+      <ObjectId>301960152</ObjectId>
+    </table>
+    <table id="5598" parent="5572" name="Subscriptions">
+      <CreatedTimestamp>2023-12-07.12:38:39.130</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.130</ModifiedTimestamp>
+      <ObjectId>333960266</ObjectId>
+    </table>
+    <table id="5599" parent="5572" name="TodoItems">
+      <CreatedTimestamp>2023-12-07.12:38:39.157</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.593</ModifiedTimestamp>
+      <ObjectId>749961748</ObjectId>
+    </table>
+    <table id="5600" parent="5572" name="TodoLists">
+      <CreatedTimestamp>2023-12-07.12:38:39.133</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.157</ModifiedTimestamp>
+      <ObjectId>365960380</ObjectId>
+    </table>
+    <table id="5601" parent="5572" name="UserClaims">
+      <CreatedTimestamp>2023-12-07.12:38:39.170</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.597</ModifiedTimestamp>
+      <ObjectId>1021962717</ObjectId>
+    </table>
+    <table id="5602" parent="5572" name="UserLogins">
+      <CreatedTimestamp>2023-12-07.12:38:39.173</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.600</ModifiedTimestamp>
+      <ObjectId>1069962888</ObjectId>
+    </table>
+    <table id="5603" parent="5572" name="UserRoles">
+      <CreatedTimestamp>2023-12-07.12:38:39.177</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.600</ModifiedTimestamp>
+      <ObjectId>1117963059</ObjectId>
+    </table>
+    <table id="5604" parent="5572" name="UserTokens">
+      <CreatedTimestamp>2023-12-07.12:38:39.180</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.180</ModifiedTimestamp>
+      <ObjectId>1181963287</ObjectId>
+    </table>
+    <table id="5605" parent="5572" name="Users">
+      <CreatedTimestamp>2023-12-07.12:38:39.137</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.603</ModifiedTimestamp>
+      <ObjectId>397960494</ObjectId>
+    </table>
+    <table id="5606" parent="5572" name="Wishlists">
+      <CreatedTimestamp>2023-12-07.12:38:39.183</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.610</ModifiedTimestamp>
+      <ObjectId>1229963458</ObjectId>
+    </table>
+    <table id="5607" parent="5572" name="__EFMigrationsHistory">
+      <CreatedTimestamp>2023-12-07.12:38:38.880</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:38.880</ModifiedTimestamp>
+      <ObjectId>125959525</ObjectId>
+    </table>
+    <column id="5608" parent="5575" name="Id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="5609" parent="5575" name="Title">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="5610" parent="5575" name="AddressLine">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="5611" parent="5575" name="PostalCode">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="5612" parent="5575" name="CityId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="5613" parent="5575" name="ProvinceId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="5614" parent="5575" name="UserId">
+      <DasType>nvarchar(450 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <column id="5615" parent="5575" name="Created">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+    </column>
+    <column id="5616" parent="5575" name="CreatedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>9</Position>
+    </column>
+    <column id="5617" parent="5575" name="LastModified">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>10</Position>
+    </column>
+    <column id="5618" parent="5575" name="LastModifiedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>11</Position>
+    </column>
+    <foreign-key id="5619" parent="5575" name="FK_Addresses_Cities_CityId">
+      <ColNames>CityId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.187</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.187</ModifiedTimestamp>
+      <ObjectId>1325963800</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>653961406</RefTableId>
+      <RefTableName>Cities</RefTableName>
+    </foreign-key>
+    <foreign-key id="5620" parent="5575" name="FK_Addresses_Provinces_ProvinceId">
+      <ColNames>ProvinceId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.187</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.187</ModifiedTimestamp>
+      <ObjectId>1341963857</ObjectId>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>269960038</RefTableId>
+      <RefTableName>Provinces</RefTableName>
+    </foreign-key>
+    <foreign-key id="5621" parent="5575" name="FK_Addresses_Users_UserId">
+      <ColNames>UserId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.187</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.187</ModifiedTimestamp>
+      <ObjectId>1357963914</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>397960494</RefTableId>
+      <RefTableName>Users</RefTableName>
+    </foreign-key>
+    <index id="5622" parent="5575" name="PK_Addresses">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <index id="5623" parent="5575" name="IX_Addresses_CityId">
+      <ColNames>CityId</ColNames>
+      <Position>2</Position>
+    </index>
+    <index id="5624" parent="5575" name="IX_Addresses_ProvinceId">
+      <ColNames>ProvinceId</ColNames>
+      <Position>3</Position>
+    </index>
+    <index id="5625" parent="5575" name="IX_Addresses_UserId">
+      <ColNames>UserId</ColNames>
+      <Position>4</Position>
+    </index>
+    <key id="5626" parent="5575" name="PK_Addresses">
+      <CreatedTimestamp>2023-12-07.12:38:39.187</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.187</ModifiedTimestamp>
+      <ObjectId>1309963743</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_Addresses</UnderlyingIndexName>
+    </key>
+    <column id="5627" parent="5576" name="ArticlesId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="5628" parent="5576" name="CategoriesId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <foreign-key id="5629" parent="5576" name="FK_ArticleCategory_Articles_ArticlesId">
+      <ColNames>ArticlesId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.203</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.203</ModifiedTimestamp>
+      <ObjectId>1677965054</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>1453964256</RefTableId>
+      <RefTableName>Articles</RefTableName>
+    </foreign-key>
+    <foreign-key id="5630" parent="5576" name="FK_ArticleCategory_Categories_CategoriesId">
+      <ColNames>CategoriesId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.203</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.203</ModifiedTimestamp>
+      <ObjectId>1693965111</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>157959639</RefTableId>
+      <RefTableName>Categories</RefTableName>
+    </foreign-key>
+    <index id="5631" parent="5576" name="PK_ArticleCategory">
+      <Clustering>1</Clustering>
+      <ColNames>ArticlesId
+CategoriesId</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <index id="5632" parent="5576" name="IX_ArticleCategory_CategoriesId">
+      <ColNames>CategoriesId</ColNames>
+      <Position>2</Position>
+    </index>
+    <key id="5633" parent="5576" name="PK_ArticleCategory">
+      <CreatedTimestamp>2023-12-07.12:38:39.203</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.203</ModifiedTimestamp>
+      <ObjectId>1661964997</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_ArticleCategory</UnderlyingIndexName>
+    </key>
+    <column id="5634" parent="5577" name="Id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="5635" parent="5577" name="Title">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="5636" parent="5577" name="Description">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="5637" parent="5577" name="Body">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="5638" parent="5577" name="Slug">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="5639" parent="5577" name="Sort">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="5640" parent="5577" name="UserId">
+      <DasType>nvarchar(450 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <column id="5641" parent="5577" name="MediaId">
+      <DasType>int|0s</DasType>
+      <Position>8</Position>
+    </column>
+    <column id="5642" parent="5577" name="Created">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+    </column>
+    <column id="5643" parent="5577" name="CreatedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>10</Position>
+    </column>
+    <column id="5644" parent="5577" name="LastModified">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>11</Position>
+    </column>
+    <column id="5645" parent="5577" name="LastModifiedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>12</Position>
+    </column>
+    <foreign-key id="5646" parent="5577" name="FK_Articles_Users_UserId">
+      <ColNames>UserId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.193</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.193</ModifiedTimestamp>
+      <ObjectId>1501964427</ObjectId>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>397960494</RefTableId>
+      <RefTableName>Users</RefTableName>
+    </foreign-key>
+    <foreign-key id="5647" parent="5577" name="FK_Articles_Medias_MediaId">
+      <ColNames>MediaId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.193</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.193</ModifiedTimestamp>
+      <ObjectId>1485964370</ObjectId>
+      <OnDelete>set-null</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>861962147</RefTableId>
+      <RefTableName>Medias</RefTableName>
+    </foreign-key>
+    <index id="5648" parent="5577" name="PK_Articles">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <index id="5649" parent="5577" name="IX_Articles_MediaId">
+      <ColNames>MediaId</ColNames>
+      <Position>2</Position>
+    </index>
+    <index id="5650" parent="5577" name="IX_Articles_UserId">
+      <ColNames>UserId</ColNames>
+      <Position>3</Position>
+    </index>
+    <key id="5651" parent="5577" name="PK_Articles">
+      <CreatedTimestamp>2023-12-07.12:38:39.193</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.193</ModifiedTimestamp>
+      <ObjectId>1469964313</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_Articles</UnderlyingIndexName>
+    </key>
+    <column id="5652" parent="5578" name="Id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="5653" parent="5578" name="Quantity">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="5654" parent="5578" name="Price">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="5655" parent="5578" name="BasketId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="5656" parent="5578" name="ProductId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="5657" parent="5578" name="ProductVariantId">
+      <DasType>int|0s</DasType>
+      <Position>6</Position>
+    </column>
+    <column id="5658" parent="5578" name="Created">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <column id="5659" parent="5578" name="CreatedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>8</Position>
+    </column>
+    <column id="5660" parent="5578" name="LastModified">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+    </column>
+    <column id="5661" parent="5578" name="LastModifiedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>10</Position>
+    </column>
+    <foreign-key id="5662" parent="5578" name="FK_BasketItems_Baskets_BasketId">
+      <ColNames>BasketId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.190</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.190</ModifiedTimestamp>
+      <ObjectId>1405964085</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>797961919</RefTableId>
+      <RefTableName>Baskets</RefTableName>
+    </foreign-key>
+    <foreign-key id="5663" parent="5578" name="FK_BasketItems_Products_ProductId">
+      <ColNames>ProductId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.190</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.190</ModifiedTimestamp>
+      <ObjectId>1437964199</ObjectId>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>237959924</RefTableId>
+      <RefTableName>Products</RefTableName>
+    </foreign-key>
+    <foreign-key id="5664" parent="5578" name="FK_BasketItems_ProductVariants_ProductVariantId">
+      <ColNames>ProductVariantId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.190</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.190</ModifiedTimestamp>
+      <ObjectId>1421964142</ObjectId>
+      <OnDelete>set-null</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>605961235</RefTableId>
+      <RefTableName>ProductVariants</RefTableName>
+    </foreign-key>
+    <index id="5665" parent="5578" name="PK_BasketItems">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <index id="5666" parent="5578" name="IX_BasketItems_BasketId">
+      <ColNames>BasketId</ColNames>
+      <Position>2</Position>
+    </index>
+    <index id="5667" parent="5578" name="IX_BasketItems_ProductId">
+      <ColNames>ProductId</ColNames>
+      <Position>3</Position>
+    </index>
+    <index id="5668" parent="5578" name="IX_BasketItems_ProductVariantId">
+      <ColNames>ProductVariantId</ColNames>
+      <Position>4</Position>
+    </index>
+    <key id="5669" parent="5578" name="PK_BasketItems">
+      <CreatedTimestamp>2023-12-07.12:38:39.190</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.190</ModifiedTimestamp>
+      <ObjectId>1389964028</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_BasketItems</UnderlyingIndexName>
+    </key>
+    <column id="5670" parent="5579" name="Id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="5671" parent="5579" name="TotalPrice">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="5672" parent="5579" name="TotalDiscount">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="5673" parent="5579" name="FinalPrice">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="5674" parent="5579" name="CouponId">
+      <DasType>int|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <column id="5675" parent="5579" name="UserId">
+      <DasType>nvarchar(450 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="5676" parent="5579" name="Created">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <column id="5677" parent="5579" name="CreatedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>8</Position>
+    </column>
+    <column id="5678" parent="5579" name="LastModified">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+    </column>
+    <column id="5679" parent="5579" name="LastModifiedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>10</Position>
+    </column>
+    <foreign-key id="5680" parent="5579" name="FK_Baskets_Coupon_CouponId">
+      <ColNames>CouponId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.160</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.160</ModifiedTimestamp>
+      <ObjectId>829962033</ObjectId>
+      <OnDelete>set-null</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>205959810</RefTableId>
+      <RefTableName>Coupon</RefTableName>
+    </foreign-key>
+    <foreign-key id="5681" parent="5579" name="FK_Baskets_Users_UserId">
+      <ColNames>UserId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.160</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.160</ModifiedTimestamp>
+      <ObjectId>845962090</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>397960494</RefTableId>
+      <RefTableName>Users</RefTableName>
+    </foreign-key>
+    <index id="5682" parent="5579" name="PK_Baskets">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <index id="5683" parent="5579" name="IX_Baskets_CouponId">
+      <ColNames>CouponId</ColNames>
+      <Position>2</Position>
+    </index>
+    <index id="5684" parent="5579" name="IX_Baskets_UserId">
+      <ColNames>UserId</ColNames>
+      <Position>3</Position>
+    </index>
+    <key id="5685" parent="5579" name="PK_Baskets">
+      <CreatedTimestamp>2023-12-07.12:38:39.160</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.160</ModifiedTimestamp>
+      <ObjectId>813961976</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_Baskets</UnderlyingIndexName>
+    </key>
+    <column id="5686" parent="5580" name="Id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="5687" parent="5580" name="Name">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="5688" parent="5580" name="ParentCategoryId">
+      <DasType>int|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="5689" parent="5580" name="Created">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="5690" parent="5580" name="CreatedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <column id="5691" parent="5580" name="LastModified">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="5692" parent="5580" name="LastModifiedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>7</Position>
+    </column>
+    <foreign-key id="5693" parent="5580" name="FK_Categories_Categories_ParentCategoryId">
+      <ColNames>ParentCategoryId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.110</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.110</ModifiedTimestamp>
+      <ObjectId>189959753</ObjectId>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>157959639</RefTableId>
+      <RefTableName>Categories</RefTableName>
+    </foreign-key>
+    <index id="5694" parent="5580" name="PK_Categories">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <index id="5695" parent="5580" name="IX_Categories_ParentCategoryId">
+      <ColNames>ParentCategoryId</ColNames>
+      <Position>2</Position>
+    </index>
+    <key id="5696" parent="5580" name="PK_Categories">
+      <CreatedTimestamp>2023-12-07.12:38:39.110</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.110</ModifiedTimestamp>
+      <ObjectId>173959696</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_Categories</UnderlyingIndexName>
+    </key>
+    <column id="5697" parent="5581" name="CategoriesId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="5698" parent="5581" name="ProductsId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <foreign-key id="5699" parent="5581" name="FK_CategoryProduct_Categories_CategoriesId">
+      <ColNames>CategoriesId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.140</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.140</ModifiedTimestamp>
+      <ObjectId>461960722</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>157959639</RefTableId>
+      <RefTableName>Categories</RefTableName>
+    </foreign-key>
+    <foreign-key id="5700" parent="5581" name="FK_CategoryProduct_Products_ProductsId">
+      <ColNames>ProductsId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.140</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.140</ModifiedTimestamp>
+      <ObjectId>477960779</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>237959924</RefTableId>
+      <RefTableName>Products</RefTableName>
+    </foreign-key>
+    <index id="5701" parent="5581" name="PK_CategoryProduct">
+      <Clustering>1</Clustering>
+      <ColNames>CategoriesId
+ProductsId</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <index id="5702" parent="5581" name="IX_CategoryProduct_ProductsId">
+      <ColNames>ProductsId</ColNames>
+      <Position>2</Position>
+    </index>
+    <key id="5703" parent="5581" name="PK_CategoryProduct">
+      <CreatedTimestamp>2023-12-07.12:38:39.140</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.140</ModifiedTimestamp>
+      <ObjectId>445960665</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_CategoryProduct</UnderlyingIndexName>
+    </key>
+    <column id="5704" parent="5582" name="Id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1(1161)</SequenceIdentity>
+    </column>
+    <column id="5705" parent="5582" name="Name">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="5706" parent="5582" name="Slug">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="5707" parent="5582" name="Status">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="5708" parent="5582" name="ProvinceId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <foreign-key id="5709" parent="5582" name="FK_Cities_Provinces_ProvinceId">
+      <ColNames>ProvinceId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.150</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.150</ModifiedTimestamp>
+      <ObjectId>685961520</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>269960038</RefTableId>
+      <RefTableName>Provinces</RefTableName>
+    </foreign-key>
+    <index id="5710" parent="5582" name="PK_Cities">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <index id="5711" parent="5582" name="IX_Cities_ProvinceId">
+      <ColNames>ProvinceId</ColNames>
+      <Position>2</Position>
+    </index>
+    <key id="5712" parent="5582" name="PK_Cities">
+      <CreatedTimestamp>2023-12-07.12:38:39.150</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.150</ModifiedTimestamp>
+      <ObjectId>669961463</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_Cities</UnderlyingIndexName>
+    </key>
+    <column id="5713" parent="5583" name="Id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="5714" parent="5583" name="Code">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="5715" parent="5583" name="Quantity">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="5716" parent="5583" name="ExpiryDate">
+      <DasType>datetime2|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="5717" parent="5583" name="Discriminator">
+      <DasType>nvarchar(21 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="5718" parent="5583" name="FixedAmount">
+      <DasType>bigint|0s</DasType>
+      <Position>6</Position>
+    </column>
+    <column id="5719" parent="5583" name="Percentage">
+      <DasType>int|0s</DasType>
+      <Position>7</Position>
+    </column>
+    <column id="5720" parent="5583" name="Created">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+    </column>
+    <column id="5721" parent="5583" name="CreatedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>9</Position>
+    </column>
+    <column id="5722" parent="5583" name="LastModified">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>10</Position>
+    </column>
+    <column id="5723" parent="5583" name="LastModifiedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>11</Position>
+    </column>
+    <index id="5724" parent="5583" name="PK_Coupon">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <key id="5725" parent="5583" name="PK_Coupon">
+      <CreatedTimestamp>2023-12-07.12:38:39.113</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.113</ModifiedTimestamp>
+      <ObjectId>221959867</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_Coupon</UnderlyingIndexName>
+    </key>
+    <column id="5726" parent="5584" name="CouponsId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="5727" parent="5584" name="ProductsId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <foreign-key id="5728" parent="5584" name="FK_CouponProduct_Coupon_CouponsId">
+      <ColNames>CouponsId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.143</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.143</ModifiedTimestamp>
+      <ObjectId>525960950</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>205959810</RefTableId>
+      <RefTableName>Coupon</RefTableName>
+    </foreign-key>
+    <foreign-key id="5729" parent="5584" name="FK_CouponProduct_Products_ProductsId">
+      <ColNames>ProductsId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.143</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.143</ModifiedTimestamp>
+      <ObjectId>541961007</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>237959924</RefTableId>
+      <RefTableName>Products</RefTableName>
+    </foreign-key>
+    <index id="5730" parent="5584" name="PK_CouponProduct">
+      <Clustering>1</Clustering>
+      <ColNames>CouponsId
+ProductsId</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <index id="5731" parent="5584" name="IX_CouponProduct_ProductsId">
+      <ColNames>ProductsId</ColNames>
+      <Position>2</Position>
+    </index>
+    <key id="5732" parent="5584" name="PK_CouponProduct">
+      <CreatedTimestamp>2023-12-07.12:38:39.143</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.143</ModifiedTimestamp>
+      <ObjectId>509960893</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_CouponProduct</UnderlyingIndexName>
+    </key>
+    <column id="5733" parent="5585" name="MediasId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="5734" parent="5585" name="ProductId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <foreign-key id="5735" parent="5585" name="FK_MediaProduct_Medias_MediasId">
+      <ColNames>MediasId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.197</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.197</ModifiedTimestamp>
+      <ObjectId>1549964598</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>861962147</RefTableId>
+      <RefTableName>Medias</RefTableName>
+    </foreign-key>
+    <foreign-key id="5736" parent="5585" name="FK_MediaProduct_Products_ProductId">
+      <ColNames>ProductId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.197</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.197</ModifiedTimestamp>
+      <ObjectId>1565964655</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>237959924</RefTableId>
+      <RefTableName>Products</RefTableName>
+    </foreign-key>
+    <index id="5737" parent="5585" name="PK_MediaProduct">
+      <Clustering>1</Clustering>
+      <ColNames>MediasId
+ProductId</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <index id="5738" parent="5585" name="IX_MediaProduct_ProductId">
+      <ColNames>ProductId</ColNames>
+      <Position>2</Position>
+    </index>
+    <key id="5739" parent="5585" name="PK_MediaProduct">
+      <CreatedTimestamp>2023-12-07.12:38:39.197</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.197</ModifiedTimestamp>
+      <ObjectId>1533964541</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_MediaProduct</UnderlyingIndexName>
+    </key>
+    <column id="5740" parent="5586" name="Id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="5741" parent="5586" name="UserId">
+      <DasType>nvarchar(450 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="5742" parent="5586" name="FileName">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="5743" parent="5586" name="FullPath">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="5744" parent="5586" name="RelativePath">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="5745" parent="5586" name="Alt">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>6</Position>
+    </column>
+    <column id="5746" parent="5586" name="Extension">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <column id="5747" parent="5586" name="Size">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+    </column>
+    <column id="5748" parent="5586" name="Created">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+    </column>
+    <column id="5749" parent="5586" name="CreatedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>10</Position>
+    </column>
+    <column id="5750" parent="5586" name="LastModified">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>11</Position>
+    </column>
+    <column id="5751" parent="5586" name="LastModifiedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>12</Position>
+    </column>
+    <foreign-key id="5752" parent="5586" name="FK_Medias_Users_UserId">
+      <ColNames>UserId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.163</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.163</ModifiedTimestamp>
+      <ObjectId>893962261</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>397960494</RefTableId>
+      <RefTableName>Users</RefTableName>
+    </foreign-key>
+    <index id="5753" parent="5586" name="PK_Medias">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <index id="5754" parent="5586" name="IX_Medias_UserId">
+      <ColNames>UserId</ColNames>
+      <Position>2</Position>
+    </index>
+    <key id="5755" parent="5586" name="PK_Medias">
+      <CreatedTimestamp>2023-12-07.12:38:39.163</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.163</ModifiedTimestamp>
+      <ObjectId>877962204</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_Medias</UnderlyingIndexName>
+    </key>
+    <column id="5756" parent="5587" name="Id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="5757" parent="5587" name="UserId">
+      <DasType>nvarchar(450 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="5758" parent="5587" name="Code">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="5759" parent="5587" name="IsUsed">
+      <DasType>bit|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="5760" parent="5587" name="Created">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="5761" parent="5587" name="CreatedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>6</Position>
+    </column>
+    <column id="5762" parent="5587" name="LastModified">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <column id="5763" parent="5587" name="LastModifiedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>8</Position>
+    </column>
+    <foreign-key id="5764" parent="5587" name="FK_OTPs_Users_UserId">
+      <ColNames>UserId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.167</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.167</ModifiedTimestamp>
+      <ObjectId>941962432</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>397960494</RefTableId>
+      <RefTableName>Users</RefTableName>
+    </foreign-key>
+    <index id="5765" parent="5587" name="PK_OTPs">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <index id="5766" parent="5587" name="IX_OTPs_UserId">
+      <ColNames>UserId</ColNames>
+      <Position>2</Position>
+      <Unique>1</Unique>
+    </index>
+    <key id="5767" parent="5587" name="PK_OTPs">
+      <CreatedTimestamp>2023-12-07.12:38:39.167</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.167</ModifiedTimestamp>
+      <ObjectId>925962375</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_OTPs</UnderlyingIndexName>
+    </key>
+    <column id="5768" parent="5588" name="Id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="5769" parent="5588" name="Count">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="5770" parent="5588" name="RawPrice">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="5771" parent="5588" name="RawPriceVariant">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="5772" parent="5588" name="PriceWithCount">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="5773" parent="5588" name="DiscountPrice">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="5774" parent="5588" name="FinalPrice">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <column id="5775" parent="5588" name="OrderId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+    </column>
+    <column id="5776" parent="5588" name="ProductId">
+      <DasType>int|0s</DasType>
+      <Position>9</Position>
+    </column>
+    <column id="5777" parent="5588" name="ProductVariantId">
+      <DasType>int|0s</DasType>
+      <Position>10</Position>
+    </column>
+    <column id="5778" parent="5588" name="Created">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>11</Position>
+    </column>
+    <column id="5779" parent="5588" name="CreatedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>12</Position>
+    </column>
+    <column id="5780" parent="5588" name="LastModified">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>13</Position>
+    </column>
+    <column id="5781" parent="5588" name="LastModifiedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>14</Position>
+    </column>
+    <foreign-key id="5782" parent="5588" name="FK_OrderItems_Orders_OrderId">
+      <ColNames>OrderId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.207</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.207</ModifiedTimestamp>
+      <ObjectId>1741965282</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>1581964712</RefTableId>
+      <RefTableName>Orders</RefTableName>
+    </foreign-key>
+    <foreign-key id="5783" parent="5588" name="FK_OrderItems_Products_ProductId">
+      <ColNames>ProductId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.210</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.210</ModifiedTimestamp>
+      <ObjectId>1773965396</ObjectId>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>237959924</RefTableId>
+      <RefTableName>Products</RefTableName>
+    </foreign-key>
+    <foreign-key id="5784" parent="5588" name="FK_OrderItems_ProductVariants_ProductVariantId">
+      <ColNames>ProductVariantId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.207</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.207</ModifiedTimestamp>
+      <ObjectId>1757965339</ObjectId>
+      <OnDelete>set-null</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>605961235</RefTableId>
+      <RefTableName>ProductVariants</RefTableName>
+    </foreign-key>
+    <index id="5785" parent="5588" name="PK_OrderItems">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <index id="5786" parent="5588" name="IX_OrderItems_OrderId">
+      <ColNames>OrderId</ColNames>
+      <Position>2</Position>
+    </index>
+    <index id="5787" parent="5588" name="IX_OrderItems_ProductId">
+      <ColNames>ProductId</ColNames>
+      <Position>3</Position>
+    </index>
+    <index id="5788" parent="5588" name="IX_OrderItems_ProductVariantId">
+      <ColNames>ProductVariantId</ColNames>
+      <Position>4</Position>
+    </index>
+    <key id="5789" parent="5588" name="PK_OrderItems">
+      <CreatedTimestamp>2023-12-07.12:38:39.207</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.207</ModifiedTimestamp>
+      <ObjectId>1725965225</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_OrderItems</UnderlyingIndexName>
+    </key>
+    <column id="5790" parent="5589" name="Id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="5791" parent="5589" name="TotalProductPrice">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="5792" parent="5589" name="TotalDiscountPrice">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="5793" parent="5589" name="TotalTaxPrice">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="5794" parent="5589" name="TotalSendPrice">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="5795" parent="5589" name="TotalFinalPrice">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="5796" parent="5589" name="Description">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>7</Position>
+    </column>
+    <column id="5797" parent="5589" name="PackageSize">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>8</Position>
+    </column>
+    <column id="5798" parent="5589" name="TrackingCode">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>9</Position>
+    </column>
+    <column id="5799" parent="5589" name="Courier">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>10</Position>
+    </column>
+    <column id="5800" parent="5589" name="LastStatusUpdatedAt">
+      <DasType>datetime2|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>11</Position>
+    </column>
+    <column id="5801" parent="5589" name="Weight">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>12</Position>
+    </column>
+    <column id="5802" parent="5589" name="Ip">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>13</Position>
+    </column>
+    <column id="5803" parent="5589" name="OrderStatus">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>14</Position>
+    </column>
+    <column id="5804" parent="5589" name="AddressId">
+      <DasType>int|0s</DasType>
+      <Position>15</Position>
+    </column>
+    <column id="5805" parent="5589" name="UserId">
+      <DasType>nvarchar(450 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>16</Position>
+    </column>
+    <column id="5806" parent="5589" name="Created">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>17</Position>
+    </column>
+    <column id="5807" parent="5589" name="CreatedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>18</Position>
+    </column>
+    <column id="5808" parent="5589" name="LastModified">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>19</Position>
+    </column>
+    <column id="5809" parent="5589" name="LastModifiedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>20</Position>
+    </column>
+    <foreign-key id="5810" parent="5589" name="FK_Orders_Addresses_AddressId">
+      <ColNames>AddressId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.200</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.200</ModifiedTimestamp>
+      <ObjectId>1613964826</ObjectId>
+      <OnDelete>set-null</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>1293963686</RefTableId>
+      <RefTableName>Addresses</RefTableName>
+    </foreign-key>
+    <foreign-key id="5811" parent="5589" name="FK_Orders_Users_UserId">
+      <ColNames>UserId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.200</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.200</ModifiedTimestamp>
+      <ObjectId>1629964883</ObjectId>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>397960494</RefTableId>
+      <RefTableName>Users</RefTableName>
+    </foreign-key>
+    <index id="5812" parent="5589" name="PK_Orders">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <index id="5813" parent="5589" name="IX_Orders_AddressId">
+      <ColNames>AddressId</ColNames>
+      <Position>2</Position>
+    </index>
+    <index id="5814" parent="5589" name="IX_Orders_UserId">
+      <ColNames>UserId</ColNames>
+      <Position>3</Position>
+    </index>
+    <key id="5815" parent="5589" name="PK_Orders">
+      <CreatedTimestamp>2023-12-07.12:38:39.200</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.200</ModifiedTimestamp>
+      <ObjectId>1597964769</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_Orders</UnderlyingIndexName>
+    </key>
+    <column id="5816" parent="5590" name="Id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="5817" parent="5590" name="ProductId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="5818" parent="5590" name="Name">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="5819" parent="5590" name="Value">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="5820" parent="5590" name="Created">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="5821" parent="5590" name="CreatedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>6</Position>
+    </column>
+    <column id="5822" parent="5590" name="LastModified">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <column id="5823" parent="5590" name="LastModifiedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>8</Position>
+    </column>
+    <foreign-key id="5824" parent="5590" name="FK_ProductAttributes_Products_ProductId">
+      <ColNames>ProductId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.147</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.147</ModifiedTimestamp>
+      <ObjectId>589961178</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>237959924</RefTableId>
+      <RefTableName>Products</RefTableName>
+    </foreign-key>
+    <index id="5825" parent="5590" name="PK_ProductAttributes">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <index id="5826" parent="5590" name="IX_ProductAttributes_ProductId">
+      <ColNames>ProductId</ColNames>
+      <Position>2</Position>
+    </index>
+    <key id="5827" parent="5590" name="PK_ProductAttributes">
+      <CreatedTimestamp>2023-12-07.12:38:39.147</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.147</ModifiedTimestamp>
+      <ObjectId>573961121</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_ProductAttributes</UnderlyingIndexName>
+    </key>
+    <column id="5828" parent="5591" name="Id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="5829" parent="5591" name="Rating">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="5830" parent="5591" name="ReviewText">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="5831" parent="5591" name="ProductId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="5832" parent="5591" name="UserId">
+      <DasType>nvarchar(450 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="5833" parent="5591" name="Created">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="5834" parent="5591" name="CreatedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>7</Position>
+    </column>
+    <column id="5835" parent="5591" name="LastModified">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+    </column>
+    <column id="5836" parent="5591" name="LastModifiedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>9</Position>
+    </column>
+    <foreign-key id="5837" parent="5591" name="FK_ProductReviews_Products_ProductId">
+      <ColNames>ProductId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.167</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.167</ModifiedTimestamp>
+      <ObjectId>989962603</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>237959924</RefTableId>
+      <RefTableName>Products</RefTableName>
+    </foreign-key>
+    <foreign-key id="5838" parent="5591" name="FK_ProductReviews_Users_UserId">
+      <ColNames>UserId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.170</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.170</ModifiedTimestamp>
+      <ObjectId>1005962660</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>397960494</RefTableId>
+      <RefTableName>Users</RefTableName>
+    </foreign-key>
+    <index id="5839" parent="5591" name="PK_ProductReviews">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <index id="5840" parent="5591" name="IX_ProductReviews_ProductId">
+      <ColNames>ProductId</ColNames>
+      <Position>2</Position>
+    </index>
+    <index id="5841" parent="5591" name="IX_ProductReviews_UserId">
+      <ColNames>UserId</ColNames>
+      <Position>3</Position>
+    </index>
+    <key id="5842" parent="5591" name="PK_ProductReviews">
+      <CreatedTimestamp>2023-12-07.12:38:39.167</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.167</ModifiedTimestamp>
+      <ObjectId>973962546</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_ProductReviews</UnderlyingIndexName>
+    </key>
+    <column id="5843" parent="5592" name="Id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="5844" parent="5592" name="ProductId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="5845" parent="5592" name="Name">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="5846" parent="5592" name="PriceAdjustment">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="5847" parent="5592" name="Stock">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="5848" parent="5592" name="Created">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="5849" parent="5592" name="CreatedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>7</Position>
+    </column>
+    <column id="5850" parent="5592" name="LastModified">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+    </column>
+    <column id="5851" parent="5592" name="LastModifiedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>9</Position>
+    </column>
+    <foreign-key id="5852" parent="5592" name="FK_ProductVariants_Products_ProductId">
+      <ColNames>ProductId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.150</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.150</ModifiedTimestamp>
+      <ObjectId>637961349</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>237959924</RefTableId>
+      <RefTableName>Products</RefTableName>
+    </foreign-key>
+    <index id="5853" parent="5592" name="PK_ProductVariants">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <index id="5854" parent="5592" name="IX_ProductVariants_ProductId">
+      <ColNames>ProductId</ColNames>
+      <Position>2</Position>
+    </index>
+    <key id="5855" parent="5592" name="PK_ProductVariants">
+      <CreatedTimestamp>2023-12-07.12:38:39.150</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.150</ModifiedTimestamp>
+      <ObjectId>621961292</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_ProductVariants</UnderlyingIndexName>
+    </key>
+    <column id="5856" parent="5593" name="Id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="5857" parent="5593" name="Name">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="5858" parent="5593" name="Description">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="5859" parent="5593" name="Price">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="5860" parent="5593" name="TotalSales">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="5861" parent="5593" name="Stock">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="5862" parent="5593" name="Status">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <column id="5863" parent="5593" name="Created">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+    </column>
+    <column id="5864" parent="5593" name="CreatedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>9</Position>
+    </column>
+    <column id="5865" parent="5593" name="LastModified">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>10</Position>
+    </column>
+    <column id="5866" parent="5593" name="LastModifiedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>11</Position>
+    </column>
+    <index id="5867" parent="5593" name="PK_Products">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <key id="5868" parent="5593" name="PK_Products">
+      <CreatedTimestamp>2023-12-07.12:38:39.117</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.117</ModifiedTimestamp>
+      <ObjectId>253959981</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_Products</UnderlyingIndexName>
+    </key>
+    <column id="5869" parent="5594" name="Id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1(32)</SequenceIdentity>
+    </column>
+    <column id="5870" parent="5594" name="Name">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="5871" parent="5594" name="Slug">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="5872" parent="5594" name="Status">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <index id="5873" parent="5594" name="PK_Provinces">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <key id="5874" parent="5594" name="PK_Provinces">
+      <CreatedTimestamp>2023-12-07.12:38:39.120</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.120</ModifiedTimestamp>
+      <ObjectId>285960095</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_Provinces</UnderlyingIndexName>
+    </key>
+    <column id="5875" parent="5595" name="Id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="5876" parent="5595" name="ReturnReason">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="5877" parent="5595" name="OrderStatus">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="5878" parent="5595" name="OrderId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="5879" parent="5595" name="OrderItemId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="5880" parent="5595" name="UserId">
+      <DasType>nvarchar(450 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="5881" parent="5595" name="ProductId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <column id="5882" parent="5595" name="Created">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+    </column>
+    <column id="5883" parent="5595" name="CreatedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>9</Position>
+    </column>
+    <column id="5884" parent="5595" name="LastModified">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>10</Position>
+    </column>
+    <column id="5885" parent="5595" name="LastModifiedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>11</Position>
+    </column>
+    <foreign-key id="5886" parent="5595" name="FK_Returns_Orders_OrderId">
+      <ColNames>OrderId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.210</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.210</ModifiedTimestamp>
+      <ObjectId>1837965624</ObjectId>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>1581964712</RefTableId>
+      <RefTableName>Orders</RefTableName>
+    </foreign-key>
+    <foreign-key id="5887" parent="5595" name="FK_Returns_OrderItems_OrderItemId">
+      <ColNames>OrderItemId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.210</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.210</ModifiedTimestamp>
+      <ObjectId>1821965567</ObjectId>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>1709965168</RefTableId>
+      <RefTableName>OrderItems</RefTableName>
+    </foreign-key>
+    <foreign-key id="5888" parent="5595" name="FK_Returns_Users_UserId">
+      <ColNames>UserId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.210</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.210</ModifiedTimestamp>
+      <ObjectId>1869965738</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>397960494</RefTableId>
+      <RefTableName>Users</RefTableName>
+    </foreign-key>
+    <foreign-key id="5889" parent="5595" name="FK_Returns_Products_ProductId">
+      <ColNames>ProductId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.210</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.210</ModifiedTimestamp>
+      <ObjectId>1853965681</ObjectId>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>237959924</RefTableId>
+      <RefTableName>Products</RefTableName>
+    </foreign-key>
+    <index id="5890" parent="5595" name="PK_Returns">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <index id="5891" parent="5595" name="IX_Returns_OrderId">
+      <ColNames>OrderId</ColNames>
+      <Position>2</Position>
+    </index>
+    <index id="5892" parent="5595" name="IX_Returns_OrderItemId">
+      <ColNames>OrderItemId</ColNames>
+      <Position>3</Position>
+    </index>
+    <index id="5893" parent="5595" name="IX_Returns_ProductId">
+      <ColNames>ProductId</ColNames>
+      <Position>4</Position>
+    </index>
+    <index id="5894" parent="5595" name="IX_Returns_UserId">
+      <ColNames>UserId</ColNames>
+      <Position>5</Position>
+    </index>
+    <key id="5895" parent="5595" name="PK_Returns">
+      <CreatedTimestamp>2023-12-07.12:38:39.210</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.210</ModifiedTimestamp>
+      <ObjectId>1805965510</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_Returns</UnderlyingIndexName>
+    </key>
+    <column id="5896" parent="5596" name="Id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="5897" parent="5596" name="RoleId">
+      <DasType>nvarchar(450 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="5898" parent="5596" name="ClaimType">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="5899" parent="5596" name="ClaimValue">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <foreign-key id="5900" parent="5596" name="FK_RoleClaims_Roles_RoleId">
+      <ColNames>RoleId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.153</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.153</ModifiedTimestamp>
+      <ObjectId>733961691</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>301960152</RefTableId>
+      <RefTableName>Roles</RefTableName>
+    </foreign-key>
+    <index id="5901" parent="5596" name="PK_RoleClaims">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <index id="5902" parent="5596" name="IX_RoleClaims_RoleId">
+      <ColNames>RoleId</ColNames>
+      <Position>2</Position>
+    </index>
+    <key id="5903" parent="5596" name="PK_RoleClaims">
+      <CreatedTimestamp>2023-12-07.12:38:39.153</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.153</ModifiedTimestamp>
+      <ObjectId>717961634</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_RoleClaims</UnderlyingIndexName>
+    </key>
+    <column id="5904" parent="5597" name="Id">
+      <DasType>nvarchar(450 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="5905" parent="5597" name="Name">
+      <DasType>nvarchar(256 char)|0s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="5906" parent="5597" name="NormalizedName">
+      <DasType>nvarchar(256 char)|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="5907" parent="5597" name="ConcurrencyStamp">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <index id="5908" parent="5597" name="PK_Roles">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <index id="5909" parent="5597" name="RoleNameIndex">
+      <ColNames>NormalizedName</ColNames>
+      <Condition>[NormalizedName] IS NOT NULL</Condition>
+      <Position>2</Position>
+      <Unique>1</Unique>
+    </index>
+    <key id="5910" parent="5597" name="PK_Roles">
+      <CreatedTimestamp>2023-12-07.12:38:39.127</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.127</ModifiedTimestamp>
+      <ObjectId>317960209</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_Roles</UnderlyingIndexName>
+    </key>
+    <column id="5911" parent="5598" name="Id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="5912" parent="5598" name="Email">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="5913" parent="5598" name="FullName">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="5914" parent="5598" name="Created">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="5915" parent="5598" name="CreatedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <column id="5916" parent="5598" name="LastModified">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="5917" parent="5598" name="LastModifiedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>7</Position>
+    </column>
+    <index id="5918" parent="5598" name="PK_Subscriptions">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <key id="5919" parent="5598" name="PK_Subscriptions">
+      <CreatedTimestamp>2023-12-07.12:38:39.130</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.130</ModifiedTimestamp>
+      <ObjectId>349960323</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_Subscriptions</UnderlyingIndexName>
+    </key>
+    <column id="5920" parent="5599" name="Id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="5921" parent="5599" name="ListId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="5922" parent="5599" name="Title">
+      <DasType>nvarchar(200 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="5923" parent="5599" name="Note">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <column id="5924" parent="5599" name="Priority">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="5925" parent="5599" name="Reminder">
+      <DasType>datetime2|0s</DasType>
+      <Position>6</Position>
+    </column>
+    <column id="5926" parent="5599" name="Done">
+      <DasType>bit|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <column id="5927" parent="5599" name="Created">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+    </column>
+    <column id="5928" parent="5599" name="CreatedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>9</Position>
+    </column>
+    <column id="5929" parent="5599" name="LastModified">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>10</Position>
+    </column>
+    <column id="5930" parent="5599" name="LastModifiedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>11</Position>
+    </column>
+    <foreign-key id="5931" parent="5599" name="FK_TodoItems_TodoLists_ListId">
+      <ColNames>ListId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.157</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.157</ModifiedTimestamp>
+      <ObjectId>781961862</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>365960380</RefTableId>
+      <RefTableName>TodoLists</RefTableName>
+    </foreign-key>
+    <index id="5932" parent="5599" name="PK_TodoItems">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <index id="5933" parent="5599" name="IX_TodoItems_ListId">
+      <ColNames>ListId</ColNames>
+      <Position>2</Position>
+    </index>
+    <key id="5934" parent="5599" name="PK_TodoItems">
+      <CreatedTimestamp>2023-12-07.12:38:39.157</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.157</ModifiedTimestamp>
+      <ObjectId>765961805</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_TodoItems</UnderlyingIndexName>
+    </key>
+    <column id="5935" parent="5600" name="Id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="5936" parent="5600" name="Title">
+      <DasType>nvarchar(200 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="5937" parent="5600" name="Colour_Code">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="5938" parent="5600" name="Created">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="5939" parent="5600" name="CreatedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <column id="5940" parent="5600" name="LastModified">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="5941" parent="5600" name="LastModifiedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>7</Position>
+    </column>
+    <index id="5942" parent="5600" name="PK_TodoLists">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <key id="5943" parent="5600" name="PK_TodoLists">
+      <CreatedTimestamp>2023-12-07.12:38:39.133</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.133</ModifiedTimestamp>
+      <ObjectId>381960437</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_TodoLists</UnderlyingIndexName>
+    </key>
+    <column id="5944" parent="5601" name="Id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="5945" parent="5601" name="UserId">
+      <DasType>nvarchar(450 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="5946" parent="5601" name="ClaimType">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="5947" parent="5601" name="ClaimValue">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <foreign-key id="5948" parent="5601" name="FK_UserClaims_Users_UserId">
+      <ColNames>UserId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.170</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.170</ModifiedTimestamp>
+      <ObjectId>1053962831</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>397960494</RefTableId>
+      <RefTableName>Users</RefTableName>
+    </foreign-key>
+    <index id="5949" parent="5601" name="PK_UserClaims">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <index id="5950" parent="5601" name="IX_UserClaims_UserId">
+      <ColNames>UserId</ColNames>
+      <Position>2</Position>
+    </index>
+    <key id="5951" parent="5601" name="PK_UserClaims">
+      <CreatedTimestamp>2023-12-07.12:38:39.170</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.170</ModifiedTimestamp>
+      <ObjectId>1037962774</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_UserClaims</UnderlyingIndexName>
+    </key>
+    <column id="5952" parent="5602" name="LoginProvider">
+      <DasType>nvarchar(450 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="5953" parent="5602" name="ProviderKey">
+      <DasType>nvarchar(450 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="5954" parent="5602" name="ProviderDisplayName">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="5955" parent="5602" name="UserId">
+      <DasType>nvarchar(450 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <foreign-key id="5956" parent="5602" name="FK_UserLogins_Users_UserId">
+      <ColNames>UserId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.173</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.173</ModifiedTimestamp>
+      <ObjectId>1101963002</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>397960494</RefTableId>
+      <RefTableName>Users</RefTableName>
+    </foreign-key>
+    <index id="5957" parent="5602" name="PK_UserLogins">
+      <Clustering>1</Clustering>
+      <ColNames>LoginProvider
+ProviderKey</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <index id="5958" parent="5602" name="IX_UserLogins_UserId">
+      <ColNames>UserId</ColNames>
+      <Position>2</Position>
+    </index>
+    <key id="5959" parent="5602" name="PK_UserLogins">
+      <CreatedTimestamp>2023-12-07.12:38:39.173</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.173</ModifiedTimestamp>
+      <ObjectId>1085962945</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_UserLogins</UnderlyingIndexName>
+    </key>
+    <column id="5960" parent="5603" name="UserId">
+      <DasType>nvarchar(450 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="5961" parent="5603" name="RoleId">
+      <DasType>nvarchar(450 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <foreign-key id="5962" parent="5603" name="FK_UserRoles_Users_UserId">
+      <ColNames>UserId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.177</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.177</ModifiedTimestamp>
+      <ObjectId>1165963230</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>397960494</RefTableId>
+      <RefTableName>Users</RefTableName>
+    </foreign-key>
+    <foreign-key id="5963" parent="5603" name="FK_UserRoles_Roles_RoleId">
+      <ColNames>RoleId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.177</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.177</ModifiedTimestamp>
+      <ObjectId>1149963173</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>301960152</RefTableId>
+      <RefTableName>Roles</RefTableName>
+    </foreign-key>
+    <index id="5964" parent="5603" name="PK_UserRoles">
+      <Clustering>1</Clustering>
+      <ColNames>UserId
+RoleId</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <index id="5965" parent="5603" name="IX_UserRoles_RoleId">
+      <ColNames>RoleId</ColNames>
+      <Position>2</Position>
+    </index>
+    <key id="5966" parent="5603" name="PK_UserRoles">
+      <CreatedTimestamp>2023-12-07.12:38:39.177</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.177</ModifiedTimestamp>
+      <ObjectId>1133963116</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_UserRoles</UnderlyingIndexName>
+    </key>
+    <column id="5967" parent="5604" name="UserId">
+      <DasType>nvarchar(450 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="5968" parent="5604" name="LoginProvider">
+      <DasType>nvarchar(450 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="5969" parent="5604" name="Name">
+      <DasType>nvarchar(450 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="5970" parent="5604" name="Value">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <foreign-key id="5971" parent="5604" name="FK_UserTokens_Users_UserId">
+      <ColNames>UserId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.180</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.180</ModifiedTimestamp>
+      <ObjectId>1213963401</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>397960494</RefTableId>
+      <RefTableName>Users</RefTableName>
+    </foreign-key>
+    <index id="5972" parent="5604" name="PK_UserTokens">
+      <Clustering>1</Clustering>
+      <ColNames>UserId
+LoginProvider
+Name</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <key id="5973" parent="5604" name="PK_UserTokens">
+      <CreatedTimestamp>2023-12-07.12:38:39.180</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.180</ModifiedTimestamp>
+      <ObjectId>1197963344</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_UserTokens</UnderlyingIndexName>
+    </key>
+    <column id="5974" parent="5605" name="Id">
+      <DasType>nvarchar(450 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="5975" parent="5605" name="FirstName">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="5976" parent="5605" name="LastName">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="5977" parent="5605" name="NationalCode">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="5978" parent="5605" name="IsActive">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="5979" parent="5605" name="IsAdmin">
+      <DasType>bit|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="5980" parent="5605" name="Social_Telegram">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>7</Position>
+    </column>
+    <column id="5981" parent="5605" name="Social_Instagram">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>8</Position>
+    </column>
+    <column id="5982" parent="5605" name="Social_Twitter">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>9</Position>
+    </column>
+    <column id="5983" parent="5605" name="Discriminator">
+      <DasType>nvarchar(8 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>10</Position>
+    </column>
+    <column id="5984" parent="5605" name="UserName">
+      <DasType>nvarchar(256 char)|0s</DasType>
+      <Position>11</Position>
+    </column>
+    <column id="5985" parent="5605" name="NormalizedUserName">
+      <DasType>nvarchar(256 char)|0s</DasType>
+      <Position>12</Position>
+    </column>
+    <column id="5986" parent="5605" name="Email">
+      <DasType>nvarchar(256 char)|0s</DasType>
+      <Position>13</Position>
+    </column>
+    <column id="5987" parent="5605" name="NormalizedEmail">
+      <DasType>nvarchar(256 char)|0s</DasType>
+      <Position>14</Position>
+    </column>
+    <column id="5988" parent="5605" name="EmailConfirmed">
+      <DasType>bit|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>15</Position>
+    </column>
+    <column id="5989" parent="5605" name="PasswordHash">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>16</Position>
+    </column>
+    <column id="5990" parent="5605" name="SecurityStamp">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>17</Position>
+    </column>
+    <column id="5991" parent="5605" name="ConcurrencyStamp">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>18</Position>
+    </column>
+    <column id="5992" parent="5605" name="PhoneNumber">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>19</Position>
+    </column>
+    <column id="5993" parent="5605" name="PhoneNumberConfirmed">
+      <DasType>bit|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>20</Position>
+    </column>
+    <column id="5994" parent="5605" name="TwoFactorEnabled">
+      <DasType>bit|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>21</Position>
+    </column>
+    <column id="5995" parent="5605" name="LockoutEnd">
+      <DasType>datetimeoffset|0s</DasType>
+      <Position>22</Position>
+    </column>
+    <column id="5996" parent="5605" name="LockoutEnabled">
+      <DasType>bit|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>23</Position>
+    </column>
+    <column id="5997" parent="5605" name="AccessFailedCount">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>24</Position>
+    </column>
+    <index id="5998" parent="5605" name="PK_Users">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <index id="5999" parent="5605" name="EmailIndex">
+      <ColNames>NormalizedEmail</ColNames>
+      <Position>2</Position>
+    </index>
+    <index id="6000" parent="5605" name="UserNameIndex">
+      <ColNames>NormalizedUserName</ColNames>
+      <Condition>[NormalizedUserName] IS NOT NULL</Condition>
+      <Position>3</Position>
+      <Unique>1</Unique>
+    </index>
+    <key id="6001" parent="5605" name="PK_Users">
+      <CreatedTimestamp>2023-12-07.12:38:39.137</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.137</ModifiedTimestamp>
+      <ObjectId>413960551</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_Users</UnderlyingIndexName>
+    </key>
+    <column id="6002" parent="5606" name="Id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="6003" parent="5606" name="UserId">
+      <DasType>nvarchar(450 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="6004" parent="5606" name="ProductId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="6005" parent="5606" name="Created">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="6006" parent="5606" name="CreatedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <column id="6007" parent="5606" name="LastModified">
+      <DasType>datetimeoffset|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="6008" parent="5606" name="LastModifiedBy">
+      <DasType>nvarchar(max)|0s</DasType>
+      <Position>7</Position>
+    </column>
+    <foreign-key id="6009" parent="5606" name="FK_Wishlists_Users_UserId">
+      <ColNames>UserId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.183</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.183</ModifiedTimestamp>
+      <ObjectId>1277963629</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>397960494</RefTableId>
+      <RefTableName>Users</RefTableName>
+    </foreign-key>
+    <foreign-key id="6010" parent="5606" name="FK_Wishlists_Products_ProductId">
+      <ColNames>ProductId</ColNames>
+      <CreatedTimestamp>2023-12-07.12:38:39.183</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.183</ModifiedTimestamp>
+      <ObjectId>1261963572</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>237959924</RefTableId>
+      <RefTableName>Products</RefTableName>
+    </foreign-key>
+    <index id="6011" parent="5606" name="PK_Wishlists">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <index id="6012" parent="5606" name="IX_Wishlists_ProductId">
+      <ColNames>ProductId</ColNames>
+      <Position>2</Position>
+    </index>
+    <index id="6013" parent="5606" name="IX_Wishlists_UserId">
+      <ColNames>UserId</ColNames>
+      <Position>3</Position>
+    </index>
+    <key id="6014" parent="5606" name="PK_Wishlists">
+      <CreatedTimestamp>2023-12-07.12:38:39.183</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:39.183</ModifiedTimestamp>
+      <ObjectId>1245963515</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_Wishlists</UnderlyingIndexName>
+    </key>
+    <column id="6015" parent="5607" name="MigrationId">
+      <DasType>nvarchar(150 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="6016" parent="5607" name="ProductVersion">
+      <DasType>nvarchar(32 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <index id="6017" parent="5607" name="PK___EFMigrationsHistory">
+      <Clustering>1</Clustering>
+      <ColNames>MigrationId</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <key id="6018" parent="5607" name="PK___EFMigrationsHistory">
+      <CreatedTimestamp>2023-12-07.12:38:38.880</CreatedTimestamp>
+      <ModifiedTimestamp>2023-12-07.12:38:38.880</ModifiedTimestamp>
+      <ObjectId>141959582</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK___EFMigrationsHistory</UnderlyingIndexName>
+    </key>
   </database-model>
 </dataSource>

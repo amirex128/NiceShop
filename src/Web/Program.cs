@@ -1,3 +1,4 @@
+using NiceShop.Application;
 using NiceShop.Infrastructure;
 using NiceShop.Infrastructure.Data;
 using NiceShop.Web;
@@ -10,6 +11,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseSerilog();
 
 // Add services to the container.
+
+// for inject app setting file to class and get that with IOption<ConfigAppsetting> with DI
+// builder.Services.AddOptions();
+// builder.Services.Configure<ConfigAppsetting>(builder.Configuration.GetSection(""));
+
+builder.Services.AddMemoryCache();
+
 builder.Services.AddKeyVaultIfConfigured(builder.Configuration);
 
 builder.Services.AddApplicationServices();
@@ -22,7 +30,7 @@ app.UseSerilogRequestLogging();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    await app.InitialiseDatabaseAsync();
+    // await app.InitialiseDatabaseAsync();
 }
 else
 {
@@ -33,6 +41,8 @@ else
 app.UseHealthChecks("/health");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+app.UseOpenApi();
 
 app.UseSwaggerUi3(settings =>
 {

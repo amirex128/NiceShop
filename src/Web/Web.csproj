@@ -44,6 +44,10 @@
     <_ContentIncludedByDefault Remove="Components\_Imports.razor" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
 
   <!-- Auto-generated Open API specification and Angular TypeScript clients -->
   <PropertyGroup>

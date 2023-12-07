@@ -1,7 +1,8 @@
 ﻿using System.Reflection;
+using Microsoft.Extensions.DependencyInjection;
 using NiceShop.Application.Common.Behaviours;
 
-namespace Microsoft.Extensions.DependencyInjection;
+namespace NiceShop.Application;
 
 public static class DependencyInjection
 {

@@ -16,6 +16,7 @@ public class AdminCanCreateRequirementHandler : AuthorizationHandler<CanCreateRe
     protected override Task HandleRequirementAsync(AuthorizationHandlerContext context,
         CanCreateRequirement requirement)
     {
+        
         if (context.User.IsInRole(ACL.Administrator))
         {
             context.Succeed(requirement);

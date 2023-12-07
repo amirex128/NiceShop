@@ -1,4 +1,5 @@
-﻿using Asp.Versioning;
+﻿using System.Text.Json.Serialization;
+using Asp.Versioning;
 using Azure.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NiceShop.Application.Common.Interfaces;
@@ -24,15 +25,19 @@ public static class DependencyInjection
             .AddDbContextCheck<ApplicationDbContext>();
 
         services.AddExceptionHandler<CustomExceptionHandler>();
-        
+
         services.AddApiVersioning(options =>
         {
             options.DefaultApiVersion = new ApiVersion(1, 0);
             options.ReportApiVersions = true;
             options.AssumeDefaultVersionWhenUnspecified = true;
         });
-        services.AddControllers();
-        
+        services.AddControllers().AddJsonOptions(options =>
+        {
+            options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+            options.JsonSerializerOptions.WriteIndented = true;
+        });
+
         services.AddScoped(provider =>
         {
             var validationRules = provider.GetService<IEnumerable<FluentValidationRule>>();
@@ -49,23 +54,43 @@ public static class DependencyInjection
 
         services.AddOpenApiDocument((configure, sp) =>
         {
-            configure.Title = "NiceShop API";
-
+            configure.PostProcess = document =>
+            {
+                document.Info = new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "ToDo API",
+                    Description = "An ASP.NET Core Web API for managing ToDo items",
+                    TermsOfService = "https://example.com/terms",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Example Contact",
+                        Url = "https://example.com/contact"
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "Example License",
+                        Url = "https://example.com/license"
+                    }
+                };
+            };
+            
             // Add the fluent validations schema processor
-            var fluentValidationSchemaProcessor = 
+            var fluentValidationSchemaProcessor =
                 sp.CreateScope().ServiceProvider.GetRequiredService<FluentValidationSchemaProcessor>();
 
             // BUG: SchemaProcessors is missing in NSwag 14 (https://github.com/RicoSuter/NSwag/issues/4524#issuecomment-1811897079)
             // configure.SchemaProcessors.Add(fluentValidationSchemaProcessor);
 
             // Add JWT
-            configure.AddSecurity("JWT", Enumerable.Empty<string>(), new OpenApiSecurityScheme
-            {
-                Type = OpenApiSecuritySchemeType.ApiKey,
-                Name = "Authorization",
-                In = OpenApiSecurityApiKeyLocation.Header,
-                Description = "Type into the textbox: Bearer {your JWT token}."
-            });
+            configure.AddSecurity("JWT", Enumerable.Empty<string>(),
+                new OpenApiSecurityScheme
+                {
+                    Type = OpenApiSecuritySchemeType.ApiKey,
+                    Name = "Authorization",
+                    In = OpenApiSecurityApiKeyLocation.Header,
+                    Description = "Type into the textbox: Bearer {your JWT token}."
+                });
 
             configure.OperationProcessors.Add(new AspNetCoreOperationSecurityScopeProcessor("JWT"));
         });
@@ -73,7 +98,8 @@ public static class DependencyInjection
         return services;
     }
 
-    public static IServiceCollection AddKeyVaultIfConfigured(this IServiceCollection services, ConfigurationManager configuration)
+    public static IServiceCollection AddKeyVaultIfConfigured(this IServiceCollection services,
+        ConfigurationManager configuration)
     {
         var keyVaultUri = configuration["KeyVaultUri"];
         if (!string.IsNullOrWhiteSpace(keyVaultUri))

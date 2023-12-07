@@ -5,12 +5,14 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NiceShop.Application.Common.Interfaces;
+using NiceShop.Application.Common.Interfaces.Repositories;
 using NiceShop.Domain.Constants;
 using NiceShop.Domain.Entities;
 using NiceShop.Infrastructure.Data;
 using NiceShop.Infrastructure.Data.Interceptors;
 using NiceShop.Infrastructure.Identity;
 using NiceShop.Infrastructure.Policies;
+using NiceShop.Infrastructure.Repositories;
 
 namespace NiceShop.Infrastructure;
 
@@ -46,7 +48,25 @@ public static class DependencyInjection
             .AddIdentityCore<User>()
             .AddRoles<IdentityRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddErrorDescriber<PersianIdentityErrorDescriber>()
             .AddApiEndpoints();
+        services.Configure<IdentityOptions>(options =>
+        {
+            options.Password.RequireDigit = false;
+            options.Password.RequiredLength = 6;
+            options.Password.RequireNonAlphanumeric = false;
+            options.Password.RequireUppercase = false;
+            options.Password.RequireLowercase = false;
+
+            options.User.RequireUniqueEmail = true;
+            options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+            options.Lockout.MaxFailedAccessAttempts = 5;
+        });
+
+        services.AddScoped<IUintOfWork, UnitOfWork>();
+        services.AddScoped<IArticleRepository, ArticleRepository>();
+        services.AddScoped<IAddressRepository, AddressRepository>();
+        services.AddScoped<ICategoryRepository, CategoryRepository>();
 
         services.AddSingleton(TimeProvider.System);
         services.AddTransient<IIdentityService, IdentityService>();

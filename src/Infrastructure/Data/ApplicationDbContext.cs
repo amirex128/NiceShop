@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using Microsoft.AspNetCore.Identity;
 using NiceShop.Application.Common.Interfaces;
 using NiceShop.Domain.Entities;
 using NiceShop.Infrastructure.Identity;
@@ -14,14 +15,17 @@ public class ApplicationDbContext : IdentityDbContext<User>, IApplicationDbConte
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
     public DbSet<Customer> Customers => Set<Customer>();
+    public DbSet<Employee> Employees => Set<Employee>();
     public DbSet<Address> Addresses => Set<Address>();
     public DbSet<Article> Articles => Set<Article>();
     public DbSet<Basket> Baskets => Set<Basket>();
     public DbSet<BasketItem> BasketItems => Set<BasketItem>();
     public DbSet<Category> Categories => Set<Category>();
     public DbSet<City> Cities => Set<City>();
-    public DbSet<Coupon> Coupons => Set<Coupon>();
-    public DbSet<Media> Media => Set<Media>();
+    public DbSet<Coupon> Coupon => Set<Coupon>();
+    public DbSet<CouponPercentage> CouponPercentage => Set<CouponPercentage>();
+    public DbSet<CouponFixedAmount> CouponFixedAmount => Set<CouponFixedAmount>();
+    public DbSet<Media> Medias => Set<Media>();
     public DbSet<Order> Orders => Set<Order>();
     public DbSet<OrderItem> OrderItems => Set<OrderItem>();
     public DbSet<OTP> OTPs => Set<OTP>();
@@ -36,49 +40,28 @@ public class ApplicationDbContext : IdentityDbContext<User>, IApplicationDbConte
     public DbSet<TodoList> TodoLists => Set<TodoList>();
 
     public DbSet<TodoItem> TodoItems => Set<TodoItem>();
-
+    
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
-        foreach (IMutableEntityType entityType in builder.Model.GetEntityTypes())
-        {
-            if (entityType.ClrType.GetCustomAttributes(typeof(SoftDeleteAttribute), true).Length > 0)
-            {
-                builder.Entity(entityType.Name).Property<bool>("IsRemoved");
-            }
-        }
+        // foreach (IMutableEntityType entityType in builder.Model.GetEntityTypes())
+        // {
+        //     if (entityType.ClrType.GetCustomAttributes(typeof(SoftDeleteAttribute), true).Length > 0)
+        //     {
+        //         builder.Entity(entityType.Name).Property<bool>("IsRemoved").HasDefaultValue(false);
+        //     }
+        // }
 
         base.OnModelCreating(builder);
-    }
 
-    public override int SaveChanges()
-    {
-        SetIsRemoved();
-
-        return base.SaveChanges();
-    }
-
-    public override int SaveChanges(bool acceptAllChangesOnSuccess)
-    {
-        SetIsRemoved();
-
-        return base.SaveChanges(acceptAllChangesOnSuccess);
-    }
-
-    public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess,
-        CancellationToken cancellationToken = new CancellationToken())
-    {
-        SetIsRemoved();
-
-        return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
-    }
-
-    public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
-    {
-        SetIsRemoved();
-
-        return base.SaveChangesAsync(cancellationToken);
+        builder.Entity<User>().ToTable("Users");
+        builder.Entity<IdentityRole>().ToTable("Roles");
+        builder.Entity<IdentityUserRole<string>>().ToTable("UserRoles");
+        builder.Entity<IdentityRoleClaim<string>>().ToTable("RoleClaims");
+        builder.Entity<IdentityUserClaim<string>>().ToTable("UserClaims");
+        builder.Entity<IdentityUserLogin<string>>().ToTable("UserLogins");
+        builder.Entity<IdentityUserToken<string>>().ToTable("UserTokens");
     }
 
     private void SetIsRemoved()

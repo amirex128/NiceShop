@@ -12,7 +12,9 @@ using NiceShop.Infrastructure.Data;
 using NiceShop.Infrastructure.Data.Interceptors;
 using NiceShop.Infrastructure.Identity;
 using NiceShop.Infrastructure.Policies;
+using NiceShop.Infrastructure.Rabbitmq;
 using NiceShop.Infrastructure.Repositories;
+using NiceShop.Infrastructure.Sms;
 
 namespace NiceShop.Infrastructure;
 
@@ -38,7 +40,20 @@ public static class DependencyInjection
         services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
 
         services.AddScoped<ApplicationDbContextInitialiser>();
+        
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+        services.AddSingleton<IRabbitMqContext,RabbitMqContext>();
+        services.AddSingleton<ISmsContext,SmsContext>();
+            
+        services.AddSingleton(TimeProvider.System);
+
+
+        return services;
+    }
+
+    public static IServiceCollection AddInfrastructureAuthServices(this IServiceCollection services)
+    {
         services.AddAuthentication()
             .AddBearerToken(IdentityConstants.BearerScheme);
 
@@ -63,12 +78,7 @@ public static class DependencyInjection
             options.Lockout.MaxFailedAccessAttempts = 5;
         });
 
-        services.AddScoped<IUintOfWork, UnitOfWork>();
-        services.AddScoped<IArticleRepository, ArticleRepository>();
-        services.AddScoped<IAddressRepository, AddressRepository>();
-        services.AddScoped<ICategoryRepository, CategoryRepository>();
-
-        services.AddSingleton(TimeProvider.System);
+        
         services.AddTransient<IIdentityService, IdentityService>();
 
         services.AddTransient<IAuthorizationHandler, CanCreateRequirementHandler>();
@@ -89,7 +99,7 @@ public static class DependencyInjection
                     policy => policy.AddRequirements(new CanDeleteRequirement()));
             }
         );
-
         return services;
+
     }
 }

@@ -27,16 +27,9 @@
     <option name="projectConfigVersion" value="5" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6ad834e238db40999048d3e9ef6cc0ad1a8a0/ac/f2347c06/AuthorizeAttribute.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c8d55c74092e4488b69dbeba622aa47530910/77/75d0e89f/EmailAddressAttribute.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1612976c39f433f6e8a97eda6d2e6bb5251ce346a4e0f5be8e87f51d7cf46/IWebHostEnvironment.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3bd4df5aff92cabbc4d630be64227073db1b8539b3a1e47786b4b189d7cdb7/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4d6d6283215de958b1baadc74d6f99ce76f43090cfc86e26e51d845b779450/IFormFile.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/628a2f7640c39f822a77889ff79923b1be70fd82bfd1da486b5c31f7a25af2d7/IdentityErrorDescriber.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8e25cce28490c87faaf15522967e96692c1829b521f6b7a4fc8bde524eec/IdentityRole.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9fcad18e31a1983467a9fd4bfef344ee97d72fa4ab6ba20353b8f78db8437b1/FileInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f035bb1f4dae1c481f8082def2188f696e7078386417e487cef2c776b652470/IdentityApiEndpointRouteBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f9342fb513b7b524925c79d9822cd3ecaf072c50231aa3b469875f4c2cdf/IdentityDbContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/3f1acb59718cadf111a0a796681e3d3509bb3381/src/DefaultBuilder/src/WebApplication.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0a92131e7f8f4af8bc2cfef6e614faef16a00/7b/a5352381/OpenApiSecuritySchemeType.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/139d5b9169777742af1f8d11e54ff2e21b3c3b6e3db2a91c87ea21994d7/Extensions.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -79,8 +72,8 @@
       &quot;repository&quot;
     ],
     &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\_Amirex_\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\_Amirex_\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\_Amirex_\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\_Amirex_\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
       &quot;C:\\Users\\_Amirex_\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
@@ -280,7 +273,16 @@
       <workItem from="1701559210517" duration="1651000" />
       <workItem from="1701626605404" duration="13841000" />
       <workItem from="1701769613206" duration="83000" />
-      <workItem from="1701939539647" duration="595000" />
+      <workItem from="1701939539647" duration="1002000" />
+      <workItem from="1701945924886" duration="2019000" />
+      <workItem from="1702979023928" duration="63000" />
+      <workItem from="1703153351664" duration="5701000" />
+      <workItem from="1703194685411" duration="82000" />
+      <workItem from="1703332505780" duration="26000" />
+      <workItem from="1703840958687" duration="797000" />
+      <workItem from="1703919309651" duration="1878000" />
+      <workItem from="1703935883532" duration="1298000" />
+      <workItem from="1703962789151" duration="5010000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="fix init">
       <option name="closed" value="true" />
@@ -289,7 +291,14 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۰۱" />
       <updated>1701342231343</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL‎−۰۰۰۰۲" summary="fix inittt">
+      <option name="closed" value="true" />
+      <created>1701944327669</created>
+      <option name="number" value="LOCAL‎−۰۰۰۰۲" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۰۲" />
+      <updated>1701944327669</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,7 +310,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="fix init" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix init" />
+    <MESSAGE value="fix inittt" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix inittt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

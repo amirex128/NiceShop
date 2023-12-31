@@ -1,6 +1,8 @@
 ﻿using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using NiceShop.Application.Common.Behaviours;
+using NiceShop.Application.Common.Interfaces;
+using NiceShop.Application.Services;
 
 namespace NiceShop.Application;
 
@@ -20,6 +22,9 @@ public static class DependencyInjection
             cfg.AddBehavior(typeof(IPipelineBehavior<,>), typeof(PerformanceBehaviour<,>));
         });
 
+        services.AddSingleton<IRabbitmqService, RabbitmqService>();
+        services.AddSingleton<ISmsService, SmsService>();
+        
         return services;
     }
 }

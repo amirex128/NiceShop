@@ -15,6 +15,14 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddWebServices(this IServiceCollection services)
     {
+        services.AddMemoryCache();
+        services.AddCors(option =>
+        {
+            option.AddPolicy("CorsPolicy", policy =>
+            {
+                policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("*");
+            });
+        });
         services.AddDatabaseDeveloperPageExceptionFilter();
 
         services.AddScoped<IUser, CurrentUser>();
@@ -62,19 +70,11 @@ public static class DependencyInjection
                     Title = "ToDo API",
                     Description = "An ASP.NET Core Web API for managing ToDo items",
                     TermsOfService = "https://example.com/terms",
-                    Contact = new OpenApiContact
-                    {
-                        Name = "Example Contact",
-                        Url = "https://example.com/contact"
-                    },
-                    License = new OpenApiLicense
-                    {
-                        Name = "Example License",
-                        Url = "https://example.com/license"
-                    }
+                    Contact = new OpenApiContact { Name = "Example Contact", Url = "https://example.com/contact" },
+                    License = new OpenApiLicense { Name = "Example License", Url = "https://example.com/license" }
                 };
             };
-            
+
             // Add the fluent validations schema processor
             var fluentValidationSchemaProcessor =
                 sp.CreateScope().ServiceProvider.GetRequiredService<FluentValidationSchemaProcessor>();
@@ -94,20 +94,6 @@ public static class DependencyInjection
 
             configure.OperationProcessors.Add(new AspNetCoreOperationSecurityScopeProcessor("JWT"));
         });
-
-        return services;
-    }
-
-    public static IServiceCollection AddKeyVaultIfConfigured(this IServiceCollection services,
-        ConfigurationManager configuration)
-    {
-        var keyVaultUri = configuration["KeyVaultUri"];
-        if (!string.IsNullOrWhiteSpace(keyVaultUri))
-        {
-            configuration.AddAzureKeyVault(
-                new Uri(keyVaultUri),
-                new DefaultAzureCredential());
-        }
 
         return services;
     }

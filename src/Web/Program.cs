@@ -3,11 +3,16 @@ using NiceShop.Infrastructure;
 using NiceShop.Infrastructure.Data;
 using NiceShop.Web;
 using Serilog;
+
+
+var builder = WebApplication.CreateBuilder(args);
 Log.Logger = new LoggerConfiguration()
+    .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day, fileSizeLimitBytes: 1000000)
     .WriteTo.Console()
     .CreateLogger();
-var builder = WebApplication.CreateBuilder(args);
 
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(Log.Logger);
 builder.Host.UseSerilog();
 
 // Add services to the container.
@@ -16,12 +21,10 @@ builder.Host.UseSerilog();
 // builder.Services.AddOptions();
 // builder.Services.Configure<ConfigAppsetting>(builder.Configuration.GetSection(""));
 
-builder.Services.AddMemoryCache();
-
-builder.Services.AddKeyVaultIfConfigured(builder.Configuration);
 
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
+builder.Services.AddInfrastructureAuthServices();
 builder.Services.AddWebServices();
 
 var app = builder.Build();
@@ -41,6 +44,8 @@ else
 app.UseHealthChecks("/health");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+app.UseCors();
 
 app.UseOpenApi();
 

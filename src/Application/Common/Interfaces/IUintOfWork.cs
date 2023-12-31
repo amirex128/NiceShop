@@ -1,7 +1,11 @@
+using NiceShop.Application.Common.Interfaces.Repositories;
+
 namespace NiceShop.Application.Common.Interfaces;
 
-public interface IUintOfWork
+public interface IUnitOfWork
 {
-    Task<int> SaveChangesAsync(CancellationToken cancellationToken);
-    
+    IAddressRepository AddressRepository { get; }
+    IArticleRepository ArticleRepository { get; }
+    ICategoryRepository CategoryRepository { get; }
+    Task CompleteAsync(); 
 }

@@ -31,7 +31,7 @@ public class CreateAddressCommandHandler : IRequestHandler<CreateAddressCommand,
 
     public async Task<int> Handle(CreateAddressCommand request, CancellationToken cancellationToken)
     {
-        Address entity = new Address();
+        Address? entity = new Address();
 
         _context.Addresses.Add(entity);
 

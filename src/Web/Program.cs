@@ -4,26 +4,24 @@ using NiceShop.Infrastructure.Data;
 using NiceShop.Web;
 using Serilog;
 
-
 var builder = WebApplication.CreateBuilder(args);
+
 Log.Logger = new LoggerConfiguration()
-    .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day, fileSizeLimitBytes: 1000000)
-    .WriteTo.Console()
+    .WriteTo.Console().MinimumLevel.Information()
+    .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day, fileSizeLimitBytes: 1000000).MinimumLevel
+    .Information()
+    // .WriteTo.Seq(builder.Configuration["Seq:Host"] ?? string.Empty).MinimumLevel.Information()
     .CreateLogger();
 
 builder.Logging.ClearProviders();
-builder.Logging.AddSerilog(Log.Logger);
+builder.Logging.AddSerilog(Log.Logger, dispose: true);
 builder.Host.UseSerilog();
 
 // Add services to the container.
-
-// for inject app setting file to class and get that with IOption<ConfigAppsetting> with DI
-// builder.Services.AddOptions();
-// builder.Services.Configure<ConfigAppsetting>(builder.Configuration.GetSection(""));
-
-
 builder.Services.AddApplicationServices();
+builder.Services.AddApplicationMediatRServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
+builder.Services.AddInfrastructureDbServices(builder.Configuration);
 builder.Services.AddInfrastructureAuthServices();
 builder.Services.AddWebServices();
 
@@ -31,13 +29,12 @@ var app = builder.Build();
 app.UseSerilogRequestLogging();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (app.Environment.EnvironmentName== "Local")
 {
     // await app.InitialiseDatabaseAsync();
 }
 else
 {
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 

@@ -12,15 +12,17 @@ public class CustomExceptionHandler : IExceptionHandler
     {
         // Register known exception types and handlers.
         _exceptionHandlers = new()
-            {
-                { typeof(ValidationException), HandleValidationException },
-                { typeof(NotFoundException), HandleNotFoundException },
-                { typeof(UnauthorizedAccessException), HandleUnauthorizedAccessException },
-                { typeof(ForbiddenAccessException), HandleForbiddenAccessException },
-            };
+        {
+            { typeof(ValidationException), HandleValidationException },
+            { typeof(NotFoundException), HandleNotFoundException },
+            { typeof(UnauthorizedAccessException), HandleUnauthorizedAccessException },
+            { typeof(ForbiddenAccessException), HandleForbiddenAccessException },
+            { typeof(FailedSendSmsException), FailedSendSmsException },
+        };
     }
 
-    public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)
+    public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception,
+        CancellationToken cancellationToken)
     {
         var exceptionType = exception.GetType();
 
@@ -41,8 +43,7 @@ public class CustomExceptionHandler : IExceptionHandler
 
         await httpContext.Response.WriteAsJsonAsync(new ValidationProblemDetails(exception.Errors)
         {
-            Status = StatusCodes.Status400BadRequest,
-            Type = "https://tools.ietf.org/html/rfc7231#section-6.5.1"
+            Status = StatusCodes.Status400BadRequest, Type = "https://tools.ietf.org/html/rfc7231#section-6.5.1"
         });
     }
 
@@ -82,6 +83,21 @@ public class CustomExceptionHandler : IExceptionHandler
             Status = StatusCodes.Status403Forbidden,
             Title = "Forbidden",
             Type = "https://tools.ietf.org/html/rfc7231#section-6.5.3"
+        });
+    }
+
+    private async Task FailedSendSmsException(HttpContext httpContext, Exception ex)
+    {
+        var exception = (FailedSendSmsException)ex;
+
+        httpContext.Response.StatusCode = StatusCodes.Status503ServiceUnavailable;
+
+        await httpContext.Response.WriteAsJsonAsync(new ProblemDetails()
+        {
+            Status = StatusCodes.Status503ServiceUnavailable,
+            Type = "https://tools.ietf.org/html/rfc7231#section-6.5.4",
+            Title = "Failed to send sms.",
+            Detail = exception.Message
         });
     }
 }

@@ -13,6 +13,16 @@ public static class DependencyInjection
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+        
+        services.AddSingleton<IRabbitmqService, RabbitmqService>();
+        services.AddSingleton<ISmsService, SmsService>();
+        services.AddSingleton<ICacheService, CacheService>();
+        
+        return services;
+    }
+    public static IServiceCollection AddApplicationMediatRServices(this IServiceCollection services)
+    {
+        services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
         services.AddMediatR(cfg => {
             cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
@@ -21,9 +31,6 @@ public static class DependencyInjection
             cfg.AddBehavior(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
             cfg.AddBehavior(typeof(IPipelineBehavior<,>), typeof(PerformanceBehaviour<,>));
         });
-
-        services.AddSingleton<IRabbitmqService, RabbitmqService>();
-        services.AddSingleton<ISmsService, SmsService>();
         
         return services;
     }

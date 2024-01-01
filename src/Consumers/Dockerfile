@@ -1,4 +1,4 @@
-﻿FROM mcr.microsoft.com/dotnet/runtime:8.0 AS base
+﻿FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 USER $APP_UID
 WORKDIR /app
 
@@ -6,9 +6,12 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["src/Consumers/Consumers.csproj", "src/Consumers/"]
+COPY ["src/Domain/Domain.csproj", "src/Domain/"]
+COPY ["src/Application/Application.csproj", "src/Application/"]
+COPY ["src/Infrastructure/Infrastructure.csproj", "src/Infrastructure/"]
 RUN dotnet restore "src/Consumers/Consumers.csproj"
 COPY . .
-WORKDIR "/src/src/Consumers"
+WORKDIR "/src/Consumers"
 RUN dotnet build "Consumers.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish

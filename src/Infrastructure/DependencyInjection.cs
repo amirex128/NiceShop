@@ -23,6 +23,26 @@ public static class DependencyInjection
     public static IServiceCollection AddInfrastructureServices(this IServiceCollection services,
         IConfiguration configuration)
     {
+        services.AddStackExchangeRedisCache(options =>
+        {
+            options.Configuration = configuration.GetConnectionString("Redis");
+            options.InstanceName = "NiceShop";
+        });
+
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+        services.AddSingleton<IRabbitMqContext, RabbitMqContext>();
+        services.AddSingleton<ISmsContext, SmsContext>();
+
+        services.AddSingleton(TimeProvider.System);
+
+
+        return services;
+    }
+
+    public static IServiceCollection AddInfrastructureDbServices(this IServiceCollection services,
+        IConfiguration configuration)
+    {
         var connectionString = configuration.GetConnectionString("DefaultConnection");
 
         Guard.Against.Null(connectionString, message: "Connection string 'DefaultConnection' not found.");
@@ -40,18 +60,26 @@ public static class DependencyInjection
         services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
 
         services.AddScoped<ApplicationDbContextInitialiser>();
-        
-        services.AddScoped<IUnitOfWork, UnitOfWork>();
-
-        services.AddSingleton<IRabbitMqContext,RabbitMqContext>();
-        services.AddSingleton<ISmsContext,SmsContext>();
-            
-        services.AddSingleton(TimeProvider.System);
-
 
         return services;
     }
+    public static IServiceCollection AddInfrastructureDbWorkerServices(this IServiceCollection services,
+        IConfiguration configuration)
+    {
+        var connectionString = configuration.GetConnectionString("DefaultConnection");
 
+        Guard.Against.Null(connectionString, message: "Connection string 'DefaultConnection' not found.");
+        
+
+        services.AddDbContext<ApplicationDbContext>((sp, options) =>
+        {
+            options.UseSqlServer(connectionString);
+        });
+
+        services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
+
+        return services;
+    }
     public static IServiceCollection AddInfrastructureAuthServices(this IServiceCollection services)
     {
         services.AddAuthentication()
@@ -78,7 +106,7 @@ public static class DependencyInjection
             options.Lockout.MaxFailedAccessAttempts = 5;
         });
 
-        
+
         services.AddTransient<IIdentityService, IdentityService>();
 
         services.AddTransient<IAuthorizationHandler, CanCreateRequirementHandler>();
@@ -100,6 +128,5 @@ public static class DependencyInjection
             }
         );
         return services;
-
     }
 }

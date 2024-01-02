@@ -31,7 +31,8 @@ public class ApplicationDbContextInitialiser
     private readonly UserManager<User> _userManager;
     private readonly RoleManager<IdentityRole> _roleManager;
 
-    public ApplicationDbContextInitialiser(ILogger<ApplicationDbContextInitialiser> logger, ApplicationDbContext context, UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
+    public ApplicationDbContextInitialiser(ILogger<ApplicationDbContextInitialiser> logger,
+        ApplicationDbContext context, UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
     {
         _logger = logger;
         _context = context;
@@ -73,27 +74,27 @@ public class ApplicationDbContextInitialiser
         {
             await _roleManager.CreateAsync(administratorRole);
         }
-        
+
         var employeeRole = new IdentityRole(Roles.Employee);
         if (_roleManager.Roles.All(r => r.Name != employeeRole.Name))
         {
             await _roleManager.CreateAsync(employeeRole);
         }
-        
+
         var customerRole = new IdentityRole(Roles.Customer);
         if (_roleManager.Roles.All(r => r.Name != customerRole.Name))
         {
             await _roleManager.CreateAsync(customerRole);
         }
-        
-        
+
+
         var administrator = new User { UserName = "admin@localhost", Email = "admin@localhost" };
         if (_userManager.Users.All(u => u.UserName != administrator.UserName))
         {
             await _userManager.CreateAsync(administrator, "@Aa6766581");
             if (!string.IsNullOrWhiteSpace(administratorRole.Name))
             {
-                await _userManager.AddToRolesAsync(administrator, new [] { administratorRole.Name });
+                await _userManager.AddToRolesAsync(administrator, new[] { administratorRole.Name });
             }
         }
 
@@ -103,38 +104,20 @@ public class ApplicationDbContextInitialiser
             await _userManager.CreateAsync(customer, "@Aa6766581");
             if (!string.IsNullOrWhiteSpace(customerRole.Name))
             {
-                await _userManager.AddToRolesAsync(customer, new [] { customerRole.Name });
+                await _userManager.AddToRolesAsync(customer, new[] { customerRole.Name });
             }
         }
-        
+
         var employee = new User { UserName = "employee@localhost", Email = "employee@localhost" };
         if (_userManager.Users.All(u => u.UserName != employee.UserName))
         {
             await _userManager.CreateAsync(employee, "@Aa6766581");
             if (!string.IsNullOrWhiteSpace(employeeRole.Name))
             {
-                await _userManager.AddToRolesAsync(employee, new [] { employeeRole.Name });
+                await _userManager.AddToRolesAsync(employee, new[] { employeeRole.Name });
             }
         }
 
-        
-        // Default data
-        // Seed, if necessary
-        if (!_context.TodoLists.Any())
-        {
-            _context.TodoLists.Add(new TodoList
-            {
-                Title = "Todo List",
-                Items =
-                {
-                    new TodoItem { Title = "Make a todo list 📃" },
-                    new TodoItem { Title = "Check off the first item ✅" },
-                    new TodoItem { Title = "Realise you've already done two things on the list! 🤯"},
-                    new TodoItem { Title = "Reward yourself with a nice, long nap 🏆" },
-                }
-            });
-
-            await _context.SaveChangesAsync();
-        }
+        await _context.SaveChangesAsync();
     }
 }

@@ -1,0 +1,59 @@
+{
+  id: "7baa268e-ab3d-472f-962c-7cefb3012961",
+  name: "TodoLists",
+  icon: "GENERATED_FOLDER",
+  sortWeight: 2000000,
+  requests: [
+    {
+      id: "5c8cd9ce-5897-4418-a8d9-5eda5e65df4b",
+      name: "/api/TodoLists",
+      description: "GetTodoLists",
+      method: "GET",
+      url: "{{baseUrl}}/api/TodoLists"
+    },
+    {
+      id: "0f052d64-38bd-4d23-aa39-a9060376dbc6",
+      name: "/api/TodoLists",
+      description: "CreateTodoList",
+      method: "POST",
+      url: "{{baseUrl}}/api/TodoLists",
+      body: {
+        type: "JSON",
+        raw: '{\
+  "title": ""\
+}'
+      }
+    },
+    {
+      id: "4f75c866-513d-47e9-b9e8-fc2482a0b5ca",
+      name: "/api/TodoLists/{id}",
+      description: "UpdateTodoList",
+      method: "PUT",
+      url: "{{baseUrl}}/api/TodoLists/{id}",
+      pathVariables: [
+        {
+          key: "id"
+        }
+      ],
+      body: {
+        type: "JSON",
+        raw: '{\
+  "id": 0,\
+  "title": ""\
+}'
+      }
+    },
+    {
+      id: "3dbeec76-06ff-444c-92cf-a921f0759f49",
+      name: "/api/TodoLists/{id}",
+      description: "DeleteTodoList",
+      method: "DELETE",
+      url: "{{baseUrl}}/api/TodoLists/{id}",
+      pathVariables: [
+        {
+          key: "id"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  id: "c40e182b-1e65-40d5-9cae-e616e6f06757",
+  name: "api",
+  icon: "GENERATED_SOURCE_ROOT",
+  sortWeight: 1000000,
+  integrationProperties: {
+    framework: "OPEN_API",
+    openApi: {
+      file: "D:\\programming\\Projects\\NiceShop\\src\\Web\\wwwroot\\api\\specification.json",
+      requestNamingStrategy: "URL_AND_FALLBACK_NAME"
+    }
+  }
+}

@@ -17,7 +17,10 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
         builder.Property(p => p.IsActive).HasConversion(new EnumToStringConverter<StatusEnum>());
         builder.HasMany(p => p.Articles).WithOne(p => p.User).HasForeignKey(p => p.UserId)
             .OnDelete(DeleteBehavior.NoAction);
-
+        builder.HasMany(p => p.Coupons).WithOne(p => p.User).HasForeignKey(p => p.UserId)
+            .OnDelete(DeleteBehavior.NoAction);
+        builder.HasMany(p => p.Products).WithOne(p => p.User).HasForeignKey(p => p.UserId)
+            .OnDelete(DeleteBehavior.NoAction);
         builder.OwnsOne(p => p.Social);
     }
 }

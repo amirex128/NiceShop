@@ -5,6 +5,8 @@ public class Coupon : BaseAuditableEntity
     public required string Code { get; set; }
     public int Quantity { get; set; }
     public DateTime ExpiryDate { get; set; }
+    public required string UserId { get; set; }
+    public User? User { get; set; }
     public ICollection<Product> Products { get; set; } = null!;
 }
 

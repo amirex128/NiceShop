@@ -1,0 +1,96 @@
+{
+  id: "4d7ce533-79f9-4a59-8b76-0275c1fc4b61",
+  name: "TodoItems",
+  icon: "GENERATED_FOLDER",
+  sortWeight: 1000000,
+  requests: [
+    {
+      id: "94eebfef-aede-4e9e-a945-cbad0a5aac31",
+      name: "/api/TodoItems",
+      description: "GetTodoItemsWithPagination",
+      method: "GET",
+      url: "{{baseUrl}}/api/TodoItems",
+      queryParams: [
+        {
+          key: "ListId",
+          required: true
+        },
+        {
+          key: "PageNumber",
+          required: true
+        },
+        {
+          key: "PageSize",
+          required: true
+        }
+      ]
+    },
+    {
+      id: "253ba9ff-b981-4cad-89eb-cdf62f1f6379",
+      name: "/api/TodoItems",
+      description: "CreateTodoItem",
+      method: "POST",
+      url: "{{baseUrl}}/api/TodoItems",
+      body: {
+        type: "JSON",
+        raw: '{\
+  "listId": 0,\
+  "title": ""\
+}'
+      }
+    },
+    {
+      id: "59c9c09a-6f13-439e-9289-1ad28b87b756",
+      name: "/api/TodoItems/{id}",
+      description: "UpdateTodoItem",
+      method: "PUT",
+      url: "{{baseUrl}}/api/TodoItems/{id}",
+      pathVariables: [
+        {
+          key: "id"
+        }
+      ],
+      body: {
+        type: "JSON",
+        raw: '{\
+  "id": 0,\
+  "title": "",\
+  "done": false\
+}'
+      }
+    },
+    {
+      id: "4f0347c4-c98b-4ff1-a879-5b4c20b0ac1f",
+      name: "/api/TodoItems/{id}",
+      description: "DeleteTodoItem",
+      method: "DELETE",
+      url: "{{baseUrl}}/api/TodoItems/{id}",
+      pathVariables: [
+        {
+          key: "id"
+        }
+      ]
+    },
+    {
+      id: "e9b68cee-0e34-4e7a-bf42-271865cab3cf",
+      name: "/api/TodoItems/UpdateDetail/{id}",
+      description: "UpdateTodoItemDetail",
+      method: "PUT",
+      url: "{{baseUrl}}/api/TodoItems/UpdateDetail/{id}",
+      pathVariables: [
+        {
+          key: "id"
+        }
+      ],
+      body: {
+        type: "JSON",
+        raw: '{\
+  "id": 0,\
+  "listId": 0,\
+  "priority": 0,\
+  "note": ""\
+}'
+      }
+    }
+  ]
+}

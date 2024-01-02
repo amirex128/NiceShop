@@ -10,11 +10,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 Log.Logger = new LoggerConfiguration()
     .Enrich.FromLogContext()
-    .WriteTo.Elasticsearch(
-        new ElasticsearchSinkOptions(new Uri(builder.Configuration["ElasticSearch:Url"] ?? string.Empty))
-        {
-            AutoRegisterTemplate = true,
-        }).MinimumLevel.Information()
+    // .WriteTo.Elasticsearch(
+    //     new ElasticsearchSinkOptions(new Uri(builder.Configuration["ElasticSearch:Url"] ?? string.Empty))
+    //     {
+    //         AutoRegisterTemplate = true,
+    //     }).MinimumLevel.Information()
     .WriteTo.Console().MinimumLevel.Information()
     .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day, fileSizeLimitBytes: 1000000).MinimumLevel
     .Information()

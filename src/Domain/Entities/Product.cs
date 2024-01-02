@@ -8,6 +8,9 @@ public class Product : BaseAuditableEntity
     public int TotalSales { get; set; }
     public int Stock { get; set; }
     public StatusEnum Status { get; set; } = StatusEnum.Active;
+    
+    public required string UserId { get; set; }
+    public User? User { get; set; }
     public ICollection<Category> Categories { get; set; } = null!;
     public ICollection<ProductVariant> ProductVariants { get; set; } = null!;
     public ICollection<Coupon> Coupons { get; set; } = null!;

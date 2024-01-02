@@ -16,6 +16,8 @@ public class User : IdentityUser
     public ICollection<Wishlist> Wishlists { get; set; } = null!;
     public ICollection<Address> Addresses { get; set; } = null!;
     public ICollection<Article> Articles { get; set; } = null!;
+    public ICollection<Coupon> Coupons { get; set; } = null!;
+    public ICollection<Product> Products { get; set; } = null!;
     public ICollection<Order> Orders { get; set; } = null!;
     public ICollection<ProductReview> ProductReviews { get; set; } = null!;
     public ICollection<Return> Returns { get; set; } = null!;

@@ -37,10 +37,7 @@ public class ApplicationDbContext : IdentityDbContext<User>, IApplicationDbConte
     public DbSet<Return> Returns => Set<Return>();
     public DbSet<Subscription> Subscriptions => Set<Subscription>();
     public DbSet<Wishlist> Wishlists => Set<Wishlist>();
-    public DbSet<TodoList> TodoLists => Set<TodoList>();
 
-    public DbSet<TodoItem> TodoItems => Set<TodoItem>();
-    
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());

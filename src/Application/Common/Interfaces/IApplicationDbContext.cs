@@ -29,10 +29,6 @@ public interface IApplicationDbContext
     public DbSet<Subscription> Subscriptions { get; }
     public DbSet<Wishlist> Wishlists { get; }
 
-    DbSet<TodoList> TodoLists { get; }
-
-    DbSet<TodoItem> TodoItems { get; }
-
     Task<int> SaveChangesAsync(CancellationToken cancellationToken); 
     int SaveChanges();
     ValueTask DisposeAsync();

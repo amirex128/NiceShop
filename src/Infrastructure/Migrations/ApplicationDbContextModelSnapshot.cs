@@ -9467,7 +9467,13 @@ namespace NiceShop.Infrastructure.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Coupon");
 
@@ -9743,7 +9749,13 @@ namespace NiceShop.Infrastructure.Migrations
                     b.Property<int>("TotalSales")
                         .HasColumnType("int");
 
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Products");
                 });
@@ -10199,83 +10211,6 @@ namespace NiceShop.Infrastructure.Migrations
                     b.ToTable("Subscriptions");
                 });
 
-            modelBuilder.Entity("NiceShop.Domain.Entities.TodoItem", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTimeOffset>("Created")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Done")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTimeOffset>("LastModified")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("LastModifiedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ListId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Note")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Priority")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("Reminder")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ListId");
-
-                    b.ToTable("TodoItems");
-                });
-
-            modelBuilder.Entity("NiceShop.Domain.Entities.TodoList", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTimeOffset>("Created")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTimeOffset>("LastModified")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("LastModifiedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TodoLists");
-                });
-
             modelBuilder.Entity("NiceShop.Domain.Entities.User", b =>
                 {
                     b.Property<string>("Id")
@@ -10655,6 +10590,17 @@ namespace NiceShop.Infrastructure.Migrations
                     b.Navigation("Province");
                 });
 
+            modelBuilder.Entity("NiceShop.Domain.Entities.Coupon", b =>
+                {
+                    b.HasOne("NiceShop.Domain.Entities.User", "User")
+                        .WithMany("Coupons")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("NiceShop.Domain.Entities.Media", b =>
                 {
                     b.HasOne("NiceShop.Domain.Entities.User", "User")
@@ -10718,6 +10664,17 @@ namespace NiceShop.Infrastructure.Migrations
                     b.Navigation("Product");
 
                     b.Navigation("ProductVariant");
+                });
+
+            modelBuilder.Entity("NiceShop.Domain.Entities.Product", b =>
+                {
+                    b.HasOne("NiceShop.Domain.Entities.User", "User")
+                        .WithMany("Products")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("NiceShop.Domain.Entities.ProductAttribute", b =>
@@ -10788,40 +10745,6 @@ namespace NiceShop.Infrastructure.Migrations
                     b.Navigation("Product");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("NiceShop.Domain.Entities.TodoItem", b =>
-                {
-                    b.HasOne("NiceShop.Domain.Entities.TodoList", "List")
-                        .WithMany("Items")
-                        .HasForeignKey("ListId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("List");
-                });
-
-            modelBuilder.Entity("NiceShop.Domain.Entities.TodoList", b =>
-                {
-                    b.OwnsOne("NiceShop.Domain.ValueObjects.Colour", "Colour", b1 =>
-                        {
-                            b1.Property<int>("TodoListId")
-                                .HasColumnType("int");
-
-                            b1.Property<string>("Code")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.HasKey("TodoListId");
-
-                            b1.ToTable("TodoLists");
-
-                            b1.WithOwner()
-                                .HasForeignKey("TodoListId");
-                        });
-
-                    b.Navigation("Colour")
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("NiceShop.Domain.Entities.User", b =>
@@ -10898,22 +10821,21 @@ namespace NiceShop.Infrastructure.Migrations
                     b.Navigation("Cities");
                 });
 
-            modelBuilder.Entity("NiceShop.Domain.Entities.TodoList", b =>
-                {
-                    b.Navigation("Items");
-                });
-
             modelBuilder.Entity("NiceShop.Domain.Entities.User", b =>
                 {
                     b.Navigation("Addresses");
 
                     b.Navigation("Articles");
 
+                    b.Navigation("Coupons");
+
                     b.Navigation("Medias");
 
                     b.Navigation("Orders");
 
                     b.Navigation("ProductReviews");
+
+                    b.Navigation("Products");
 
                     b.Navigation("Returns");
 

@@ -15,25 +15,21 @@ public class Users : ApiController
 
     [HttpPost]
     public async Task<Results<Ok<AccessTokenResponse>, EmptyHttpResult, ProblemHttpResult>> Login(
-        [FromBody] LoginRequest login, [FromQuery] bool? useCookies, [FromQuery] bool? useSessionCookies,
-        [FromServices] IServiceProvider sp)
+        [FromBody] LoginRequest login, [FromServices] IServiceProvider sp)
     {
         var signInManager = sp.GetRequiredService<SignInManager<User>>();
 
-        var useCookieScheme = (useCookies == true) || (useSessionCookies == true);
-        var isPersistent = (useCookies == true) && (useSessionCookies != true);
-        signInManager.AuthenticationScheme =
-            useCookieScheme ? IdentityConstants.ApplicationScheme : IdentityConstants.BearerScheme;
+        signInManager.AuthenticationScheme = IdentityConstants.BearerScheme;
 
         var result =
-            await signInManager.PasswordSignInAsync(login.Email, login.Password, isPersistent, lockoutOnFailure: true);
+            await signInManager.PasswordSignInAsync(login.Email, login.Password, false, lockoutOnFailure: true);
 
         if (result.RequiresTwoFactor)
         {
             if (!string.IsNullOrEmpty(login.TwoFactorCode))
             {
-                result = await signInManager.TwoFactorAuthenticatorSignInAsync(login.TwoFactorCode, isPersistent,
-                    rememberClient: isPersistent);
+                result = await signInManager.TwoFactorAuthenticatorSignInAsync(login.TwoFactorCode, false,
+                    rememberClient: false);
             }
             else if (!string.IsNullOrEmpty(login.TwoFactorRecoveryCode))
             {
@@ -51,7 +47,7 @@ public class Users : ApiController
     }
 
     [HttpPost]
-    public async Task<IResult> Register([FromBody] RegisterRequest registration, HttpContext context, [FromServices] IServiceProvider sp)
+    public async Task<IResult> Register([FromBody] RegisterRequest registration, [FromServices] IServiceProvider sp)
     {
         var userManager = sp.GetRequiredService<UserManager<User>>();
 

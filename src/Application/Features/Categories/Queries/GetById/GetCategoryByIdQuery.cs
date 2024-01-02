@@ -3,9 +3,9 @@ using NiceShop.Application.Features.Categories.Queries.GetWithPagination;
 
 namespace NiceShop.Application.Features.Categories.Queries.GetById;
 
-public record GetCategoryByIdQuery(int Id) : IRequest<CategoryDto?>;
+public record GetCategoryByIdQuery(int Id) : IRequest<CategoryDto>;
 
-public class GetCategoryByIdHandler : IRequestHandler<GetCategoryByIdQuery, CategoryDto?>
+public class GetCategoryByIdHandler : IRequestHandler<GetCategoryByIdQuery, CategoryDto>
 {
     private readonly IApplicationDbContext _context;
     private readonly IMapper _mapper;
@@ -16,9 +16,11 @@ public class GetCategoryByIdHandler : IRequestHandler<GetCategoryByIdQuery, Cate
         _mapper = mapper;
     }
 
-    public async Task<CategoryDto?> Handle(GetCategoryByIdQuery request, CancellationToken cancellationToken)
+    public async Task<CategoryDto> Handle(GetCategoryByIdQuery request, CancellationToken cancellationToken)
     {
-        return await _context.Categories.Where(x => x.Id == request.Id)
+        var result = await _context.Categories.Where(x => x.Id == request.Id)
             .ProjectTo<CategoryDto>(_mapper.ConfigurationProvider).FirstOrDefaultAsync(cancellationToken);
+        Guard.Against.NotFound(request.Id, result);
+        return result;
     }
 }

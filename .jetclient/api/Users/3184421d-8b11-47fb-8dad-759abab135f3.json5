@@ -1,0 +1,28 @@
+{
+  id: "3184421d-8b11-47fb-8dad-759abab135f3",
+  name: "Users",
+  icon: "GENERATED_FOLDER",
+  sortWeight: 5000000,
+  requests: [
+    {
+      id: "a539b96d-c07f-4bce-b4c8-f9e2d51cfd7f",
+      name: "/api/Users/Register",
+      description: "Users_Register",
+      method: "POST",
+      url: "{{baseUrl}}/api/Users/Register",
+      headers: [
+        {
+          key: "Content-Type",
+          value: "application/json"
+        }
+      ],
+      body: {
+        type: "JSON",
+        raw: '{\
+  "email": {{defualt_email}},\
+  "password": {{defualt_email}}\
+}'
+      }
+    }
+  ]
+}

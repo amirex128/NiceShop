@@ -1,0 +1,88 @@
+{
+  id: "32b0b02b-8a7f-403f-b323-a5288cdc6d91",
+  name: "Medias",
+  icon: "GENERATED_FOLDER",
+  sortWeight: 4000000,
+  requests: [
+    {
+      id: "9b6eb057-dfcd-446c-b1bd-2936c1540108",
+      name: "/api/Medias/GetMediasWithPagination",
+      description: "Medias_GetMediasWithPagination",
+      method: "GET",
+      url: "{{baseUrl}}/api/Medias/GetMediasWithPagination",
+      queryParams: [
+        {
+          key: "PageNumber"
+        },
+        {
+          key: "PageSize"
+        }
+      ]
+    },
+    {
+      id: "98e9e9f3-444e-453d-835c-39f2fa76f561",
+      name: "/api/Medias/GetMediaById/{id}",
+      description: "Medias_GetMediaById",
+      method: "GET",
+      url: "{{baseUrl}}/api/Medias/GetMediaById/{id}",
+      pathVariables: [
+        {
+          key: "id"
+        }
+      ]
+    },
+    {
+      id: "17d1c86f-e2af-4a03-b88a-3efe0703fd70",
+      name: "/api/Medias/UpdateCategory/{id}",
+      description: "Medias_UpdateCategory",
+      method: "PUT",
+      url: "{{baseUrl}}/api/Medias/UpdateCategory/{id}",
+      pathVariables: [
+        {
+          key: "id"
+        }
+      ],
+      body: {
+        type: "JSON",
+        raw: '{\
+  "id": 0,\
+  "alt": ""\
+}'
+      }
+    },
+    {
+      id: "eb60376a-6d3a-48ff-8394-17960bd5b7c3",
+      name: "/api/Medias/CreateMedia",
+      description: "Medias_CreateMedia",
+      method: "POST",
+      url: "{{baseUrl}}/api/Medias/CreateMedia",
+      queryParams: [
+        {
+          key: "Alt"
+        }
+      ],
+      body: {
+        type: "FORM_DATA",
+        formData: [
+          {
+            type: "TEXT",
+            key: "File",
+            disabled: false
+          }
+        ]
+      }
+    },
+    {
+      id: "4ba1a9af-e9ff-4a44-a93e-687ab184c36c",
+      name: "/api/Medias/DeleteMedia/{id}",
+      description: "Medias_DeleteMedia",
+      method: "DELETE",
+      url: "{{baseUrl}}/api/Medias/DeleteMedia/{id}",
+      pathVariables: [
+        {
+          key: "id"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  id: "e0035534-87a3-47b5-aa0b-6d4770c3e91f",
+  name: "Categories",
+  icon: "GENERATED_FOLDER",
+  sortWeight: 3000000,
+  requests: [
+    {
+      id: "1f38ffd2-ecad-4b14-b17d-7f76434b5f31",
+      name: "/api/Categories/Get",
+      description: "Categories_Get",
+      method: "GET",
+      url: "{{baseUrl}}/api/Categories/Get",
+      queryParams: [
+        {
+          key: "PageNumber"
+        },
+        {
+          key: "PageSize"
+        }
+      ]
+    },
+    {
+      id: "2ae3f29f-9c26-4786-a6ad-db4fb2134b0a",
+      name: "/api/Categories/Get/{id}",
+      description: "Categories_Get2",
+      method: "GET",
+      url: "{{baseUrl}}/api/Categories/Get/{id}",
+      pathVariables: [
+        {
+          key: "id"
+        }
+      ]
+    },
+    {
+      id: "57ce6c0a-e144-4698-b561-543c80623899",
+      name: "/api/Categories/Create",
+      description: "Categories_Create",
+      method: "POST",
+      url: "{{baseUrl}}/api/Categories/Create",
+      body: {
+        type: "JSON",
+        raw: '{\
+  "title": "",\
+  "categoryLine": "",\
+  "postalCode": "",\
+  "cityId": 0,\
+  "provinceId": 0,\
+  "userId": ""\
+}'
+      }
+    },
+    {
+      id: "2c4cf0dc-f637-4564-9f96-a0f3b08e4d96",
+      name: "/api/Categories/Update/{id}",
+      description: "Categories_Update",
+      method: "PUT",
+      url: "{{baseUrl}}/api/Categories/Update/{id}",
+      pathVariables: [
+        {
+          key: "id"
+        }
+      ],
+      body: {
+        type: "JSON",
+        raw: '{\
+  "id": 0\
+}'
+      }
+    },
+    {
+      id: "270195fa-de24-4582-b688-512ce5f0c99a",
+      name: "/api/Categories/Delete/{id}",
+      description: "Categories_Delete",
+      method: "DELETE",
+      url: "{{baseUrl}}/api/Categories/Delete/{id}",
+      pathVariables: [
+        {
+          key: "id"
+        }
+      ]
+    }
+  ]
+}

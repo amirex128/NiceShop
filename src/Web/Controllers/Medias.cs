@@ -12,26 +12,20 @@ using NiceShop.Domain.Constants;
 namespace NiceShop.Web.Controllers;
 
 [ApiVersion("1.0")]
-public class Medias : ApiController
+public class Medias(IMediator mediator) : ApiController
 {
-    private readonly ISender _sender;
-
-    public Medias(ISender sender)
-    {
-        _sender = sender;
-    }
 
     [HttpGet]
     public async Task<ActionResult<PaginatedList<MediaDto>>> GetMediasWithPagination(
         [FromQuery] GetMediasWithPaginationQuery query)
     {
-        return await _sender.Send(query);
+        return await mediator.Send(query);
     }
 
     [HttpGet("{id}")]
     public async Task<ActionResult<MediaDto>> GetMediaById(int id)
     {
-        MediaDto? actionResult = await _sender.Send(new GetMediaByIdQuery(id));
+        MediaDto? actionResult = await mediator.Send(new GetMediaByIdQuery(id));
         if (actionResult is null) return NotFound();
         return actionResult;
     }
@@ -41,7 +35,7 @@ public class Medias : ApiController
     public async Task<IActionResult> UpdateCategory(int id, UpdateMediaCommand command)
     {
         if (id != command.Id) return BadRequest();
-        await _sender.Send(command);
+        await mediator.Send(command);
         return NoContent();
     }
 
@@ -50,13 +44,13 @@ public class Medias : ApiController
     [Authorize(Policy = ACL.CanCreate)]
     public async Task<ActionResult<int>> CreateMedia(CreateMediaCommand command)
     {
-        return await _sender.Send(command);
+        return await mediator.Send(command);
     }
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteMedia(int id)
     {
-        await _sender.Send(new DeleteMediaCommand(id));
+        await mediator.Send(new DeleteMediaCommand(id));
         return NoContent();
     }
 }

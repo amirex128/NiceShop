@@ -27,8 +27,36 @@ services:
       - "9300:9300"
     environment:
       discovery.type: single-node
+      xpack.security.enabled: "false"
     networks:
       - app-network
+  
+  apm-server:
+    image: docker.elastic.co/apm/apm-server:8.11.1
+    ports:
+      - "8200:8200"
+    networks:
+      - app-network
+    cap_add: [ "CHOWN", "DAC_OVERRIDE", "SETGID", "SETUID" ]
+    cap_drop: [ "ALL" ]
+    environment:
+      - output.elasticsearch.hosts=["elasticsearch:9200"]
+    command: >
+      apm-server -e
+         -E apm-server.rum.enabled=true
+         -E setup.kibana.host=kibana:5601
+         -E setup.template.settings.index.number_of_replicas=0
+         -E apm-server.kibana.enabled=true
+         -E apm-server.kibana.host=kibana:5601
+         -E output.elasticsearch.hosts=["elasticsearch:9200"]
+  kibana:
+    image: kibana:8.11.1
+    ports:
+      - "5601:5601"
+    networks:
+      - app-network
+    environment:
+      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
 
   redis:
     image: redis:7.2.3
@@ -58,7 +86,7 @@ services:
       - redis
       - seq
     ports:
-      - "8000:80"
+      - "8000:8080"
     networks:
       - app-network
 

@@ -1,17 +1,25 @@
+using Elastic.Apm.NetCoreAll;
 using NiceShop.Application;
 using NiceShop.Infrastructure;
 using NiceShop.Infrastructure.Data;
 using NiceShop.Web;
 using Serilog;
+using Serilog.Sinks.Elasticsearch;
 
 var builder = WebApplication.CreateBuilder(args);
 
 Log.Logger = new LoggerConfiguration()
+    .Enrich.FromLogContext()
+    .WriteTo.Elasticsearch(
+        new ElasticsearchSinkOptions(new Uri(builder.Configuration["ElasticSearch:Url"] ?? string.Empty))
+        {
+            AutoRegisterTemplate = true,
+        }).MinimumLevel.Information()
     .WriteTo.Console().MinimumLevel.Information()
     .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day, fileSizeLimitBytes: 1000000).MinimumLevel
     .Information()
-    // .WriteTo.Seq(builder.Configuration["Seq:Host"] ?? string.Empty).MinimumLevel.Information()
-    .CreateLogger();
+    .WriteTo.Seq(builder.Configuration["Seq:Host"] ?? string.Empty).MinimumLevel.Information()
+    .CreateLogger();    
 
 builder.Logging.ClearProviders();
 builder.Logging.AddSerilog(Log.Logger, dispose: true);
@@ -28,8 +36,10 @@ builder.Services.AddWebServices();
 var app = builder.Build();
 app.UseSerilogRequestLogging();
 
+// app.UseAllElasticApm(builder.Configuration);
+
 // Configure the HTTP request pipeline.
-if (app.Environment.EnvironmentName== "Local")
+if (app.Environment.EnvironmentName == "Local")
 {
     // await app.InitialiseDatabaseAsync();
 }

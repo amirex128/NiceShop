@@ -4,12 +4,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Nest;
 using NiceShop.Application.Common.Interfaces;
 using NiceShop.Application.Common.Interfaces.Repositories;
 using NiceShop.Domain.Constants;
 using NiceShop.Domain.Entities;
 using NiceShop.Infrastructure.Data;
 using NiceShop.Infrastructure.Data.Interceptors;
+using NiceShop.Infrastructure.Elasticsearch;
 using NiceShop.Infrastructure.Identity;
 using NiceShop.Infrastructure.Policies;
 using NiceShop.Infrastructure.Rabbitmq;
@@ -29,8 +31,12 @@ public static class DependencyInjection
             options.InstanceName = "NiceShop";
         });
 
+        services.AddSingleton<IElasticClient>(new ElasticClient(new ConnectionSettings(new Uri(configuration["ElasticSearch:Url"] ??
+                                                                                               string.Empty))));
+
         services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+        services.AddSingleton<IElasticsearchContext, ElasticsearchContext>();
         services.AddSingleton<IRabbitMqContext, RabbitMqContext>();
         services.AddSingleton<ISmsContext, SmsContext>();
 
@@ -63,13 +69,14 @@ public static class DependencyInjection
 
         return services;
     }
+
     public static IServiceCollection AddInfrastructureDbWorkerServices(this IServiceCollection services,
         IConfiguration configuration)
     {
         var connectionString = configuration.GetConnectionString("DefaultConnection");
 
         Guard.Against.Null(connectionString, message: "Connection string 'DefaultConnection' not found.");
-        
+
 
         services.AddDbContext<ApplicationDbContext>((sp, options) =>
         {
@@ -80,6 +87,7 @@ public static class DependencyInjection
 
         return services;
     }
+
     public static IServiceCollection AddInfrastructureAuthServices(this IServiceCollection services)
     {
         services.AddAuthentication()

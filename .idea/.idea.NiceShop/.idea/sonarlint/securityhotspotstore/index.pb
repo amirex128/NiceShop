@@ -371,8 +371,6 @@ N
 src/Consumers/Consumers.csproj,6\1\61615fad507e1fb1818e281bdd6c87462b1c7ed3
 \
 ,src/Consumers/Properties/launchSettings.json,3\6\36a97a345e63c41bba1a848cc54a05dbfc8f8ebb
-U
-%src/Consumers/appsettings.Docker.json,e\b\eb8a573eeb01c09113727ce7fa100372eba3c246
 T
 $src/Consumers/appsettings.Local.json,1\4\1496cd76a4fb9bf39bb13353a16095a80ddcd863
 N
@@ -383,3 +381,9 @@ X
 (src/Application/Services/CacheService.cs,7\f\7f40ff382db477520f3249d19d63d098e0dcf24e
 b
 2src/Application/Common/Interfaces/ICacheService.cs,9\e\9ef35f4d0fcdc62d96c04f137d93f0bc9992169d
+h
+8src/Infrastructure/Elasticsearch/ElasticsearchContext.cs,0\d\0d77c702cf5d7e6a6748b6286cfdf30eb3e229b9
+j
+:src/Application/Common/Interfaces/IElasticsearchContext.cs,6\e\6e59845bf1f01fbbfb832315d5d55e5bec549974
+j
+:src/Application/Common/Interfaces/IElasticsearchService.cs,2\c\2c7f4e55bc66cb459883e4474a70dbba75eddf57

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
+using NiceShop.Domain.Constants;
 using NiceShop.Domain.Entities;
 
 namespace NiceShop.Web.Controllers;
@@ -70,6 +71,7 @@ public class Users : ApiController
         await emailStore.SetEmailAsync(user, email, CancellationToken.None);
         var result = await userManager.CreateAsync(user, registration.Password);
         
+        await userManager.AddToRolesAsync(user, new[] { new IdentityRole(Roles.Customer).Name }!);
 
         if (!result.Succeeded)
         {

@@ -107,4 +107,9 @@ public abstract class Repository<T> : IRepository<T> where T : class
     {
         return await _context.Set<T>().AnyAsync(predicate);
     }
+
+    public IQueryable<T> AsQueryable()
+    {
+        return _context.Set<T>().AsQueryable();
+    }
 }

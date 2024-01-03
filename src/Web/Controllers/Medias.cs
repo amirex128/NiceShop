@@ -16,14 +16,16 @@ public class Medias(IMediator mediator) : ApiController
 {
 
     [HttpGet]
-    public async Task<ActionResult<PaginatedList<MediaDto>>> GetMediasWithPagination(
+    [Authorize(Policy = ACL.CanGetAll)]
+    public async Task<ActionResult<PaginatedList<MediaDto>>> GetAll(
         [FromQuery] GetMediasWithPaginationQuery query)
     {
         return await mediator.Send(query);
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<MediaDto>> GetMediaById(int id)
+    [Authorize(Policy = ACL.CanGet)]
+    public async Task<ActionResult<MediaDto>> Get(int id)
     {
         MediaDto? actionResult = await mediator.Send(new GetMediaByIdQuery(id));
         if (actionResult is null) return NotFound();
@@ -32,9 +34,8 @@ public class Medias(IMediator mediator) : ApiController
 
     [HttpPut("{id}")]
     [Authorize(Policy = ACL.CanUpdate)]
-    public async Task<IActionResult> UpdateCategory(int id, UpdateMediaCommand command)
+    public async Task<IActionResult> UpdateCategory([FromBody] UpdateMediaCommand command)
     {
-        if (id != command.Id) return BadRequest();
         await mediator.Send(command);
         return NoContent();
     }
@@ -42,13 +43,14 @@ public class Medias(IMediator mediator) : ApiController
     
     [HttpPost]
     [Authorize(Policy = ACL.CanCreate)]
-    public async Task<ActionResult<int>> CreateMedia(CreateMediaCommand command)
+    public async Task<ActionResult<int>> Create(CreateMediaCommand command)
     {
         return await mediator.Send(command);
     }
 
     [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteMedia(int id)
+    [Authorize(Policy = ACL.CanDelete)]
+    public async Task<IActionResult> Delete(int id)
     {
         await mediator.Send(new DeleteMediaCommand(id));
         return NoContent();

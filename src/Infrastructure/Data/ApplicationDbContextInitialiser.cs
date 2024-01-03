@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices;
+using System.Security.Claims;
 using NiceShop.Domain.Constants;
 using NiceShop.Domain.Entities;
 using NiceShop.Infrastructure.Identity;
@@ -73,20 +74,34 @@ public class ApplicationDbContextInitialiser
         if (_roleManager.Roles.All(r => r.Name != administratorRole.Name))
         {
             await _roleManager.CreateAsync(administratorRole);
+            await _roleManager.AddClaimAsync(administratorRole, new Claim("Permission", ACL.CanCreate));
+            await _roleManager.AddClaimAsync(administratorRole, new Claim("Permission", ACL.CanUpdate));
+            await _roleManager.AddClaimAsync(administratorRole, new Claim("Permission", ACL.CanDelete));
+            await _roleManager.AddClaimAsync(administratorRole, new Claim("Permission", ACL.CanGet));
+            await _roleManager.AddClaimAsync(administratorRole, new Claim("Permission", ACL.CanGetAll));
         }
 
         var employeeRole = new IdentityRole(Roles.Employee);
         if (_roleManager.Roles.All(r => r.Name != employeeRole.Name))
         {
             await _roleManager.CreateAsync(employeeRole);
+            await _roleManager.AddClaimAsync(employeeRole, new Claim("Permission", ACL.CanCreate));
+            await _roleManager.AddClaimAsync(employeeRole, new Claim("Permission", ACL.CanUpdate));
+            await _roleManager.AddClaimAsync(employeeRole, new Claim("Permission", ACL.CanDelete));
+            await _roleManager.AddClaimAsync(employeeRole, new Claim("Permission", ACL.CanGet));
+            await _roleManager.AddClaimAsync(employeeRole, new Claim("Permission", ACL.CanGetAll));
         }
 
         var customerRole = new IdentityRole(Roles.Customer);
         if (_roleManager.Roles.All(r => r.Name != customerRole.Name))
         {
             await _roleManager.CreateAsync(customerRole);
+            await _roleManager.AddClaimAsync(customerRole, new Claim("Permission", ACL.CanCreate));
+            await _roleManager.AddClaimAsync(customerRole, new Claim("Permission", ACL.CanUpdate));
+            await _roleManager.AddClaimAsync(customerRole, new Claim("Permission", ACL.CanDelete));
+            await _roleManager.AddClaimAsync(customerRole, new Claim("Permission", ACL.CanGet));
+            await _roleManager.AddClaimAsync(customerRole, new Claim("Permission", ACL.CanGetAll));
         }
-
 
         var administrator = new User { UserName = "admin@localhost", Email = "admin@localhost" };
         if (_userManager.Users.All(u => u.UserName != administrator.UserName))

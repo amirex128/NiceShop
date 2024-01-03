@@ -428,6 +428,9 @@ namespace NiceShop.Infrastructure.Migrations
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTimeOffset>("LastModified")
                         .HasColumnType("datetimeoffset");
 
@@ -440,6 +443,9 @@ namespace NiceShop.Infrastructure.Migrations
 
                     b.Property<int?>("ParentCategoryId")
                         .HasColumnType("int");
+
+                    b.Property<string>("SeoTags")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -9493,6 +9499,9 @@ namespace NiceShop.Infrastructure.Migrations
                     b.Property<string>("Alt")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("CategoryId")
+                        .HasColumnType("int");
+
                     b.Property<DateTimeOffset>("Created")
                         .HasColumnType("datetimeoffset");
 
@@ -9529,6 +9538,8 @@ namespace NiceShop.Infrastructure.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
 
                     b.HasIndex("UserId");
 
@@ -10603,6 +10614,10 @@ namespace NiceShop.Infrastructure.Migrations
 
             modelBuilder.Entity("NiceShop.Domain.Entities.Media", b =>
                 {
+                    b.HasOne("NiceShop.Domain.Entities.Category", null)
+                        .WithMany("Medias")
+                        .HasForeignKey("CategoryId");
+
                     b.HasOne("NiceShop.Domain.Entities.User", "User")
                         .WithMany("Medias")
                         .HasForeignKey("UserId")
@@ -10799,6 +10814,8 @@ namespace NiceShop.Infrastructure.Migrations
 
             modelBuilder.Entity("NiceShop.Domain.Entities.Category", b =>
                 {
+                    b.Navigation("Medias");
+
                     b.Navigation("SubCategories");
                 });
 

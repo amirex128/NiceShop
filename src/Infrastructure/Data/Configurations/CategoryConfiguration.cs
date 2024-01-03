@@ -11,6 +11,7 @@ public class CategoryConfiguration  : IEntityTypeConfiguration<Category>
         builder.HasKey(p => p.Id);
         builder.HasMany(p => p.Articles).WithMany(p => p.Categories);
         builder.HasMany(p=>p.Products).WithMany(p=>p.Categories);
+        builder.HasMany(p => p.Medias).WithOne();
         builder.HasMany(p => p.SubCategories).WithOne().HasForeignKey(p => p.ParentCategoryId).OnDelete(DeleteBehavior.NoAction);
     }
 } 

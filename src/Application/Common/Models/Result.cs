@@ -12,13 +12,36 @@ public class Result
 
     public string[] Errors { get; init; }
 
+    public static Result Created()
+    {
+        return new Result(true, Array.Empty<string>());
+    }
+    public static Result Updated()
+    {
+        return new Result(true, Array.Empty<string>());
+    }
+    public static Result Deleted()
+    {
+        return new Result(true, Array.Empty<string>());
+    }
     public static Result Success()
     {
         return new Result(true, Array.Empty<string>());
     }
-
     public static Result Failure(IEnumerable<string> errors)
     {
         return new Result(false, errors);
+    }
+    public static Result FailedCreate()
+    {
+        return new Result(false, new[] { "Failed to create entity." });
+    }
+    public static Result FailedUpdate()
+    {
+        return new Result(false, new []{"Failed to update entity."});
+    }
+    public static Result FailedDelete()
+    {
+        return new Result(false, new []{"Failed to delete entity."});
     }
 }

@@ -7,9 +7,5 @@ using NiceShop.Infrastructure.Data;
 
 namespace NiceShop.Infrastructure.Repositories;
 
-public class ArticleRepository : Repository<Article>, IArticleRepository
-{
-    public ArticleRepository(ApplicationDbContext context, ILogger<Repository<Article>> logger) : base(context, logger)
-    {
-    }
-}
+public class ArticleRepository(ApplicationDbContext context, ILogger<Repository<Article>> logger)
+    : Repository<Article>(context, logger), IArticleRepository;

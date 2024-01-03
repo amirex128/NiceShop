@@ -8,9 +8,5 @@ using NiceShop.Infrastructure.Data;
 
 namespace NiceShop.Infrastructure.Repositories;
 
-public class AddressRepository : Repository<Address>, IAddressRepository
-{
-    public AddressRepository(ApplicationDbContext context, ILogger<Repository<Address>> logger) : base(context, logger)
-    {
-    }
-}
+public class AddressRepository(ApplicationDbContext context, ILogger<Repository<Address>> logger)
+    : Repository<Address>(context, logger), IAddressRepository;

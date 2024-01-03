@@ -2,10 +2,10 @@
 
 public class PaginatedList<T>
 {
-    public IReadOnlyCollection<T> Items { get; }
-    public int PageNumber { get; }
-    public int TotalPages { get; }
-    public int TotalCount { get; }
+    public IReadOnlyCollection<T>? Items { get; set; }
+    public int PageNumber { get; set; }
+    public int TotalPages { get; set; }
+    public int TotalCount { get; set; }
 
     public PaginatedList(IReadOnlyCollection<T> items, int count, int pageNumber, int pageSize)
     {
@@ -13,6 +13,10 @@ public class PaginatedList<T>
         TotalPages = (int)Math.Ceiling(count / (double)pageSize);
         TotalCount = count;
         Items = items;
+    }
+
+    public PaginatedList()
+    {
     }
 
     public bool HasPreviousPage => PageNumber > 1;

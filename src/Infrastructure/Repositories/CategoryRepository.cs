@@ -7,9 +7,5 @@ using NiceShop.Infrastructure.Data;
 
 namespace NiceShop.Infrastructure.Repositories;
 
-public class CategoryRepository : Repository<Category>, ICategoryRepository
-{
-    public CategoryRepository(ApplicationDbContext context, ILogger<Repository<Category>> logger) : base(context, logger)
-    {
-    }
-}
+public class CategoryRepository(ApplicationDbContext context, ILogger<Repository<Category>> logger)
+    : Repository<Category>(context, logger), ICategoryRepository;

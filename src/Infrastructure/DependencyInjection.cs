@@ -117,22 +117,20 @@ public static class DependencyInjection
 
         services.AddTransient<IIdentityService, IdentityService>();
 
-        services.AddTransient<IAuthorizationHandler, CanCreateRequirementHandler>();
-        services.AddTransient<IAuthorizationHandler, CanUpdateRequirementHandler>();
-        services.AddTransient<IAuthorizationHandler, CanDeleteRequirementHandler>();
-        // Admin Access
-        services.AddTransient<IAuthorizationHandler, AdminCanCreateRequirementHandler>();
-        services.AddTransient<IAuthorizationHandler, AdminCanUpdateRequirementHandler>();
-        services.AddTransient<IAuthorizationHandler, AdminCanDeleteRequirementHandler>();
-
+        services.AddTransient<IAuthorizationHandler, HasPermissionHandler>();
+        
         services.AddAuthorization(options =>
             {
-                options.AddPolicy(ACL.CanCreate,
-                    policy => policy.AddRequirements(new CanCreateRequirement()));
-                options.AddPolicy(ACL.CanUpdate,
-                    policy => policy.AddRequirements(new CanUpdateRequirement()));
-                options.AddPolicy(ACL.CanDelete,
-                    policy => policy.AddRequirements(new CanDeleteRequirement()));
+                options.AddPolicy(ACL.CanCreate, policy =>
+                    policy.Requirements.Add(new HasPermissionRequirement(ACL.CanCreate)));
+                options.AddPolicy(ACL.CanUpdate, policy =>
+                    policy.Requirements.Add(new HasPermissionRequirement(ACL.CanUpdate)));
+                options.AddPolicy(ACL.CanDelete, policy =>
+                    policy.Requirements.Add(new HasPermissionRequirement(ACL.CanDelete)));
+                options.AddPolicy(ACL.CanGet, policy =>
+                    policy.Requirements.Add(new HasPermissionRequirement(ACL.CanGet)));
+                options.AddPolicy(ACL.CanGetAll, policy =>
+                    policy.Requirements.Add(new HasPermissionRequirement(ACL.CanGetAll)));
             }
         );
         return services;

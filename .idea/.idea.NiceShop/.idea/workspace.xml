@@ -22,6 +22,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="EndpointsView">
+    <option name="showSidePanel" value="false" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -29,82 +32,21 @@
     <option name="projectConfigVersion" value="5" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///folder-pre-request-script-3184421d.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-pre-request-script-3184421d.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-pre-request-script-3184421d.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-pre-request-script-4d7ce533.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-pre-request-script-7baa268e.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-pre-request-script-7bf4971a.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-pre-request-script-ac8c1318.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-pre-request-script-c40e182b.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-pre-request-script-c40e182b.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-pre-request-script-c40e182b.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-pre-request-script-c40e182b.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-pre-request-script-c40e182b.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-pre-request-script-c40e182b.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-pre-request-script-c40e182b.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-pre-request-script-drafts.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-pre-request-script-drafts.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-pre-request-script-drafts.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-pre-request-script-e0035534.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-pre-request-script-faf19159.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-test-script-3184421d.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-test-script-3184421d.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-test-script-3184421d.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-test-script-4d7ce533.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-test-script-7baa268e.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-test-script-7bf4971a.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-test-script-ac8c1318.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-test-script-c40e182b.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-test-script-c40e182b.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-test-script-c40e182b.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-test-script-c40e182b.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-test-script-c40e182b.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-test-script-c40e182b.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-test-script-c40e182b.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-test-script-drafts.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-test-script-drafts.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-test-script-drafts.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-test-script-e0035534.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-test-script-faf19159.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-1944452a.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-1944452a.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-1944452a.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-1f38ffd2.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-2c4cf0dc.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-5b33041c.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-5c8cd9ce.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-7a5c40d3.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-7a5c40d3.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-80742697.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-825e2d4a.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-916f8952.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-a539b96d.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-a539b96d.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-a539b96d.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-b62ee79b.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-efde1ba6.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-f1555089.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-1944452a.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-1944452a.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-1944452a.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-1f38ffd2.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-2c4cf0dc.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-5b33041c.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-5c8cd9ce.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-7a5c40d3.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-7a5c40d3.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-80742697.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-825e2d4a.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-916f8952.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-a539b96d.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-a539b96d.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-a539b96d.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-b62ee79b.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-efde1ba6.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-f1555089.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-5ecf7a95.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-76898413.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-93d18699.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-93d18699.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-93d18699.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-a6956c2e.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-5ecf7a95.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-76898413.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-93d18699.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-93d18699.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-93d18699.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-a6956c2e.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/3f1acb59718cadf111a0a796681e3d3509bb3381/src/DefaultBuilder/src/WebApplication.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0a92131e7f8f4af8bc2cfef6e614faef16a00/7b/a5352381/OpenApiSecuritySchemeType.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0c53ee5c91f047f387400d094b3581c4267420/bb/35e7eca7/DbSet`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/649f9a5315084d038b64e29ea11b1fb5b8a0/3b/adf13e38/IConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/717eeb12f338474bb05aa0a346c7d07b8a00/54/c7674c80/NotFoundException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7c05a9f56cce41eba9451cc4a5a099cc138a0/65/25c9d3e2/HostEnvironmentEnvExtensions.cs" root0="SKIP_HIGHLIGHTING" />
@@ -114,9 +56,11 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a4686bac5d214ad3928ed9e11fa1b7bc10c00/c7/ca489662/KavenegarApi.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/119095f31438ebf4941c9c4b67fcc487ef1175bec54b503414bfcfe77dae50/IModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/139d5b9169777742af1f8d11e54ff2e21b3c3b6e3db2a91c87ea21994d7/Extensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1d8b23e1e431b24cf7c1dfb82e9beaa902041dd7e3da0f56c5991144595/AuthorizeAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/251361482a1fa2bee4c1279ae3327ec461c81eac80b589209b48dc04f9b/LoginRequest.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/29ea32a76b2a6b8eb246f247df6a6a86d887384b4c31db2a35effccdd86c24/JsonSerializerInternalReader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6744c0786e7232ace9d3768478ce2726dec8464711057552bb6dd53f626d9c0/GuardAgainstNotFoundExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7cd5c2b34129c679757d73774749838069732e89a78ac285d916b7bb4df98c16/IdentityResult.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d382df578ec93391918cfaa4ce7f4b8f35c9aed1241d6556dc9be26df13c/IdentityUser.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/85677d70a1e49f941c4f2cea297d2be7152e52c08af9534c5dcbdb8949c7bae/EventingBasicConsumer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d5b2136a6ba2708bd1524889498ba798cfd91226a584468c1bf4d588e4c29b1b/NotFoundException.cs" root0="SKIP_HIGHLIGHTING" />
@@ -140,45 +84,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.Consumers.executor": "Debug",
-    ".NET Launch Settings Profile.Web.executor": "Debug",
-    ".NET Launch Settings Profile.Web: NiceShop.Web.executor": "Debug",
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Docker.Consumers/Dockerfile.executor": "Run",
-    "Docker.Web/Dockerfile.executor": "Run",
-    "Docker.docker-compose.yml.elasticsearch: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.yml.seq: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.yml.sqlserver: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "false",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.sync",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.Consumers.executor&quot;: &quot;Debug&quot;,
+    &quot;.NET Launch Settings Profile.Web.executor&quot;: &quot;Debug&quot;,
+    &quot;.NET Launch Settings Profile.Web: NiceShop.Web.executor&quot;: &quot;Debug&quot;,
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Docker.Consumers/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.Web/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.elasticsearch: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.seq: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.sqlserver: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;swagger&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "GitStage.ChangesTree.GroupingKeys": [
-      "directory",
-      "module",
-      "repository"
+  &quot;keyToStringList&quot;: {
+    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;,
+      &quot;repository&quot;
     ],
-    "rider.external.source.directories": [
-      "C:\\Users\\_Amirex_\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\_Amirex_\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\_Amirex_\\AppData\\Local\\Symbols\\src"
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\_Amirex_\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\_Amirex_\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\_Amirex_\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Web">
     <configuration name="Consumers" type="LaunchSettings" factoryName=".NET Launch Settings Profile" temporary="true">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/Consumers/Consumers.csproj" />
@@ -293,7 +237,11 @@
       <workItem from="1704210736856" duration="1426000" />
       <workItem from="1704219066665" duration="136000" />
       <workItem from="1704219483304" duration="379000" />
-      <workItem from="1704219876846" duration="7740000" />
+      <workItem from="1704219876846" duration="8210000" />
+      <workItem from="1704271914261" duration="234000" />
+      <workItem from="1704273153989" duration="486000" />
+      <workItem from="1704273673953" duration="18245000" />
+      <workItem from="1704302046631" duration="3430000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="fix init">
       <option name="closed" value="true" />
@@ -331,7 +279,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704209068615</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add new api">
+      <option name="closed" value="true" />
+      <created>1704228642519</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1704228642519</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -348,24 +304,12 @@
     <MESSAGE value="add docker system" />
     <MESSAGE value="fix docker compose" />
     <MESSAGE value="Nothing to commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Nothing to commit" />
+    <MESSAGE value="add new api" />
+    <option name="LAST_COMMIT_MESSAGE" value="add new api" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/Application/Common/Behaviours/UnhandledExceptionBehaviour.cs</url>
-          <line>17</line>
-          <properties documentPath="D:\programming\Projects\NiceShop\src\Application\Common\Behaviours\UnhandledExceptionBehaviour.cs" initialLine="17" containingFunctionPresentation="Method 'Handle'">
-            <startOffsets>
-              <option value="546" />
-            </startOffsets>
-            <endOffsets>
-              <option value="566" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/src/Consumers/Workers/SmsWorker.cs</url>
           <line>17</line>

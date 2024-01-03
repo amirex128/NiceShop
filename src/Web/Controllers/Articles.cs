@@ -14,26 +14,28 @@ public class Articles(IMediator mediator) : ApiController
 {
     
     [HttpGet]
-    public async Task<ActionResult<PaginatedList<ArticleDto>>> Get([FromQuery] GetArticlesWithPaginationQuery query)
+    [Authorize(Policy = ACL.CanGetAll)]
+    public async Task<ActionResult<PaginatedList<ArticleDto>>> GetAll([FromQuery] GetArticlesWithPaginationQuery query)
     {
         return await mediator.Send(query);
     }
     
     [HttpGet("{id}")]
+    [Authorize(Policy = ACL.CanGet)]
     public async Task<ActionResult<ArticleDto>> Get(int id)
     {
         return await mediator.Send(new GetArticleByIdQuery(id));
     }
     
     [HttpPost]
-    [Authorize(Roles = Roles.Administrator)]
+    [Authorize(Policy = ACL.CanCreate)]
     public async Task<ActionResult<int>> Create([FromBody] CreateArticleCommand command)
     {
         return await mediator.Send(command);
     }
     
     [HttpPut]
-    [Authorize(Roles = Roles.Administrator)]
+    [Authorize(Policy = ACL.CanUpdate)]
     public async Task<ActionResult>Update([FromBody]UpdateArticleCommand command)
     {
         await mediator.Send(command);
@@ -41,7 +43,7 @@ public class Articles(IMediator mediator) : ApiController
     }
     
     [HttpDelete("{id}")]
-    [Authorize(Roles = Roles.Administrator)]
+    [Authorize(Policy = ACL.CanDelete)]
     public async Task<ActionResult> Delete(int id)
     {
         await mediator.Send(new DeleteArticleCommand(id));

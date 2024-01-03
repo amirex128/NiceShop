@@ -12,42 +12,38 @@ namespace NiceShop.Web.Controllers;
 
 public class Articles(IMediator mediator) : ApiController
 {
-    
     [HttpGet]
     [Authorize(Policy = ACL.CanGetAll)]
     public async Task<ActionResult<PaginatedList<ArticleDto>>> GetAll([FromQuery] GetArticlesWithPaginationQuery query)
     {
         return await mediator.Send(query);
     }
-    
+
     [HttpGet("{id}")]
     [Authorize(Policy = ACL.CanGet)]
     public async Task<ActionResult<ArticleDto>> Get(int id)
     {
         return await mediator.Send(new GetArticleByIdQuery(id));
     }
-    
+
     [HttpPost]
     [Authorize(Policy = ACL.CanCreate)]
-    public async Task<ActionResult<int>> Create([FromBody] CreateArticleCommand command)
+    public async Task<ActionResult<Result>> Create([FromBody] CreateArticleCommand command)
     {
         return await mediator.Send(command);
     }
-    
+
     [HttpPut]
     [Authorize(Policy = ACL.CanUpdate)]
-    public async Task<ActionResult>Update([FromBody]UpdateArticleCommand command)
+    public async Task<Result> Update([FromBody] UpdateArticleCommand command)
     {
-        await mediator.Send(command);
-        return NoContent();
+        return await mediator.Send(command);
     }
-    
+
     [HttpDelete("{id}")]
     [Authorize(Policy = ACL.CanDelete)]
-    public async Task<ActionResult> Delete(int id)
+    public async Task<Result> Delete(int id)
     {
-        await mediator.Send(new DeleteArticleCommand(id));
-        return NoContent();
+        return await mediator.Send(new DeleteArticleCommand(id));
     }
 }
-

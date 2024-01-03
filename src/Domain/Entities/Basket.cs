@@ -9,7 +9,5 @@ public class Basket : BaseAuditableEntity
 
     public int? CouponId  { get; set; }
     public Coupon? Coupon  { get; set; }
-    public required string UserId  { get; set; }
-    public required User User  { get; set; }
-    public ICollection<BasketItem> BasketItems  { get; set; } = null!;
+    public List<BasketItem> BasketItems  { get; set; } = null!;
 }

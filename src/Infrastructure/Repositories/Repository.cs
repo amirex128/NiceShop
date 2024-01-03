@@ -34,48 +34,30 @@ public abstract class Repository<T> : IRepository<T> where T : class
         }
     }
 
-    public async Task<bool> UpdateAsync(int id, T entity)
+    public  bool Update(T entity)
     {
         try
         {
-            var entityToUpdate = await dbSet.FindAsync(id);
-            if (entityToUpdate != null)
-            {
-                dbSet.Entry(entityToUpdate).CurrentValues.SetValues(entity);
-                return true;
-            }
-            else
-            {
-                _logger.LogWarning("Entity with id {Id} not found for update", id);
-                return false;
-            }
+            dbSet.Entry(entity).CurrentValues.SetValues(entity);
+            return true;
         }
         catch (Exception e)
         {
-            _logger.LogError(e, "Error updating entity with id {Id}", id);
+            _logger.LogError(e, "Error updating entity");
             return false;
         }
     }
 
-    public async Task<bool> DeleteAsync(int id)
+    public bool Delete(T entity)
     {
         try
         {
-            var entity = await dbSet.FindAsync(id);
-            if (entity != null)
-            {
-                dbSet.Remove(entity);
-                return true;
-            }
-            else
-            {
-                _logger.LogWarning("Entity with id {Id} not found for deletion", id);
-                return false;
-            }
+            dbSet.Remove(entity);
+            return true;
         }
         catch (Exception e)
         {
-            _logger.LogError(e, "Error deleting entity with id {Id}", id);
+            _logger.LogError(e, "Error deleting entity");
             return false;
         }
     }

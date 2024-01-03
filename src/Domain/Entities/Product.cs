@@ -9,14 +9,12 @@ public class Product : BaseAuditableEntity
     public int Stock { get; set; }
     public StatusEnum Status { get; set; } = StatusEnum.Active;
     
-    public required string UserId { get; set; }
-    public User? User { get; set; }
-    public ICollection<Category> Categories { get; set; } = null!;
-    public ICollection<ProductVariant> ProductVariants { get; set; } = null!;
-    public ICollection<Coupon> Coupons { get; set; } = null!;
-    public ICollection<Media> Medias { get; set; } = null!;
-    public ICollection<ProductAttribute> ProductAttributes { get; set; } = null!;
-    public ICollection<ProductReview> ProductReviews { get; set; } = null!;
+    public List<Category> Categories { get; set; } = null!;
+    public List<ProductVariant> ProductVariants { get; set; } = null!;
+    public List<Coupon> Coupons { get; set; } = null!;
+    public List<Media> Medias { get; set; } = null!;
+    public List<ProductAttribute> ProductAttributes { get; set; } = null!;
+    public List<ProductReview> ProductReviews { get; set; } = null!;
 
 
 }

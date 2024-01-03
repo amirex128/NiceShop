@@ -28,25 +28,22 @@ public class Coupons(IMediator mediator) : ApiController
 
     [HttpPost]
     [Authorize(Policy = ACL.CanCreate)]
-    public async Task<ActionResult<int>> Create([FromBody] CreateCouponCommand command)
+    public async Task<Result> Create([FromBody] CreateCouponCommand command)
     {
         return await mediator.Send(command);
     }
 
     [HttpPut]
     [Authorize(Policy = ACL.CanUpdate)]
-    public async Task<ActionResult>Update([FromBody]UpdateCouponCommand command)
+    public async Task<Result> Update([FromBody] UpdateCouponCommand command)
     {
-        await mediator.Send(command);
-        return NoContent();
+        return await mediator.Send(command);
     }
 
     [HttpDelete("{id}")]
     [Authorize(Policy = ACL.CanDelete)]
-    public async Task<ActionResult> Delete(int id)
+    public async Task<Result> Delete(int id)
     {
-        await mediator.Send(new DeleteCouponCommand(id));
-        return NoContent();
+        return await mediator.Send(new DeleteCouponCommand(id));
     }
-    
 }

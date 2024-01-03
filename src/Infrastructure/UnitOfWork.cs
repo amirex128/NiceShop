@@ -66,6 +66,20 @@ public sealed class UnitOfWork : IUnitOfWork, IDisposable
         WishlistRepository = new WishlistRepository(_context, loggerFactory.CreateLogger<Repository<Wishlist>>());
     }
 
+    public async Task<bool> SaveChangesAsync(CancellationToken cancellationToken)
+    {
+        try
+        {
+            await _context.SaveChangesAsync(cancellationToken);
+            return true;
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "Error saving changes");
+            return false;
+        }
+    }
+
     public async Task<bool> SaveChangesAsync()
     {
         try

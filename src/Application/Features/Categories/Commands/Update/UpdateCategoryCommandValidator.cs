@@ -5,6 +5,7 @@ public class UpdateCategoryCommandValidator : AbstractValidator<UpdateCategoryCo
     public UpdateCategoryCommandValidator()
     {
         RuleFor(v => v.Id)
+            .NotEmpty().WithMessage("Id is required.")
             .GreaterThan(0).WithMessage("Id must be greater than 0.");
 
         RuleFor(v => v.Name)
@@ -19,5 +20,9 @@ public class UpdateCategoryCommandValidator : AbstractValidator<UpdateCategoryCo
             .NotEmpty().WithMessage("SeoTag is required.")
             .MaximumLength(100).WithMessage("SeoTag must not exceed 100 characters.")
             .When(v => v.SeoTags != null && v.SeoTags.Any());
+        
+        RuleForEach(v => v.Medias)
+            .GreaterThan(0).WithMessage("Media id must be greater than 0.")
+            .When(v => v.Medias != null && v.Medias.Any());
     }
 }

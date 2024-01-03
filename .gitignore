@@ -478,12 +478,4 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
-
-./.idea
-./.idea/*
-./.idea/*/**
-.idea
-.idea/*
-.idea/*/**
-./.vscode
-./.vs
+!/.idea/

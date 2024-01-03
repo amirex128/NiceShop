@@ -18,7 +18,5 @@ public class Order : BaseAuditableEntity
     public OrderStatusEnum OrderStatus { get; set; }
     public int? AddressId { get; set; }
     public Address? Address { get; set; }
-    public required string UserId { get; set; }
-    public User User { get; set; } = null!;
-    public ICollection<OrderItem> OrderItems { get; set; } = null!;
+    public List<OrderItem> OrderItems { get; set; } = null!;
 }

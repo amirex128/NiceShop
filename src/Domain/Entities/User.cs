@@ -12,15 +12,15 @@ public class User : IdentityUser
     public bool IsAdmin { get; set; }
 
     public Social Social { get; set; } = new Social();
-    public ICollection<Media> Medias { get; set; } = null!;
-    public ICollection<Wishlist> Wishlists { get; set; } = null!;
-    public ICollection<Address> Addresses { get; set; } = null!;
-    public ICollection<Article> Articles { get; set; } = null!;
-    public ICollection<Coupon> Coupons { get; set; } = null!;
-    public ICollection<Product> Products { get; set; } = null!;
-    public ICollection<Order> Orders { get; set; } = null!;
-    public ICollection<ProductReview> ProductReviews { get; set; } = null!;
-    public ICollection<Return> Returns { get; set; } = null!;
+    public List<Media> Medias { get; set; } = null!;
+    public List<Wishlist> Wishlists { get; set; } = null!;
+    public List<Address> Addresses { get; set; } = null!;
+    public List<Article> Articles { get; set; } = null!;
+    public List<Coupon> Coupons { get; set; } = null!;
+    public List<Product> Products { get; set; } = null!;
+    public List<Order> Orders { get; set; } = null!;
+    public List<ProductReview> ProductReviews { get; set; } = null!;
+    public List<Return> Returns { get; set; } = null!;
 }
 
 public class Social

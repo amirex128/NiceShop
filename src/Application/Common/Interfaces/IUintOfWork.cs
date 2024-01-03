@@ -24,4 +24,5 @@ public interface IUnitOfWork
     public IUserRepository UserRepository { get; set; }
     public IWishlistRepository WishlistRepository { get; set; }
     Task<bool> SaveChangesAsync();
+    Task<bool> SaveChangesAsync(CancellationToken cancellationToken);
 }

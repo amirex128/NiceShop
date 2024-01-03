@@ -28,24 +28,22 @@ public class Products(IMediator mediator) : ApiController
 
     [HttpPost]
     [Authorize(Policy = ACL.CanCreate)]
-    public async Task<ActionResult<int>> Create([FromBody] CreateProductCommand command)
+    public async Task<Result> Create([FromBody] CreateProductCommand command)
     {
         return await mediator.Send(command);
     }
 
     [HttpPut]
     [Authorize(Policy = ACL.CanUpdate)]
-    public async Task<ActionResult> Update([FromBody] UpdateProductCommand command)
+    public async Task<Result> Update([FromBody] UpdateProductCommand command)
     {
-        await mediator.Send(command);
-        return NoContent();
+        return await mediator.Send(command);
     }
 
     [HttpDelete("{id}")]
     [Authorize(Policy = ACL.CanDelete)]
-    public async Task<ActionResult> Delete(int id)
+    public async Task<Result> Delete(int id)
     {
-        await mediator.Send(new DeleteProductCommand(id));
-        return NoContent();
+        return await mediator.Send(new DeleteProductCommand(id));
     }
 }

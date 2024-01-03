@@ -16,7 +16,7 @@ public class CreateCategoryCommandHandler(IUnitOfWork unitOfWork) : IRequestHand
             SeoTags = request.SeoTags,
             Medias = request.Medias?.Select(id => new Media { Id = id }).ToList(),
         });
-        result = result && await unitOfWork.SaveChangesAsync();
+        result = result && await unitOfWork.SaveChangesAsync(cancellationToken);
         return result ? Result.Created() : Result.FailedCreate();
     }
 }

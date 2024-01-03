@@ -10,6 +10,4 @@ public class Address : BaseAuditableEntity
     public City City { get; set; } = null!;
     public int ProvinceId { get; set; }
     public Province Province { get; set; } = null!;
-    public string UserId { get; set; } = null!;
-    public User User { get; set; } = null!;
 }

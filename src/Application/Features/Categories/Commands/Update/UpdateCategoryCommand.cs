@@ -8,4 +8,6 @@ public record UpdateCategoryCommand : IRequest<Result>
     public string? Name { get; set; }
     public string? Description { get; set; }
     public string[]? SeoTags { get; set; }
+    public int[]? Medias { get; init; }
+
 }

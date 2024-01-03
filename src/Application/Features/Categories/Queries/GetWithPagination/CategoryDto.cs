@@ -13,8 +13,8 @@ public class CategoryDto
     
     public string[]? SeoTags { get; set; }
 
-    public ICollection<Media>? Medias { get; set; }
-    public ICollection<Category>? SubCategories { get; set; }
+    public List<Media>? Medias { get; set; }
+    public List<Category>? SubCategories { get; set; }
 
     private class Mapping : Profile
     {

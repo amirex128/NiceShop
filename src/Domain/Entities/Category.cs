@@ -2,7 +2,7 @@
 
 public class Category : BaseAuditableEntity
 {
-    public required string Name { get; set; }
+    public string Name { get; set; } = "";
     public int? ParentCategoryId { get; set; }
 
     public string? Description { get; set; }
@@ -15,8 +15,8 @@ public class Category : BaseAuditableEntity
         set => _seoTags = string.Join(",", value ?? Array.Empty<string>());
     }
 
-    public ICollection<Media>? Medias { get; set; }
-    public ICollection<Category>? SubCategories { get; set; }
-    public ICollection<Product>? Products { get; set; }
-    public ICollection<Article>? Articles { get; set; }
+    public List<Media>? Medias { get; set; }
+    public List<Category>? SubCategories { get; set; }
+    public List<Product>? Products { get; set; }
+    public List<Article>? Articles { get; set; }
 }

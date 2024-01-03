@@ -16,7 +16,8 @@ public class Categories(IMediator mediator) : ApiController
 {
     [HttpGet]
     [Authorize(Policy = ACL.CanGetAll)]
-    public async Task<ActionResult<PaginatedList<CategoryDto>>> GetAll([FromQuery] GetCategoriesWithPaginationQuery query)
+    public async Task<ActionResult<PaginatedList<CategoryDto>>> GetAll(
+        [FromQuery] GetCategoriesWithPaginationQuery query)
     {
         return await mediator.Send(query);
     }
@@ -30,26 +31,22 @@ public class Categories(IMediator mediator) : ApiController
 
     [HttpPost]
     [Authorize(Policy = ACL.CanCreate)]
-    public async Task<ActionResult<Result>> Create([FromBody] CreateCategoryCommand command)
+    public async Task<Result> Create([FromBody] CreateCategoryCommand command)
     {
         return await mediator.Send(command);
     }
 
     [HttpPut]
     [Authorize(Policy = ACL.CanUpdate)]
-    public async Task<ActionResult> Update([FromBody] UpdateCategoryCommand command)
+    public async Task<Result> Update([FromBody] UpdateCategoryCommand command)
     {
-        await mediator.Send(command);
-
-        return NoContent();
+        return await mediator.Send(command);
     }
 
     [HttpDelete("{id}")]
     [Authorize(Policy = ACL.CanDelete)]
-    public async Task<ActionResult> Delete(int id)
+    public async Task<Result> Delete(int id)
     {
-        await mediator.Send(new DeleteCategoryCommand(id));
-
-        return NoContent();
+        return await mediator.Send(new DeleteCategoryCommand(id));
     }
 }

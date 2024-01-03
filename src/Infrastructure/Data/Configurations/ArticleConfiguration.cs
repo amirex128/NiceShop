@@ -9,6 +9,6 @@ public class ArticleConfiguration : IEntityTypeConfiguration<Article>
     public void Configure(EntityTypeBuilder<Article> builder)
     {
         builder.HasKey(p => p.Id);
-        builder.HasOne(p => p.Media).WithMany().HasForeignKey(p=> p.MediaId).OnDelete(DeleteBehavior.SetNull);
+        builder.HasMany(p => p.Medias).WithOne();
     }
 }

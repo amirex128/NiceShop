@@ -10,11 +10,10 @@ using NiceShop.Domain.Constants;
 
 namespace NiceShop.Web.Controllers;
 
-public class Addresses(IMediator mediator):ApiController
+public class Addresses(IMediator mediator) : ApiController
 {
     [HttpGet]
     [Authorize(Policy = ACL.CanGetAll)]
-
     public async Task<ActionResult<PaginatedList<AddressDto>>> GetAll([FromQuery] GetAddressesWithPaginationQuery query)
     {
         return await mediator.Send(query);
@@ -29,24 +28,22 @@ public class Addresses(IMediator mediator):ApiController
 
     [HttpPost]
     [Authorize(Policy = ACL.CanCreate)]
-    public async Task<ActionResult<int>> Create([FromBody] CreateAddressCommand command)
+    public async Task<Result> Create([FromBody] CreateAddressCommand command)
     {
         return await mediator.Send(command);
     }
 
     [HttpPut]
     [Authorize(Policy = ACL.CanUpdate)]
-    public async Task<ActionResult>Update([FromBody]UpdateAddressCommand command)
+    public async Task<Result> Update([FromBody] UpdateAddressCommand command)
     {
-        await mediator.Send(command);
-        return NoContent();
+        return await mediator.Send(command);
     }
 
     [HttpDelete("{id}")]
     [Authorize(Policy = ACL.CanDelete)]
-    public async Task<ActionResult> Delete(int id)
+    public async Task<Result> Delete(int id)
     {
-        await mediator.Send(new DeleteAddressCommand(id));
-        return NoContent();
+        return await mediator.Send(new DeleteAddressCommand(id));
     }
 }

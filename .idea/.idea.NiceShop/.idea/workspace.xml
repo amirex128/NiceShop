@@ -241,7 +241,7 @@
       <workItem from="1704271914261" duration="234000" />
       <workItem from="1704273153989" duration="486000" />
       <workItem from="1704273673953" duration="18245000" />
-      <workItem from="1704302046631" duration="3430000" />
+      <workItem from="1704302046631" duration="9953000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="fix init">
       <option name="closed" value="true" />
@@ -287,7 +287,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704228642519</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="implement category cqrs">
+      <option name="closed" value="true" />
+      <created>1704306259070</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1704306259070</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,7 +313,8 @@
     <MESSAGE value="fix docker compose" />
     <MESSAGE value="Nothing to commit" />
     <MESSAGE value="add new api" />
-    <option name="LAST_COMMIT_MESSAGE" value="add new api" />
+    <MESSAGE value="implement category cqrs" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement category cqrs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

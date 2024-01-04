@@ -23,8 +23,6 @@ public class ApplicationDbContext : IdentityDbContext<User>, IApplicationDbConte
     public DbSet<Category> Categories => Set<Category>();
     public DbSet<City> Cities => Set<City>();
     public DbSet<Coupon> Coupon => Set<Coupon>();
-    public DbSet<CouponPercentage> CouponPercentage => Set<CouponPercentage>();
-    public DbSet<CouponFixedAmount> CouponFixedAmount => Set<CouponFixedAmount>();
     public DbSet<Media> Medias => Set<Media>();
     public DbSet<Order> Orders => Set<Order>();
     public DbSet<OrderItem> OrderItems => Set<OrderItem>();

@@ -1,40 +1,14 @@
-﻿using NiceShop.Application.Common.Interfaces;
-using NiceShop.Domain.Entities;
+﻿using NiceShop.Application.Common.Models;
+using NiceShop.Domain.Enums;
 
 namespace NiceShop.Application.Features.Coupons.Commands.Create;
 
-public record CreateCouponCommand : IRequest<int>
+public record CreateCouponCommand : IRequest<Result>
 {
-}
-
-public class CreateCouponCommandValidator : AbstractValidator<CreateCouponCommand>
-{
-    public CreateCouponCommandValidator()
-    {
-    }
-}
-
-public class CreateCouponCommandHandler : IRequestHandler<CreateCouponCommand, int>
-{
-    private readonly IApplicationDbContext _context;
-
-    public CreateCouponCommandHandler(IApplicationDbContext context)
-    {
-        _context = context;
-    }
-
-    public async Task<int> Handle(CreateCouponCommand request, CancellationToken cancellationToken)
-    {
-        var entity = new CouponPercentage()
-        {
-            UserId = "",
-            Code = ""
-        };
-
-        _context.CouponPercentage.Add(entity);
-
-        await _context.SaveChangesAsync(cancellationToken);
-
-        return entity.Id;
-    }
+    public required string Code { get; set; }
+    public required int Quantity { get; set; }
+    public required DateTime ExpiryDate { get; set; }
+    public required CouponTypeEnum Type { get; set; }
+    public required int Value { get; set; }
+    public int[]? Products { get; set; }
 }

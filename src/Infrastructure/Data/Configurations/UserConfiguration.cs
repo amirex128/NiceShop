@@ -12,7 +12,7 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
     {
         builder.HasMany(p => p.Orders).WithOne(p => p.User).HasForeignKey(p => p.UserId)
             .OnDelete(DeleteBehavior.NoAction);
-        builder.HasMany(p => p.Wishlists).WithOne().HasForeignKey(p => p.UserId).OnDelete(DeleteBehavior.Cascade);
+        builder.HasMany(p => p.Wishlists).WithOne(p=>p.User).HasForeignKey(p => p.UserId).OnDelete(DeleteBehavior.Cascade);
         builder.HasMany(p => p.Medias).WithOne(p=>p.User).HasForeignKey(p => p.UserId).OnDelete(DeleteBehavior.Cascade);
         builder.Property(p => p.IsActive).HasConversion(new EnumToStringConverter<StatusEnum>());
         builder.HasMany(p => p.Articles).WithOne(p => p.User).HasForeignKey(p => p.UserId)

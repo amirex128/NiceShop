@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace NiceShop.Infrastructure.Data.Configurations;
 
-public class ProductAttributes : IEntityTypeConfiguration<Product>
+public class ProductAttributesConfiguration : IEntityTypeConfiguration<Product>
 {
     public void Configure(EntityTypeBuilder<Product> builder)
     {

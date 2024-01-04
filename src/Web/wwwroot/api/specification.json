@@ -122,8 +122,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "integer",
-                  "format": "int32"
+                  "$ref": "#/components/schemas/Result"
                 }
               }
             }
@@ -158,10 +157,9 @@
           "200": {
             "description": "",
             "content": {
-              "application/octet-stream": {
+              "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
+                  "$ref": "#/components/schemas/Result"
                 }
               }
             }
@@ -196,10 +194,9 @@
           "200": {
             "description": "",
             "content": {
-              "application/octet-stream": {
+              "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
+                  "$ref": "#/components/schemas/Result"
                 }
               }
             }
@@ -318,8 +315,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "integer",
-                  "format": "int32"
+                  "$ref": "#/components/schemas/Result"
                 }
               }
             }
@@ -354,10 +350,9 @@
           "200": {
             "description": "",
             "content": {
-              "application/octet-stream": {
+              "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
+                  "$ref": "#/components/schemas/Result"
                 }
               }
             }
@@ -392,10 +387,9 @@
           "200": {
             "description": "",
             "content": {
-              "application/octet-stream": {
+              "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
+                  "$ref": "#/components/schemas/Result"
                 }
               }
             }
@@ -549,10 +543,9 @@
           "200": {
             "description": "",
             "content": {
-              "application/octet-stream": {
+              "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
+                  "$ref": "#/components/schemas/Result"
                 }
               }
             }
@@ -587,10 +580,9 @@
           "200": {
             "description": "",
             "content": {
-              "application/octet-stream": {
+              "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
+                  "$ref": "#/components/schemas/Result"
                 }
               }
             }
@@ -709,8 +701,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "integer",
-                  "format": "int32"
+                  "$ref": "#/components/schemas/Result"
                 }
               }
             }
@@ -745,10 +736,9 @@
           "200": {
             "description": "",
             "content": {
-              "application/octet-stream": {
+              "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
+                  "$ref": "#/components/schemas/Result"
                 }
               }
             }
@@ -783,10 +773,9 @@
           "200": {
             "description": "",
             "content": {
-              "application/octet-stream": {
+              "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
+                  "$ref": "#/components/schemas/Result"
                 }
               }
             }
@@ -1127,8 +1116,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "integer",
-                  "format": "int32"
+                  "$ref": "#/components/schemas/Result"
                 }
               }
             }
@@ -1163,10 +1151,9 @@
           "200": {
             "description": "",
             "content": {
-              "application/octet-stream": {
+              "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
+                  "$ref": "#/components/schemas/Result"
                 }
               }
             }
@@ -1201,10 +1188,9 @@
           "200": {
             "description": "",
             "content": {
-              "application/octet-stream": {
+              "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
+                  "$ref": "#/components/schemas/Result"
                 }
               }
             }
@@ -1324,6 +1310,128 @@
           "id": {
             "type": "integer",
             "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressLine": {
+            "type": "string"
+          },
+          "postalCode": {
+            "type": "string"
+          },
+          "city": {
+            "$ref": "#/components/schemas/City"
+          },
+          "province": {
+            "$ref": "#/components/schemas/Province"
+          }
+        }
+      },
+      "City": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseEntity"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "string"
+              },
+              "status": {
+                "$ref": "#/components/schemas/StatusEnum"
+              },
+              "provinceId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "province": {
+                "$ref": "#/components/schemas/Province"
+              }
+            }
+          }
+        ]
+      },
+      "StatusEnum": {
+        "type": "integer",
+        "description": "",
+        "x-enumNames": [
+          "Inactive",
+          "Active"
+        ],
+        "enum": [
+          0,
+          1
+        ]
+      },
+      "Province": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseEntity"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "string"
+              },
+              "status": {
+                "$ref": "#/components/schemas/StatusEnum"
+              },
+              "cities": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/City"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "BaseEntity": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "domainEvents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BaseEvent"
+            }
+          }
+        }
+      },
+      "BaseEvent": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false
+      },
+      "Result": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "succeeded": {
+            "type": "boolean"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
@@ -1331,6 +1439,34 @@
         "type": "object",
         "additionalProperties": false,
         "properties": {
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressLine": {
+            "type": "string"
+          },
+          "postalCode": {
+            "type": "string"
+          },
+          "cityId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "provinceId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "UpdateAddressCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
           "title": {
             "type": "string",
             "nullable": true
@@ -1345,25 +1481,13 @@
           },
           "cityId": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
           },
           "provinceId": {
             "type": "integer",
-            "format": "int32"
-          },
-          "userId": {
-            "type": "string",
+            "format": "int32",
             "nullable": true
-          }
-        }
-      },
-      "UpdateAddressCommand": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
           }
         }
       },
@@ -1405,80 +1529,19 @@
           "id": {
             "type": "integer",
             "format": "int32"
-          }
-        }
-      },
-      "CreateArticleCommand": {
-        "type": "object",
-        "additionalProperties": false
-      },
-      "UpdateArticleCommand": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          }
-        }
-      },
-      "PaginatedListOfCategoryDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "items": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/CategoryDto"
-            }
           },
-          "pageNumber": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "totalPages": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "totalCount": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "hasPreviousPage": {
-            "type": "boolean"
-          },
-          "hasNextPage": {
-            "type": "boolean"
-          }
-        }
-      },
-      "CategoryDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
+          "title": {
             "type": "string"
-          },
-          "parentCategoryId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
           },
           "description": {
             "type": "string",
             "nullable": true
           },
-          "seoTags": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
+          "body": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
           },
           "medias": {
             "type": "array",
@@ -1487,7 +1550,7 @@
               "$ref": "#/components/schemas/Media"
             }
           },
-          "subCategories": {
+          "categories": {
             "type": "array",
             "nullable": true,
             "items": {
@@ -1659,18 +1722,6 @@
           }
         ]
       },
-      "StatusEnum": {
-        "type": "integer",
-        "description": "",
-        "x-enumNames": [
-          "Inactive",
-          "Active"
-        ],
-        "enum": [
-          0,
-          1
-        ]
-      },
       "Social": {
         "type": "object",
         "additionalProperties": false,
@@ -1722,7 +1773,8 @@
                 "type": "string"
               },
               "description": {
-                "type": "string"
+                "type": "string",
+                "nullable": true
               },
               "price": {
                 "type": "integer",
@@ -1741,36 +1793,42 @@
               },
               "categories": {
                 "type": "array",
+                "nullable": true,
                 "items": {
                   "$ref": "#/components/schemas/Category"
                 }
               },
               "productVariants": {
                 "type": "array",
+                "nullable": true,
                 "items": {
                   "$ref": "#/components/schemas/ProductVariant"
                 }
               },
               "coupons": {
                 "type": "array",
+                "nullable": true,
                 "items": {
                   "$ref": "#/components/schemas/Coupon"
                 }
               },
               "medias": {
                 "type": "array",
+                "nullable": true,
                 "items": {
                   "$ref": "#/components/schemas/Media"
                 }
               },
               "productAttributes": {
                 "type": "array",
+                "nullable": true,
                 "items": {
                   "$ref": "#/components/schemas/ProductAttribute"
                 }
               },
               "productReviews": {
                 "type": "array",
+                "nullable": true,
                 "items": {
                   "$ref": "#/components/schemas/ProductReview"
                 }
@@ -1852,7 +1910,8 @@
                 "type": "string"
               },
               "description": {
-                "type": "string"
+                "type": "string",
+                "nullable": true
               },
               "body": {
                 "type": "string"
@@ -1860,22 +1919,12 @@
               "slug": {
                 "type": "string"
               },
-              "sort": {
-                "type": "integer",
-                "format": "int32"
-              },
-              "mediaId": {
-                "type": "integer",
-                "format": "int32",
-                "nullable": true
-              },
-              "media": {
+              "medias": {
+                "type": "array",
                 "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/Media"
-                  }
-                ]
+                "items": {
+                  "$ref": "#/components/schemas/Media"
+                }
               },
               "categories": {
                 "type": "array",
@@ -1932,18 +1981,38 @@
                 "type": "integer",
                 "format": "int32"
               },
+              "type": {
+                "$ref": "#/components/schemas/CouponTypeEnum"
+              },
+              "value": {
+                "type": "integer",
+                "format": "int64"
+              },
               "expiryDate": {
                 "type": "string",
                 "format": "date-time"
               },
               "products": {
                 "type": "array",
+                "nullable": true,
                 "items": {
                   "$ref": "#/components/schemas/Product"
                 }
               }
             }
           }
+        ]
+      },
+      "CouponTypeEnum": {
+        "type": "integer",
+        "description": "",
+        "x-enumNames": [
+          "Percentage",
+          "FixedAmount"
+        ],
+        "enum": [
+          1,
+          2
         ]
       },
       "ProductAttribute": {
@@ -2003,7 +2072,8 @@
             "additionalProperties": false,
             "properties": {
               "title": {
-                "type": "string"
+                "type": "string",
+                "nullable": true
               },
               "addressLine": {
                 "type": "string"
@@ -2028,85 +2098,6 @@
             }
           }
         ]
-      },
-      "City": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BaseEntity"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "name": {
-                "type": "string"
-              },
-              "slug": {
-                "type": "string"
-              },
-              "status": {
-                "$ref": "#/components/schemas/StatusEnum"
-              },
-              "provinceId": {
-                "type": "integer",
-                "format": "int32"
-              },
-              "province": {
-                "$ref": "#/components/schemas/Province"
-              }
-            }
-          }
-        ]
-      },
-      "Province": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BaseEntity"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "name": {
-                "type": "string"
-              },
-              "slug": {
-                "type": "string"
-              },
-              "status": {
-                "$ref": "#/components/schemas/StatusEnum"
-              },
-              "cities": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/City"
-                }
-              }
-            }
-          }
-        ]
-      },
-      "BaseEntity": {
-        "type": "object",
-        "x-abstract": true,
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "domainEvents": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BaseEvent"
-            }
-          }
-        }
-      },
-      "BaseEvent": {
-        "type": "object",
-        "x-abstract": true,
-        "additionalProperties": false
       },
       "Order": {
         "allOf": [
@@ -2437,17 +2428,153 @@
           }
         }
       },
-      "Result": {
+      "CreateArticleCommand": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "succeeded": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "body": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "medias": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "categories": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        }
+      },
+      "UpdateArticleCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "body": {
+            "type": "string",
+            "nullable": true
+          },
+          "slug": {
+            "type": "string",
+            "nullable": true
+          },
+          "medias": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "categories": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        }
+      },
+      "PaginatedListOfCategoryDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/CategoryDto"
+            }
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "hasPreviousPage": {
             "type": "boolean"
           },
-          "errors": {
+          "hasNextPage": {
+            "type": "boolean"
+          }
+        }
+      },
+      "CategoryDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "parentCategoryId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "seoTags": {
             "type": "array",
+            "nullable": true,
             "items": {
               "type": "string"
+            }
+          },
+          "medias": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Media"
+            }
+          },
+          "subCategories": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Category"
             }
           }
         }
@@ -2507,6 +2634,14 @@
             "items": {
               "type": "string"
             }
+          },
+          "medias": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
           }
         }
       },
@@ -2548,12 +2683,65 @@
           "id": {
             "type": "integer",
             "format": "int32"
+          },
+          "code": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "type": {
+            "$ref": "#/components/schemas/CouponTypeEnum"
+          },
+          "value": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "products": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Product"
+            }
           }
         }
       },
       "CreateCouponCommand": {
         "type": "object",
-        "additionalProperties": false
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "type": {
+            "$ref": "#/components/schemas/CouponTypeEnum"
+          },
+          "value": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "products": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        }
       },
       "UpdateCouponCommand": {
         "type": "object",
@@ -2562,6 +2750,41 @@
           "id": {
             "type": "integer",
             "format": "int32"
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "type": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CouponTypeEnum"
+              }
+            ]
+          },
+          "value": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "products": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
           }
         }
       },
@@ -2657,12 +2880,136 @@
           "id": {
             "type": "integer",
             "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "price": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "totalSales": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "stock": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "$ref": "#/components/schemas/StatusEnum"
+          },
+          "categories": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Category"
+            }
+          },
+          "productVariants": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/ProductVariant"
+            }
+          },
+          "coupons": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Coupon"
+            }
+          },
+          "medias": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Media"
+            }
+          },
+          "productAttributes": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/ProductAttribute"
+            }
+          },
+          "productReviews": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/ProductReview"
+            }
           }
         }
       },
       "CreateProductCommand": {
         "type": "object",
-        "additionalProperties": false
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "price": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "stock": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "$ref": "#/components/schemas/StatusEnum"
+          },
+          "categories": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "productVariants": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "medias": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "productAttributes": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "productReviews": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        }
       },
       "UpdateProductCommand": {
         "type": "object",
@@ -2671,6 +3018,72 @@
           "id": {
             "type": "integer",
             "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "price": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "stock": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "status": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/StatusEnum"
+              }
+            ]
+          },
+          "categories": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "productVariants": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "medias": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "productAttributes": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "productReviews": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
           }
         }
       },

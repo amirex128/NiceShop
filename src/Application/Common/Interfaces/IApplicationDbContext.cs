@@ -14,8 +14,6 @@ public interface IApplicationDbContext
     public DbSet<Category> Categories { get; }
     public DbSet<City> Cities { get; }
     public DbSet<Coupon> Coupon { get; }
-    public DbSet<CouponPercentage> CouponPercentage { get; }
-    public DbSet<CouponFixedAmount> CouponFixedAmount { get; }
     public DbSet<Order> Orders { get; }
     public DbSet<OrderItem> OrderItems { get; }
     public DbSet<OTP> OTPs { get; }

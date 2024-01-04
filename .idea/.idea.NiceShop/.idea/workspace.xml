@@ -54,6 +54,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d382df578ec93391918cfaa4ce7f4b8f35c9aed1241d6556dc9be26df13c/IdentityUser.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/85677d70a1e49f941c4f2cea297d2be7152e52c08af9534c5dcbdb8949c7bae/EventingBasicConsumer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d5b2136a6ba2708bd1524889498ba798cfd91226a584468c1bf4d588e4c29b1b/NotFoundException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ecfb3ac553b91e5d99f0b7cb4cf01f10adab9e395324b1a65664fe22b3764be/DefaultValidatorExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f4fa7fbb53429c406fd8ab2ef49c2bf3bd9b7319a20a8576e298a6683b2bbc/BasicDeliverEventArgs.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/global.json" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -232,7 +233,7 @@
       <workItem from="1704273153989" duration="486000" />
       <workItem from="1704273673953" duration="18245000" />
       <workItem from="1704302046631" duration="10892000" />
-      <workItem from="1704363327157" duration="7199000" />
+      <workItem from="1704363327157" duration="12118000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="fix init">
       <option name="closed" value="true" />
@@ -310,7 +311,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704367295947</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="add product api">
+      <option name="closed" value="true" />
+      <created>1704371569823</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1704371569823</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -331,7 +340,8 @@
     <MESSAGE value="implement category cqrs" />
     <MESSAGE value="implementing article api" />
     <MESSAGE value="add address api" />
-    <option name="LAST_COMMIT_MESSAGE" value="add address api" />
+    <MESSAGE value="add product api" />
+    <option name="LAST_COMMIT_MESSAGE" value="add product api" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

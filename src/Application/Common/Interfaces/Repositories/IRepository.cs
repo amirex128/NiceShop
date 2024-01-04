@@ -1,9 +1,10 @@
 using System.Linq.Expressions;
+using NiceShop.Domain.Common;
 using NiceShop.Domain.Entities;
 
 namespace NiceShop.Application.Common.Interfaces.Repositories;
 
-public interface IRepository<T> where T : class
+public interface IRepository<T> where T : BaseEntity, new()
 {
     public Task<T?> GetByIdAsync(int id);
     public Task<IEnumerable<T>> GetAllAsync();
@@ -13,4 +14,5 @@ public interface IRepository<T> where T : class
     public Task<int> CountAsync();
     public Task<bool> AnyAsync(Expression<Func<T, bool>> predicate);
     public IQueryable<T> AsQueryable();
+    public void UpdateEntityCollection(ref List<T>? entityCollection, int[]? requestCollection);
 }

@@ -1,39 +1,18 @@
-﻿using NiceShop.Application.Common.Interfaces;
-using NiceShop.Domain.Entities;
+﻿using NiceShop.Application.Common.Models;
+using NiceShop.Domain.Enums;
 
 namespace NiceShop.Application.Features.Products.Commands.Create;
 
-public record CreateProductCommand : IRequest<int>
+public record CreateProductCommand : IRequest<Result>
 {
-}
-
-public class CreateProductCommandValidator : AbstractValidator<CreateProductCommand>
-{
-    public CreateProductCommandValidator()
-    {
-    }
-}
-
-public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, int>
-{
-    private readonly IApplicationDbContext _context;
-
-    public CreateProductCommandHandler(IApplicationDbContext context)
-    {
-        _context = context;
-    }
-
-    public async Task<int> Handle(CreateProductCommand request, CancellationToken cancellationToken)
-    {
-        var entity = new Product
-        {
-            UserId = ""
-        };
-
-        _context.Products.Add(entity);
-
-        await _context.SaveChangesAsync(cancellationToken);
-
-        return entity.Id;
-    }
+    public required string Name { get; set; }
+    public string? Description { get; set; }
+    public required long Price { get; set; }
+    public required int Stock { get; set; }
+    public required StatusEnum Status { get; set; }
+    public int[]? Categories { get; set; }
+    public int[]? ProductVariants { get; set; }
+    public int[]? Medias { get; set; }
+    public int[]? ProductAttributes { get; set; }
+    public int[]? ProductReviews { get; set; }
 }

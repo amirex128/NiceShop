@@ -32,24 +32,14 @@
     <option name="projectConfigVersion" value="5" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///pre-request-script-5ecf7a95.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-76898413.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-93d18699.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-93d18699.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-93d18699.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-a6956c2e.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-5ecf7a95.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-76898413.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-93d18699.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-93d18699.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-93d18699.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-a6956c2e.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/3f1acb59718cadf111a0a796681e3d3509bb3381/src/DefaultBuilder/src/WebApplication.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/3f1acb59718cadf111a0a796681e3d3509bb3381/src/Http/Http.Extensions/src/ProblemDetailsServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0a92131e7f8f4af8bc2cfef6e614faef16a00/7b/a5352381/OpenApiSecuritySchemeType.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0c53ee5c91f047f387400d094b3581c4267420/bb/35e7eca7/DbSet`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/649f9a5315084d038b64e29ea11b1fb5b8a0/3b/adf13e38/IConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/717eeb12f338474bb05aa0a346c7d07b8a00/54/c7674c80/NotFoundException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7c05a9f56cce41eba9451cc4a5a099cc138a0/65/25c9d3e2/HostEnvironmentEnvExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8470c83990034898918f7f2bdbbc1cd84d1400/5a/99fa14b5/Result.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8470c83990034898918f7f2bdbbc1cd84d1400/ab/52253641/IElasticClient.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8e7d133a4bc14e71834005a023e0390222600/d1/3ca50c4f/Log.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a4686bac5d214ad3928ed9e11fa1b7bc10c00/89/a08a01a0/SendResult.cs" root0="SKIP_HIGHLIGHTING" />
@@ -242,6 +232,7 @@
       <workItem from="1704273153989" duration="486000" />
       <workItem from="1704273673953" duration="18245000" />
       <workItem from="1704302046631" duration="10892000" />
+      <workItem from="1704363327157" duration="7199000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="fix init">
       <option name="closed" value="true" />
@@ -311,7 +302,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704321810570</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add address api">
+      <option name="closed" value="true" />
+      <created>1704367295947</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1704367295947</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -331,7 +330,8 @@
     <MESSAGE value="add new api" />
     <MESSAGE value="implement category cqrs" />
     <MESSAGE value="implementing article api" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementing article api" />
+    <MESSAGE value="add address api" />
+    <option name="LAST_COMMIT_MESSAGE" value="add address api" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

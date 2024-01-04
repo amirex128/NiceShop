@@ -18,6 +18,7 @@ public interface IUnitOfWork
     public IProductAttributeRepository ProductAttributeRepository { get; set; }
     public IProductRepository ProductRepository { get; set; }
     public IProductVariantRepository ProductVariantRepository { get; set; }
+    public IProductReviewRepository ProductReviewRepository { get; set; }
     public IProvinceRepository ProvinceRepository { get; set; }
     public IReturnRepository ReturnRepository { get; set; }
     public ISubscriptionRepository SubscriptionRepository { get; set; }

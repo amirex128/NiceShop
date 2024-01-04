@@ -5,5 +5,4 @@ using NiceShop.Infrastructure.Data;
 
 namespace NiceShop.Infrastructure.Repositories;
 
-public class UserRepository(ApplicationDbContext context, ILogger<Repository<User>> logger)
-    : Repository<User>(context, logger), IUserRepository;
+public class UserRepository : IUserRepository;

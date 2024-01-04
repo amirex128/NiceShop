@@ -2,7 +2,7 @@ namespace NiceShop.Domain.Entities;
 
 public class Coupon : BaseAuditableEntity
 {
-    public required string Code { get; set; }
+    public string Code { get; set; }= "";
     public int Quantity { get; set; }
     public DateTime ExpiryDate { get; set; }
     public List<Product> Products { get; set; } = null!;

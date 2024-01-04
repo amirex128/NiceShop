@@ -28,6 +28,8 @@ public sealed class UnitOfWork : IUnitOfWork, IDisposable
     public IProductAttributeRepository ProductAttributeRepository { get; set; }
     public IProductRepository ProductRepository { get; set; }
     public IProductVariantRepository ProductVariantRepository { get; set; }
+
+    public IProductReviewRepository ProductReviewRepository { get; set; }
     public IProvinceRepository ProvinceRepository { get; set; }
     public IReturnRepository ReturnRepository { get; set; }
     public ISubscriptionRepository SubscriptionRepository { get; set; }
@@ -58,11 +60,13 @@ public sealed class UnitOfWork : IUnitOfWork, IDisposable
         ProductRepository = new ProductRepository(_context, loggerFactory.CreateLogger<Repository<Product>>());
         ProductVariantRepository =
             new ProductVariantRepository(_context, loggerFactory.CreateLogger<Repository<ProductVariant>>());
+        ProductReviewRepository =
+            new ProductReviewRepository(_context, loggerFactory.CreateLogger<Repository<ProductReview>>());
         ProvinceRepository = new ProvinceRepository(_context, loggerFactory.CreateLogger<Repository<Province>>());
         ReturnRepository = new ReturnRepository(_context, loggerFactory.CreateLogger<Repository<Return>>());
         SubscriptionRepository =
             new SubscriptionRepository(_context, loggerFactory.CreateLogger<Repository<Subscription>>());
-        UserRepository = new UserRepository(_context, loggerFactory.CreateLogger<Repository<User>>());
+        UserRepository = new UserRepository();
         WishlistRepository = new WishlistRepository(_context, loggerFactory.CreateLogger<Repository<Wishlist>>());
     }
 

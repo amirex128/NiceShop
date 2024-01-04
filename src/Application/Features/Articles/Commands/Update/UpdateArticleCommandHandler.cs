@@ -15,45 +15,16 @@ public class UpdateArticleCommandHandler(IUnitOfWork unitOfWork) : IRequestHandl
         entity.Description = request.Description ?? entity.Description;
         entity.Body = request.Body ?? entity.Body;
         entity.Slug = request.Slug ?? entity.Slug;
+        
+        var medias = entity.Medias?.ToList();
+        var categories = entity.Categories?.ToList();
 
-        if (request.Medias != null)
-        {
-            if (entity.Medias == null || entity.Medias.Count == 0)
-            {
-                entity.Medias = request.Medias.Select(v => new Media { Id = v }).ToList();
-            }
-            else
-            {
-                var currentMediaIds = entity.Medias.Select(m => m.Id).ToList();
-                var mediaIdsToAdd = request.Medias.Except(currentMediaIds!).ToList();
-                var mediaIdsToRemove = currentMediaIds.Except(request.Medias).ToList();
+        unitOfWork.MediaRepository.UpdateEntityCollection(ref medias, request.Medias);
+        unitOfWork.CategoryRepository.UpdateEntityCollection(ref categories, request.Categories);
 
-                entity.Medias.AddRange(mediaIdsToAdd.Select(id => new Media { Id = id }));
-
-                var mediasToRemove = entity.Medias.Where(m => mediaIdsToRemove.Contains(m.Id)).ToList();
-                entity.Medias = entity.Medias.Except(mediasToRemove).ToList();
-            }
-        }
-
-        if (request.Categories != null)
-        {
-            if (entity.Categories == null || entity.Categories.Count == 0)
-            {
-                entity.Categories = request.Categories.Select(v => new Category { Id = v }).ToList();
-            }
-            else
-            {
-                var currentCategoryIds = entity.Categories.Select(m => m.Id).ToList();
-                var categoryIdsToAdd = request.Categories.Except(currentCategoryIds!).ToList();
-                var categoryIdsToRemove = currentCategoryIds.Except(request.Categories).ToList();
-
-                entity.Categories.AddRange(categoryIdsToAdd.Select(id => new Category { Id = id }));
-
-                var mediasToRemove = entity.Categories.Where(m => categoryIdsToRemove.Contains(m.Id)).ToList();
-                entity.Categories = entity.Categories.Except(mediasToRemove).ToList();
-            }
-        }
-
+        entity.Categories = categories;
+        entity.Medias = medias;
+        
         var result = unitOfWork.ArticleRepository.Update(entity);
         result = result && await unitOfWork.SaveChangesAsync(cancellationToken);
 

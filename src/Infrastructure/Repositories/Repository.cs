@@ -3,11 +3,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using NiceShop.Application.Common.Interfaces;
 using NiceShop.Application.Common.Interfaces.Repositories;
+using NiceShop.Domain.Common;
 using NiceShop.Infrastructure.Data;
 
 namespace NiceShop.Infrastructure.Repositories;
 
-public abstract class Repository<T> : IRepository<T> where T : class
+public abstract class Repository<T> : IRepository<T> where T : BaseEntity, new()
 {
     private readonly ApplicationDbContext _context;
     private DbSet<T> dbSet;
@@ -34,7 +35,7 @@ public abstract class Repository<T> : IRepository<T> where T : class
         }
     }
 
-    public  bool Update(T entity)
+    public bool Update(T entity)
     {
         try
         {
@@ -93,5 +94,27 @@ public abstract class Repository<T> : IRepository<T> where T : class
     public IQueryable<T> AsQueryable()
     {
         return _context.Set<T>().AsQueryable();
+    }
+
+    public void UpdateEntityCollection(ref List<T>? entityCollection, int[]? requestCollection)
+    {
+        if (requestCollection != null)
+        {
+            if (entityCollection == null || entityCollection.Count == 0)
+            {
+                entityCollection = requestCollection.Select(v => new T { Id = v }).ToList();
+            }
+            else
+            {
+                var currentIds = entityCollection.Select(m => m.Id).ToList();
+                var idsToAdd = requestCollection.Except(currentIds).ToList();
+                var idsToRemove = currentIds.Except(requestCollection).ToList();
+
+                entityCollection.AddRange(idsToAdd.Select(id => new T { Id = id }));
+
+                var itemsToRemove = entityCollection.Where(m => idsToRemove.Contains(m.Id)).ToList();
+                entityCollection.RemoveAll(m => itemsToRemove.Contains(m));
+            }
+        }
     }
 }

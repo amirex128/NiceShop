@@ -18,7 +18,7 @@ public class ArticleDto
         public Mapping()
         {
             CreateMap<Article, ArticleDto>().ReverseMap();
-            CreateMap<PaginatedList<Category>, PaginatedList<ArticleDto>>()
+            CreateMap<PaginatedList<Article>, PaginatedList<ArticleDto>>()
                 .ConvertUsing((source, destination, context) =>
                     new PaginatedList<ArticleDto>
                     {

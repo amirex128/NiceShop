@@ -127,8 +127,6 @@ t
 Dsrc/Infrastructure/Data/Configurations/ProductReviewConfiguration.cs,d\c\dc69d004e9f6ef79ef857b7f4fde6ac1e6deb86b
 n
 >src/Infrastructure/Data/Configurations/ProductConfiguration.cs,b\1\b14521c40e129054844bcda2b0ba682b1d330945
-k
-;src/Infrastructure/Data/Configurations/ProductAttributes.cs,5\5\559c7eeebeffa839b487f84d4e0cb8819281f4df
 p
 @src/Infrastructure/Data/Configurations/OrderItemConfiguration.cs,d\8\d8ad85867e85469534a1877511b10570975ae220
 l
@@ -153,8 +151,6 @@ l
 0src/Application/Common/Interfaces/IUintOfWork.cs,6\8\6809d7dc7bc0d1fc21838bd9f2c16e2ef24332d8
 P
  src/Infrastructure/UnitOfWork.cs,7\3\73b1db00cecc60a13a02d883adf7200388ddf11f
-d
-4src/Application/Common/Mappings/MappingExtensions.cs,2\5\254b78ebaa528e05a85bed131647ae2515eeba13
 V
 &src/Application/DependencyInjection.cs,8\d\8d2f6296618b7bf21492fb5575c3b856a99b565e
 z
@@ -454,8 +450,6 @@ g
 7src/Infrastructure/Policies/HasPermissionRequirement.cs,5\a\5adbc124b012939789872b60af76539ad13cee9b
 c
 3src/Infrastructure/Policies/HasPermissionHandler.cs,a\3\a3d39c270afa20db472c8ad7b1c85b6fe9e1e430
-^
-.src/Application/Common/Models/PaginatedList.cs,b\3\b3bd441d3a0f13d23f5285865a72669a9b170a87
 ˜
 hsrc/Application/Features/Categories/Queries/GetWithPagination/GetCategoriesWithPaginationQueryHandler.cs,4\f\4fe15874ab60c7d3ba8438081ff7bf72495dde7a
 }
@@ -534,16 +528,6 @@ y
 Isrc/Application/Features/Products/Commands/Update/UpdateProductCommand.cs,c\5\c54ed06045d2839bc2f90e9d55e5fe3099e38148
 €
 Psrc/Application/Features/Products/Commands/Update/UpdateProductCommandHandler.cs,e\3\e300c1c39732df99eaf3e61d37ac7d2c1dec2fbf
-h
-8src/Infrastructure/Repositories/UserGenericRepository.cs,6\d\6d57bfc1d84e442039530a37a50032bec3c9e3bd
-t
-Dsrc/Application/Common/Interfaces/Repositories/IGenericRepository.cs,c\a\caa95547e5b8d6fa6496fba88b4959149d26858a
-d
-4src/Infrastructure/Repositories/GenericRepository.cs,b\2\b29f16979fc7152c2123b1df68fe89f96249d5a9
-x
-Hsrc/Application/Common/Interfaces/Repositories/IUserGenericRepository.cs,d\3\d313d953dd9e40432ef89bce3a153f8890f9c5f0
-y
-Isrc/Application/Common/Interfaces/Repositories/IMediaGenericRepository.cs,2\d\2d4ee3dbd4a765b74346ecb4460b814cdc9a3427
 z
 Jsrc/Application/Features/Products/Queries/GetById/GetProductByIdHandler.cs,6\a\6a09ee1aad668dc1c69fc8b3d6821a3fdd184af1
 y
@@ -582,3 +566,7 @@ Gsrc/Application/Features/Coupons/Queries/GetWithPagination/CouponDto.cs,b\1\b1
 dsrc/Application/Features/Coupons/Queries/GetWithPagination/GetCouponsWithPaginationQueryValidator.cs,9\d\9dfd9e75079ff62f457c727e1cb3e1f9be6fb465
 ’
 bsrc/Application/Features/Coupons/Queries/GetWithPagination/GetCouponsWithPaginationQueryHandler.cs,a\b\aba3fd7b2419d97183b08ead6c75cde631371dce
+`
+0src/Infrastructure/Services/MappingExtensions.cs,c\7\c71872100609ccb9f74d17946deeaeb14f271fb0
+[
++src/Application/Common/Models/Pagination.cs,c\9\c926d68c02dab028fb71e2b6aeede4876640bf27

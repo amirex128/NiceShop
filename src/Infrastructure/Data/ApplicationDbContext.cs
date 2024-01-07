@@ -13,7 +13,11 @@ namespace NiceShop.Infrastructure.Data;
 
 public class ApplicationDbContext : IdentityDbContext<User>, IApplicationDbContext
 {
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+    {
+        this.ChangeTracker.LazyLoadingEnabled = false;
+
+    }
     public DbSet<Customer> Customers => Set<Customer>();
     public DbSet<Employee> Employees => Set<Employee>();
     public DbSet<Address> Addresses => Set<Address>();
@@ -38,6 +42,7 @@ public class ApplicationDbContext : IdentityDbContext<User>, IApplicationDbConte
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
+
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
         // foreach (IMutableEntityType entityType in builder.Model.GetEntityTypes())

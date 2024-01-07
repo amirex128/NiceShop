@@ -27,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Common\Mappings\" />
     <Folder Include="Features\Users\Queries\" />
   </ItemGroup>
 

@@ -10,5 +10,7 @@ public class ArticleConfiguration : IEntityTypeConfiguration<Article>
     {
         builder.HasKey(p => p.Id);
         builder.HasMany(p => p.Medias).WithOne();
+        builder.HasMany(p=>p.Categories).WithMany();
+
     }
 }

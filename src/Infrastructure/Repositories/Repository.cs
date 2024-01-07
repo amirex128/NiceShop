@@ -63,11 +63,21 @@ public abstract class Repository<T> : IRepository<T> where T : BaseEntity, new()
         }
     }
 
-    public async Task<T?> GetByIdAsync(int id)
+    public async Task<T?> GetByIdAsync(int id, params Expression<Func<T, object>>[] includes)
     {
+        var query = dbSet.AsNoTracking().AsQueryable();
+
+        if (includes != null)
+        {
+            foreach (var include in includes)
+            {
+                query = query.Include(include);
+            }
+        }
+
         try
         {
-            return await dbSet.FindAsync(id);
+            return await query.SingleOrDefaultAsync(entity => entity.Id == id);
         }
         catch (Exception e)
         {
@@ -76,24 +86,37 @@ public abstract class Repository<T> : IRepository<T> where T : BaseEntity, new()
         }
     }
 
-    public async Task<IEnumerable<T>> GetAllAsync()
+    public async Task<List<T>> GetByIdsAsync(int[] ids)
+    {
+        try
+        {
+            return await dbSet.AsNoTracking().Where(entity => ids.Contains(entity.Id)).ToListAsync();
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "Error getting entity with id {Ids}", ids);
+            return new List<T>();
+        }
+    }
+
+    public async Task<List<T>> GetAllAsync()
     {
         return await _context.Set<T>().AsNoTracking().ToListAsync();
     }
 
     public async Task<int> CountAsync()
     {
-        return await _context.Set<T>().CountAsync();
+        return await _context.Set<T>().AsNoTracking().CountAsync();
     }
 
     public async Task<bool> AnyAsync(Expression<Func<T, bool>> predicate)
     {
-        return await _context.Set<T>().AnyAsync(predicate);
+        return await _context.Set<T>().AsNoTracking().AnyAsync(predicate);
     }
 
     public IQueryable<T> AsQueryable()
     {
-        return _context.Set<T>().AsQueryable();
+        return _context.Set<T>().AsNoTracking().AsQueryable();
     }
 
     public void UpdateEntityCollection(ref List<T>? entityCollection, int[]? requestCollection)
@@ -117,4 +140,6 @@ public abstract class Repository<T> : IRepository<T> where T : BaseEntity, new()
             }
         }
     }
+    
+    
 }

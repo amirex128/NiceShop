@@ -1,4 +1,6 @@
-﻿using NiceShop.Application.Common.Models;
+﻿using NiceShop.Application.Common.Interfaces;
+using NiceShop.Application.Common.Models;
+using NiceShop.Application.Features.Categories.Queries.GetWithPagination;
 using NiceShop.Domain.Entities;
 
 namespace NiceShop.Application.Features.Articles.Queries.GetWithPagination;
@@ -11,22 +13,17 @@ public class ArticleDto
     public required string Body { get; set; }
     public required string Slug { get; set; }
     public List<Media>? Medias { get; set; }
-    public List<Category>? Categories { get; set; }
+    public List<CategoryDto>? Categories { get; set; }
 
     private class Mapping : Profile
     {
         public Mapping()
         {
             CreateMap<Article, ArticleDto>().ReverseMap();
-            CreateMap<PaginatedList<Article>, PaginatedList<ArticleDto>>()
-                .ConvertUsing((source, destination, context) =>
-                    new PaginatedList<ArticleDto>
-                    {
-                        PageNumber = source.PageNumber,
-                        TotalPages = source.TotalPages,
-                        TotalCount = source.TotalCount,
-                        Items = source.Items?.Select(item => context.Mapper.Map<ArticleDto>(item)).ToList()
-                    });
+            CreateMap<Pagination<Article>, Pagination<ArticleDto>>()
+                .ForMember(dest => 
+                    dest.Items, opt => 
+                    opt.MapFrom(src => src.Items));
         }
     }
 }

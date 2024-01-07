@@ -22,8 +22,8 @@ public class UpdateArticleCommandHandler(IUnitOfWork unitOfWork) : IRequestHandl
         unitOfWork.MediaRepository.UpdateEntityCollection(ref medias, request.Medias);
         unitOfWork.CategoryRepository.UpdateEntityCollection(ref categories, request.Categories);
 
-        entity.Categories = categories;
-        entity.Medias = medias;
+        entity.Categories = categories!;
+        entity.Medias = medias!;
         
         var result = unitOfWork.ArticleRepository.Update(entity);
         result = result && await unitOfWork.SaveChangesAsync(cancellationToken);

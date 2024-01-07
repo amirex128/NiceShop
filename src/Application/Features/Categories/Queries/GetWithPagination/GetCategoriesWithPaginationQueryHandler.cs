@@ -7,16 +7,12 @@ namespace NiceShop.Application.Features.Categories.Queries.GetWithPagination;
 public class
     GetCategoriesWithPaginationQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
     : IRequestHandler<GetCategoriesWithPaginationQuery,
-        PaginatedList<CategoryDto>>
+        Pagination<CategoryDto>>
 {
-    public async Task<PaginatedList<CategoryDto>> Handle(GetCategoriesWithPaginationQuery request,
+    public async Task<Pagination<CategoryDto>> Handle(GetCategoriesWithPaginationQuery request,
         CancellationToken cancellationToken)
     {
-        var queryable = unitOfWork.CategoryRepository.AsQueryable();
-
-        var paginatedList =
-            await PaginatedList<Category>.CreateAsync(queryable, request.PageNumber, request.PageSize);
-
-        return mapper.Map<PaginatedList<CategoryDto>>(paginatedList);
+        var paginatedList = await unitOfWork.CategoryRepository.GetWithPaginationAsync(request.PageNumber, request.PageSize);
+        return mapper.Map<Pagination<CategoryDto>>(paginatedList);
     }
 }

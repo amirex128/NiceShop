@@ -26,15 +26,10 @@ public class ProductDto
         public Mapping()
         {
             CreateMap<Product, ProductDto>().ReverseMap();
-            CreateMap<PaginatedList<Product>, PaginatedList<ProductDto>>()
-                .ConvertUsing((source, destination, context) =>
-                    new PaginatedList<ProductDto>
-                    {
-                        PageNumber = source.PageNumber,
-                        TotalPages = source.TotalPages,
-                        TotalCount = source.TotalCount,
-                        Items = source.Items?.Select(item => context.Mapper.Map<ProductDto>(item)).ToList()
-                    });
+            CreateMap<Pagination<Product>, Pagination<ProductDto>>()
+                .ForMember(dest => 
+                    dest.Items, opt => 
+                    opt.MapFrom(src => src.Items));
         }
     }
 }

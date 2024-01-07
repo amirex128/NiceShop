@@ -8,14 +8,21 @@ public class CreateArticleCommandHandler(IUnitOfWork unitOfWork) : IRequestHandl
 {
     public async Task<Result> Handle(CreateArticleCommand request, CancellationToken cancellationToken)
     {
+        var categories = request.Categories != null 
+            ? await unitOfWork.CategoryRepository.GetByIdsAsync(request.Categories) 
+            : null;
+        var medias = request.Medias != null 
+            ? await unitOfWork.MediaRepository.GetByIdsAsync(request.Medias) 
+            : null;
+        
         var result = await unitOfWork.ArticleRepository.AddAsync(new Article
         {
             Title = request.Title,
             Description = request.Description,
             Body = request.Body,
             Slug = request.Slug,
-            Medias = request.Medias?.Select(x => new Media { Id = x }).ToList(),
-            Categories = request.Categories?.Select(x => new Category { Id = x }).ToList()
+            Medias = medias!,
+            Categories = categories!
         });
         result = result && await unitOfWork.SaveChangesAsync(cancellationToken);
 

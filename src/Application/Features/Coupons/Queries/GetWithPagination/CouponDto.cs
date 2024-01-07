@@ -18,15 +18,10 @@ public class CouponDto
         public Mapping()
         {
             CreateMap<Coupon, CouponDto>().ReverseMap();
-            CreateMap<PaginatedList<Coupon>, PaginatedList<CouponDto>>()
-                .ConvertUsing((source, destination, context) =>
-                    new PaginatedList<CouponDto>
-                    {
-                        PageNumber = source.PageNumber,
-                        TotalPages = source.TotalPages,
-                        TotalCount = source.TotalCount,
-                        Items = source.Items?.Select(item => context.Mapper.Map<CouponDto>(item)).ToList()
-                    });
+            CreateMap<Pagination<Coupon>, Pagination<CouponDto>>()
+                .ForMember(dest => 
+                    dest.Items, opt => 
+                    opt.MapFrom(src => src.Items));
             
         }
     }

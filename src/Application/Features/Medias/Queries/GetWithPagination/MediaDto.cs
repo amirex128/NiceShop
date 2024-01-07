@@ -1,4 +1,5 @@
-﻿using NiceShop.Domain.Entities;
+﻿using NiceShop.Application.Common.Models;
+using NiceShop.Domain.Entities;
 
 namespace NiceShop.Application.Features.Medias.Queries.GetWithPagination;
 
@@ -10,7 +11,12 @@ public class MediaDto
     {
         public Mapping()
         {
-            CreateMap<Media, MediaDto>();
+            CreateMap<Media, MediaDto>().ReverseMap();
+            CreateMap<Pagination<Media>, Pagination<MediaDto>>()
+                .ForMember(dest => 
+                    dest.Items, opt => 
+                    opt.MapFrom(src => src.Items));
+            
         }
     }
 }

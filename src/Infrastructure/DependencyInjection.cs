@@ -31,8 +31,9 @@ public static class DependencyInjection
             options.InstanceName = "NiceShop";
         });
 
-        services.AddSingleton<IElasticClient>(new ElasticClient(new ConnectionSettings(new Uri(configuration["ElasticSearch:Url"] ??
-                                                                                               string.Empty))));
+        services.AddSingleton<IElasticClient>(new ElasticClient(new ConnectionSettings(new Uri(
+            configuration["ElasticSearch:Url"] ??
+            string.Empty))));
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
 
@@ -91,8 +92,10 @@ public static class DependencyInjection
     public static IServiceCollection AddInfrastructureAuthServices(this IServiceCollection services)
     {
         services.AddAuthentication()
-            .AddBearerToken(IdentityConstants.BearerScheme);
-
+            .AddBearerToken(IdentityConstants.BearerScheme, options =>
+            {
+                options.BearerTokenExpiration = TimeSpan.FromDays(1000);
+            });
         services.AddAuthorizationBuilder();
 
         services
@@ -118,7 +121,7 @@ public static class DependencyInjection
         services.AddTransient<IIdentityService, IdentityService>();
 
         services.AddTransient<IAuthorizationHandler, HasPermissionHandler>();
-        
+
         services.AddAuthorization(options =>
             {
                 options.AddPolicy(ACL.CanCreate, policy =>

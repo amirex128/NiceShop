@@ -8,6 +8,7 @@ using NiceShop.Application.Features.Categories.Commands.Update;
 using NiceShop.Application.Features.Categories.Queries.GetById;
 using NiceShop.Application.Features.Categories.Queries.GetWithPagination;
 using NiceShop.Domain.Constants;
+using NiceShop.Infrastructure.Services;
 
 namespace NiceShop.Web.Controllers;
 
@@ -16,7 +17,7 @@ public class Categories(IMediator mediator) : ApiController
 {
     [HttpGet]
     [Authorize(Policy = ACL.CanGetAll)]
-    public async Task<ActionResult<PaginatedList<CategoryDto>>> GetAll(
+    public async Task<ActionResult<Pagination<CategoryDto>>> GetAll(
         [FromQuery] GetCategoriesWithPaginationQuery query)
     {
         return await mediator.Send(query);

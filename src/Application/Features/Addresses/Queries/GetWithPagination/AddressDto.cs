@@ -1,5 +1,4 @@
 ﻿using NiceShop.Application.Common.Models;
-using NiceShop.Application.Features.Addresses.Queries.GetWithPagination;
 using NiceShop.Domain.Entities;
 
 namespace NiceShop.Application.Features.Addresses.Queries.GetWithPagination;
@@ -19,15 +18,10 @@ public class AddressDto
         public Mapping()
         {
             CreateMap<Address, AddressDto>().ReverseMap();
-            CreateMap<PaginatedList<Address>, PaginatedList<AddressDto>>()
-                .ConvertUsing((source, destination, context) =>
-                    new PaginatedList<AddressDto>
-                    {
-                        PageNumber = source.PageNumber,
-                        TotalPages = source.TotalPages,
-                        TotalCount = source.TotalCount,
-                        Items = source.Items?.Select(item => context.Mapper.Map<AddressDto>(item)).ToList()
-                    });
+            CreateMap<Pagination<Address>, Pagination<AddressDto>>()
+                .ForMember(dest => 
+                    dest.Items, opt => 
+                    opt.MapFrom(src => src.Items));
         }
     }
 }

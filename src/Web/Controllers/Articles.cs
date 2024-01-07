@@ -7,6 +7,7 @@ using NiceShop.Application.Features.Articles.Commands.Update;
 using NiceShop.Application.Features.Articles.Queries.GetById;
 using NiceShop.Application.Features.Articles.Queries.GetWithPagination;
 using NiceShop.Domain.Constants;
+using NiceShop.Infrastructure.Services;
 
 namespace NiceShop.Web.Controllers;
 
@@ -14,7 +15,7 @@ public class Articles(IMediator mediator) : ApiController
 {
     [HttpGet]
     [Authorize(Policy = ACL.CanGetAll)]
-    public async Task<ActionResult<PaginatedList<ArticleDto>>> GetAll([FromQuery] GetArticlesWithPaginationQuery query)
+    public async Task<ActionResult<Pagination<ArticleDto>>> GetAll([FromQuery] GetArticlesWithPaginationQuery query)
     {
         return await mediator.Send(query);
     }

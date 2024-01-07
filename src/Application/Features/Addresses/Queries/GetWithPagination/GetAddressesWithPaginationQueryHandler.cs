@@ -5,16 +5,13 @@ using NiceShop.Domain.Entities;
 namespace NiceShop.Application.Features.Addresses.Queries.GetWithPagination;
 
 public class GetAddressesWithPaginationQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
-    : IRequestHandler<GetAddressesWithPaginationQuery, PaginatedList<AddressDto>>
+    : IRequestHandler<GetAddressesWithPaginationQuery, Pagination<AddressDto>>
 {
-    public async Task<PaginatedList<AddressDto>> Handle(GetAddressesWithPaginationQuery request,
+    public async Task<Pagination<AddressDto>> Handle(GetAddressesWithPaginationQuery request,
         CancellationToken cancellationToken)
     {
-        var queryable = unitOfWork.AddressRepository.AsQueryable();
-
-        var paginatedList =
-            await PaginatedList<Address>.CreateAsync(queryable, request.PageNumber, request.PageSize);
-
-        return mapper.Map<PaginatedList<AddressDto>>(paginatedList);
+        var paginatedRes =
+            await unitOfWork.AddressRepository.GetWithPaginationAsync(request.PageNumber, request.PageSize);
+        return mapper.Map<Pagination<AddressDto>>(paginatedRes);
     }
 }

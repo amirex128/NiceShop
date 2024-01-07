@@ -6,6 +6,7 @@ public class Category : BaseAuditableEntity
     public int? ParentCategoryId { get; set; }
 
     public string? Description { get; set; }
+    public string Slug { get; set; } = "";
 
     private string? _seoTags;
 
@@ -18,5 +19,4 @@ public class Category : BaseAuditableEntity
     public List<Media>? Medias { get; set; }
     public List<Category>? SubCategories { get; set; }
     public List<Product>? Products { get; set; }
-    public List<Article>? Articles { get; set; }
 }

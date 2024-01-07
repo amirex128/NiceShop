@@ -32,8 +32,17 @@
     <option name="projectConfigVersion" value="5" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///pre-request-script-ce962dd4.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-cf0aa2b5.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-cf0aa2b5.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-cf0aa2b5.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-ce962dd4.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-cf0aa2b5.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-cf0aa2b5.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-cf0aa2b5.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/3f1acb59718cadf111a0a796681e3d3509bb3381/src/DefaultBuilder/src/WebApplication.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/3f1acb59718cadf111a0a796681e3d3509bb3381/src/Http/Http.Extensions/src/ProblemDetailsServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/3f1acb59718cadf111a0a796681e3d3509bb3381/src/Security/Authentication/BearerToken/src/BearerTokenExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0a92131e7f8f4af8bc2cfef6e614faef16a00/7b/a5352381/OpenApiSecuritySchemeType.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0c53ee5c91f047f387400d094b3581c4267420/bb/35e7eca7/DbSet`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/649f9a5315084d038b64e29ea11b1fb5b8a0/3b/adf13e38/IConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
@@ -49,6 +58,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1d8b23e1e431b24cf7c1dfb82e9beaa902041dd7e3da0f56c5991144595/AuthorizeAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/251361482a1fa2bee4c1279ae3327ec461c81eac80b589209b48dc04f9b/LoginRequest.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/29ea32a76b2a6b8eb246f247df6a6a86d887384b4c31db2a35effccdd86c24/JsonSerializerInternalReader.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4b21fc3f8a3abb5d25f06c622276fbec0fd3932f169cc6af520bf5abc6a46b4/DbSet.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6744c0786e7232ace9d3768478ce2726dec8464711057552bb6dd53f626d9c0/GuardAgainstNotFoundExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7cd5c2b34129c679757d73774749838069732e89a78ac285d916b7bb4df98c16/IdentityResult.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d382df578ec93391918cfaa4ce7f4b8f35c9aed1241d6556dc9be26df13c/IdentityUser.cs" root0="SKIP_HIGHLIGHTING" />
@@ -233,7 +243,14 @@
       <workItem from="1704273153989" duration="486000" />
       <workItem from="1704273673953" duration="18245000" />
       <workItem from="1704302046631" duration="10892000" />
-      <workItem from="1704363327157" duration="12118000" />
+      <workItem from="1704363327157" duration="12403000" />
+      <workItem from="1704386571996" duration="7972000" />
+      <workItem from="1704443682715" duration="12869000" />
+      <workItem from="1704530208135" duration="36000" />
+      <workItem from="1704531178950" duration="9000" />
+      <workItem from="1704564053773" duration="426000" />
+      <workItem from="1704632536793" duration="443000" />
+      <workItem from="1704635581069" duration="228000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="fix init">
       <option name="closed" value="true" />
@@ -319,7 +336,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704371569823</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add coupon api">
+      <option name="closed" value="true" />
+      <created>1704377317644</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1704377317644</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,26 +366,8 @@
     <MESSAGE value="implementing article api" />
     <MESSAGE value="add address api" />
     <MESSAGE value="add product api" />
-    <option name="LAST_COMMIT_MESSAGE" value="add product api" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/Consumers/Workers/SmsWorker.cs</url>
-          <line>17</line>
-          <properties documentPath="D:\programming\Projects\NiceShop\src\Consumers\Workers\SmsWorker.cs" initialLine="17" containingFunctionPresentation="Lambda expression inside Method 'ExecuteAsync'">
-            <startOffsets>
-              <option value="461" />
-            </startOffsets>
-            <endOffsets>
-              <option value="518" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="add coupon api" />
+    <option name="LAST_COMMIT_MESSAGE" value="add coupon api" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

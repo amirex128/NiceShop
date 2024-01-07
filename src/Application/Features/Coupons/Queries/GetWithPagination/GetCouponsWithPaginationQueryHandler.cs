@@ -5,16 +5,12 @@ using NiceShop.Domain.Entities;
 namespace NiceShop.Application.Features.Coupons.Queries.GetWithPagination;
 
 public class GetCouponsWithPaginationQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
-    : IRequestHandler<GetCouponsWithPaginationQuery, PaginatedList<CouponDto>>
+    : IRequestHandler<GetCouponsWithPaginationQuery, Pagination<CouponDto>>
 {
-    public async Task<PaginatedList<CouponDto>> Handle(GetCouponsWithPaginationQuery request, CancellationToken cancellationToken)
+    public async Task<Pagination<CouponDto>> Handle(GetCouponsWithPaginationQuery request, CancellationToken cancellationToken)
     {
-        var queryable = unitOfWork.CouponRepository.AsQueryable();
-
-        var paginatedList =
-            await PaginatedList<Coupon>.CreateAsync(queryable, request.PageNumber, request.PageSize);
-
-        return mapper.Map<PaginatedList<CouponDto>>(paginatedList);
+        var paginatedList = await unitOfWork.CouponRepository.GetWithPaginationAsync(request.PageNumber, request.PageSize);
+        return mapper.Map<Pagination<CouponDto>>(paginatedList);
         
     }
 }

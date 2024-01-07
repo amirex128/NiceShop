@@ -6,8 +6,9 @@ namespace NiceShop.Application.Common.Interfaces.Repositories;
 
 public interface IRepository<T> where T : BaseEntity, new()
 {
-    public Task<T?> GetByIdAsync(int id);
-    public Task<IEnumerable<T>> GetAllAsync();
+    public Task<T?> GetByIdAsync(int id, params Expression<Func<T, object>>[] includes);
+    public Task<List<T>> GetByIdsAsync(int[] ids);
+    public Task<List<T>> GetAllAsync();
     public Task<bool> AddAsync(T entity);
     public bool Update(T entity);
     public bool Delete(T entity);

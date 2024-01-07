@@ -3,13 +3,13 @@ using NiceShop.Application.Common.Models;
 
 namespace NiceShop.Application.Features.Medias.Queries.GetWithPagination
 {
-    public record GetMediasWithPaginationQuery : IRequest<PaginatedList<MediaDto>>
+    public record GetMediasWithPaginationQuery : IRequest<Pagination<MediaDto>>
     {
         public int PageNumber { get; init; } = 1;
         public int PageSize { get; init; } = 10;
     }
 
-    public class GetMediasWithPaginationQueryHandler : IRequestHandler<GetMediasWithPaginationQuery, PaginatedList<MediaDto>>
+    public class GetMediasWithPaginationQueryHandler : IRequestHandler<GetMediasWithPaginationQuery, Pagination<MediaDto>>
     {
         private readonly IApplicationDbContext _context;
         private readonly IMapper _mapper;
@@ -20,9 +20,9 @@ namespace NiceShop.Application.Features.Medias.Queries.GetWithPagination
             _mapper = mapper;
         }
 
-        public async Task<PaginatedList<MediaDto>> Handle(GetMediasWithPaginationQuery request, CancellationToken cancellationToken)
+        public async Task<Pagination<MediaDto>> Handle(GetMediasWithPaginationQuery request, CancellationToken cancellationToken)
         {
-            return await Task.FromResult<PaginatedList<MediaDto>>(null!);
+            return await Task.FromResult<Pagination<MediaDto>>(null!);
         }
     }
 }

@@ -48,7 +48,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PaginatedListOfAddressDto"
+                  "$ref": "#/components/schemas/PaginationOfAddressDto"
                 }
               }
             }
@@ -241,7 +241,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PaginatedListOfArticleDto"
+                  "$ref": "#/components/schemas/PaginationOfArticleDto"
                 }
               }
             }
@@ -434,7 +434,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PaginatedListOfCategoryDto"
+                  "$ref": "#/components/schemas/PaginationOfCategoryDto"
                 }
               }
             }
@@ -627,7 +627,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PaginatedListOfCouponDto"
+                  "$ref": "#/components/schemas/PaginationOfCouponDto"
                 }
               }
             }
@@ -820,7 +820,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PaginatedListOfMediaDto"
+                  "$ref": "#/components/schemas/PaginationOfMediaDto"
                 }
               }
             }
@@ -1042,7 +1042,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PaginatedListOfProductDto"
+                  "$ref": "#/components/schemas/PaginationOfProductDto"
                 }
               }
             }
@@ -1272,7 +1272,7 @@
   },
   "components": {
     "schemas": {
-      "PaginatedListOfAddressDto": {
+      "PaginationOfAddressDto": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -1491,7 +1491,7 @@
           }
         }
       },
-      "PaginatedListOfArticleDto": {
+      "PaginationOfArticleDto": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -1554,7 +1554,7 @@
             "type": "array",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/Category"
+              "$ref": "#/components/schemas/CategoryDto"
             }
           }
         }
@@ -1858,6 +1858,9 @@
                 "type": "string",
                 "nullable": true
               },
+              "slug": {
+                "type": "string"
+              },
               "seoTags": {
                 "type": "array",
                 "nullable": true,
@@ -1884,53 +1887,6 @@
                 "nullable": true,
                 "items": {
                   "$ref": "#/components/schemas/Product"
-                }
-              },
-              "articles": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "$ref": "#/components/schemas/Article"
-                }
-              }
-            }
-          }
-        ]
-      },
-      "Article": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BaseAuditableEntity"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "title": {
-                "type": "string"
-              },
-              "description": {
-                "type": "string",
-                "nullable": true
-              },
-              "body": {
-                "type": "string"
-              },
-              "slug": {
-                "type": "string"
-              },
-              "medias": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "$ref": "#/components/schemas/Media"
-                }
-              },
-              "categories": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "$ref": "#/components/schemas/Category"
                 }
               }
             }
@@ -2094,6 +2050,44 @@
               },
               "province": {
                 "$ref": "#/components/schemas/Province"
+              }
+            }
+          }
+        ]
+      },
+      "Article": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseAuditableEntity"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string",
+                "nullable": true
+              },
+              "body": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "string"
+              },
+              "medias": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Media"
+                }
+              },
+              "categories": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Category"
+                }
               }
             }
           }
@@ -2428,6 +2422,49 @@
           }
         }
       },
+      "CategoryDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "parentCategoryId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "seoTags": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "medias": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Media"
+            }
+          },
+          "subCategories": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Category"
+            }
+          }
+        }
+      },
       "CreateArticleCommand": {
         "type": "object",
         "additionalProperties": false,
@@ -2505,7 +2542,7 @@
           }
         }
       },
-      "PaginatedListOfCategoryDto": {
+      "PaginationOfCategoryDto": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -2533,49 +2570,6 @@
           },
           "hasNextPage": {
             "type": "boolean"
-          }
-        }
-      },
-      "CategoryDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "type": "string"
-          },
-          "parentCategoryId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "seoTags": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "medias": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/Media"
-            }
-          },
-          "subCategories": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/Category"
-            }
           }
         }
       },
@@ -2645,7 +2639,7 @@
           }
         }
       },
-      "PaginatedListOfCouponDto": {
+      "PaginationOfCouponDto": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -2788,7 +2782,7 @@
           }
         }
       },
-      "PaginatedListOfMediaDto": {
+      "PaginationOfMediaDto": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -2842,7 +2836,7 @@
           }
         }
       },
-      "PaginatedListOfProductDto": {
+      "PaginationOfProductDto": {
         "type": "object",
         "additionalProperties": false,
         "properties": {

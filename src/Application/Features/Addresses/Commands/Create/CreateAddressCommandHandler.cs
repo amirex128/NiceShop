@@ -4,12 +4,11 @@ using NiceShop.Domain.Entities;
 
 namespace NiceShop.Application.Features.Addresses.Commands.Create;
 
-public class CreateAddressCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<CreateAddressCommand, Result>
+public class CreateAddressCommandHandler(IApplicationDbContext context) : IRequestHandler<CreateAddressCommand, Result>
 {
-    
     public async Task<Result> Handle(CreateAddressCommand request, CancellationToken cancellationToken)
     {
-        var result = await unitOfWork.AddressRepository.AddAsync(new Address
+        await context.Addresses.AddAsync(new Address
         {
             Title = request.Title,
             AddressLine = request.AddressLine,
@@ -17,7 +16,9 @@ public class CreateAddressCommandHandler(IUnitOfWork unitOfWork) : IRequestHandl
             CityId = request.CityId,
             ProvinceId = request.ProvinceId
         });
-        result = result && await unitOfWork.SaveChangesAsync(cancellationToken);
-        return result? Result.Created() : Result.FailedCreate();
+
+        var result = await context.SaveChangesAsync(cancellationToken);
+        
+        return result > 0 ? Result.Created() : Result.FailedCreate();
     }
 }

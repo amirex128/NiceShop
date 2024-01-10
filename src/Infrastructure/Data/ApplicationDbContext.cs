@@ -15,7 +15,6 @@ public class ApplicationDbContext : IdentityDbContext<User>, IApplicationDbConte
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
-        this.ChangeTracker.LazyLoadingEnabled = false;
 
     }
     public DbSet<Customer> Customers => Set<Customer>();
@@ -39,6 +38,10 @@ public class ApplicationDbContext : IdentityDbContext<User>, IApplicationDbConte
     public DbSet<Return> Returns => Set<Return>();
     public DbSet<Subscription> Subscriptions => Set<Subscription>();
     public DbSet<Wishlist> Wishlists => Set<Wishlist>();
+    public Task<int> SaveChangesAsync()
+    {
+        return base.SaveChangesAsync();
+    }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

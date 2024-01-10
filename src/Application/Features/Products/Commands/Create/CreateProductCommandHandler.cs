@@ -4,7 +4,7 @@ using NiceShop.Domain.Entities;
 
 namespace NiceShop.Application.Features.Products.Commands.Create;
 
-public class CreateProductCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<CreateProductCommand, Result>
+public class CreateProductCommandHandler(IApplicationDbContext context) : IRequestHandler<CreateProductCommand, Result>
 {
     public async Task<Result> Handle(CreateProductCommand request, CancellationToken cancellationToken)
     {
@@ -15,15 +15,27 @@ public class CreateProductCommandHandler(IUnitOfWork unitOfWork) : IRequestHandl
             Price = request.Price,
             Stock = request.Stock,
             Status = request.Status,
-            Categories = request.Categories?.Select(x => new Category { Id = x }).ToList(),
-            ProductVariants = request.ProductVariants?.Select(x => new ProductVariant { Id = x }).ToList(),
-            Medias = request.Medias?.Select(x => new Media { Id = x }).ToList(),
-            ProductAttributes = request.ProductAttributes?.Select(x => new ProductAttribute { Id = x }).ToList(),
-            ProductReviews = request.ProductReviews?.Select(x => new ProductReview { Id = x }).ToList()
         };
-        var result = await unitOfWork.ProductRepository.AddAsync(product);
-        result = result && await unitOfWork.SaveChangesAsync(cancellationToken);
+
+        if (request.Categories is not null && request.Categories.Any())
+            product.Categories = await context.Categories.Where(x => request.Categories.Contains(x.Id)).ToListAsync();
         
-        return result? Result.Created() : Result.FailedCreate();
+        if (request.ProductVariants is not null && request.ProductVariants.Any())
+            product.ProductVariants = await context.ProductVariants.Where(x => request.ProductVariants.Contains(x.Id)).ToListAsync();
+        
+        if (request.Medias is not null && request.Medias.Any())
+            product.Medias = await context.Medias.Where(x => request.Medias.Contains(x.Id)).ToListAsync();
+        
+        if (request.ProductAttributes is not null && request.ProductAttributes.Any())
+            product.ProductAttributes = await context.ProductAttributes.Where(x => request.ProductAttributes.Contains(x.Id)).ToListAsync();
+        
+        if (request.ProductReviews is not null && request.ProductReviews.Any())
+            product.ProductReviews = await context.ProductReviews.Where(x => request.ProductReviews.Contains(x.Id)).ToListAsync();
+        
+
+        await context.Products.AddAsync(product);
+        var result = await context.SaveChangesAsync(cancellationToken);
+
+        return result > 0 ? Result.Created() : Result.FailedCreate();
     }
 }

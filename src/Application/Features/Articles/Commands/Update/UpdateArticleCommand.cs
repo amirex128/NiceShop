@@ -1,4 +1,6 @@
-﻿using NiceShop.Application.Common.Models;
+﻿using System.Linq.Expressions;
+using NiceShop.Application.Common.Models;
+using NiceShop.Domain.Entities;
 
 namespace NiceShop.Application.Features.Articles.Commands.Update;
 

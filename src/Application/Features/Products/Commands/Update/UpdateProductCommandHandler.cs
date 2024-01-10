@@ -5,11 +5,11 @@ using NiceShop.Domain.Entities;
 
 namespace NiceShop.Application.Features.Products.Commands.Update;
 
-public class UpdateProductCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<UpdateProductCommand, Result>
+public class UpdateProductCommandHandler(IApplicationDbContext context) : IRequestHandler<UpdateProductCommand, Result>
 {
     public async Task<Result> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
     {
-        var entity = await unitOfWork.ProductRepository.GetByIdAsync(request.Id);
+        var entity = await context.Products.FindAsync(request.Id);
         Guard.Against.NotFound(request.Id, entity);
 
         entity.Name = request.Name ?? entity.Name;
@@ -18,27 +18,27 @@ public class UpdateProductCommandHandler(IUnitOfWork unitOfWork) : IRequestHandl
         entity.Stock = request.Stock ?? entity.Stock;
         entity.Status = request.Status ?? entity.Status;
 
-        var categories = entity.Categories?.ToList();
-        var productVariants = entity.ProductVariants?.ToList();
-        var medias = entity.Medias?.ToList();
-        var productAttributes = entity.ProductAttributes?.ToList();
-        var productReviews = entity.ProductReviews?.ToList();
+        if (request.Categories is not null && request.Categories.Any())
+            entity.Categories = await context.Categories.Where(x => request.Categories.Contains(x.Id)).ToListAsync();
 
-        unitOfWork.CategoryRepository.UpdateEntityCollection(ref categories, request.Categories);
-        unitOfWork.ProductVariantRepository.UpdateEntityCollection(ref productVariants, request.ProductVariants);
-        unitOfWork.MediaRepository.UpdateEntityCollection(ref medias, request.Medias);
-        unitOfWork.ProductAttributeRepository.UpdateEntityCollection(ref productAttributes, request.ProductAttributes);
-        unitOfWork.ProductReviewRepository.UpdateEntityCollection(ref productReviews, request.ProductReviews);
+        if (request.ProductVariants is not null && request.ProductVariants.Any())
+            entity.ProductVariants = await context.ProductVariants.Where(x => request.ProductVariants.Contains(x.Id))
+                .ToListAsync();
 
-        entity.Categories = categories;
-        entity.ProductVariants = productVariants;
-        entity.Medias = medias;
-        entity.ProductAttributes = productAttributes;
-        entity.ProductReviews = productReviews;
+        if (request.Medias is not null && request.Medias.Any())
+            entity.Medias = await context.Medias.Where(x => request.Medias.Contains(x.Id)).ToListAsync();
 
-        var result = unitOfWork.ProductRepository.Update(entity);
-        result = result && await unitOfWork.SaveChangesAsync(cancellationToken);
+        if (request.ProductAttributes is not null && request.ProductAttributes.Any())
+            entity.ProductAttributes = await context.ProductAttributes
+                .Where(x => request.ProductAttributes.Contains(x.Id)).ToListAsync();
 
-        return result ? Result.Updated() : Result.FailedUpdate();
+        if (request.ProductReviews is not null && request.ProductReviews.Any())
+            entity.ProductReviews =
+                await context.ProductReviews.Where(x => request.ProductReviews.Contains(x.Id)).ToListAsync();
+
+        context.Products.Update(entity);
+        var result = await context.SaveChangesAsync(cancellationToken);
+
+        return result > 0 ? Result.Updated() : Result.FailedUpdate();
     }
 }

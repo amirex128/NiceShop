@@ -4,28 +4,30 @@ using NiceShop.Domain.Entities;
 
 namespace NiceShop.Application.Features.Articles.Commands.Create;
 
-public class CreateArticleCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<CreateArticleCommand, Result>
+public class CreateArticleCommandHandler(IApplicationDbContext context) : IRequestHandler<CreateArticleCommand, Result>
 {
     public async Task<Result> Handle(CreateArticleCommand request, CancellationToken cancellationToken)
     {
-        var categories = request.Categories != null 
-            ? await unitOfWork.CategoryRepository.GetByIdsAsync(request.Categories) 
-            : null;
-        var medias = request.Medias != null 
-            ? await unitOfWork.MediaRepository.GetByIdsAsync(request.Medias) 
-            : null;
-        
-        var result = await unitOfWork.ArticleRepository.AddAsync(new Article
+        var article = new Article
         {
-            Title = request.Title,
-            Description = request.Description,
-            Body = request.Body,
-            Slug = request.Slug,
-            Medias = medias!,
-            Categories = categories!
-        });
-        result = result && await unitOfWork.SaveChangesAsync(cancellationToken);
+            Title = request.Title, Description = request.Description, Body = request.Body, Slug = request.Slug
+        };
 
-        return result? Result.Created() : Result.FailedCreate();
+        if (request.Categories is not null && request.Categories.Any())
+        {
+            var categories = await context.Categories.Where(c => request.Categories.Contains(c.Id)).ToListAsync();
+            article.Categories = categories;
+        }
+
+        if (request.Medias is not null && request.Medias.Any())
+        {
+            var medias = await context.Medias.Where(c => request.Medias.Contains(c.Id)).ToListAsync();
+            article.Medias = medias;
+        }
+
+        await context.Articles.AddAsync(article);
+        var result = await context.SaveChangesAsync(cancellationToken);
+
+        return result > 0 ? Result.Created() : Result.FailedCreate();
     }
 }

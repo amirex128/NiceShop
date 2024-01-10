@@ -5,14 +5,14 @@ using NiceShop.Domain.Entities;
 namespace NiceShop.Application.Features.Categories.Queries.GetWithPagination;
 
 public class
-    GetCategoriesWithPaginationQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
+    GetCategoriesWithPaginationQueryHandler(IApplicationDbContext context, IMapper mapper)
     : IRequestHandler<GetCategoriesWithPaginationQuery,
         Pagination<CategoryDto>>
 {
     public async Task<Pagination<CategoryDto>> Handle(GetCategoriesWithPaginationQuery request,
         CancellationToken cancellationToken)
     {
-        var paginatedList = await unitOfWork.CategoryRepository.GetWithPaginationAsync(request.PageNumber, request.PageSize);
+        var paginatedList = await context.Categories.PaginatedListAsync(request.PageNumber, request.PageSize);
         return mapper.Map<Pagination<CategoryDto>>(paginatedList);
     }
 }

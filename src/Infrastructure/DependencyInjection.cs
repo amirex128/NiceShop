@@ -15,7 +15,6 @@ using NiceShop.Infrastructure.Elasticsearch;
 using NiceShop.Infrastructure.Identity;
 using NiceShop.Infrastructure.Policies;
 using NiceShop.Infrastructure.Rabbitmq;
-using NiceShop.Infrastructure.Repositories;
 using NiceShop.Infrastructure.Sms;
 
 namespace NiceShop.Infrastructure;
@@ -35,7 +34,6 @@ public static class DependencyInjection
             configuration["ElasticSearch:Url"] ??
             string.Empty))));
 
-        services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         services.AddSingleton<IElasticsearchContext, ElasticsearchContext>();
         services.AddSingleton<IRabbitMqContext, RabbitMqContext>();

@@ -1,33 +1,28 @@
 ﻿using NiceShop.Application.Common.Interfaces;
+using NiceShop.Application.Common.Models;
 
 namespace NiceShop.Application.Features.Medias.Commands.Update;
 
-public record UpdateMediaCommand : IRequest<Dictionary<string, object>>
+public record UpdateMediaCommand : IRequest<Result>
 {
-    public int Id { get; init; }
-    public required string Alt { get; set; }
+    public required int Id { get; init; }
+    public string? Alt { get; set; }
 }
 
-public class UpdateMediaCommandValidator : AbstractValidator<UpdateMediaCommand>
+public class UpdateMediaCommandHandler(IApplicationDbContext context)
+    : IRequestHandler<UpdateMediaCommand, Result>
 {
-    public UpdateMediaCommandValidator()
-    {
-        RuleFor(v => v.Alt).MaximumLength(1000).NotEmpty();
-    }
-}
-
-public class UpdateMediaCommandHandler(IApplicationDbContext context) : IRequestHandler<UpdateMediaCommand, Dictionary<string, object>>
-{
-    public async Task<Dictionary<string, object>> Handle(UpdateMediaCommand request, CancellationToken cancellationToken)
+    public async Task<Result> Handle(UpdateMediaCommand request,
+        CancellationToken cancellationToken)
     {
         var entity = await context.Medias
-            .FindAsync(new object[] { request.Id }, cancellationToken);
+            .FindAsync(request.Id);
 
         Guard.Against.NotFound(request.Id, entity);
 
-        entity.Alt = request.Alt;
-        await context.SaveChangesAsync(cancellationToken);
-
-        return new Dictionary<string, object>();
+        entity.Alt = request.Alt ?? entity.Alt;
+        
+        var result = await context.SaveChangesAsync(cancellationToken);
+        return result > 0 ? Result.Updated() : Result.FailedUpdate();
     }
 }

@@ -1,4 +1,5 @@
-﻿using NiceShop.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
+using NiceShop.Domain.Entities;
 
 namespace NiceShop.Application.Common.Interfaces;
 
@@ -27,7 +28,11 @@ public interface IApplicationDbContext
     public DbSet<Subscription> Subscriptions { get; }
     public DbSet<Wishlist> Wishlists { get; }
 
+    // Entry
+    EntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
     Task<int> SaveChangesAsync(CancellationToken cancellationToken); 
+    Task<int> SaveChangesAsync();
     int SaveChanges();
     ValueTask DisposeAsync();
+    void Dispose();
 }

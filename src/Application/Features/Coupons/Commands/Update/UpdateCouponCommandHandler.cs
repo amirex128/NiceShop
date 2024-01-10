@@ -4,11 +4,11 @@ using NiceShop.Domain.Entities;
 
 namespace NiceShop.Application.Features.Coupons.Commands.Update;
 
-public class UpdateCouponCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<UpdateCouponCommand, Result>
+public class UpdateCouponCommandHandler(IApplicationDbContext context) : IRequestHandler<UpdateCouponCommand, Result>
 {
     public async Task<Result> Handle(UpdateCouponCommand request, CancellationToken cancellationToken)
     {
-        var entity = await unitOfWork.CouponRepository.GetByIdAsync(request.Id);
+        var entity = await context.Coupon.FindAsync(request.Id);
         Guard.Against.NotFound(request.Id, entity);
 
         entity.Code = request.Code ?? entity.Code;
@@ -17,13 +17,14 @@ public class UpdateCouponCommandHandler(IUnitOfWork unitOfWork) : IRequestHandle
         entity.Type = request.Type ?? entity.Type;
         entity.Value = request.Value ?? entity.Value;
 
-        var products = entity.Products?.ToList();
-        unitOfWork.ProductRepository.UpdateEntityCollection(ref products, request.Products);
-        entity.Products = products;
+        if (request.Products is not null && request.Products.Any())
+        {
+            entity.Products = await context.Products.Where(p => request.Products.Contains(p.Id)).ToListAsync();
+        }
+        
+        context.Coupon.Update(entity);
+        var result = await context.SaveChangesAsync(cancellationToken);
 
-        var result = unitOfWork.CouponRepository.Update(entity);
-        result = result && await unitOfWork.SaveChangesAsync(cancellationToken);
-
-        return result ? Result.Updated() : Result.FailedUpdate();
+        return result > 0 ? Result.Updated() : Result.FailedUpdate();
     }
 }

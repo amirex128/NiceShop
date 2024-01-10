@@ -15,7 +15,6 @@ namespace NiceShop.Web.Controllers;
 [ApiVersion("1.0")]
 public class Medias(IMediator mediator) : ApiController
 {
-
     [HttpGet]
     [Authorize(Policy = ACL.CanGetAll)]
     public async Task<ActionResult<Pagination<MediaDto>>> GetAll(
@@ -26,34 +25,30 @@ public class Medias(IMediator mediator) : ApiController
 
     [HttpGet("{id}")]
     [Authorize(Policy = ACL.CanGet)]
-    public async Task<ActionResult<MediaDto>> Get(int id)
+    public async Task<ActionResult<MediaDto?>> Get(int id)
     {
-        MediaDto? actionResult = await mediator.Send(new GetMediaByIdQuery(id));
-        if (actionResult is null) return NotFound();
-        return actionResult;
+        return await mediator.Send(new GetMediaByIdQuery(id));
     }
 
     [HttpPut("{id}")]
     [Authorize(Policy = ACL.CanUpdate)]
-    public async Task<IActionResult> UpdateCategory([FromBody] UpdateMediaCommand command)
+    public async Task<Result> UpdateCategory([FromBody] UpdateMediaCommand command)
     {
-        await mediator.Send(command);
-        return NoContent();
+        return await mediator.Send(command);
     }
 
-    
+
     [HttpPost]
     [Authorize(Policy = ACL.CanCreate)]
-    public async Task<ActionResult<int>> Create(CreateMediaCommand command)
+    public async Task<Result> Create(CreateMediaCommand command)
     {
         return await mediator.Send(command);
     }
 
     [HttpDelete("{id}")]
     [Authorize(Policy = ACL.CanDelete)]
-    public async Task<IActionResult> Delete(int id)
+    public async Task<Result> Delete(int id)
     {
-        await mediator.Send(new DeleteMediaCommand(id));
-        return NoContent();
+        return await mediator.Send(new DeleteMediaCommand(id));
     }
 }

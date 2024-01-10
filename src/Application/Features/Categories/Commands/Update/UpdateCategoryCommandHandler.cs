@@ -4,13 +4,14 @@ using NiceShop.Domain.Entities;
 
 namespace NiceShop.Application.Features.Categories.Commands.Update;
 
-public class UpdateCategoryCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<UpdateCategoryCommand, Result>
+public class UpdateCategoryCommandHandler(IApplicationDbContext context)
+    : IRequestHandler<UpdateCategoryCommand, Result>
 {
     public async Task<Result> Handle(UpdateCategoryCommand request,
         CancellationToken cancellationToken)
     {
-        var entity = await unitOfWork.CategoryRepository
-            .GetByIdAsync(request.Id);
+        var entity = await context.Categories
+            .FindAsync(request.Id);
 
         Guard.Against.NotFound(request.Id, entity);
 
@@ -18,15 +19,14 @@ public class UpdateCategoryCommandHandler(IUnitOfWork unitOfWork) : IRequestHand
         entity.Description = request.Description ?? entity.Description;
         entity.SeoTags = request.SeoTags ?? entity.SeoTags;
 
-        var medias = entity.Medias?.ToList();
+        if (request.Medias is not null && request.Medias.Any())
+        {
+            entity.Medias = await context.Medias.Where(c => request.Medias.Contains(c.Id)).ToListAsync();
+        }
 
-        unitOfWork.MediaRepository.UpdateEntityCollection(ref medias, request.Medias);
+        context.Categories.Update(entity);
+        var result = await context.SaveChangesAsync(cancellationToken);
 
-        entity.Medias = medias;
-        
-        var result = unitOfWork.CategoryRepository.Update(entity);
-        result = result && await unitOfWork.SaveChangesAsync(cancellationToken);
-
-        return result ? Result.Updated() : Result.FailedUpdate();
+        return result > 0 ? Result.Updated() : Result.FailedUpdate();
     }
 }

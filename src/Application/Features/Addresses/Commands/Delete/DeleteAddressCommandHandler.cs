@@ -3,15 +3,14 @@ using NiceShop.Application.Common.Models;
 
 namespace NiceShop.Application.Features.Addresses.Commands.Delete;
 
-public class DeleteAddressCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<DeleteAddressCommand, Result>
+public class DeleteAddressCommandHandler(IApplicationDbContext context) : IRequestHandler<DeleteAddressCommand, Result>
 {
-
     public async Task<Result> Handle(DeleteAddressCommand request, CancellationToken cancellationToken)
     {
-        var address = await unitOfWork.AddressRepository.GetByIdAsync(request.Id);
+        var address = await context.Addresses.FindAsync(request.Id);
         Guard.Against.NotFound(request.Id, address);
-        var result = unitOfWork.AddressRepository.Delete(address);
-        result = result && await unitOfWork.SaveChangesAsync(cancellationToken);
-        return result ? Result.Deleted() : Result.FailedDelete();
+        context.Addresses.Remove(address);
+        var result = await context.SaveChangesAsync(cancellationToken);
+        return result > 0 ? Result.Deleted() : Result.FailedDelete();
     }
 }

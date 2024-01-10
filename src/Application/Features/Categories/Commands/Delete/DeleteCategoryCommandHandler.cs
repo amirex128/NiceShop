@@ -3,15 +3,15 @@ using NiceShop.Application.Common.Models;
 
 namespace NiceShop.Application.Features.Categories.Commands.Delete;
 
-public class DeleteCategoryCommandHandler(IUnitOfWork unitOfWork)
+public class DeleteCategoryCommandHandler(IApplicationDbContext context)
     : IRequestHandler<DeleteCategoryCommand, Result>
 {
     public async Task<Result> Handle(DeleteCategoryCommand request, CancellationToken cancellationToken)
     {
-        var category = await unitOfWork.CategoryRepository.GetByIdAsync(request.Id);
+        var category = await context.Categories.FindAsync(request.Id);
         Guard.Against.NotFound(request.Id, category);
-        var result = unitOfWork.CategoryRepository.Delete(category);
-        result = result && await unitOfWork.SaveChangesAsync(cancellationToken);
-        return result ? Result.Deleted() : Result.FailedDelete();
+        context.Categories.Remove(category);
+        var result = await context.SaveChangesAsync(cancellationToken);
+        return result > 0 ? Result.Deleted() : Result.FailedDelete();
     }
 }

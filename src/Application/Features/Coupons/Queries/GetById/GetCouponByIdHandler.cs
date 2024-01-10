@@ -3,12 +3,12 @@ using NiceShop.Application.Features.Coupons.Queries.GetWithPagination;
 
 namespace NiceShop.Application.Features.Coupons.Queries.GetById;
 
-public class GetCouponByIdHandler(IUnitOfWork unitOfWork, IMapper mapper)
+public class GetCouponByIdHandler(IApplicationDbContext context, IMapper mapper)
     : IRequestHandler<GetCouponByIdQuery, CouponDto>
 {
     public async Task<CouponDto> Handle(GetCouponByIdQuery request, CancellationToken cancellationToken)
     {
-        var result = await unitOfWork.CouponRepository.GetByIdAsync(request.Id);
+        var result = await context.Coupon.FindAsync(request.Id);
         Guard.Against.NotFound(request.Id, result);
         return mapper.Map<CouponDto>(result);
     }

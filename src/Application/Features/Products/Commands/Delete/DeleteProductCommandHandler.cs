@@ -3,14 +3,14 @@ using NiceShop.Application.Common.Models;
 
 namespace NiceShop.Application.Features.Products.Commands.Delete;
 
-public class DeleteProductCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<DeleteProductCommand, Result>
+public class DeleteProductCommandHandler(IApplicationDbContext context) : IRequestHandler<DeleteProductCommand, Result>
 {
     public async Task<Result> Handle(DeleteProductCommand request, CancellationToken cancellationToken)
     {
-        var article = await unitOfWork.ProductRepository.GetByIdAsync(request.Id);
+        var article = await context.Products.FindAsync(request.Id);
         Guard.Against.NotFound(request.Id, article);
-        var result = unitOfWork.ProductRepository.Delete(article);
-        result = result && await unitOfWork.SaveChangesAsync(cancellationToken);
-        return result ? Result.Deleted() : Result.FailedDelete();
+        context.Products.Remove(article);
+        var result = await context.SaveChangesAsync(cancellationToken);
+        return result > 0 ? Result.Deleted() : Result.FailedDelete();
     }
 }

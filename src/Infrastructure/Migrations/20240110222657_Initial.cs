@@ -153,6 +153,7 @@ namespace NiceShop.Infrastructure.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ParentCategoryId = table.Column<int>(type: "int", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Slug = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SeoTags = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Created = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
@@ -401,15 +402,15 @@ namespace NiceShop.Infrastructure.Migrations
                 name: "ArticleCategory",
                 columns: table => new
                 {
-                    ArticlesId = table.Column<int>(type: "int", nullable: false),
+                    ArticleId = table.Column<int>(type: "int", nullable: false),
                     CategoriesId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ArticleCategory", x => new { x.ArticlesId, x.CategoriesId });
+                    table.PrimaryKey("PK_ArticleCategory", x => new { x.ArticleId, x.CategoriesId });
                     table.ForeignKey(
-                        name: "FK_ArticleCategory_Articles_ArticlesId",
-                        column: x => x.ArticlesId,
+                        name: "FK_ArticleCategory_Articles_ArticleId",
+                        column: x => x.ArticleId,
                         principalTable: "Articles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -610,7 +611,7 @@ namespace NiceShop.Infrastructure.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProductId = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PriceAdjustment = table.Column<long>(type: "bigint", nullable: false),
+                    Price = table.Column<long>(type: "bigint", nullable: false),
                     Stock = table.Column<int>(type: "int", nullable: false),
                     Created = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
@@ -735,6 +736,10 @@ namespace NiceShop.Infrastructure.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Quantity = table.Column<int>(type: "int", nullable: false),
                     Price = table.Column<long>(type: "bigint", nullable: false),
+                    QuantityPrice = table.Column<long>(type: "bigint", nullable: false),
+                    QuantityCouponPrice = table.Column<long>(type: "bigint", nullable: false),
+                    AppliedCouponPrice = table.Column<long>(type: "bigint", nullable: false),
+                    FinalPrice = table.Column<long>(type: "bigint", nullable: false),
                     BasketId = table.Column<int>(type: "int", nullable: false),
                     ProductId = table.Column<int>(type: "int", nullable: false),
                     ProductVariantId = table.Column<int>(type: "int", nullable: true),

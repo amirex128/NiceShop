@@ -7,10 +7,7 @@ public class DeleteCouponCommandHandler(IApplicationDbContext context) : IReques
 {
     public async Task<Result> Handle(DeleteCouponCommand request, CancellationToken cancellationToken)
     {
-        var category = await context.Coupon.FindAsync(request.Id);
-        Guard.Against.NotFound(request.Id, category);
-        context.Coupon.Remove(category);
-        var result = await context.SaveChangesAsync(cancellationToken);
+        var result = await context.Coupon.Where(b => b.Id < 3).ExecuteDeleteAsync(cancellationToken);
         return result > 0 ? Result.Deleted() : Result.FailedDelete();
     }
 }

@@ -15,10 +15,10 @@ Log.Logger = new LoggerConfiguration()
     //     {
     //         AutoRegisterTemplate = true,
     //     }).MinimumLevel.Information()
-    .WriteTo.Console().MinimumLevel.Information()
+    .WriteTo.Console().MinimumLevel.Warning()
     .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day, fileSizeLimitBytes: 1000000).MinimumLevel
     .Information()
-    .WriteTo.Seq(builder.Configuration["Seq:Host"] ?? string.Empty).MinimumLevel.Information()
+    .WriteTo.Seq(builder.Configuration["Seq:Host"] ?? string.Empty).MinimumLevel.Warning()
     .CreateLogger();    
 
 builder.Logging.ClearProviders();

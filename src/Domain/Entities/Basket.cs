@@ -1,13 +1,12 @@
-
 namespace NiceShop.Domain.Entities;
 
 public class Basket : BaseAuditableEntity
 {
-    public long TotalPrice  { get; set; }
-    public long TotalDiscount  { get; set; }
-    public long FinalPrice  { get; set; }
+    public long RawQuantityPrice { get; set; }
+    public long TotalCouponPrice { get; set; }
+    public long FinalPrice { get; set; }
 
-    public int? CouponId  { get; set; }
-    public Coupon? Coupon  { get; set; }
-    public List<BasketItem> BasketItems  { get; set; } = null!;
+    public int? CouponId { get; set; }
+    public Coupon? Coupon { get; set; }
+    public List<BasketItem> BasketItems { get; set; } = new();
 }

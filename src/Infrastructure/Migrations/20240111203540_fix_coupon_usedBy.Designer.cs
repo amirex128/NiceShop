@@ -12,8 +12,8 @@ using NiceShop.Infrastructure.Data;
 namespace NiceShop.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240104184234_ifx_cate")]
-    partial class ifx_cate
+    [Migration("20240111203540_fix_coupon_usedBy")]
+    partial class fix_coupon_usedBy
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -68,6 +68,21 @@ namespace NiceShop.Infrastructure.Migrations
                     b.HasIndex("ProductsId");
 
                     b.ToTable("CouponProduct");
+                });
+
+            modelBuilder.Entity("CouponUser", b =>
+                {
+                    b.Property<int>("CouponId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UsedById")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("CouponId", "UsedById");
+
+                    b.HasIndex("UsedById");
+
+                    b.ToTable("CouponUser");
                 });
 
             modelBuilder.Entity("MediaProduct", b =>
@@ -331,10 +346,10 @@ namespace NiceShop.Infrastructure.Migrations
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("TotalDiscount")
+                    b.Property<long>("RawQuantityPrice")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("TotalPrice")
+                    b.Property<long>("TotalCouponPrice")
                         .HasColumnType("bigint");
 
                     b.Property<string>("UserId")
@@ -381,6 +396,9 @@ namespace NiceShop.Infrastructure.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
+                    b.Property<long>("QuantityPrice")
+                        .HasColumnType("bigint");
+
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
@@ -425,6 +443,10 @@ namespace NiceShop.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("SeoTags")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Slug")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
@@ -9837,7 +9859,7 @@ namespace NiceShop.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("PriceAdjustment")
+                    b.Property<long>("Price")
                         .HasColumnType("bigint");
 
                     b.Property<int>("ProductId")
@@ -10363,6 +10385,21 @@ namespace NiceShop.Infrastructure.Migrations
                     b.HasOne("NiceShop.Domain.Entities.Product", null)
                         .WithMany()
                         .HasForeignKey("ProductsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("CouponUser", b =>
+                {
+                    b.HasOne("NiceShop.Domain.Entities.Coupon", null)
+                        .WithMany()
+                        .HasForeignKey("CouponId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("NiceShop.Domain.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UsedById")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

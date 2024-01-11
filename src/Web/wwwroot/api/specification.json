@@ -402,6 +402,199 @@
         ]
       }
     },
+    "/api/Baskets/GetAll": {
+      "get": {
+        "tags": [
+          "Baskets"
+        ],
+        "operationId": "Baskets_GetAll",
+        "parameters": [
+          {
+            "name": "PageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaginationOfBasketDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/Baskets/Get/{id}": {
+      "get": {
+        "tags": [
+          "Baskets"
+        ],
+        "operationId": "Baskets_Get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BasketDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/Baskets/Create": {
+      "post": {
+        "tags": [
+          "Baskets"
+        ],
+        "operationId": "Baskets_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBasketCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/Baskets/Update": {
+      "put": {
+        "tags": [
+          "Baskets"
+        ],
+        "operationId": "Baskets_Update",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBasketCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/Baskets/Delete/{id}": {
+      "delete": {
+        "tags": [
+          "Baskets"
+        ],
+        "operationId": "Baskets_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
     "/api/Categories/GetAll": {
       "get": {
         "tags": [
@@ -769,6 +962,43 @@
             "x-position": 1
           }
         ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/Coupons/Check": {
+      "post": {
+        "tags": [
+          "Coupons"
+        ],
+        "operationId": "Coupons_Check",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CheckCouponCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
         "responses": {
           "200": {
             "description": "",
@@ -1424,11 +1654,20 @@
           "succeeded": {
             "type": "boolean"
           },
-          "errors": {
+          "successMessages": {
             "type": "array",
             "items": {
               "type": "string"
             }
+          },
+          "errorMessages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "resultObject": {
+            "nullable": true
           }
         }
       },
@@ -1906,7 +2145,7 @@
               "name": {
                 "type": "string"
               },
-              "priceAdjustment": {
+              "price": {
                 "type": "integer",
                 "format": "int64"
               },
@@ -1947,9 +2186,14 @@
               },
               "products": {
                 "type": "array",
-                "nullable": true,
                 "items": {
                   "$ref": "#/components/schemas/Product"
+                }
+              },
+              "usedBy": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/User"
                 }
               }
             }
@@ -2539,6 +2783,218 @@
           }
         }
       },
+      "PaginationOfBasketDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BasketDto"
+            }
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "hasPreviousPage": {
+            "type": "boolean"
+          },
+          "hasNextPage": {
+            "type": "boolean"
+          }
+        }
+      },
+      "BasketDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rawQuantityPrice": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "totalCouponPrice": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "finalPrice": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "basketItems": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BasketItem"
+            }
+          }
+        }
+      },
+      "BasketItem": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseAuditableEntity"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "quantity": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "price": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "quantityPrice": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "basketId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "basket": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/Basket"
+                  }
+                ]
+              },
+              "productId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "product": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                ]
+              },
+              "productVariantId": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "productVariant": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/ProductVariant"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "Basket": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseAuditableEntity"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "rawQuantityPrice": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "totalCouponPrice": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "finalPrice": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "couponId": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "coupon": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/Coupon"
+                  }
+                ]
+              },
+              "basketItems": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/BasketItem"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "CreateBasketCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "basketItems": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BasketItemDto"
+            }
+          }
+        }
+      },
+      "BasketItemDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "productId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "productVariantId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        }
+      },
+      "UpdateBasketCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "basketItems": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BasketItemDto"
+            }
+          }
+        }
+      },
       "PaginationOfCategoryDto": {
         "type": "object",
         "additionalProperties": false,
@@ -2776,6 +3232,19 @@
               "type": "integer",
               "format": "int32"
             }
+          }
+        }
+      },
+      "CheckCouponCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "basketId": {
+            "type": "integer",
+            "format": "int32"
           }
         }
       },

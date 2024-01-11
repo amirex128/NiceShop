@@ -70,7 +70,7 @@ public class IdentityService : IIdentityService
     {
         var user = _userManager.Users.SingleOrDefault(u => u.Id == userId);
 
-        return user != null ? await DeleteUserAsync(user) : Result.Success();
+        return user != null ? await DeleteUserAsync(user) : Result.OperationSuccess();
     }
 
     public async Task<Result> DeleteUserAsync(User user)

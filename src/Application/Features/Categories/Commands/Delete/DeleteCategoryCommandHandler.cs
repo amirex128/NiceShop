@@ -8,10 +8,7 @@ public class DeleteCategoryCommandHandler(IApplicationDbContext context)
 {
     public async Task<Result> Handle(DeleteCategoryCommand request, CancellationToken cancellationToken)
     {
-        var category = await context.Categories.FindAsync(request.Id);
-        Guard.Against.NotFound(request.Id, category);
-        context.Categories.Remove(category);
-        var result = await context.SaveChangesAsync(cancellationToken);
+        var result = await context.Categories.Where(b => b.Id < 3).ExecuteDeleteAsync(cancellationToken);
         return result > 0 ? Result.Deleted() : Result.FailedDelete();
     }
 }

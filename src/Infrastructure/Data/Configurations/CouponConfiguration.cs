@@ -12,6 +12,7 @@ public class CouponConfiguration  : IEntityTypeConfiguration<Coupon>
     {
         builder.HasKey(p => p.Id);
         builder.HasMany(p=>p.Products).WithMany(p=>p.Coupons);
+        builder.HasMany(p=>p.UsedBy).WithMany();
         builder.Property(p=>p.Type).HasConversion(new EnumToStringConverter<CouponTypeEnum>());
 
     }

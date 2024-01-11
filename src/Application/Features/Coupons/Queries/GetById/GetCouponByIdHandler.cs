@@ -8,7 +8,9 @@ public class GetCouponByIdHandler(IApplicationDbContext context, IMapper mapper)
 {
     public async Task<CouponDto> Handle(GetCouponByIdQuery request, CancellationToken cancellationToken)
     {
-        var result = await context.Coupon.FindAsync(request.Id);
+        var result = await context.Coupon
+            .Include(x => x.Products)
+            .SingleOrDefaultAsync(x => x.Id == request.Id);
         Guard.Against.NotFound(request.Id, result);
         return mapper.Map<CouponDto>(result);
     }

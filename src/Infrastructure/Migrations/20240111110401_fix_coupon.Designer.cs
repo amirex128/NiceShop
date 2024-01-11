@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NiceShop.Infrastructure.Data;
 
@@ -11,9 +12,11 @@ using NiceShop.Infrastructure.Data;
 namespace NiceShop.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240111110401_fix_coupon")]
+    partial class fix_coupon
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -65,21 +68,6 @@ namespace NiceShop.Infrastructure.Migrations
                     b.HasIndex("ProductsId");
 
                     b.ToTable("CouponProduct");
-                });
-
-            modelBuilder.Entity("CouponUser", b =>
-                {
-                    b.Property<int>("CouponId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UsedById")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("CouponId", "UsedById");
-
-                    b.HasIndex("UsedById");
-
-                    b.ToTable("CouponUser");
                 });
 
             modelBuilder.Entity("MediaProduct", b =>
@@ -342,6 +330,9 @@ namespace NiceShop.Infrastructure.Migrations
 
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("RawPrice")
+                        .HasColumnType("bigint");
 
                     b.Property<long>("RawQuantityPrice")
                         .HasColumnType("bigint");
@@ -10217,6 +10208,9 @@ namespace NiceShop.Infrastructure.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("CouponId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Discriminator")
                         .IsRequired()
                         .HasMaxLength(8)
@@ -10279,6 +10273,8 @@ namespace NiceShop.Infrastructure.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CouponId");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -10382,21 +10378,6 @@ namespace NiceShop.Infrastructure.Migrations
                     b.HasOne("NiceShop.Domain.Entities.Product", null)
                         .WithMany()
                         .HasForeignKey("ProductsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("CouponUser", b =>
-                {
-                    b.HasOne("NiceShop.Domain.Entities.Coupon", null)
-                        .WithMany()
-                        .HasForeignKey("CouponId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("NiceShop.Domain.Entities.User", null)
-                        .WithMany()
-                        .HasForeignKey("UsedById")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -10764,6 +10745,10 @@ namespace NiceShop.Infrastructure.Migrations
 
             modelBuilder.Entity("NiceShop.Domain.Entities.User", b =>
                 {
+                    b.HasOne("NiceShop.Domain.Entities.Coupon", null)
+                        .WithMany("UsedBy")
+                        .HasForeignKey("CouponId");
+
                     b.OwnsOne("NiceShop.Domain.Entities.Social", "Social", b1 =>
                         {
                             b1.Property<string>("UserId")
@@ -10823,6 +10808,11 @@ namespace NiceShop.Infrastructure.Migrations
                     b.Navigation("Medias");
 
                     b.Navigation("SubCategories");
+                });
+
+            modelBuilder.Entity("NiceShop.Domain.Entities.Coupon", b =>
+                {
+                    b.Navigation("UsedBy");
                 });
 
             modelBuilder.Entity("NiceShop.Domain.Entities.Order", b =>

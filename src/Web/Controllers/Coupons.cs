@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NiceShop.Application.Common.Models;
+using NiceShop.Application.Features.Coupons.Commands.Check;
 using NiceShop.Application.Features.Coupons.Commands.Create;
 using NiceShop.Application.Features.Coupons.Commands.Delete;
 using NiceShop.Application.Features.Coupons.Commands.Update;
@@ -46,5 +47,12 @@ public class Coupons(IMediator mediator) : ApiController
     public async Task<Result> Delete(int id)
     {
         return await mediator.Send(new DeleteCouponCommand(id));
+    }
+    
+    [HttpPost]
+    [Authorize(Policy = ACL.CanGet)]
+    public async Task<Result> Check([FromBody] CheckCouponCommand command)
+    {
+        return await mediator.Send(command);
     }
 }

@@ -2,5 +2,6 @@
 <project version="4">
   <component name="JetClientSettings">
     <option name="folderVariablesSplitterProportion" value="0.69547325" />
+    <option name="verticalRequestResponseOrientation" value="false" />
   </component>
 </project>

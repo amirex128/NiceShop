@@ -5,9 +5,10 @@
       <map>
         <entry key="Common:117da02f-5274-4565-acc6-da9b6e568b09:dbContext" value="NiceShop.Infrastructure.Data.ApplicationDbContext" />
         <entry key="Common:buildConfiguration" value="Debug" />
+        <entry key="Common:enableDiagnosticLogging" value="false" />
         <entry key="Common:noBuild" value="false" />
         <entry key="Common:outputFolder" value="Migrations" />
-        <entry key="Common:useDefaultConnection" value="true" />
+        <entry key="Common:useDefaultConnection" value="false" />
       </map>
     </option>
   </component>

@@ -17,6 +17,7 @@ public class UpdateArticleCommandHandler(IApplicationDbContext context)
         entity.Description = request.Description ?? entity.Description;
         entity.Body = request.Body ?? entity.Body;
         entity.Slug = request.Slug ?? entity.Slug;
+        entity.SeoTags = request.SeoTags ?? entity.SeoTags;
 
         if (request.Categories is not null)
             entity.Categories = context.Categories.Where(x => request.Categories.Contains(x.Id)).ToList();

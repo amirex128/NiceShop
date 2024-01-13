@@ -8,5 +8,6 @@ public record CreateCategoryCommand : IRequest<Result>
     public int? ParentCategoryId { get; set; }
     public string? Description { get; set; }
     public string[]? SeoTags { get; set; }
+    public required string Slug { get; set; }
     public int[]? Medias { get; set; }
 }

@@ -6,7 +6,7 @@ public class Category : BaseAuditableEntity
     public int? ParentCategoryId { get; set; }
 
     public string? Description { get; set; }
-    public string Slug { get; set; } = "";
+    public required string Slug { get; set; }
 
     private string? _seoTags;
 

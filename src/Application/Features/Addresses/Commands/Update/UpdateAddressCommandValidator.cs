@@ -1,8 +1,11 @@
+using NiceShop.Application.Common.Interfaces;
+
 namespace NiceShop.Application.Features.Addresses.Commands.Update;
 
 public class UpdateAddressCommandValidator : AbstractValidator<UpdateAddressCommand>
 {
-    public UpdateAddressCommandValidator()
+
+    public UpdateAddressCommandValidator(IApplicationDbContext context)
     {
         RuleFor(x => x.Id)
             .GreaterThan(0).WithMessage("Id must be greater than 0.");
@@ -24,10 +27,18 @@ public class UpdateAddressCommandValidator : AbstractValidator<UpdateAddressComm
 
         RuleFor(x => x.CityId)
             .GreaterThan(0).WithMessage("CityId must be greater than 0.")
+            .MustAsync(async (cityId, cancellationToken) =>
+            {
+              return await context.Cities.AnyAsync(x => x.Id == cityId, cancellationToken);
+            }).WithMessage("CityId must be valid.")
             .When(x => x.CityId.HasValue);
         
         RuleFor(x => x.ProvinceId)
             .GreaterThan(0).WithMessage("ProvinceId must be greater than 0.")
+            .MustAsync(async (provinceId, cancellationToken) =>
+            {
+              return await context.Provinces.AnyAsync(x => x.Id == provinceId, cancellationToken);
+            }).WithMessage("ProvinceId must be valid.")
             .When(x => x.ProvinceId.HasValue);
     }
 }

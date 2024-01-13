@@ -1,8 +1,10 @@
+using NiceShop.Application.Common.Interfaces;
+
 namespace NiceShop.Application.Features.Coupons.Commands.Create;
 
 public class CreateCouponCommandValidator : AbstractValidator<CreateCouponCommand>
 {
-    public CreateCouponCommandValidator()
+    public CreateCouponCommandValidator(IApplicationDbContext context)
     {
         RuleFor(v => v.Code)
             .NotEmpty().WithMessage("Code is required.")
@@ -25,6 +27,7 @@ public class CreateCouponCommandValidator : AbstractValidator<CreateCouponComman
         
         RuleForEach(v => v.Products)
             .GreaterThan(0).WithMessage("Product id must be greater than 0.")
+            .MustAsync(async (id, cancellationToken) => await context.Products.AnyAsync(p => p.Id == id, cancellationToken))
             .When(v => v.Products != null && v.Products.Any());
     }
 }

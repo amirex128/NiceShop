@@ -10,7 +10,11 @@ public class CreateArticleCommandHandler(IApplicationDbContext context) : IReque
     {
         var article = new Article
         {
-            Title = request.Title, Description = request.Description, Body = request.Body, Slug = request.Slug
+            Title = request.Title,
+            Description = request.Description,
+            Body = request.Body,
+            Slug = request.Slug,
+            SeoTags = request.SeoTags
         };
 
         if (request.Categories is not null && request.Categories.Any())

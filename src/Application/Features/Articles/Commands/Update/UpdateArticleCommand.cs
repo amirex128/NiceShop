@@ -11,6 +11,8 @@ public record UpdateArticleCommand : IRequest<Result>
     public string? Description { get; init; }
     public string? Body { get; init; }
     public string? Slug { get; init; }
+    
+    public string[]? SeoTags { get; set; }
     public int[]? Medias { get; init; }
     public int[]? Categories { get; init; }
 }

@@ -15,6 +15,14 @@ public class CreateProductCommandHandler(IApplicationDbContext context) : IReque
             Price = request.Price,
             Stock = request.Stock,
             Status = request.Status,
+            DiscountPercent=request.DiscountPercent,
+            Weight=request.Weight,
+            FreeSend=request.FreeSend,
+            HasGuarantee=request.HasGuarantee,
+            LongDescription=request.LongDescription,
+            Barcode=request.Barcode,
+            Slug=request.Slug,
+            SeoTags=request.SeoTags,
         };
 
         if (request.Categories is not null && request.Categories.Any())
@@ -29,10 +37,6 @@ public class CreateProductCommandHandler(IApplicationDbContext context) : IReque
         if (request.ProductAttributes is not null && request.ProductAttributes.Any())
             product.ProductAttributes = await context.ProductAttributes.Where(x => request.ProductAttributes.Contains(x.Id)).ToListAsync();
         
-        if (request.ProductReviews is not null && request.ProductReviews.Any())
-            product.ProductReviews = await context.ProductReviews.Where(x => request.ProductReviews.Contains(x.Id)).ToListAsync();
-        
-
         await context.Products.AddAsync(product);
         var result = await context.SaveChangesAsync(cancellationToken);
 

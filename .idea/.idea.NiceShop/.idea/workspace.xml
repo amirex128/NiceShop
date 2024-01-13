@@ -45,7 +45,9 @@
     <setting file="mock:///pre-request-script-031f88cc.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///pre-request-script-300568d3.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///pre-request-script-300568d3.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-3cebb680.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///pre-request-script-3f0ad618.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-43de2986.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///pre-request-script-4a29466a.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///pre-request-script-4b12a055.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///pre-request-script-4b12a055.js" root0="FORCE_HIGHLIGHTING" />
@@ -68,7 +70,9 @@
     <setting file="mock:///test-script-031f88cc.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///test-script-300568d3.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///test-script-300568d3.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-3cebb680.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///test-script-3f0ad618.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-43de2986.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///test-script-4a29466a.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///test-script-4b12a055.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///test-script-4b12a055.js" root0="FORCE_HIGHLIGHTING" />
@@ -114,46 +118,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.Consumers.executor": "Debug",
-    ".NET Launch Settings Profile.Web.executor": "Debug",
-    ".NET Launch Settings Profile.Web: NiceShop.Web.executor": "Debug",
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Docker.Consumers/Dockerfile.executor": "Run",
-    "Docker.Web/Dockerfile.executor": "Run",
-    "Docker.docker-compose.yml.elasticsearch: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.yml.seq: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.yml.sqlserver: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "false",
-    "WebServerToolWindowFactoryState": "false",
-    "XThreadsFramesViewSplitterKey": "0.23781677",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.github.copilot.settings.ApplicationConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.Consumers.executor&quot;: &quot;Debug&quot;,
+    &quot;.NET Launch Settings Profile.Web.executor&quot;: &quot;Debug&quot;,
+    &quot;.NET Launch Settings Profile.Web: NiceShop.Web.executor&quot;: &quot;Debug&quot;,
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Docker.Consumers/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.Web/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.elasticsearch: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.seq: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.sqlserver: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.23781677&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.github.copilot.settings.ApplicationConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "GitStage.ChangesTree.GroupingKeys": [
-      "directory",
-      "module",
-      "repository"
+  &quot;keyToStringList&quot;: {
+    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;,
+      &quot;repository&quot;
     ],
-    "rider.external.source.directories": [
-      "C:\\Users\\_Amirex_\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\_Amirex_\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\_Amirex_\\AppData\\Local\\Symbols\\src"
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\_Amirex_\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\_Amirex_\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\_Amirex_\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Web">
     <configuration name="Consumers" type="LaunchSettings" factoryName=".NET Launch Settings Profile" temporary="true">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/Consumers/Consumers.csproj" />
@@ -289,7 +293,13 @@
       <workItem from="1704912640122" duration="7797000" />
       <workItem from="1704925101836" duration="58000" />
       <workItem from="1704925177496" duration="2536000" />
-      <workItem from="1704969233729" duration="14869000" />
+      <workItem from="1704969233729" duration="15377000" />
+      <workItem from="1705046801710" duration="647000" />
+      <workItem from="1705048011524" duration="2268000" />
+      <workItem from="1705055425648" duration="28000" />
+      <workItem from="1705055490914" duration="88000" />
+      <workItem from="1705055625983" duration="1834000" />
+      <workItem from="1705097334931" duration="2106000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="fix init">
       <option name="closed" value="true" />
@@ -405,7 +415,14 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۱۵" />
       <updated>1705005539547</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL‎−۰۰۰۱۶" summary="add city and province">
+      <option name="closed" value="true" />
+      <created>1705006799193</created>
+      <option name="number" value="LOCAL‎−۰۰۰۱۶" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۱۶" />
+      <updated>1705006799193</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -431,7 +448,8 @@
     <MESSAGE value="fix" />
     <MESSAGE value="fix all crud" />
     <MESSAGE value="implement baskets and coupon check" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement baskets and coupon check" />
+    <MESSAGE value="add city and province" />
+    <option name="LAST_COMMIT_MESSAGE" value="add city and province" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

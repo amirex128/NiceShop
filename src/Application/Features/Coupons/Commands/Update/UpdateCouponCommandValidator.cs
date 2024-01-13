@@ -1,8 +1,10 @@
+using NiceShop.Application.Common.Interfaces;
+
 namespace NiceShop.Application.Features.Coupons.Commands.Update;
 
 public class UpdateCouponCommandValidator : AbstractValidator<UpdateCouponCommand>
 {
-    public UpdateCouponCommandValidator()
+    public UpdateCouponCommandValidator(IApplicationDbContext context)
     {
         RuleFor(v => v.Id)
             .NotEmpty().WithMessage("Id is required.")
@@ -32,6 +34,7 @@ public class UpdateCouponCommandValidator : AbstractValidator<UpdateCouponComman
 
         RuleForEach(v => v.Products)
             .GreaterThan(0).WithMessage("Product id must be greater than 0.")
+            .MustAsync(async (id, cancellationToken) => await context.Products.AnyAsync(p => p.Id == id, cancellationToken))
             .When(v => v.Products != null && v.Products.Any());
     }
 }

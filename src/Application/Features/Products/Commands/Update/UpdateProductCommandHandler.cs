@@ -16,25 +16,29 @@ public class UpdateProductCommandHandler(IApplicationDbContext context) : IReque
         entity.Description = request.Description ?? entity.Description;
         entity.Price = request.Price ?? entity.Price;
         entity.Stock = request.Stock ?? entity.Stock;
+        entity.DiscountPercent = request.DiscountPercent ?? entity.DiscountPercent;
+        entity.Weight = request.Weight ?? entity.Weight;
+        entity.FreeSend = request.FreeSend ?? entity.FreeSend;
+        entity.HasGuarantee = request.HasGuarantee ?? entity.HasGuarantee;
+        entity.LongDescription = request.LongDescription ?? entity.LongDescription;
+        entity.Barcode = request.Barcode ?? entity.Barcode;
+        entity.Slug = request.Slug ?? entity.Slug;
+        entity.SeoTags = request.SeoTags ?? entity.SeoTags;
         entity.Status = request.Status ?? entity.Status;
 
         if (request.Categories is not null && request.Categories.Any())
-            entity.Categories = await context.Categories.Where(x => request.Categories.Contains(x.Id)).ToListAsync();
+            entity.Categories = await context.Categories.Where(x => request.Categories.Contains(x.Id)).ToListAsync(cancellationToken: cancellationToken);
 
         if (request.ProductVariants is not null && request.ProductVariants.Any())
             entity.ProductVariants = await context.ProductVariants.Where(x => request.ProductVariants.Contains(x.Id))
-                .ToListAsync();
+                .ToListAsync(cancellationToken: cancellationToken);
 
         if (request.Medias is not null && request.Medias.Any())
-            entity.Medias = await context.Medias.Where(x => request.Medias.Contains(x.Id)).ToListAsync();
+            entity.Medias = await context.Medias.Where(x => request.Medias.Contains(x.Id)).ToListAsync(cancellationToken: cancellationToken);
 
         if (request.ProductAttributes is not null && request.ProductAttributes.Any())
             entity.ProductAttributes = await context.ProductAttributes
-                .Where(x => request.ProductAttributes.Contains(x.Id)).ToListAsync();
-
-        if (request.ProductReviews is not null && request.ProductReviews.Any())
-            entity.ProductReviews =
-                await context.ProductReviews.Where(x => request.ProductReviews.Contains(x.Id)).ToListAsync();
+                .Where(x => request.ProductAttributes.Contains(x.Id)).ToListAsync(cancellationToken: cancellationToken);
 
         context.Products.Update(entity);
         var result = await context.SaveChangesAsync(cancellationToken);

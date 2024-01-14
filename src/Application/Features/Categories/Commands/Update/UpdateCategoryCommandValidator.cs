@@ -24,13 +24,13 @@ public class UpdateCategoryCommandValidator : AbstractValidator<UpdateCategoryCo
         
         RuleFor(v => v.Slug)
             .MaximumLength(200).WithMessage("Slug must not exceed 200 characters.")
-            .MustAsync(async (slug, cancellationToken) =>
-                !await context.Categories.AnyAsync(a => a.Slug == slug, cancellationToken))
+            .Must((slug) =>
+                 context.Categories.Any(a => a.Slug == slug)).WithMessage("Slug does not exist.")
             .When(v => v.Slug != null);
         
         RuleForEach(v => v.Medias)
             .GreaterThan(0).WithMessage("Media id must be greater than 0.")
-            .MustAsync(async (id, cancellationToken) => await context.Medias.AnyAsync(m => m.Id == id, cancellationToken))
+            .Must((id) => context.Medias.Any(m => m.Id == id)).WithMessage("Media id does not exist.")
             .When(v => v.Medias != null && v.Medias.Any());
     }
 }

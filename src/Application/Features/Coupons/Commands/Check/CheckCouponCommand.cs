@@ -6,7 +6,6 @@ namespace NiceShop.Application.Features.Coupons.Commands.Check;
 
 public record CheckCouponCommand : IRequest<Result>
 {
-    public required string Code { get; set; }
-    public required int BasketId { get; set; }
-    
+    public string Code { get; set; } = "";
+    public int BasketId { get; set; }
 }

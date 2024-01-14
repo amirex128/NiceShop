@@ -6,7 +6,7 @@ namespace NiceShop.Application.Features.Products.Commands.Update;
 
 public record UpdateProductCommand : IRequest<Result>
 {
-    public required int Id { get; init; }
+    public int Id { get; init; }
     public string? Name { get; set; }
     public string? Description { get; set; }
     public long? Price { get; set; }

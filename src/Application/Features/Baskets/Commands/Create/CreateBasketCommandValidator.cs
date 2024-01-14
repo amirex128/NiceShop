@@ -12,7 +12,7 @@ public class CreateBasketCommandValidator : AbstractValidator<CreateBasketComman
 
         RuleFor(v => v.BasketItems)
             .NotEmpty().WithMessage("BasketItems is required.")
-            .MustAsync(AllProductsExist).WithMessage("One or more products do not exist.");
+            .Must(AllProductsExist).WithMessage("One or more products do not exist.");
 
         RuleForEach(v => v.BasketItems)
             .ChildRules(item =>
@@ -25,13 +25,13 @@ public class CreateBasketCommandValidator : AbstractValidator<CreateBasketComman
             });
     }
 
-    private async Task<bool> AllProductsExist(List<BasketItemDto> basketItems, CancellationToken cancellationToken)
+    private bool AllProductsExist(List<BasketItemDto> basketItems)
     {
         var productIds = basketItems.Select(i => i.ProductId);
-        var existingProductIds = await _context.Products
+        var existingProductIds = _context.Products
             .Where(p => productIds.Contains(p.Id))
             .Select(p => p.Id)
-            .ToListAsync(cancellationToken);
+            .ToList();
 
         return productIds.All(id => existingProductIds.Contains(id));
     }

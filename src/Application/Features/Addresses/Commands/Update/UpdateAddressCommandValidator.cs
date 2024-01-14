@@ -27,17 +27,17 @@ public class UpdateAddressCommandValidator : AbstractValidator<UpdateAddressComm
 
         RuleFor(x => x.CityId)
             .GreaterThan(0).WithMessage("CityId must be greater than 0.")
-            .MustAsync(async (cityId, cancellationToken) =>
+            .Must((cityId) =>
             {
-              return await context.Cities.AnyAsync(x => x.Id == cityId, cancellationToken);
+              return context.Cities.Any(x => x.Id == cityId);
             }).WithMessage("CityId must be valid.")
             .When(x => x.CityId.HasValue);
         
         RuleFor(x => x.ProvinceId)
             .GreaterThan(0).WithMessage("ProvinceId must be greater than 0.")
-            .MustAsync(async (provinceId, cancellationToken) =>
+            .Must((provinceId) =>
             {
-              return await context.Provinces.AnyAsync(x => x.Id == provinceId, cancellationToken);
+              return context.Provinces.Any(x => x.Id == provinceId);
             }).WithMessage("ProvinceId must be valid.")
             .When(x => x.ProvinceId.HasValue);
     }

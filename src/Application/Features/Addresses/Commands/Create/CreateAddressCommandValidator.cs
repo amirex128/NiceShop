@@ -24,18 +24,17 @@ public class CreateAddressCommandValidator : AbstractValidator<CreateAddressComm
         RuleFor(x => x.CityId)
             .NotEmpty().WithMessage("CityId is required.")
             .GreaterThan(0).WithMessage("CityId must be greater than 0.")
-            .MustAsync(async (cityId, cancellationToken) =>
+            .Must((cityId) =>
             {
-                return await _context.Cities.AnyAsync(c => c.Id == cityId, cancellationToken);
+                return _context.Cities.Any(c => c.Id == cityId);
             }).WithMessage("City with the given id does not exist.");
 
         RuleFor(x => x.ProvinceId)
             .NotEmpty().WithMessage("ProvinceId is required.")
             .GreaterThan(0).WithMessage("ProvinceId must be greater than 0.")
-            .MustAsync(async (provinceId, cancellationToken) =>
+            .Must((provinceId) =>
             {
-                return await _context.Provinces.AnyAsync(p => p.Id == provinceId, cancellationToken);
+                return _context.Provinces.Any(p => p.Id == provinceId);
             }).WithMessage("Province with the given id does not exist.");
-
     }
 }

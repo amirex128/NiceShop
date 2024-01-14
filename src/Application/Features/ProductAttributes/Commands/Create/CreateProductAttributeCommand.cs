@@ -5,8 +5,8 @@ namespace NiceShop.Application.Features.ProductAttributes.Commands.Create;
 
 public record CreateProductAttributeCommand : IRequest<Result>
 {
-    public required int ProductId { get; set; }
-    public required ProductAttributeTypeEnum Type { get; set; }
-    public required string Name { get; set; }
-    public required string Value { get; set; }
+    public int ProductId { get; set; }
+    public ProductAttributeTypeEnum Type { get; set; }
+    public string Name { get; set; } = "";
+    public string Value { get; set; } = "";
 }

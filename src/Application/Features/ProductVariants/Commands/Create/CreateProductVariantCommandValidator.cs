@@ -13,8 +13,8 @@ public class CreateProductVariantCommandValidator : AbstractValidator<CreateProd
         RuleFor(v => v.ProductId)
             .NotEmpty().WithMessage("ProductId is required")
             .GreaterThan(0).WithMessage("ProductId must be greater than 0")
-            .MustAsync(async (productId, cancellationToken) =>
-                await context.Products.AnyAsync(p => p.Id == productId, cancellationToken))
+            .Must((productId) =>
+                context.Products.Any(p => p.Id == productId))
             .WithMessage("Product does not exist");
 
         RuleFor(v => v.Name)

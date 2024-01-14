@@ -12,8 +12,8 @@ public class CheckCouponCommandValidator : AbstractValidator<CheckCouponCommand>
 
         RuleFor(v => v.BasketId)
             .GreaterThanOrEqualTo(1).WithMessage("BasketId at least greater than or equal to 1.")
-            .MustAsync(async (id, cancellationToken) =>
-                await context.Baskets.AnyAsync(b => b.Id == id, cancellationToken));
+            .Must( (id) =>
+                 context.Baskets.Any(b => b.Id == id)).WithMessage("BasketId must be exist.");
 
     }
 }

@@ -6,7 +6,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Nest;
 using NiceShop.Application.Common.Interfaces;
-using NiceShop.Application.Common.Interfaces.Repositories;
 using NiceShop.Domain.Constants;
 using NiceShop.Domain.Entities;
 using NiceShop.Infrastructure.Data;

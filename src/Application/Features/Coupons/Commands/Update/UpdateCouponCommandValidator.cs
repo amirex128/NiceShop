@@ -34,7 +34,7 @@ public class UpdateCouponCommandValidator : AbstractValidator<UpdateCouponComman
 
         RuleForEach(v => v.Products)
             .GreaterThan(0).WithMessage("Product id must be greater than 0.")
-            .MustAsync(async (id, cancellationToken) => await context.Products.AnyAsync(p => p.Id == id, cancellationToken))
+            .Must((id) => context.Products.Any(p => p.Id == id)).WithMessage("Product id must be exist.")
             .When(v => v.Products != null && v.Products.Any());
     }
 }

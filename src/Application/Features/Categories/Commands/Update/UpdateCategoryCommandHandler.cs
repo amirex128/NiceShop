@@ -18,10 +18,11 @@ public class UpdateCategoryCommandHandler(IApplicationDbContext context)
         entity.Name = request.Name ?? entity.Name;
         entity.Description = request.Description ?? entity.Description;
         entity.SeoTags = request.SeoTags ?? entity.SeoTags;
+        entity.Slug = request.Slug ?? entity.Slug;
 
         if (request.Medias is not null && request.Medias.Any())
         {
-            entity.Medias = await context.Medias.Where(c => request.Medias.Contains(c.Id)).ToListAsync();
+            entity.Medias = await context.Medias.Where(c => request.Medias.Contains(c.Id)).ToListAsync(cancellationToken: cancellationToken);
         }
 
         context.Categories.Update(entity);

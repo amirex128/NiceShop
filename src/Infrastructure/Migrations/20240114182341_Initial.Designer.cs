@@ -12,8 +12,8 @@ using NiceShop.Infrastructure.Data;
 namespace NiceShop.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240111112005_remove_raw_price")]
-    partial class remove_raw_price
+    [Migration("20240114182341_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -68,6 +68,21 @@ namespace NiceShop.Infrastructure.Migrations
                     b.HasIndex("ProductsId");
 
                     b.ToTable("CouponProduct");
+                });
+
+            modelBuilder.Entity("CouponUser", b =>
+                {
+                    b.Property<int>("CouponId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UsedById")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("CouponId", "UsedById");
+
+                    b.HasIndex("UsedById");
+
+                    b.ToTable("CouponUser");
                 });
 
             modelBuilder.Entity("MediaProduct", b =>
@@ -290,6 +305,9 @@ namespace NiceShop.Infrastructure.Migrations
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("SeoTags")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Slug")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -423,6 +441,9 @@ namespace NiceShop.Infrastructure.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Order")
+                        .HasColumnType("int");
 
                     b.Property<int?>("ParentCategoryId")
                         .HasColumnType("int");
@@ -9705,16 +9726,31 @@ namespace NiceShop.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Barcode")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTimeOffset>("Created")
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("DiscountPercent")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("FreeSend")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("HasGuarantee")
+                        .HasColumnType("bit");
+
                     b.Property<DateTimeOffset>("LastModified")
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LongDescription")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -9723,6 +9759,13 @@ namespace NiceShop.Infrastructure.Migrations
 
                     b.Property<long>("Price")
                         .HasColumnType("bigint");
+
+                    b.Property<string>("SeoTags")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -9736,6 +9779,9 @@ namespace NiceShop.Infrastructure.Migrations
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Weight")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -9768,6 +9814,9 @@ namespace NiceShop.Infrastructure.Migrations
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
@@ -9792,14 +9841,23 @@ namespace NiceShop.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<bool>("Approved")
+                        .HasColumnType("bit");
+
                     b.Property<DateTimeOffset>("Created")
                         .HasColumnType("datetimeoffset");
+
+                    b.Property<int>("Dislike")
+                        .HasColumnType("int");
 
                     b.Property<DateTimeOffset>("LastModified")
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Like")
+                        .HasColumnType("int");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
@@ -10205,9 +10263,6 @@ namespace NiceShop.Infrastructure.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("CouponId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Discriminator")
                         .IsRequired()
                         .HasMaxLength(8)
@@ -10270,8 +10325,6 @@ namespace NiceShop.Infrastructure.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CouponId");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -10375,6 +10428,21 @@ namespace NiceShop.Infrastructure.Migrations
                     b.HasOne("NiceShop.Domain.Entities.Product", null)
                         .WithMany()
                         .HasForeignKey("ProductsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("CouponUser", b =>
+                {
+                    b.HasOne("NiceShop.Domain.Entities.Coupon", null)
+                        .WithMany()
+                        .HasForeignKey("CouponId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("NiceShop.Domain.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UsedById")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -10742,10 +10810,6 @@ namespace NiceShop.Infrastructure.Migrations
 
             modelBuilder.Entity("NiceShop.Domain.Entities.User", b =>
                 {
-                    b.HasOne("NiceShop.Domain.Entities.Coupon", null)
-                        .WithMany("UsedBy")
-                        .HasForeignKey("CouponId");
-
                     b.OwnsOne("NiceShop.Domain.Entities.Social", "Social", b1 =>
                         {
                             b1.Property<string>("UserId")
@@ -10805,11 +10869,6 @@ namespace NiceShop.Infrastructure.Migrations
                     b.Navigation("Medias");
 
                     b.Navigation("SubCategories");
-                });
-
-            modelBuilder.Entity("NiceShop.Domain.Entities.Coupon", b =>
-                {
-                    b.Navigation("UsedBy");
                 });
 
             modelBuilder.Entity("NiceShop.Domain.Entities.Order", b =>

@@ -19,14 +19,14 @@ public class CreateCategoryCommandValidator : AbstractValidator<CreateCategoryCo
         
         RuleFor(v => v.Slug)
             .NotEmpty().WithMessage("Slug is required.")
-            .MustAsync(async (slug, cancellationToken) =>
-                !await context.Categories.AnyAsync(a => a.Slug == slug, cancellationToken))
+            .Must((slug) =>
+                !context.Categories.Any(a => a.Slug == slug)).WithMessage("Slug already exists.")
             .MaximumLength(200).WithMessage("Slug must not exceed 200 characters.");
 
         
         RuleForEach(v => v.Medias)
             .GreaterThan(0).WithMessage("Media id must be greater than 0.")
-            .MustAsync(async (id, cancellationToken) => await context.Medias.AnyAsync(m => m.Id == id, cancellationToken))
+            .Must((id) => context.Medias.Any(m => m.Id == id)).WithMessage("Media id does not exist.")
             .When(v => v.Medias != null && v.Medias.Any());
     }
 }

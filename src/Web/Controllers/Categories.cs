@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using NiceShop.Application.Common.Models;
 using NiceShop.Application.Features.Categories.Commands.Create;
 using NiceShop.Application.Features.Categories.Commands.Delete;
+using NiceShop.Application.Features.Categories.Commands.Reorder;
 using NiceShop.Application.Features.Categories.Commands.Update;
 using NiceShop.Application.Features.Categories.Queries.GetById;
 using NiceShop.Application.Features.Categories.Queries.GetWithPagination;
@@ -33,6 +34,13 @@ public class Categories(IMediator mediator) : ApiController
     [HttpPost]
     [Authorize(Policy = ACL.CanCreate)]
     public async Task<Result> Create([FromBody] CreateCategoryCommand command)
+    {
+        return await mediator.Send(command);
+    }
+
+    [HttpPost]
+    [Authorize(Policy = ACL.CanCreate)]
+    public async Task<Result> Reorder([FromBody] ReorderCategoryCommand command)
     {
         return await mediator.Send(command);
     }

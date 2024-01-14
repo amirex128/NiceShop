@@ -5,6 +5,6 @@ namespace NiceShop.Application.Features.Medias.Commands.Create;
 
 public record CreateMediaCommand : IRequest<Result>
 {
-    public required IFormFile File { get; init; }
+    public IFormFile File { get; init; } = null!;
     public string? Alt { get; set; }
 }

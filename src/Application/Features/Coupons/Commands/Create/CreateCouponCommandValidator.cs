@@ -16,7 +16,7 @@ public class CreateCouponCommandValidator : AbstractValidator<CreateCouponComman
         RuleFor(v => v.ExpiryDate)
             .NotEmpty().WithMessage("ExpiryDate is required.")
             .GreaterThan(DateTime.Now).WithMessage("ExpiryDate must be greater than today.");
-        
+
         RuleFor(v => v.Type)
             .NotEmpty().WithMessage("Type is required.")
             .IsInEnum().WithMessage("Type is invalid.");
@@ -24,10 +24,10 @@ public class CreateCouponCommandValidator : AbstractValidator<CreateCouponComman
         RuleFor(v => v.Value)
             .NotEmpty().WithMessage("Value is required.")
             .GreaterThan(0).WithMessage("Value must be greater than 0.");
-        
+
         RuleForEach(v => v.Products)
             .GreaterThan(0).WithMessage("Product id must be greater than 0.")
-            .MustAsync(async (id, cancellationToken) => await context.Products.AnyAsync(p => p.Id == id, cancellationToken))
+            .Must((id) => context.Products.Any(p => p.Id == id)).WithMessage("Product id must be exist.")
             .When(v => v.Products != null && v.Products.Any());
     }
 }

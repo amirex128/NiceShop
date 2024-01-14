@@ -5,7 +5,7 @@ namespace NiceShop.Application.Features.Coupons.Commands.Update;
 
 public record UpdateCouponCommand : IRequest<Result>
 {
-    public required int Id { get; init; }
+    public int Id { get; init; }
     public string? Code { get; set; }
     public int? Quantity { get; set; }
     public DateTime? ExpiryDate { get; set; }

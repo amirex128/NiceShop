@@ -802,6 +802,43 @@
         ]
       }
     },
+    "/api/Categories/Reorder": {
+      "post": {
+        "tags": [
+          "Categories"
+        ],
+        "operationId": "Categories_Reorder",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReorderCategoryCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
     "/api/Categories/Update": {
       "put": {
         "tags": [
@@ -2115,6 +2152,38 @@
               "status": {
                 "$ref": "#/components/schemas/StatusEnum"
               },
+              "discountPercent": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "weight": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "freeSend": {
+                "type": "boolean"
+              },
+              "hasGuarantee": {
+                "type": "boolean"
+              },
+              "longDescription": {
+                "type": "string",
+                "nullable": true
+              },
+              "barcode": {
+                "type": "string",
+                "nullable": true
+              },
+              "slug": {
+                "type": "string"
+              },
+              "seoTags": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              },
               "categories": {
                 "type": "array",
                 "nullable": true,
@@ -2177,6 +2246,10 @@
                 "type": "integer",
                 "format": "int32",
                 "nullable": true
+              },
+              "order": {
+                "type": "integer",
+                "format": "int32"
               },
               "description": {
                 "type": "string",
@@ -2313,6 +2386,9 @@
                 "type": "integer",
                 "format": "int32"
               },
+              "type": {
+                "$ref": "#/components/schemas/ProductAttributeTypeEnum"
+              },
               "name": {
                 "type": "string"
               },
@@ -2321,6 +2397,20 @@
               }
             }
           }
+        ]
+      },
+      "ProductAttributeTypeEnum": {
+        "type": "integer",
+        "description": "",
+        "x-enumNames": [
+          "Public",
+          "Technical",
+          "Other"
+        ],
+        "enum": [
+          1,
+          2,
+          3
         ]
       },
       "ProductReview": {
@@ -2335,6 +2425,17 @@
               "rating": {
                 "type": "integer",
                 "format": "int32"
+              },
+              "like": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "dislike": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "approved": {
+                "type": "boolean"
               },
               "reviewText": {
                 "type": "string"
@@ -2405,6 +2506,13 @@
               },
               "slug": {
                 "type": "string"
+              },
+              "seoTags": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
               },
               "medias": {
                 "type": "array",
@@ -2811,6 +2919,13 @@
           "slug": {
             "type": "string"
           },
+          "seoTags": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
           "medias": {
             "type": "array",
             "nullable": true,
@@ -2852,6 +2967,13 @@
           "slug": {
             "type": "string",
             "nullable": true
+          },
+          "seoTags": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
           },
           "medias": {
             "type": "array",
@@ -3137,6 +3259,9 @@
               "type": "string"
             }
           },
+          "slug": {
+            "type": "string"
+          },
           "medias": {
             "type": "array",
             "nullable": true,
@@ -3144,6 +3269,20 @@
               "type": "integer",
               "format": "int32"
             }
+          }
+        }
+      },
+      "ReorderCategoryCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "order": {
+            "type": "integer",
+            "format": "int32"
           }
         }
       },
@@ -3160,6 +3299,10 @@
             "nullable": true
           },
           "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "slug": {
             "type": "string",
             "nullable": true
           },
@@ -3515,6 +3658,38 @@
             "type": "integer",
             "format": "int32"
           },
+          "discountPercent": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "weight": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "freeSend": {
+            "type": "boolean"
+          },
+          "hasGuarantee": {
+            "type": "boolean"
+          },
+          "longDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "barcode": {
+            "type": "string",
+            "nullable": true
+          },
+          "slug": {
+            "type": "string"
+          },
+          "seoTags": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
           "status": {
             "$ref": "#/components/schemas/StatusEnum"
           },
@@ -3543,14 +3718,6 @@
             }
           },
           "productAttributes": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          "productReviews": {
             "type": "array",
             "nullable": true,
             "items": {
@@ -3586,6 +3753,43 @@
             "format": "int32",
             "nullable": true
           },
+          "discountPercent": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "weight": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "freeSend": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "hasGuarantee": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "longDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "barcode": {
+            "type": "string",
+            "nullable": true
+          },
+          "slug": {
+            "type": "string",
+            "nullable": true
+          },
+          "seoTags": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
           "status": {
             "nullable": true,
             "oneOf": [
@@ -3619,14 +3823,6 @@
             }
           },
           "productAttributes": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          "productReviews": {
             "type": "array",
             "nullable": true,
             "items": {

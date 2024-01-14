@@ -12,8 +12,8 @@ public class CreateProductAttributeCommandValidator : AbstractValidator<CreatePr
 
         RuleFor(v => v.ProductId)
             .GreaterThan(0).WithMessage("ProductId must be greater than 0.")
-            .MustAsync(async (productId, cancellationToken) =>
-                await _context.Products.AnyAsync(p => p.Id == productId, cancellationToken))
+            .Must( (productId) =>
+                 _context.Products.Any(p => p.Id == productId))
             .WithMessage("Product with the given id does not exist.");
 
         RuleFor(v => v.Type)

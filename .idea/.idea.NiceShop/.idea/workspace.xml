@@ -33,72 +33,25 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///folder-pre-request-script-3e56200d.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-pre-request-script-5e8ee2a8.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-pre-request-script-6d5d9bbf.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-pre-request-script-df636aaf.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-pre-request-script-drafts.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///folder-test-script-3e56200d.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-test-script-5e8ee2a8.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-test-script-6d5d9bbf.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-test-script-df636aaf.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-test-script-drafts.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-031f88cc.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-300568d3.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-300568d3.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-3cebb680.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-3f0ad618.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-43de2986.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-4a29466a.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-4b12a055.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-4b12a055.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-5754e2b6.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-5754e2b6.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-73888e40.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-73b67c9c.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-73b67c9c.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-b0e969cc.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-b0e969cc.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-b0e969cc.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-b0e969cc.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-b0e969cc.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-b20f81c9.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-c04f1267.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-cc426668.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-cc426668.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-cc426668.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-cc426668.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-031f88cc.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-300568d3.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-300568d3.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-3cebb680.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-3f0ad618.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-43de2986.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-4a29466a.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-4b12a055.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-4b12a055.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-5754e2b6.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-5754e2b6.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-73888e40.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-73b67c9c.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-73b67c9c.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-b0e969cc.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-b0e969cc.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-b0e969cc.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-b0e969cc.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-b0e969cc.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-b20f81c9.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-c04f1267.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-cc426668.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-cc426668.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-cc426668.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-cc426668.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-59d50fc2.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-9c0a0ab0.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-9c0a0ab0.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-dd5041b4.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-59d50fc2.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-9c0a0ab0.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-9c0a0ab0.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-dd5041b4.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/3f1acb59718cadf111a0a796681e3d3509bb3381/src/Identity/EntityFrameworkCore/src/IdentityDbContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/5535e31a712343a63f5d7d796cd874e563e5ac14/src/libraries/Microsoft.Extensions.DependencyInjection.Abstractions/src/ServiceProviderServiceExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0c53ee5c91f047f387400d094b3581c4267420/bb/35e7eca7/DbSet`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5abecb93434c4299acd01d522fdf8da2c9a910/6d/3bb67a37/Directory.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5abecb93434c4299acd01d522fdf8da2c9a910/82/f2f50411/String.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/717eeb12f338474bb05aa0a346c7d07b8a00/f4/3a640931/GuardClauseExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/78c860a4a0696d27b2942ef6996b8ceec84aec6b56a4221bd8ce81cc42954d/RequestHandlerWrapper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8e13a1886cb39d14cd333d6ce431194f6ffd94a276d0da246bb856c2b33437/LoggerMinimumLevelConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9536e527c514d473e1f286895891d1c1ee1aebfdd216f907d89696ccd2a3f/LogEventLevel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f4bc324a395d24ed12db75b0a81536b642509aa14825bf114d9b7c934e2b/Mediator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/global.json" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -299,7 +252,14 @@
       <workItem from="1705055425648" duration="28000" />
       <workItem from="1705055490914" duration="88000" />
       <workItem from="1705055625983" duration="1834000" />
-      <workItem from="1705097334931" duration="2106000" />
+      <workItem from="1705097334931" duration="4792000" />
+      <workItem from="1705133733302" duration="27000" />
+      <workItem from="1705140899669" duration="52000" />
+      <workItem from="1705174524457" duration="461000" />
+      <workItem from="1705175002716" duration="333000" />
+      <workItem from="1705236396391" duration="1653000" />
+      <workItem from="1705253967371" duration="136000" />
+      <workItem from="1705254148808" duration="3023000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="fix init">
       <option name="closed" value="true" />
@@ -422,7 +382,21 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۱۶" />
       <updated>1705006799193</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL‎−۰۰۰۱۷" summary="fix validation">
+      <option name="closed" value="true" />
+      <created>1705109326145</created>
+      <option name="number" value="LOCAL‎−۰۰۰۱۷" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۱۷" />
+      <updated>1705109326145</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۱۸" summary="add product review and variant">
+      <option name="closed" value="true" />
+      <created>1705111300637</created>
+      <option name="number" value="LOCAL‎−۰۰۰۱۸" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۱۸" />
+      <updated>1705111300637</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -449,7 +423,9 @@
     <MESSAGE value="fix all crud" />
     <MESSAGE value="implement baskets and coupon check" />
     <MESSAGE value="add city and province" />
-    <option name="LAST_COMMIT_MESSAGE" value="add city and province" />
+    <MESSAGE value="fix validation" />
+    <MESSAGE value="add product review and variant" />
+    <option name="LAST_COMMIT_MESSAGE" value="add product review and variant" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

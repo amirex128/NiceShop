@@ -350,7 +350,7 @@
                     <requestState>
                       <option name="body">
                         <bodyState>
-                          <option name="raw" value="{&#10;  &quot;name&quot;: &quot;test&quot;,&#10;  &quot;description&quot;: &quot;&quot;,&#10;  &quot;seoTags&quot;: [&#10;    &quot;ddd&quot;&#10;  ],&#10;  &quot;medias&quot;: [&#10;    &#10;  ]&#10;}" />
+                          <option name="raw" value="{&#10;  &quot;name&quot;: &quot;test&quot;,&#10;  &quot;description&quot;: &quot;11&quot;,&#10;  &quot;Slug&quot;:&quot;qwertyuiop&quot;,&#10;  &quot;seoTags&quot;: [&#10;    &quot;ddd&quot;&#10;  ],&#10;  &quot;medias&quot;: [&#10;    &#10;  ]&#10;}" />
                           <option name="type" value="JSON" />
                         </bodyState>
                       </option>
@@ -402,6 +402,27 @@
                         </list>
                       </option>
                       <option name="url" value="{{baseUrl}}/api/Categories/Delete/{id}" />
+                    </requestState>
+                    <requestState>
+                      <option name="body">
+                        <bodyState>
+                          <option name="raw" value="{&#10;  &quot;id&quot;: 7,&#10;  &quot;order&quot;: 3&#10;}" />
+                          <option name="type" value="JSON" />
+                        </bodyState>
+                      </option>
+                      <option name="description" value="Categories_Reorder" />
+                      <option name="headers">
+                        <list>
+                          <headerState>
+                            <option name="key" value="Content-Type" />
+                            <option name="value" value="application/json" />
+                          </headerState>
+                        </list>
+                      </option>
+                      <option name="id" value="834c9dcc-46c6-4b95-93a1-d5899288304d" />
+                      <option name="method" value="POST" />
+                      <option name="name" value="/api/Categories/Reorder" />
+                      <option name="url" value="{{baseUrl}}/api/Categories/Reorder" />
                     </requestState>
                   </list>
                 </option>
@@ -776,10 +797,5 @@
       </list>
     </option>
     <option name="id" value="62141c6b-e284-4d1a-b483-d0782c723e69" />
-    <option name="runnerIdsHistory">
-      <map>
-        <entry key="3656ee24-6804-4f5a-9fc2-62c26d4e3ebe" value="031f88cc-88f9-402a-a75a-9f3a611e667d,057d054f-4d0c-47c4-a562-41929e0738c1,06782f72-5c42-40d5-a1b1-0bad2842b7eb,06818a8b-ff3c-48da-a1b0-183e0494fe04,0d4796d9-2964-46ec-937d-ff8dbb8431b6,0d8cd23e-5396-4bcf-b3de-637f33ad27d9,12c5f379-f5a8-4a57-b3d7-11b620ea6732,16fbb7c4-ab88-46c8-baf2-609935ea497e,203358c5-ac36-4204-840c-8019d967f0ce,2cfc883a-d43e-494e-a6af-5f98f793d4f8,3f0ad618-971b-40a0-b070-ef2dfcc5e744,4407d5da-d134-47e3-876f-e5f90002a35e,4b12a055-98e9-46bd-8d70-e46951db560f,549b8c1b-450f-47eb-a935-512351be204a,5754e2b6-27e4-41eb-a48e-e356502de3f4,5916d111-e45f-4f01-9573-54d11d195eac,59d50fc2-2845-456c-9c8d-2c82f051386b,5ee6fa7e-ecb4-4afa-b4e7-dfd2b28ac79c,65cbe82d-b584-4898-a5a9-9c478df1ffd9,691767c2-3af4-4481-b233-b258e7024fe2,73888e40-1bfc-4574-88b0-819bebda0386,790ec47c-3829-4fa8-99ca-861e84f42025,7bf8e790-be9f-461d-b4e6-d82e2332d294,8080a6d1-1723-4b3e-b2ba-7c6a9dd95617,8379291b-94d6-4f63-8b5d-77a8a89b1f1a,8c735c88-4ef9-403d-9d86-5969d985ac99,9c0a0ab0-5384-4100-b00d-fda5097bfaa1,a0dd40f3-b146-4bbc-9f71-93b55c8142ee,b0e969cc-d9b5-4cc2-8f03-629c6acc9f59,b20f81c9-c048-4e9a-80ed-af5a34e8029b,c7a2eecc-61df-45bd-ba8f-87ce5f61566a,cc426668-cf0f-4712-aa79-0f6aeff00f2f,dd5041b4-80c0-49b2-ba1d-38940e4d950c,e37a2e5c-821b-4363-8776-ebc95d8ca530,f3499e45-42ad-4925-8e91-6fa8b9da33a9,f6106ea6-a2d9-4e55-9b38-f26336a65bce,f8b70dcd-3905-457d-a7a0-0413edd83066,ffae62bd-aea4-406c-b806-0914c243e903|" />
-      </map>
-    </option>
   </component>
 </project>

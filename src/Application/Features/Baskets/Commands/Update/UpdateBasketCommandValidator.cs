@@ -13,11 +13,13 @@ public class UpdateBasketCommandValidator : AbstractValidator<UpdateBasketComman
 
         RuleFor(v => v.Id)
             .GreaterThan(0).WithMessage("Id must be greater than 0.")
-            .MustAsync(async (id, cancellationToken) => await _context.Baskets.AnyAsync(b => b.Id == id, cancellationToken)).WithMessage("Basket with the given id does not exist.");
+            .MustAsync(async (id, cancellationToken) =>
+                await _context.Baskets.AnyAsync(b => b.Id == id, cancellationToken))
+            .WithMessage("Basket with the given id does not exist.");
 
         RuleFor(v => v.BasketItems)
             .NotEmpty().WithMessage("BasketItems is required.")
-            .MustAsync(AllProductsExist).WithMessage("One or more products do not exist.");
+            .Must(AllProductsExist).WithMessage("One or more products do not exist.");
 
         RuleForEach(v => v.BasketItems)
             .ChildRules(item =>
@@ -30,13 +32,13 @@ public class UpdateBasketCommandValidator : AbstractValidator<UpdateBasketComman
             });
     }
 
-    private async Task<bool> AllProductsExist(List<BasketItemDto> basketItems, CancellationToken cancellationToken)
+    private bool AllProductsExist(List<BasketItemDto> basketItems)
     {
         var productIds = basketItems.Select(i => i.ProductId);
-        var existingProductIds = await _context.Products
+        var existingProductIds = _context.Products
             .Where(p => productIds.Contains(p.Id))
             .Select(p => p.Id)
-            .ToListAsync(cancellationToken);
+            .ToList();
 
         return productIds.All(id => existingProductIds.Contains(id));
     }

@@ -1,3 +1,4 @@
+using Asp.Versioning;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NiceShop.Application.Common.Interfaces;
@@ -15,7 +16,8 @@ using NiceShop.Infrastructure.Services;
 
 namespace NiceShop.Web.Controllers;
 
-public class Addresses(IMediator mediator) : ApiController
+[ApiVersion("1.0")]
+public class AddressesController(IMediator mediator) : ApiController
 {
     [HttpGet]
     [Authorize(Policy = ACL.CanGetAll)]

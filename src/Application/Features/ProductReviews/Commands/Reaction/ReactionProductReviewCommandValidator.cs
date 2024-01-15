@@ -2,7 +2,7 @@ using NiceShop.Application.Common.Interfaces;
 
 namespace NiceShop.Application.Features.ProductReviews.Commands.Reaction;
 
-public class CreateProductReviewCommandValidator : AbstractValidator<CreateProductReviewCommand>
+public class CreateProductReviewCommandValidator : AbstractValidator<ReactionProductReviewCommand>
 {
     public CreateProductReviewCommandValidator(IApplicationDbContext context)
     {

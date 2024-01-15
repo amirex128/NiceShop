@@ -12,7 +12,7 @@ using NiceShop.Domain.Constants;
 namespace NiceShop.Web.Controllers;
 
 [ApiVersion("1.0")]
-public class Baskets(IMediator mediator) : ApiController
+public class BasketsController(IMediator mediator) : ApiController
 {
     [HttpGet]
     [Authorize(Policy = ACL.CanGetAll)]

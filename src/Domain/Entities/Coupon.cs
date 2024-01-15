@@ -7,6 +7,6 @@ public class Coupon : BaseAuditableEntity
     public CouponTypeEnum Type { get; set; }
     public long Value { get; set; }
     public DateTime ExpiryDate { get; set; }
-    public List<Product> Products { get; set; }= new();
+    public List<Product> Products { get; set; } = new();
     public List<User> UsedBy { get; set; } = new();
 }

@@ -9,8 +9,6 @@ public record UpdateProductCommand : IRequest<Result>
     public int Id { get; init; }
     public string? Name { get; set; }
     public string? Description { get; set; }
-    public long? Price { get; set; }
-    public int? Stock { get; set; }
     public int? DiscountPercent { get; set; }
     public int? Weight { get; set; }
     public bool? FreeSend { get; set; }

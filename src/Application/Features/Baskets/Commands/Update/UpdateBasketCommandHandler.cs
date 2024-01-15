@@ -23,35 +23,43 @@ public class UpdateBasketCommandHandler(IApplicationDbContext context)
             .ToListAsync(cancellationToken);
 
         var basketItems = new List<BasketItem>();
-
+        basket.RawQuantityPrice = 0;
         foreach (BasketItemDto item in request.BasketItems)
         {
             var product = products.Single(p => p.Id == item.ProductId);
+            var productVariant = product.ProductVariants?.FirstOrDefault(pv => pv.Id == item.ProductVariantId);
             var oldItem = basket.BasketItems.FirstOrDefault(x => products.Select(p => p.Id).Contains(x.ProductId));
+
+            if (productVariant is null)
+                return Result.OperationFailed($"محصول" +
+                                              $" {product.Name} " +
+                                              "یافت نشد.");
+
+
             if (oldItem is not null)
             {
-                if (product.Stock + oldItem.Quantity < item.Quantity)
+                if (productVariant.Stock + oldItem.Quantity < item.Quantity)
                     return Result.OperationFailed($"موجودی محصول" +
                                                   $" {product.Name} " +
                                                   "کافی نیست. موجودی فعلی محصول" +
-                                                  $" {product.Stock} " +
+                                                  $" {productVariant.Stock} " +
                                                   "میباشد.");
-                product.Stock += oldItem.Quantity;
-                product.Stock -= item.Quantity;
+                productVariant.Stock += oldItem.Quantity;
+                productVariant.Stock -= item.Quantity;
             }
             else
             {
-                if (product.Stock < item.Quantity)
+                if (productVariant.Stock < item.Quantity)
                     return Result.OperationFailed($"موجودی محصول" +
                                                   $" {product.Name} " +
                                                   "کافی نیست. موجودی فعلی محصول" +
-                                                  $" {product.Stock} " +
+                                                  $" {productVariant.Stock} " +
                                                   "میباشد.");
-                product.Stock -= item.Quantity;
+                productVariant.Stock -= item.Quantity;
             }
 
-            var productVariant = product?.ProductVariants?.FirstOrDefault(pv => pv.Id == item.ProductVariantId);
-            long price = productVariant?.Price ?? product?.Price ?? 0;
+
+            long price = productVariant?.Price ?? 0;
             long quantityPrice = price * item.Quantity;
 
             var basketItem = new BasketItem
@@ -79,7 +87,7 @@ public class UpdateBasketCommandHandler(IApplicationDbContext context)
         basket.BasketItems = basketItems;
         context.Baskets.Update(basket);
 
-        var result = await context.SaveChangesAsync(cancellationToken);
+       var result = await context.SaveChangesAsync(cancellationToken);
         return result > 0 ? Result.Updated().WithObject(basket) : Result.FailedUpdate();
     }
 }

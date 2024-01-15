@@ -27,6 +27,7 @@ public class CheckCouponCommandHandler(IApplicationDbContext context, IUser user
         if (coupon is null)
             return Result.OperationFailed("کد تخفیف یافت نشد.");
 
+
         foreach (User usedUser in coupon.UsedBy)
         {
             if (usedUser.Id == user.Id)
@@ -44,8 +45,12 @@ public class CheckCouponCommandHandler(IApplicationDbContext context, IUser user
         basket.CouponId = coupon.Id;
         coupon.Quantity--;
         coupon.UsedBy.Add((await context.Users.FindAsync(user.Id))!);
+
+
         var result = await context.SaveChangesAsync(cancellationToken);
 
-        return result > 0 ? Result.OperationSuccess("کد تخفبف روی سبد خرید شما اعمال شد.").WithObject(basket) : Result.OperationFailed("خطا در ثبت اطلاعات.");
+        return result > 0
+            ? Result.OperationSuccess("کد تخفبف روی سبد خرید شما اعمال شد.").WithObject(basket)
+            : Result.OperationFailed("خطا در ثبت اطلاعات.");
     }
 }

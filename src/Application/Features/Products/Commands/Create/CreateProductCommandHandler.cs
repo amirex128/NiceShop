@@ -12,8 +12,6 @@ public class CreateProductCommandHandler(IApplicationDbContext context) : IReque
         {
             Name = request.Name,
             Description = request.Description,
-            Price = request.Price,
-            Stock = request.Stock,
             Status = request.Status,
             DiscountPercent=request.DiscountPercent,
             Weight=request.Weight,

@@ -10,7 +10,6 @@ public class CreateBasketCommandHandler(IApplicationDbContext context)
 {
     public async Task<Result> Handle(CreateBasketCommand request, CancellationToken cancellationToken)
     {
-        //TODO after 30 min we must get all basket and check if user not payed we must delete basket and add stock to products to coupon
         var products = await context.Products
             .Include(p => p.ProductVariants)
             .Where(x => request.BasketItems.Select(b => b.ProductId).Contains(x.Id))
@@ -21,17 +20,28 @@ public class CreateBasketCommandHandler(IApplicationDbContext context)
         foreach (BasketItemDto item in request.BasketItems)
         {
             var product = products.Single(x => x.Id == item.ProductId);
-            if (product.Stock < item.Quantity)
+            var productVariant = product.ProductVariants?.SingleOrDefault(x => x.Id == item.ProductVariantId);
+            if (productVariant is null)
+                return Result.OperationFailed($"محصول" +
+                                              $" {product.Name} " +
+                                              "یافت نشد.");
+
+
+            if (productVariant.Stock < item.Quantity)
+            {
                 return Result.OperationFailed($"موجودی محصول" +
                                               $" {product.Name} " +
+                                              "با ویژگی" +
+                                              $" {productVariant.Name} " +
                                               "کافی نیست. موجودی فعلی محصول" +
-                                              $" {product.Stock} " +
+                                              $" {productVariant.Stock} " +
                                               "میباشد.");
+            }
 
-            product.Stock -= item.Quantity;
+            productVariant!.Stock -= item.Quantity;
 
-            var productVariant = product.ProductVariants?.SingleOrDefault(x => x.Id == item.ProductVariantId);
-            long price = productVariant?.Price ?? product?.Price ?? 0;
+
+            long price = productVariant?.Price ?? 0;
             long quantityPrice = price * item.Quantity;
 
             var basketItem = new BasketItem

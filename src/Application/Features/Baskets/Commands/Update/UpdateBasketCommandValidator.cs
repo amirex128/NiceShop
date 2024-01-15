@@ -13,8 +13,8 @@ public class UpdateBasketCommandValidator : AbstractValidator<UpdateBasketComman
 
         RuleFor(v => v.Id)
             .GreaterThan(0).WithMessage("Id must be greater than 0.")
-            .MustAsync(async (id, cancellationToken) =>
-                await _context.Baskets.AnyAsync(b => b.Id == id, cancellationToken))
+            .Must( (id) =>
+                 _context.Baskets.Any(b => b.Id == id))
             .WithMessage("Basket with the given id does not exist.");
 
         RuleFor(v => v.BasketItems)

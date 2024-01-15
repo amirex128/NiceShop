@@ -14,8 +14,6 @@ public class UpdateProductCommandHandler(IApplicationDbContext context) : IReque
 
         entity.Name = request.Name ?? entity.Name;
         entity.Description = request.Description ?? entity.Description;
-        entity.Price = request.Price ?? entity.Price;
-        entity.Stock = request.Stock ?? entity.Stock;
         entity.DiscountPercent = request.DiscountPercent ?? entity.DiscountPercent;
         entity.Weight = request.Weight ?? entity.Weight;
         entity.FreeSend = request.FreeSend ?? entity.FreeSend;

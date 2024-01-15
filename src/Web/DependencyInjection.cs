@@ -4,9 +4,11 @@ using Azure.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NiceShop.Application.Common.Interfaces;
 using NiceShop.Infrastructure.Data;
+using NiceShop.Infrastructure.Schedulers;
 using NiceShop.Web.Services;
 using NSwag;
 using NSwag.Generation.Processors.Security;
+using Quartz;
 using ZymLabs.NSwag.FluentValidation;
 
 namespace NiceShop.Web;
@@ -15,7 +17,6 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddWebServices(this IServiceCollection services)
     {
-        
         services.AddProblemDetails();
         services.AddMemoryCache();
         
@@ -97,6 +98,20 @@ public static class DependencyInjection
 
             configure.OperationProcessors.Add(new AspNetCoreOperationSecurityScopeProcessor("JWT"));
         });
+        
+        services.AddQuartz(q =>
+        {
+            var jobKey = new JobKey("RemoveBaskets");
+            q.AddJob<RemoveBaskets>(opts => opts.WithIdentity(jobKey));
+            q.AddTrigger(opts => opts
+                .ForJob(jobKey)
+                .WithIdentity("RemoveBaskets-trigger")
+                .WithSimpleSchedule(x => x
+                    .WithIntervalInMinutes(60)
+                    .RepeatForever()));    
+        });
+
+        services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
 
         return services;
     }

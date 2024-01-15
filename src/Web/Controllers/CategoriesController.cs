@@ -14,7 +14,7 @@ using NiceShop.Infrastructure.Services;
 namespace NiceShop.Web.Controllers;
 
 [ApiVersion("1.0")]
-public class Categories(IMediator mediator) : ApiController
+public class CategoriesController(IMediator mediator) : ApiController
 {
     [HttpGet]
     [Authorize(Policy = ACL.CanGetAll)]

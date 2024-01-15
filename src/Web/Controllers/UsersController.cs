@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Asp.Versioning;
 using Microsoft.AspNetCore.Authentication.BearerToken;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -10,7 +11,8 @@ using NiceShop.Domain.Entities;
 
 namespace NiceShop.Web.Controllers;
 
-public class Users : ApiController
+[ApiVersion("1.0")]
+public class UsersController : ApiController
 {
     private static readonly EmailAddressAttribute _emailAddressAttribute = new();
 

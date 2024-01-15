@@ -32,16 +32,32 @@
     <option name="projectConfigVersion" value="5" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///folder-pre-request-script-3e56200d.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-test-script-3e56200d.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-59d50fc2.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///folder-pre-request-script-31e022b1.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///folder-test-script-31e022b1.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-031f88cc.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-16fbb7c4.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-930648dc.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///pre-request-script-9c0a0ab0.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-9c0a0ab0.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-a55dd860.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-b0e969cc.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-b0e969cc.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-b0e969cc.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-b20f81c9.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-b20f81c9.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///pre-request-script-dd5041b4.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-59d50fc2.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-f2c37b14.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-031f88cc.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-16fbb7c4.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-930648dc.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///test-script-9c0a0ab0.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-9c0a0ab0.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-a55dd860.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-b0e969cc.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-b0e969cc.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-b0e969cc.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-b20f81c9.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-b20f81c9.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///test-script-dd5041b4.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-f2c37b14.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/3f1acb59718cadf111a0a796681e3d3509bb3381/src/Identity/EntityFrameworkCore/src/IdentityDbContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/5535e31a712343a63f5d7d796cd874e563e5ac14/src/libraries/Microsoft.Extensions.DependencyInjection.Abstractions/src/ServiceProviderServiceExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0c53ee5c91f047f387400d094b3581c4267420/bb/35e7eca7/DbSet`1.cs" root0="SKIP_HIGHLIGHTING" />
@@ -259,7 +275,8 @@
       <workItem from="1705175002716" duration="333000" />
       <workItem from="1705236396391" duration="1653000" />
       <workItem from="1705253967371" duration="136000" />
-      <workItem from="1705254148808" duration="3023000" />
+      <workItem from="1705254148808" duration="5886000" />
+      <workItem from="1705339449614" duration="7031000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="fix init">
       <option name="closed" value="true" />
@@ -396,7 +413,14 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۱۸" />
       <updated>1705111300637</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL‎−۰۰۰۱۹" summary="fix validation">
+      <option name="closed" value="true" />
+      <created>1705259326429</created>
+      <option name="number" value="LOCAL‎−۰۰۰۱۹" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۱۹" />
+      <updated>1705259326429</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -423,9 +447,9 @@
     <MESSAGE value="fix all crud" />
     <MESSAGE value="implement baskets and coupon check" />
     <MESSAGE value="add city and province" />
-    <MESSAGE value="fix validation" />
     <MESSAGE value="add product review and variant" />
-    <option name="LAST_COMMIT_MESSAGE" value="add product review and variant" />
+    <MESSAGE value="fix validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix validation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -435,6 +459,19 @@
           <line>151</line>
           <properties documentPath="D:\programming\Projects\self\NiceShop\src\Infrastructure\Repositories\Repository.cs" initialLine="151" containingFunctionPresentation="Method 'UpdateEntityCollection'" />
           <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/Infrastructure/Schedulers/RemoveBaskets.cs</url>
+          <line>18</line>
+          <properties documentPath="D:\programming\Projects\self\NiceShop\src\Infrastructure\Schedulers\RemoveBaskets.cs" initialLine="18" containingFunctionPresentation="Method 'Execute'">
+            <startOffsets>
+              <option value="632" />
+            </startOffsets>
+            <endOffsets>
+              <option value="663" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -2,7 +2,10 @@ using Elastic.Apm.NetCoreAll;
 using NiceShop.Application;
 using NiceShop.Infrastructure;
 using NiceShop.Infrastructure.Data;
+using NiceShop.Infrastructure.Schedulers;
 using NiceShop.Web;
+using Quartz;
+using Quartz.AspNetCore;
 using Serilog;
 using Serilog.Sinks.Elasticsearch;
 
@@ -25,7 +28,6 @@ builder.Logging.ClearProviders();
 builder.Logging.AddSerilog(Log.Logger, dispose: true);
 builder.Host.UseSerilog();
 
-// Add services to the container.
 builder.Services.AddApplicationServices();
 builder.Services.AddApplicationMediatRServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
@@ -37,8 +39,6 @@ var app = builder.Build();
 app.UseSerilogRequestLogging();
 
 // app.UseAllElasticApm(builder.Configuration);
-
-// Configure the HTTP request pipeline.
 if (app.Environment.EnvironmentName == "Local")
 {
     await app.InitialiseDatabaseAsync();

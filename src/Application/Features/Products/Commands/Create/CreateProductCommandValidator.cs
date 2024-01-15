@@ -13,14 +13,6 @@ public class CreateProductCommandValidator : AbstractValidator<CreateProductComm
         RuleFor(v => v.Description)
             .MaximumLength(2000).WithMessage("Description must not exceed 2000 characters.");
 
-        RuleFor(v => v.Price)
-            .NotEmpty().WithMessage("Price is required.")
-            .GreaterThan(0).WithMessage("Price must be greater than 0.");
-
-        RuleFor(v => v.Stock)
-            .NotEmpty().WithMessage("Stock is required.")
-            .GreaterThanOrEqualTo(0).WithMessage("Stock must be greater than or equal to 0.");
-
         RuleFor(v => v.DiscountPercent)
             .InclusiveBetween(0, 100).WithMessage("DiscountPercent must be between 0 and 100.");
 

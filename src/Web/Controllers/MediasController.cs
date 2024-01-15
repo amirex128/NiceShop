@@ -13,7 +13,7 @@ using NiceShop.Infrastructure.Services;
 namespace NiceShop.Web.Controllers;
 
 [ApiVersion("1.0")]
-public class Medias(IMediator mediator) : ApiController
+public class MediasController(IMediator mediator) : ApiController
 {
     [HttpGet]
     [Authorize(Policy = ACL.CanGetAll)]

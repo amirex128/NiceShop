@@ -17,14 +17,6 @@ public class UpdateProductCommandValidator : AbstractValidator<UpdateProductComm
         RuleFor(v => v.Description)
             .MaximumLength(2000).WithMessage("Description must not exceed 2000 characters.")
             .When(v => v.Description != null);
-
-        RuleFor(v => v.Price)
-            .GreaterThan(0).WithMessage("Price must be greater than 0.")
-            .When(v => v.Price.HasValue);
-
-        RuleFor(v => v.Stock)
-            .GreaterThanOrEqualTo(0).WithMessage("Stock must be greater than or equal to 0.")
-            .When(v => v.Stock.HasValue);
               
         RuleFor(v => v.DiscountPercent)
             .InclusiveBetween(0, 100).WithMessage("DiscountPercent must be between 0 and 100.")

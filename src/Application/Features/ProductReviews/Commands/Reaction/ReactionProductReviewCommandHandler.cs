@@ -5,9 +5,9 @@ using NiceShop.Domain.Entities;
 namespace NiceShop.Application.Features.ProductReviews.Commands.Reaction;
 
 public class CreateProductReviewCommandHandler(IApplicationDbContext context)
-    : IRequestHandler<CreateProductReviewCommand, Result>
+    : IRequestHandler<ReactionProductReviewCommand, Result>
 {
-    public async Task<Result> Handle(CreateProductReviewCommand request, CancellationToken cancellationToken)
+    public async Task<Result> Handle(ReactionProductReviewCommand request, CancellationToken cancellationToken)
     {
         var entity = await context.ProductReviews.FindAsync(request.Id);
         Guard.Against.NotFound(request.Id, entity);

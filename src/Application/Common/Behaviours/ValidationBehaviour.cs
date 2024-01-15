@@ -26,9 +26,12 @@ public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TReque
                 .Where(r => r.Errors.Any())
                 .SelectMany(r => r.Errors)
                 .ToList();
-
-            if (failures.Any())
-                throw new ValidationException(failures);
+            var distinctFailures = failures
+                .GroupBy(f => f.ErrorMessage)
+                .Select(g => g.First())
+                .ToList();
+            if (distinctFailures.Any())
+                throw new ValidationException(distinctFailures);
         }
         return await next();
     }

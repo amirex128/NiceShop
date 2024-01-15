@@ -7,8 +7,6 @@ public record CreateProductCommand : IRequest<Result>
 {
     public string Name { get; set; } = "";
     public string? Description { get; set; }
-    public required long Price { get; set; }
-    public required int Stock { get; set; }
     public int DiscountPercent { get; set; }
     public int Weight { get; set; }
     public bool FreeSend { get; set; }

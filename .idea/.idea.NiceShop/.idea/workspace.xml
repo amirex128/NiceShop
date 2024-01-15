@@ -32,6 +32,9 @@
     <option name="projectConfigVersion" value="5" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///folder-pre-request-script-31e022b1.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///folder-test-script-31e022b1.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///pre-request-script-031f88cc.js" root0="FORCE_HIGHLIGHTING" />
@@ -63,6 +66,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0c53ee5c91f047f387400d094b3581c4267420/bb/35e7eca7/DbSet`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5abecb93434c4299acd01d522fdf8da2c9a910/6d/3bb67a37/Directory.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5abecb93434c4299acd01d522fdf8da2c9a910/82/f2f50411/String.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5abecb93434c4299acd01d522fdf8da2c9a910/fe/a9a93b61/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/717eeb12f338474bb05aa0a346c7d07b8a00/f4/3a640931/GuardClauseExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/78c860a4a0696d27b2942ef6996b8ceec84aec6b56a4221bd8ce81cc42954d/RequestHandlerWrapper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8e13a1886cb39d14cd333d6ce431194f6ffd94a276d0da246bb856c2b33437/LoggerMinimumLevelConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
@@ -127,7 +131,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.Web">
+  <component name="RunManager" selected=".NET Launch Settings Profile.Consumers">
     <configuration name="Consumers" type="LaunchSettings" factoryName=".NET Launch Settings Profile" temporary="true">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/Consumers/Consumers.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -189,9 +193,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue=".NET Launch Settings Profile.Consumers" />
         <item itemvalue=".NET Launch Settings Profile.Web" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-        <item itemvalue=".NET Launch Settings Profile.Consumers" />
       </list>
     </recent_temporary>
   </component>
@@ -276,7 +280,7 @@
       <workItem from="1705236396391" duration="1653000" />
       <workItem from="1705253967371" duration="136000" />
       <workItem from="1705254148808" duration="5886000" />
-      <workItem from="1705339449614" duration="7031000" />
+      <workItem from="1705339449614" duration="10152000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="fix init">
       <option name="closed" value="true" />
@@ -420,7 +424,14 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۱۹" />
       <updated>1705259326429</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL‎−۰۰۰۲۰" summary="add remove basket scheduler">
+      <option name="closed" value="true" />
+      <created>1705347827968</created>
+      <option name="number" value="LOCAL‎−۰۰۰۲۰" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۲۰" />
+      <updated>1705347827968</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -449,7 +460,8 @@
     <MESSAGE value="add city and province" />
     <MESSAGE value="add product review and variant" />
     <MESSAGE value="fix validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix validation" />
+    <MESSAGE value="add remove basket scheduler" />
+    <option name="LAST_COMMIT_MESSAGE" value="add remove basket scheduler" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -472,6 +484,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/Consumers/Workers/EitaWorker.cs</url>
+          <line>27</line>
+          <properties documentPath="D:\programming\Projects\self\NiceShop\src\Consumers\Workers\EitaWorker.cs" initialLine="27" containingFunctionPresentation="Lambda expression inside Method 'ExecuteAsync'">
+            <startOffsets>
+              <option value="788" />
+            </startOffsets>
+            <endOffsets>
+              <option value="826" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

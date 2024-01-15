@@ -13,7 +13,7 @@ public class NotificationWorker(
 {
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        rabbitmqService.ConsumeSms((ch, ea) =>
+        rabbitmqService.ConsumeNotification((ch, ea) =>
         {
             try
             {

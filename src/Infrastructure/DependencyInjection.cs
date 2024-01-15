@@ -10,6 +10,7 @@ using NiceShop.Domain.Constants;
 using NiceShop.Domain.Entities;
 using NiceShop.Infrastructure.Data;
 using NiceShop.Infrastructure.Data.Interceptors;
+using NiceShop.Infrastructure.Eita;
 using NiceShop.Infrastructure.Elasticsearch;
 using NiceShop.Infrastructure.Identity;
 using NiceShop.Infrastructure.Policies;
@@ -37,6 +38,7 @@ public static class DependencyInjection
         services.AddSingleton<IElasticsearchContext, ElasticsearchContext>();
         services.AddSingleton<IRabbitMqContext, RabbitMqContext>();
         services.AddSingleton<ISmsContext, SmsContext>();
+        services.AddSingleton<IEitaContext, EitaContext>();
 
         services.AddSingleton(TimeProvider.System);
 

@@ -15,7 +15,8 @@ public class SendOtpEventHandler(ILogger<SendOtpEventHandler> logger, IRabbitmqS
         
         rabbitmqService.PublishSmsOtp(notification);
         rabbitmqService.PublishEmailOtp(notification);
-
+        rabbitmqService.PublishEitaOtp(notification);
+        
         return Task.CompletedTask;
     }
 }

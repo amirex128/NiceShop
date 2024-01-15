@@ -17,6 +17,7 @@ public static class DependencyInjection
         services.AddSingleton<IRabbitmqService, RabbitmqService>();
         services.AddSingleton<ISmsService, SmsService>();
         services.AddSingleton<ICacheService, CacheService>();
+        services.AddSingleton<IEitaService, EitaService>();
         
         return services;
     }

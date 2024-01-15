@@ -5,15 +5,16 @@ using NiceShop.Domain.Events;
 
 namespace Consumers.Workers;
 
-public class SmsWorker(
-    ILogger<SmsWorker> logger,
+public class EitaWorker(
+    ILogger<EitaWorker> logger,
     IRabbitmqService rabbitmqService,
-    IRabbitMqContext rabbitMqContext)
+    IRabbitMqContext rabbitMqContext,
+    IEitaService eitaService)
     : BackgroundService
 {
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        rabbitmqService.ConsumeSms((ch, ea) =>
+        rabbitmqService.ConsumeEita((ch, ea) =>
         {
             try
             {
@@ -24,6 +25,7 @@ public class SmsWorker(
                     return;
                 }
 
+                eitaService.SendOtpAsync(message.Otp);
                 logger.LogInformation($"Received {message.Otp} from {message.Phone}");
 
                 rabbitMqContext.Channel.BasicAck(ea.DeliveryTag, false);
@@ -39,7 +41,6 @@ public class SmsWorker(
                 {
                     rabbitMqContext.Channel.BasicNack(ea.DeliveryTag, false, true);
                 }
-                
             }
         });
 

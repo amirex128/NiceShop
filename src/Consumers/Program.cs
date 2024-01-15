@@ -12,6 +12,7 @@ builder.Services.AddInfrastructureDbWorkerServices(builder.Configuration);
 
 builder.Services.AddHostedService<SmsWorker>();
 builder.Services.AddHostedService<EmailWorker>();
+builder.Services.AddHostedService<EitaWorker>();
 builder.Services.AddHostedService<NotificationWorker>();
 
 var host = builder.Build();

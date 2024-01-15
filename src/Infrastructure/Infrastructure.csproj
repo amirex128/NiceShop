@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="EitaaGram" />
     <PackageReference Include="Elasticsearch.Net" />
     <PackageReference Include="KavenegarDotNetCore" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" />

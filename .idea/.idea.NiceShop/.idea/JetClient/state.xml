@@ -274,7 +274,7 @@
                     <requestState>
                       <option name="body">
                         <bodyState>
-                          <option name="raw" value="{&#10;  &quot;id&quot;: 19,&#10;  &quot;basketItems&quot;: [&#10;    {&#10;      &quot;quantity&quot;: 1,&#10;      &quot;productId&quot;: 1,&#10;      &quot;productVariantId&quot;: 1&#10;    },&#10;    {&#10;      &quot;quantity&quot;: 1,&#10;      &quot;productId&quot;: 2,&#10;      &quot;productVariantId&quot;: 3&#10;    }&#10;  ]&#10;}" />
+                          <option name="raw" value="{&#10;  &quot;id&quot;: 20,&#10;  &quot;basketItems&quot;: [&#10;    {&#10;      &quot;quantity&quot;: 1,&#10;      &quot;productId&quot;: 1,&#10;      &quot;productVariantId&quot;: 1&#10;    },&#10;    {&#10;      &quot;quantity&quot;: 1,&#10;      &quot;productId&quot;: 2,&#10;      &quot;productVariantId&quot;: 3&#10;    }&#10;  ]&#10;}" />
                           <option name="type" value="JSON" />
                         </bodyState>
                       </option>

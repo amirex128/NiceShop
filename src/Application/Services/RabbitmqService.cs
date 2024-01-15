@@ -33,14 +33,30 @@ public class RabbitmqService(IRabbitMqContext rabbitMqContext) : IRabbitmqServic
             mandatory: false
         );
     }
+    public void PublishEitaOtp(object message)
+    {
+        var body = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(message));
 
+        rabbitMqContext.Channel.BasicPublish(
+            exchange: "ex.topic",
+            routingKey: "notification.eita.otp",
+            basicProperties: null,
+            body: body,
+            mandatory: false
+        );
+    }
     public void ConsumeSms(EventHandler<BasicDeliverEventArgs> consumerFunc)
     {
         var consumer = new EventingBasicConsumer(rabbitMqContext.Channel);
         consumer.Received += consumerFunc;
         rabbitMqContext.Channel.BasicConsume("sms", false, "", false, false, null, consumer);
     }
-
+    public void ConsumeEita(EventHandler<BasicDeliverEventArgs> consumerFunc)
+    {
+        var consumer = new EventingBasicConsumer(rabbitMqContext.Channel);
+        consumer.Received += consumerFunc;
+        rabbitMqContext.Channel.BasicConsume("eita", false, "", false, false, null, consumer);
+    }
     public void ConsumeEmail(EventHandler<BasicDeliverEventArgs> consumerFunc)
     {
         var consumer = new EventingBasicConsumer(rabbitMqContext.Channel);

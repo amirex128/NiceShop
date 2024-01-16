@@ -1,8 +1,8 @@
 namespace NiceShop.Domain.Entities;
 
-public class OTP : BaseAuditableEntity
+public class Otp : BaseAuditableEntity
 {
     
-    public string Code { get; set; }= "";
+    public int Code { get; set; }
     public bool IsUsed { get; set; }
 }

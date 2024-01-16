@@ -3,6 +3,7 @@ using NiceShop.Domain.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using NiceShop.Domain.Entities;
 
 namespace NiceShop.Infrastructure.Data.Interceptors;
 
@@ -37,11 +38,27 @@ public class AuditableEntityInterceptor : SaveChangesInterceptor
     {
         if (context == null) return;
 
-        foreach (var entry in context.ChangeTracker.Entries<BaseAuditableEntity>())
+        IEnumerable<EntityEntry<BaseAuditableEntity>> entityEntries = context.ChangeTracker.Entries<BaseAuditableEntity>();
+        foreach (var entry in entityEntries)
         {
             if (entry.State == EntityState.Added)
             {
                 entry.Entity.UserId = _user.Id;
+                entry.Entity.Created = _dateTime.GetUtcNow();
+            } 
+
+            if (entry.State == EntityState.Added || entry.State == EntityState.Modified || entry.HasChangedOwnedEntities())
+            {
+                entry.Entity.LastModifiedBy = _user.Id;
+                entry.Entity.LastModified = _dateTime.GetUtcNow();
+            }
+        }
+        
+        IEnumerable<EntityEntry<User>> entityUserEntries = context.ChangeTracker.Entries<User>();
+        foreach (var entry in entityUserEntries)
+        {
+            if (entry.State == EntityState.Added)
+            {
                 entry.Entity.Created = _dateTime.GetUtcNow();
             } 
 

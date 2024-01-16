@@ -17,7 +17,7 @@ public interface IApplicationDbContext
     public DbSet<Coupon> Coupon { get; }
     public DbSet<Order> Orders { get; }
     public DbSet<OrderItem> OrderItems { get; }
-    public DbSet<OTP> OTPs { get; }
+    public DbSet<Otp> OTPs { get; }
     public DbSet<Media> Medias { get; }
     public DbSet<Product> Products { get; }
     public DbSet<ProductAttribute> ProductAttributes { get; }

@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 using Nest;
 using NiceShop.Application.Common.Interfaces;
 using NiceShop.Domain.Constants;
@@ -88,13 +91,29 @@ public static class DependencyInjection
         return services;
     }
 
-    public static IServiceCollection AddInfrastructureAuthServices(this IServiceCollection services)
+    public static IServiceCollection AddInfrastructureAuthServices(this IServiceCollection services,
+        IConfiguration configuration)
     {
-        services.AddAuthentication()
-            .AddBearerToken(IdentityConstants.BearerScheme, options =>
+        var key = Encoding.ASCII.GetBytes(configuration["Jwt:Key"] ?? "test-test-test-test-test-test-test-test");
+
+        services.AddAuthentication(x =>
             {
-                options.BearerTokenExpiration = TimeSpan.FromDays(1000);
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(x =>
+            {
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
             });
+
         services.AddAuthorizationBuilder();
 
         services
@@ -103,6 +122,7 @@ public static class DependencyInjection
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddErrorDescriber<PersianIdentityErrorDescriber>()
             .AddApiEndpoints();
+
         services.Configure<IdentityOptions>(options =>
         {
             options.Password.RequireDigit = false;
@@ -116,25 +136,23 @@ public static class DependencyInjection
             options.Lockout.MaxFailedAccessAttempts = 5;
         });
 
-
         services.AddTransient<IIdentityService, IdentityService>();
-
         services.AddTransient<IAuthorizationHandler, HasPermissionHandler>();
 
         services.AddAuthorization(options =>
-            {
-                options.AddPolicy(ACL.CanCreate, policy =>
-                    policy.Requirements.Add(new HasPermissionRequirement(ACL.CanCreate)));
-                options.AddPolicy(ACL.CanUpdate, policy =>
-                    policy.Requirements.Add(new HasPermissionRequirement(ACL.CanUpdate)));
-                options.AddPolicy(ACL.CanDelete, policy =>
-                    policy.Requirements.Add(new HasPermissionRequirement(ACL.CanDelete)));
-                options.AddPolicy(ACL.CanGet, policy =>
-                    policy.Requirements.Add(new HasPermissionRequirement(ACL.CanGet)));
-                options.AddPolicy(ACL.CanGetAll, policy =>
-                    policy.Requirements.Add(new HasPermissionRequirement(ACL.CanGetAll)));
-            }
-        );
+        {
+            options.AddPolicy(ACL.CanCreate, policy =>
+                policy.Requirements.Add(new HasPermissionRequirement(ACL.CanCreate)));
+            options.AddPolicy(ACL.CanUpdate, policy =>
+                policy.Requirements.Add(new HasPermissionRequirement(ACL.CanUpdate)));
+            options.AddPolicy(ACL.CanDelete, policy =>
+                policy.Requirements.Add(new HasPermissionRequirement(ACL.CanDelete)));
+            options.AddPolicy(ACL.CanGet, policy =>
+                policy.Requirements.Add(new HasPermissionRequirement(ACL.CanGet)));
+            options.AddPolicy(ACL.CanGetAll, policy =>
+                policy.Requirements.Add(new HasPermissionRequirement(ACL.CanGetAll)));
+        });
+
         return services;
     }
 }

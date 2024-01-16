@@ -32,7 +32,7 @@ builder.Services.AddApplicationServices();
 builder.Services.AddApplicationMediatRServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddInfrastructureDbServices(builder.Configuration);
-builder.Services.AddInfrastructureAuthServices();
+builder.Services.AddInfrastructureAuthServices(builder.Configuration);
 builder.Services.AddWebServices();
 
 var app = builder.Build();

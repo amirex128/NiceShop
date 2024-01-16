@@ -1,82 +1,85 @@
-﻿using NiceShop.Application.Common.Interfaces;
+﻿using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using NiceShop.Application.Common.Interfaces;
 using NiceShop.Application.Common.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using NiceShop.Domain.Entities;
 
 namespace NiceShop.Infrastructure.Identity;
 
-public class IdentityService : IIdentityService
+public class IdentityService(
+    UserManager<User> userManager,
+    IUserClaimsPrincipalFactory<User> userClaimsPrincipalFactory,
+    IAuthorizationService authorizationService,
+    IConfiguration configuration)
+    : IIdentityService
 {
-    private readonly UserManager<User> _userManager;
-    private readonly IUserClaimsPrincipalFactory<User> _userClaimsPrincipalFactory;
-    private readonly IAuthorizationService _authorizationService;
-
-    public IdentityService(
-        UserManager<User> userManager,
-        IUserClaimsPrincipalFactory<User> userClaimsPrincipalFactory,
-        IAuthorizationService authorizationService)
-    {
-        _userManager = userManager;
-        _userClaimsPrincipalFactory = userClaimsPrincipalFactory;
-        _authorizationService = authorizationService;
-    }
-
     public async Task<string?> GetUserNameAsync(string userId)
     {
-        var user = await _userManager.Users.FirstAsync(u => u.Id == userId);
+        var user = await userManager.Users.FirstAsync(u => u.Id == userId);
 
         return user.UserName;
     }
 
-    public async Task<(Result Result, string UserId)> CreateUserAsync(string userName, string password)
-    {
-        var user = new User
-        {
-            UserName = userName,
-            Email = userName,
-        };
-
-        var result = await _userManager.CreateAsync(user, password);
-
-        return (result.ToApplicationResult(), user.Id);
-    }
-
     public async Task<bool> IsInRoleAsync(string userId, string role)
     {
-        var user = _userManager.Users.SingleOrDefault(u => u.Id == userId);
+        var user = userManager.Users.SingleOrDefault(u => u.Id == userId);
 
-        return user != null && await _userManager.IsInRoleAsync(user, role);
+        return user != null && await userManager.IsInRoleAsync(user, role);
     }
 
     public async Task<bool> AuthorizeAsync(string userId, string policyName)
     {
-        var user = _userManager.Users.SingleOrDefault(u => u.Id == userId);
+        var user = userManager.Users.SingleOrDefault(u => u.Id == userId);
 
         if (user == null)
         {
             return false;
         }
 
-        var principal = await _userClaimsPrincipalFactory.CreateAsync(user);
+        var principal = await userClaimsPrincipalFactory.CreateAsync(user);
 
-        var result = await _authorizationService.AuthorizeAsync(principal, policyName);
+        var result = await authorizationService.AuthorizeAsync(principal, policyName);
 
         return result.Succeeded;
     }
 
-    public async Task<Result> DeleteUserAsync(string userId)
+    public string GenerateJwtToken(User user)
     {
-        var user = _userManager.Users.SingleOrDefault(u => u.Id == userId);
+        var tokenHandler = new JwtSecurityTokenHandler();
+        var keyString = configuration["Jwt:Key"] ?? "test-test-test-test-test-test-test-test";
 
-        return user != null ? await DeleteUserAsync(user) : Result.OperationSuccess();
-    }
+        if (keyString.Length < 16)
+        {
+            throw new Exception("JWT Key must be at least 16 characters long.");
+        }
 
-    public async Task<Result> DeleteUserAsync(User user)
-    {
-        var result = await _userManager.DeleteAsync(user);
+        var key = Encoding.ASCII.GetBytes(keyString);
 
-        return result.ToApplicationResult();
+        var claims = new List<Claim>
+        {
+            new(ClaimTypes.Name, user.UserName ?? throw new InvalidOperationException("Username is null")),
+            new(ClaimTypes.NameIdentifier, user.Id ?? throw new InvalidOperationException("User Id is null")),
+            new(ClaimTypes.MobilePhone,
+                user.PhoneNumber ?? throw new InvalidOperationException("User Phone Number is null")),
+            new(ClaimTypes.Email, user.Email ?? throw new InvalidOperationException("User Email is null")),
+            new(ClaimTypes.Surname, user.IsAdmin ? "Yes" : "No"),
+        };
+
+        var tokenDescriptor = new SecurityTokenDescriptor
+        {
+            Subject = new ClaimsIdentity(claims),
+            Expires = DateTime.UtcNow.AddDays(9999),
+            SigningCredentials =
+                new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+        };
+
+        var token = tokenHandler.CreateToken(tokenDescriptor);
+        return tokenHandler.WriteToken(token);
     }
 }

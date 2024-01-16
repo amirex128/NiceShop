@@ -2,14 +2,14 @@ namespace NiceShop.Domain.Events;
 
 public class SendOtpEvent : BaseEvent
 {
-    public SendOtpEvent(string phone, string email, string otp)
+    public SendOtpEvent(string? phone, string? email, int otp)
     {
-        Phone = phone;
-        Email = email;
+        Phone = phone ?? throw new ArgumentNullException(nameof(phone));
+        Email = email ?? "";
         Otp = otp;
     }
 
-    public required string Phone { get; set; }
-    public required string Email { get; set; }
-    public required string Otp { get; set; }
+    public string Phone { get; set; }
+    public string Email { get; set; }
+    public int Otp { get; set; }
 }

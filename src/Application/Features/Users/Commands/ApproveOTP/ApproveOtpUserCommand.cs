@@ -1,38 +1,59 @@
-﻿using NiceShop.Application.Common.Interfaces;
+﻿using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using NiceShop.Application.Common.Interfaces;
+using NiceShop.Application.Common.Models;
 using NiceShop.Domain.Entities;
 
 namespace NiceShop.Application.Features.Users.Commands.ApproveOTP;
 
-public record ApproveOtpUserCommand : IRequest<string>
+public record ApproveOtpUserCommand : IRequest<Result>
 {
+    public string Phone { get; set; } = "";
+    public int Otp { get; set; }
 }
 
 public class ApproveOtpUserCommandValidator : AbstractValidator<ApproveOtpUserCommand>
 {
     public ApproveOtpUserCommandValidator()
     {
+        RuleFor(x => x.Phone).NotEmpty().WithMessage("Phone is required");
+        RuleFor(x => x.Otp).NotEmpty().WithMessage("Otp is required")
+            .GreaterThan(999).WithMessage("Otp is invalid");
     }
 }
 
-public class ApproveOtpUserCommandHandler : IRequestHandler<ApproveOtpUserCommand, string>
+public class ApproveOtpUserCommandHandler(IApplicationDbContext context, IIdentityService identityService)
+    : IRequestHandler<ApproveOtpUserCommand, Result>
 {
-    private readonly IApplicationDbContext _context;
-
-    public ApproveOtpUserCommandHandler(IApplicationDbContext context)
+    public async Task<Result> Handle(ApproveOtpUserCommand request, CancellationToken cancellationToken)
     {
-        _context = context;
-    }
+        var user = await context.Users
+            .Include(x => x.Otp)
+            .SingleOrDefaultAsync(x => x.UserName == request.Phone || x.PhoneNumber == request.Phone,
+                cancellationToken: cancellationToken);
+        Guard.Against.NotFound(request.Phone, user);
 
-    public async Task<string> Handle(ApproveOtpUserCommand request, CancellationToken cancellationToken)
-    {
-        var entity = new User
+        if (user.Otp is null || user.Otp.IsUsed)
         {
-        };
+            return Result.OperationFailed("کد فعال سازی برای شما ارسال نشده هنوز");
+        }
 
-        _context.Users.Add(entity);
+        if (user.Otp.Code != request.Otp)
+        {
+            return Result.OperationFailed("کد فعال سازی اشتباه است");
+        }
 
-        await _context.SaveChangesAsync(cancellationToken);
+        user.Otp.IsUsed = true;
+        await context.SaveChangesAsync(cancellationToken);
 
-        return entity.Id;
+        var token = identityService.GenerateJwtToken(user);
+        return Result.OperationSuccess(new { Token = token });
+
     }
+
+
 }

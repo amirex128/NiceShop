@@ -9,6 +9,7 @@
     <PackageReference Include="EitaaGram" />
     <PackageReference Include="Elasticsearch.Net" />
     <PackageReference Include="KavenegarDotNetCore" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />

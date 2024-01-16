@@ -1942,18 +1942,18 @@
         ]
       }
     },
-    "/api/Users/Login": {
+    "/api/Users/LoginRegister": {
       "post": {
         "tags": [
           "Users"
         ],
-        "operationId": "Users_Login",
+        "operationId": "Users_LoginRegister",
         "requestBody": {
-          "x-name": "login",
+          "x-name": "loginRegister",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/LoginRequest"
+                "$ref": "#/components/schemas/LoginRegisterUserCommand"
               }
             }
           },
@@ -1964,10 +1964,9 @@
           "200": {
             "description": "",
             "content": {
-              "application/octet-stream": {
+              "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
+                  "$ref": "#/components/schemas/Result"
                 }
               }
             }
@@ -1975,18 +1974,18 @@
         }
       }
     },
-    "/api/Users/Register": {
+    "/api/Users/ApproveOtp": {
       "post": {
         "tags": [
           "Users"
         ],
-        "operationId": "Users_Register",
+        "operationId": "Users_ApproveOtp",
         "requestBody": {
-          "x-name": "registration",
+          "x-name": "loginRegister",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/RegisterRequest"
+                "$ref": "#/components/schemas/ApproveOtpUserCommand"
               }
             }
           },
@@ -1997,10 +1996,9 @@
           "200": {
             "description": "",
             "content": {
-              "application/octet-stream": {
+              "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
+                  "$ref": "#/components/schemas/Result"
                 }
               }
             }
@@ -2168,15 +2166,11 @@
           },
           "successMessages": {
             "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "items": {}
           },
           "errorMessages": {
             "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "items": {}
           },
           "resultObject": {
             "nullable": true
@@ -2409,6 +2403,26 @@
               "isAdmin": {
                 "type": "boolean"
               },
+              "lastModified": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "created": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "lastModifiedBy": {
+                "type": "string",
+                "nullable": true
+              },
+              "otp": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/Otp"
+                  }
+                ]
+              },
               "social": {
                 "$ref": "#/components/schemas/Social"
               },
@@ -2465,6 +2479,32 @@
                 "items": {
                   "$ref": "#/components/schemas/Return"
                 }
+              },
+              "domainEvents": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/BaseEvent"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "Otp": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseAuditableEntity"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "code": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "isUsed": {
+                "type": "boolean"
               }
             }
           }
@@ -4361,35 +4401,25 @@
           }
         }
       },
-      "LoginRequest": {
+      "LoginRegisterUserCommand": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "email": {
+          "phone": {
             "type": "string"
-          },
-          "password": {
-            "type": "string"
-          },
-          "twoFactorCode": {
-            "type": "string",
-            "nullable": true
-          },
-          "twoFactorRecoveryCode": {
-            "type": "string",
-            "nullable": true
           }
         }
       },
-      "RegisterRequest": {
+      "ApproveOtpUserCommand": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "email": {
+          "phone": {
             "type": "string"
           },
-          "password": {
-            "type": "string"
+          "otp": {
+            "type": "integer",
+            "format": "int32"
           }
         }
       }

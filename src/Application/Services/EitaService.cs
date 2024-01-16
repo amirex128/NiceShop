@@ -5,8 +5,8 @@ namespace NiceShop.Application.Services;
 
 public class EitaService(IEitaContext context) : IEitaService
 {
-    public async Task SendOtpAsync(string otp)
+    public async Task SendOtpAsync(int otp)
     {
-        await context.BotClient.SendMessageAsync(context.ChatId, $"Your OTP is {otp}");
+        await context.BotClient.SendMessageAsync(context.ChatId, $"کد ورود شما : {otp} ");
     }
 }

@@ -350,7 +350,7 @@
                     <requestState>
                       <option name="body">
                         <bodyState>
-                          <option name="raw" value="{&#10;  &quot;name&quot;: &quot;test&quot;,&#10;  &quot;description&quot;: &quot;11&quot;,&#10;  &quot;Slug&quot;:&quot;qwertyuiop&quot;,&#10;  &quot;seoTags&quot;: [&#10;    &quot;ddd&quot;&#10;  ],&#10;  &quot;medias&quot;: [&#10;    &#10;  ]&#10;}" />
+                          <option name="raw" value="{&#10;  &quot;name&quot;: &quot;test&quot;,&#10;  &quot;description&quot;: &quot;11&quot;,&#10;  &quot;Slug&quot;:&quot;dsdsafd&quot;,&#10;  &quot;seoTags&quot;: [&#10;    &quot;dsfdsafsdf&quot;&#10;  ],&#10;  &quot;medias&quot;: [&#10;    &#10;  ]&#10;}" />
                           <option name="type" value="JSON" />
                         </bodyState>
                       </option>
@@ -627,11 +627,11 @@
                     <requestState>
                       <option name="body">
                         <bodyState>
-                          <option name="raw" value="{&#10;  &quot;email&quot;: &quot;{{defualt_email}}&quot;,&#10;  &quot;password&quot;: &quot;{{defualt_password}}&quot;&#10;}" />
+                          <option name="raw" value="{&#10;  &quot;phone&quot;: &quot;09024809750&quot;&#10;}" />
                           <option name="type" value="JSON" />
                         </bodyState>
                       </option>
-                      <option name="description" value="Users_Login" />
+                      <option name="description" value="Users_LoginRegister" />
                       <option name="headers">
                         <list>
                           <headerState>
@@ -640,19 +640,19 @@
                           </headerState>
                         </list>
                       </option>
-                      <option name="id" value="59d50fc2-2845-456c-9c8d-2c82f051386b" />
+                      <option name="id" value="c25fcfe7-b4f9-48d1-af44-c47661e43fff" />
                       <option name="method" value="POST" />
-                      <option name="name" value="/api/Users/Login" />
-                      <option name="url" value="{{baseUrl}}/api/Users/Login" />
+                      <option name="name" value="/api/Users/LoginRegister" />
+                      <option name="url" value="{{baseUrl}}/api/Users/LoginRegister" />
                     </requestState>
                     <requestState>
                       <option name="body">
                         <bodyState>
-                          <option name="raw" value="{&#10;  &quot;email&quot;: &quot;&quot;,&#10;  &quot;password&quot;: &quot;&quot;&#10;}" />
+                          <option name="raw" value="{&#10;  &quot;phone&quot;: &quot;09024809750&quot;,&#10;  &quot;otp&quot;: 5113&#10;}" />
                           <option name="type" value="JSON" />
                         </bodyState>
                       </option>
-                      <option name="description" value="Users_Register" />
+                      <option name="description" value="Users_ApproveOtp" />
                       <option name="headers">
                         <list>
                           <headerState>
@@ -661,10 +661,10 @@
                           </headerState>
                         </list>
                       </option>
-                      <option name="id" value="f8b70dcd-3905-457d-a7a0-0413edd83066" />
+                      <option name="id" value="1095f0ad-1283-4833-a859-cb3ddd95e8d2" />
                       <option name="method" value="POST" />
-                      <option name="name" value="/api/Users/Register" />
-                      <option name="url" value="{{baseUrl}}/api/Users/Register" />
+                      <option name="name" value="/api/Users/ApproveOtp" />
+                      <option name="url" value="{{baseUrl}}/api/Users/ApproveOtp" />
                     </requestState>
                   </list>
                 </option>

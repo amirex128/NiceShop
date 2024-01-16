@@ -29,7 +29,7 @@ public class ApplicationDbContext : IdentityDbContext<User>, IApplicationDbConte
     public DbSet<Media> Medias => Set<Media>();
     public DbSet<Order> Orders => Set<Order>();
     public DbSet<OrderItem> OrderItems => Set<OrderItem>();
-    public DbSet<OTP> OTPs => Set<OTP>();
+    public DbSet<Otp> OTPs => Set<Otp>();
     public DbSet<Product> Products => Set<Product>();
     public DbSet<ProductAttribute> ProductAttributes => Set<ProductAttribute>();
     public DbSet<ProductVariant> ProductVariants => Set<ProductVariant>();

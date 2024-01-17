@@ -27,6 +27,7 @@ public static class DependencyInjection
                 policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("*");
             });
         });
+        
         services.AddDatabaseDeveloperPageExceptionFilter();
 
         services.AddScoped<IUser, CurrentUser>();

@@ -34,40 +34,29 @@
     <option name="projectConfigVersion" value="5" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///folder-pre-request-script-3e56200d.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-pre-request-script-drafts.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-test-script-3e56200d.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-test-script-drafts.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///pre-request-script-1095f0ad.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-1095f0ad.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-1095f0ad.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-9c0a0ab0.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-1805cbe2.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///pre-request-script-c25fcfe7.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///pre-request-script-c25fcfe7.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-c25fcfe7.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-c25fcfe7.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-dd5041b4.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-dd5041b4.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///test-script-1095f0ad.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-1095f0ad.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-1095f0ad.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-9c0a0ab0.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-1805cbe2.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///test-script-c25fcfe7.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///test-script-c25fcfe7.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-c25fcfe7.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-c25fcfe7.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-dd5041b4.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-dd5041b4.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/3f1acb59718cadf111a0a796681e3d3509bb3381/src/Identity/Core/src/Data/LoginRequest.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/3f1acb59718cadf111a0a796681e3d3509bb3381/src/Identity/Core/src/SignInManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/3f1acb59718cadf111a0a796681e3d3509bb3381/src/Identity/EntityFrameworkCore/src/IdentityDbContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/5535e31a712343a63f5d7d796cd874e563e5ac14/src/libraries/Microsoft.Extensions.DependencyInjection.Abstractions/src/ServiceProviderServiceExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0c53ee5c91f047f387400d094b3581c4267420/bb/35e7eca7/DbSet`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3c307def2c1a469eaebcd5196371f24a39c00/ec/07d74c72/IOnlinePayment.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5abecb93434c4299acd01d522fdf8da2c9a910/56/a2b54b2c/EventHandler`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5abecb93434c4299acd01d522fdf8da2c9a910/6d/3bb67a37/Directory.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5abecb93434c4299acd01d522fdf8da2c9a910/82/f2f50411/String.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5abecb93434c4299acd01d522fdf8da2c9a910/fe/a9a93b61/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/717eeb12f338474bb05aa0a346c7d07b8a00/f4/3a640931/GuardClauseExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e5d298d967ec428eb092ac24eff857568c00/5e/1db3b40b/ZarinPalInvoice.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e5d298d967ec428eb092ac24eff857568c00/fd/b975ac79/ZarinPalGatewayInvoiceBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ec55df3594154f728a9c9b0e5753a310158a0/4c/3d018566/IdentityUser`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ec55df3594154f728a9c9b0e5753a310b0a0/ca/2cecde97/IdentityUser`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6744c0786e7232ace9d3768478ce2726dec8464711057552bb6dd53f626d9c0/GuardAgainstNotFoundExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/78c860a4a0696d27b2942ef6996b8ceec84aec6b56a4221bd8ce81cc42954d/RequestHandlerWrapper.cs" root0="SKIP_HIGHLIGHTING" />
@@ -113,6 +102,7 @@
     "XThreadsFramesViewSplitterKey": "0.23781677",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
+    "lastPackageVersionDialogProperty": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -196,9 +186,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue=".NET Launch Settings Profile.Consumers" />
         <item itemvalue=".NET Launch Settings Profile.Web" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+        <item itemvalue=".NET Launch Settings Profile.Consumers" />
       </list>
     </recent_temporary>
   </component>
@@ -286,7 +276,10 @@
       <workItem from="1705339449614" duration="11701000" />
       <workItem from="1705392843985" duration="318000" />
       <workItem from="1705393178875" duration="2227000" />
-      <workItem from="1705396563425" duration="11453000" />
+      <workItem from="1705396563425" duration="29675000" />
+      <workItem from="1705484838200" duration="120000" />
+      <workItem from="1705485398722" duration="7000" />
+      <workItem from="1705488666752" duration="10773000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="fix init">
       <option name="closed" value="true" />
@@ -444,7 +437,14 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۲۱" />
       <updated>1705351370003</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL‎−۰۰۰۲۲" summary="fix user login">
+      <option name="closed" value="true" />
+      <created>1705410157859</created>
+      <option name="number" value="LOCAL‎−۰۰۰۲۲" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۲۲" />
+      <updated>1705410157859</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -475,7 +475,8 @@
     <MESSAGE value="fix validation" />
     <MESSAGE value="add remove basket scheduler" />
     <MESSAGE value="add eita otp sneder" />
-    <option name="LAST_COMMIT_MESSAGE" value="add eita otp sneder" />
+    <MESSAGE value="fix user login" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix user login" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -485,6 +486,19 @@
           <line>151</line>
           <properties documentPath="D:\programming\Projects\self\NiceShop\src\Infrastructure\Repositories\Repository.cs" initialLine="151" containingFunctionPresentation="Method 'UpdateEntityCollection'" />
           <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/Application/Services/PaymentService.cs</url>
+          <line>15</line>
+          <properties documentPath="D:\programming\Projects\self\NiceShop\src\Application\Services\PaymentService.cs" initialLine="15" containingFunctionPresentation="Method 'RequestShepaPayment'">
+            <startOffsets>
+              <option value="568" />
+            </startOffsets>
+            <endOffsets>
+              <option value="594" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

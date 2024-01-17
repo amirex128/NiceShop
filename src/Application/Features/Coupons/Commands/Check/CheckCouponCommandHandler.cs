@@ -37,11 +37,11 @@ public class CheckCouponCommandHandler(IApplicationDbContext context, IUser user
         }
 
         if (coupon.Type == CouponTypeEnum.Percentage)
-            basket.TotalCouponPrice = basket.RawQuantityPrice * coupon.Value / 100;
+            basket.TotalCouponPrice = basket.TotalQuantityPrice * coupon.Value / 100;
         else
             basket.TotalCouponPrice = coupon.Value;
 
-        basket.FinalPrice = basket.RawQuantityPrice - basket.TotalCouponPrice;
+        basket.TotalPrice = basket.TotalQuantityPrice - basket.TotalCouponPrice;
         basket.CouponId = coupon.Id;
         coupon.Quantity--;
         coupon.UsedBy.Add((await context.Users.FindAsync(user.Id))!);

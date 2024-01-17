@@ -4,7 +4,7 @@ public class Product : BaseAuditableEntity
 {
     public string Name { get; set; } = "";
     public string? Description { get; set; }
-    
+
     public int TotalSales { get; set; }
     public StatusEnum Status { get; set; } = StatusEnum.Active;
     public int DiscountPercent { get; set; }
@@ -14,8 +14,8 @@ public class Product : BaseAuditableEntity
     public string? LongDescription { get; set; }
     public string? Barcode { get; set; }
     public required string Slug { get; set; }
-    
     private string? _seoTags;
+
     public string[]? SeoTags
     {
         get => _seoTags?.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);

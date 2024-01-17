@@ -11,14 +11,9 @@ using NiceShop.Domain.Attributes;
 
 namespace NiceShop.Infrastructure.Data;
 
-public class ApplicationDbContext : IdentityDbContext<User>, IApplicationDbContext
+public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+    : IdentityDbContext<User>(options), IApplicationDbContext
 {
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-    {
-
-    }
-    public DbSet<Customer> Customers => Set<Customer>();
-    public DbSet<Employee> Employees => Set<Employee>();
     public DbSet<Address> Addresses => Set<Address>();
     public DbSet<Article> Articles => Set<Article>();
     public DbSet<Basket> Baskets => Set<Basket>();
@@ -37,7 +32,6 @@ public class ApplicationDbContext : IdentityDbContext<User>, IApplicationDbConte
     public DbSet<Province> Provinces => Set<Province>();
     public DbSet<Return> Returns => Set<Return>();
     public DbSet<Subscription> Subscriptions => Set<Subscription>();
-    public DbSet<Wishlist> Wishlists => Set<Wishlist>();
     public Task<int> SaveChangesAsync()
     {
         return base.SaveChangesAsync();

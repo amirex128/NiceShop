@@ -11,5 +11,7 @@ public interface IIdentityService
 
     Task<bool> AuthorizeAsync(string userId, string policyName);
     public string GenerateJwtToken(User user);
+    public Task<User?> GetUserAsync();
+
 
 }

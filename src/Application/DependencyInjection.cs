@@ -18,6 +18,7 @@ public static class DependencyInjection
         services.AddSingleton<ISmsService, SmsService>();
         services.AddSingleton<ICacheService, CacheService>();
         services.AddSingleton<IEitaService, EitaService>();
+        services.AddSingleton<IPaymentService, PaymentService>();
         
         return services;
     }

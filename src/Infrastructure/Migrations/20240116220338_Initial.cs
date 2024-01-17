@@ -52,10 +52,12 @@ namespace NiceShop.Infrastructure.Migrations
                     NationalCode = table.Column<long>(type: "bigint", nullable: false),
                     IsActive = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsAdmin = table.Column<bool>(type: "bit", nullable: false),
+                    LastModified = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
+                    Created = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
+                    LastModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Social_Telegram = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Social_Instagram = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Social_Twitter = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Discriminator = table.Column<string>(type: "nvarchar(8)", maxLength: 8, nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -209,7 +211,7 @@ namespace NiceShop.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Code = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Code = table.Column<int>(type: "int", nullable: false),
                     IsUsed = table.Column<bool>(type: "bit", nullable: false),
                     Created = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
@@ -223,8 +225,7 @@ namespace NiceShop.Infrastructure.Migrations
                         name: "FK_OTPs_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -235,9 +236,7 @@ namespace NiceShop.Infrastructure.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Price = table.Column<long>(type: "bigint", nullable: false),
                     TotalSales = table.Column<int>(type: "int", nullable: false),
-                    Stock = table.Column<int>(type: "int", nullable: false),
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DiscountPercent = table.Column<int>(type: "int", nullable: false),
                     Weight = table.Column<int>(type: "int", nullable: false),
@@ -642,6 +641,30 @@ namespace NiceShop.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ProductUser",
+                columns: table => new
+                {
+                    User1Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    WishlistsId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductUser", x => new { x.User1Id, x.WishlistsId });
+                    table.ForeignKey(
+                        name: "FK_ProductUser_Products_WishlistsId",
+                        column: x => x.WishlistsId,
+                        principalTable: "Products",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ProductUser_Users_User1Id",
+                        column: x => x.User1Id,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ProductVariants",
                 columns: table => new
                 {
@@ -670,35 +693,6 @@ namespace NiceShop.Infrastructure.Migrations
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Wishlists",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    Created = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    LastModified = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
-                    LastModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Wishlists", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Wishlists_Products_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "Products",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Wishlists_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -2236,6 +2230,11 @@ namespace NiceShop.Infrastructure.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ProductUser_WishlistsId",
+                table: "ProductUser",
+                column: "WishlistsId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ProductVariants_ProductId",
                 table: "ProductVariants",
                 column: "ProductId");
@@ -2308,16 +2307,6 @@ namespace NiceShop.Infrastructure.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Wishlists_ProductId",
-                table: "Wishlists",
-                column: "ProductId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Wishlists_UserId",
-                table: "Wishlists",
-                column: "UserId");
         }
 
         /// <inheritdoc />
@@ -2351,6 +2340,9 @@ namespace NiceShop.Infrastructure.Migrations
                 name: "ProductReviews");
 
             migrationBuilder.DropTable(
+                name: "ProductUser");
+
+            migrationBuilder.DropTable(
                 name: "Returns");
 
             migrationBuilder.DropTable(
@@ -2370,9 +2362,6 @@ namespace NiceShop.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "UserTokens");
-
-            migrationBuilder.DropTable(
-                name: "Wishlists");
 
             migrationBuilder.DropTable(
                 name: "Baskets");

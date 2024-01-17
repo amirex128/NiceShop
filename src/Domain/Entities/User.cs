@@ -18,7 +18,7 @@ public class User : IdentityUser
     public Otp? Otp { get; set; }
     public Social Social { get; set; } = new Social();
     public List<Media> Medias { get; set; } = null!;
-    public List<Wishlist> Wishlists { get; set; } = null!;
+    public List<Product> Wishlists { get; set; } = null!;
     public List<Address> Addresses { get; set; } = null!;
     public List<Article> Articles { get; set; } = null!;
     public List<Coupon> Coupons { get; set; } = null!;

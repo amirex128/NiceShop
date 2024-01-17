@@ -16,6 +16,7 @@ using NiceShop.Infrastructure.Data.Interceptors;
 using NiceShop.Infrastructure.Eita;
 using NiceShop.Infrastructure.Elasticsearch;
 using NiceShop.Infrastructure.Identity;
+using NiceShop.Infrastructure.Payments.Shepa;
 using NiceShop.Infrastructure.Policies;
 using NiceShop.Infrastructure.Rabbitmq;
 using NiceShop.Infrastructure.Sms;
@@ -27,6 +28,8 @@ public static class DependencyInjection
     public static IServiceCollection AddInfrastructureServices(this IServiceCollection services,
         IConfiguration configuration)
     {
+        services.AddHttpClient();
+
         services.AddStackExchangeRedisCache(options =>
         {
             options.Configuration = configuration.GetConnectionString("Redis");
@@ -36,12 +39,12 @@ public static class DependencyInjection
         services.AddSingleton<IElasticClient>(new ElasticClient(new ConnectionSettings(new Uri(
             configuration["ElasticSearch:Url"] ??
             string.Empty))));
-
-
+        
         services.AddSingleton<IElasticsearchContext, ElasticsearchContext>();
         services.AddSingleton<IRabbitMqContext, RabbitMqContext>();
         services.AddSingleton<ISmsContext, SmsContext>();
         services.AddSingleton<IEitaContext, EitaContext>();
+        services.AddSingleton<IShepaRialContext, ShepaRialContext>();
 
         services.AddSingleton(TimeProvider.System);
 

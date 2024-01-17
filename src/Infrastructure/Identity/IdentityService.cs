@@ -16,6 +16,7 @@ public class IdentityService(
     UserManager<User> userManager,
     IUserClaimsPrincipalFactory<User> userClaimsPrincipalFactory,
     IAuthorizationService authorizationService,
+    IUser currentUser,
     IConfiguration configuration)
     : IIdentityService
 {
@@ -47,6 +48,11 @@ public class IdentityService(
         var result = await authorizationService.AuthorizeAsync(principal, policyName);
 
         return result.Succeeded;
+    }
+
+    public async Task<User?> GetUserAsync()
+    {
+        return await userManager.Users.SingleOrDefaultAsync(u => u.Id == currentUser.Id);
     }
 
     public string GenerateJwtToken(User user)

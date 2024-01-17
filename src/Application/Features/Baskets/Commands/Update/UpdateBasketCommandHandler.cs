@@ -23,7 +23,7 @@ public class UpdateBasketCommandHandler(IApplicationDbContext context)
             .ToListAsync(cancellationToken);
 
         var basketItems = new List<BasketItem>();
-        basket.RawQuantityPrice = 0;
+        basket.TotalQuantityPrice = 0;
         foreach (BasketItemDto item in request.BasketItems)
         {
             var product = products.Single(p => p.Id == item.ProductId);
@@ -73,16 +73,16 @@ public class UpdateBasketCommandHandler(IApplicationDbContext context)
             };
 
             basketItems.Add(basketItem);
-            basket.RawQuantityPrice += basketItem.QuantityPrice;
+            basket.TotalQuantityPrice += basketItem.QuantityPrice;
         }
 
         if (basket.Coupon is not null)
             if (basket.Coupon.Type == CouponTypeEnum.Percentage)
-                basket.TotalCouponPrice = basket.RawQuantityPrice * basket.Coupon.Value / 100;
+                basket.TotalCouponPrice = basket.TotalQuantityPrice * basket.Coupon.Value / 100;
             else
                 basket.TotalCouponPrice = basket.Coupon.Value;
 
-        basket.FinalPrice = basket.RawQuantityPrice - basket.TotalCouponPrice;
+        basket.TotalPrice = basket.TotalQuantityPrice - basket.TotalCouponPrice;
         basket.BasketItems.Clear();
         basket.BasketItems = basketItems;
         context.Baskets.Update(basket);

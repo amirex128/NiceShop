@@ -13,13 +13,13 @@ services:
     networks:
       - app-network
 
-#  rabbitmq:
-#    image: rabbitmq:3.12.8-management
-#    ports:
-#      - "15672:15672"
-#      - "5672:5672"
-#    networks:
-#      - app-network
+  rabbitmq:
+    image: rabbitmq:3.12.8-management
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    networks:
+      - app-network
 
 #  elasticsearch:
 #    image: elasticsearch:8.11.1
@@ -91,17 +91,17 @@ services:
 #    networks:
 #      - app-network
 
-#  consumer:
-#    build:
-#      context: ./src/Consumers
-#      dockerfile: Dockerfile
-#    depends_on:
-#      - sqlserver
-#      - rabbitmq
-#      - redis
-#      - seq
-#    networks:
-#      - app-network
+  consumer:
+    build:
+      context: ./src/Consumers
+      dockerfile: Dockerfile
+    depends_on:
+      - sqlserver
+      - rabbitmq
+      - redis
+      - seq
+    networks:
+      - app-network
 
 volumes:
   sqlserver-data:

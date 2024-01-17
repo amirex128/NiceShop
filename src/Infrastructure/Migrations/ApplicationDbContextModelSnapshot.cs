@@ -337,19 +337,19 @@ namespace NiceShop.Infrastructure.Migrations
                     b.Property<DateTimeOffset>("Created")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<long>("FinalPrice")
-                        .HasColumnType("bigint");
-
                     b.Property<DateTimeOffset>("LastModified")
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("RawQuantityPrice")
+                    b.Property<long>("TotalCouponPrice")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("TotalCouponPrice")
+                    b.Property<long>("TotalPrice")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("TotalQuantityPrice")
                         .HasColumnType("bigint");
 
                     b.Property<string>("UserId")
@@ -9558,6 +9558,9 @@ namespace NiceShop.Infrastructure.Migrations
                     b.Property<int?>("AddressId")
                         .HasColumnType("int");
 
+                    b.Property<int>("BasketId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Courier")
                         .HasColumnType("int");
 
@@ -9586,13 +9589,13 @@ namespace NiceShop.Infrastructure.Migrations
                     b.Property<string>("PackageSize")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("TotalDiscountPrice")
+                    b.Property<long>("TotalCouponPrice")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("TotalFinalPrice")
+                    b.Property<long>("TotalPrice")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("TotalProductPrice")
+                    b.Property<long>("TotalQuantityPrice")
                         .HasColumnType("bigint");
 
                     b.Property<long>("TotalSendPrice")
@@ -9614,6 +9617,9 @@ namespace NiceShop.Infrastructure.Migrations
 
                     b.HasIndex("AddressId");
 
+                    b.HasIndex("BasketId")
+                        .IsUnique();
+
                     b.HasIndex("UserId");
 
                     b.ToTable("Orders");
@@ -9627,17 +9633,8 @@ namespace NiceShop.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Count")
-                        .HasColumnType("int");
-
                     b.Property<DateTimeOffset>("Created")
                         .HasColumnType("datetimeoffset");
-
-                    b.Property<long>("DiscountPrice")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("FinalPrice")
-                        .HasColumnType("bigint");
 
                     b.Property<DateTimeOffset>("LastModified")
                         .HasColumnType("datetimeoffset");
@@ -9648,7 +9645,7 @@ namespace NiceShop.Infrastructure.Migrations
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
-                    b.Property<long>("PriceWithCount")
+                    b.Property<long>("Price")
                         .HasColumnType("bigint");
 
                     b.Property<int?>("ProductId")
@@ -9657,10 +9654,10 @@ namespace NiceShop.Infrastructure.Migrations
                     b.Property<int?>("ProductVariantId")
                         .HasColumnType("int");
 
-                    b.Property<long>("RawPrice")
-                        .HasColumnType("bigint");
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
 
-                    b.Property<long>("RawPriceVariant")
+                    b.Property<long>("QuantityPrice")
                         .HasColumnType("bigint");
 
                     b.Property<string>("UserId")
@@ -10256,11 +10253,6 @@ namespace NiceShop.Infrastructure.Migrations
                     b.Property<DateTimeOffset>("Created")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasMaxLength(8)
-                        .HasColumnType("nvarchar(8)");
-
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -10334,56 +10326,21 @@ namespace NiceShop.Infrastructure.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("Users", (string)null);
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("User");
-
-                    b.UseTphMappingStrategy();
                 });
 
-            modelBuilder.Entity("NiceShop.Domain.Entities.Wishlist", b =>
+            modelBuilder.Entity("ProductUser", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTimeOffset>("Created")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<DateTimeOffset>("LastModified")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("LastModifiedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId")
+                    b.Property<string>("User1Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("Id");
+                    b.Property<int>("WishlistsId")
+                        .HasColumnType("int");
 
-                    b.HasIndex("ProductId");
+                    b.HasKey("User1Id", "WishlistsId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("WishlistsId");
 
-                    b.ToTable("Wishlists");
-                });
-
-            modelBuilder.Entity("NiceShop.Domain.Entities.Customer", b =>
-                {
-                    b.HasBaseType("NiceShop.Domain.Entities.User");
-
-                    b.HasDiscriminator().HasValue("Customer");
-                });
-
-            modelBuilder.Entity("NiceShop.Domain.Entities.Employee", b =>
-                {
-                    b.HasBaseType("NiceShop.Domain.Entities.User");
-
-                    b.HasDiscriminator().HasValue("Employee");
+                    b.ToTable("ProductUser");
                 });
 
             modelBuilder.Entity("ArticleCategory", b =>
@@ -10657,12 +10614,20 @@ namespace NiceShop.Infrastructure.Migrations
                         .HasForeignKey("AddressId")
                         .OnDelete(DeleteBehavior.SetNull);
 
+                    b.HasOne("NiceShop.Domain.Entities.Basket", "Basket")
+                        .WithOne()
+                        .HasForeignKey("NiceShop.Domain.Entities.Order", "BasketId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("NiceShop.Domain.Entities.User", "User")
                         .WithMany("Orders")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("Address");
+
+                    b.Navigation("Basket");
 
                     b.Navigation("User");
                 });
@@ -10835,22 +10800,19 @@ namespace NiceShop.Infrastructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("NiceShop.Domain.Entities.Wishlist", b =>
+            modelBuilder.Entity("ProductUser", b =>
                 {
-                    b.HasOne("NiceShop.Domain.Entities.Product", "Product")
+                    b.HasOne("NiceShop.Domain.Entities.User", null)
                         .WithMany()
-                        .HasForeignKey("ProductId")
+                        .HasForeignKey("User1Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NiceShop.Domain.Entities.User", "User")
-                        .WithMany("Wishlists")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.Navigation("Product");
-
-                    b.Navigation("User");
+                    b.HasOne("NiceShop.Domain.Entities.Product", null)
+                        .WithMany()
+                        .HasForeignKey("WishlistsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("NiceShop.Domain.Entities.Article", b =>
@@ -10908,8 +10870,6 @@ namespace NiceShop.Infrastructure.Migrations
                     b.Navigation("Products");
 
                     b.Navigation("Returns");
-
-                    b.Navigation("Wishlists");
                 });
 #pragma warning restore 612, 618
         }

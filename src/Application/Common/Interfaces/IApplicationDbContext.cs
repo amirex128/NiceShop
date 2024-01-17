@@ -6,8 +6,6 @@ namespace NiceShop.Application.Common.Interfaces;
 public interface IApplicationDbContext
 {
     public DbSet<User> Users { get; }
-    public DbSet<Customer> Customers { get; }
-    public DbSet<Employee> Employees { get; }
     public DbSet<Address> Addresses { get; }
     public DbSet<Article> Articles { get; }
     public DbSet<Basket> Baskets { get; }
@@ -26,7 +24,6 @@ public interface IApplicationDbContext
     public DbSet<Province> Provinces { get; }
     public DbSet<Return> Returns { get; }
     public DbSet<Subscription> Subscriptions { get; }
-    public DbSet<Wishlist> Wishlists { get; }
 
     // Entry
     EntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;

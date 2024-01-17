@@ -3,7 +3,7 @@ version: "3.8"
 services:
   consumer:
     build:
-      context: "D:\\programming\\Projects\\NiceShop\\src\\Consumers"
+      context: "D:\\programming\\Projects\\self\\NiceShop\\src\\Consumers"
       dockerfile: "Dockerfile"
       target: "base"
     command: []
@@ -17,6 +17,6 @@ services:
     ports: []
     volumes:
     - "C:\\Users\\_Amirex_\\.nuget\\packages:/home/app/.nuget/packages"
-    - "D:\\programming\\Projects\\NiceShop\\src\\Consumers:/app:rw"
-    - "D:\\programming\\Projects\\NiceShop:/src:rw"
+    - "D:\\programming\\Projects\\self\\NiceShop\\src\\Consumers:/app:rw"
+    - "D:\\programming\\Projects\\self\\NiceShop:/src:rw"
     working_dir: "/app"

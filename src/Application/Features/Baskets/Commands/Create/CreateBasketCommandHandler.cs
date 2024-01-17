@@ -54,11 +54,11 @@ public class CreateBasketCommandHandler(IApplicationDbContext context)
                 ProductVariantId = item.ProductVariantId
             };
             basket.BasketItems.Add(basketItem);
-            basket.RawQuantityPrice += basketItem.QuantityPrice;
+            basket.TotalQuantityPrice += basketItem.QuantityPrice;
         }
 
 
-        basket.FinalPrice = basket.RawQuantityPrice - basket.TotalCouponPrice;
+        basket.TotalPrice = basket.TotalQuantityPrice - basket.TotalCouponPrice;
 
         await context.Baskets.AddAsync(basket, cancellationToken);
         var result = await context.SaveChangesAsync(cancellationToken);

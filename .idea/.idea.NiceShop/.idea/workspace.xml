@@ -83,47 +83,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.Consumers.executor": "Run",
-    ".NET Launch Settings Profile.Web.executor": "Debug",
-    ".NET Launch Settings Profile.Web: NiceShop.Web.executor": "Debug",
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Docker.Consumers/Dockerfile.executor": "Run",
-    "Docker.Web/Dockerfile.executor": "Run",
-    "Docker.docker-compose.yml.elasticsearch: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.yml.seq: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.yml.sqlserver: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "false",
-    "WebServerToolWindowFactoryState": "false",
-    "XThreadsFramesViewSplitterKey": "0.23781677",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "lastPackageVersionDialogProperty": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.github.copilot.settings.ApplicationConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.Consumers.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.Web.executor&quot;: &quot;Debug&quot;,
+    &quot;.NET Launch Settings Profile.Web: NiceShop.Web.executor&quot;: &quot;Debug&quot;,
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Docker.Consumers/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.Web/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.elasticsearch: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.seq: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.sqlserver: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.23781677&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;lastPackageVersionDialogProperty&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.github.copilot.settings.ApplicationConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "GitStage.ChangesTree.GroupingKeys": [
-      "directory",
-      "module",
-      "repository"
+  &quot;keyToStringList&quot;: {
+    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;,
+      &quot;repository&quot;
     ],
-    "rider.external.source.directories": [
-      "C:\\Users\\_Amirex_\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\_Amirex_\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\_Amirex_\\AppData\\Local\\Symbols\\src"
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\_Amirex_\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\_Amirex_\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\_Amirex_\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Web">
     <configuration name="Consumers" type="LaunchSettings" factoryName=".NET Launch Settings Profile" temporary="true">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/Consumers/Consumers.csproj" />
@@ -279,7 +279,9 @@
       <workItem from="1705396563425" duration="29675000" />
       <workItem from="1705484838200" duration="120000" />
       <workItem from="1705485398722" duration="7000" />
-      <workItem from="1705488666752" duration="10773000" />
+      <workItem from="1705488666752" duration="12027000" />
+      <workItem from="1705520769149" duration="11000" />
+      <workItem from="1705520796429" duration="6268000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="fix init">
       <option name="closed" value="true" />
@@ -444,7 +446,14 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۲۲" />
       <updated>1705410157859</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL‎−۰۰۰۲۳" summary="add order">
+      <option name="closed" value="true" />
+      <created>1705504177685</created>
+      <option name="number" value="LOCAL‎−۰۰۰۲۳" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۲۳" />
+      <updated>1705504177685</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -476,7 +485,8 @@
     <MESSAGE value="add remove basket scheduler" />
     <MESSAGE value="add eita otp sneder" />
     <MESSAGE value="fix user login" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix user login" />
+    <MESSAGE value="add order" />
+    <option name="LAST_COMMIT_MESSAGE" value="add order" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -486,19 +496,6 @@
           <line>151</line>
           <properties documentPath="D:\programming\Projects\self\NiceShop\src\Infrastructure\Repositories\Repository.cs" initialLine="151" containingFunctionPresentation="Method 'UpdateEntityCollection'" />
           <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/Application/Services/PaymentService.cs</url>
-          <line>15</line>
-          <properties documentPath="D:\programming\Projects\self\NiceShop\src\Application\Services\PaymentService.cs" initialLine="15" containingFunctionPresentation="Method 'RequestShepaPayment'">
-            <startOffsets>
-              <option value="568" />
-            </startOffsets>
-            <endOffsets>
-              <option value="594" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="37" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

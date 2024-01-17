@@ -12,8 +12,8 @@ using NiceShop.Infrastructure.Data;
 namespace NiceShop.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240117150909_fix_order")]
-    partial class fix_order
+    [Migration("20240117151447_add_null_basjket")]
+    partial class add_null_basjket
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -9561,7 +9561,7 @@ namespace NiceShop.Infrastructure.Migrations
                     b.Property<int?>("AddressId")
                         .HasColumnType("int");
 
-                    b.Property<int>("BasketId")
+                    b.Property<int?>("BasketId")
                         .HasColumnType("int");
 
                     b.Property<int>("Courier")
@@ -9621,7 +9621,8 @@ namespace NiceShop.Infrastructure.Migrations
                     b.HasIndex("AddressId");
 
                     b.HasIndex("BasketId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[BasketId] IS NOT NULL");
 
                     b.HasIndex("UserId");
 
@@ -10615,13 +10616,12 @@ namespace NiceShop.Infrastructure.Migrations
                     b.HasOne("NiceShop.Domain.Entities.Address", "Address")
                         .WithMany()
                         .HasForeignKey("AddressId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("NiceShop.Domain.Entities.Basket", "Basket")
                         .WithOne()
                         .HasForeignKey("NiceShop.Domain.Entities.Order", "BasketId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("NiceShop.Domain.Entities.User", "User")
                         .WithMany("Orders")
@@ -10640,7 +10640,7 @@ namespace NiceShop.Infrastructure.Migrations
                     b.HasOne("NiceShop.Domain.Entities.Order", "Order")
                         .WithMany("OrderItems")
                         .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("NiceShop.Domain.Entities.Product", "Product")

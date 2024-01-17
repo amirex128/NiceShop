@@ -15,11 +15,13 @@ public class Order : BaseAuditableEntity
     
     public string? TrackingCode { get; set; }
     public CourierEnum Courier { get; set; }
-    public DateTime LastStatusUpdatedAt { get; set; }
     public string? Ip { get; set; }
 
-    public int BasketId { get; set; }
+    public int? BasketId { get; set; }
     public Basket? Basket { get; set; }
+    
+    public int? CouponId { get; set; }
+    public Coupon? Coupon { get; set; }
     public OrderStatusEnum OrderStatus { get; set; }
     public int? AddressId { get; set; }
     public Address? Address { get; set; }

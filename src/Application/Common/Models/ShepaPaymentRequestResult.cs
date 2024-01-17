@@ -1,6 +1,6 @@
 namespace NiceShop.Application.Common.Models;
 
-public class ShepaPaymentResult
+public class ShepaPaymentRequestResult
 {
     public bool Success { get; set; }
     public object? Data { get; set; }

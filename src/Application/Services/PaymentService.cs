@@ -7,11 +7,20 @@ namespace NiceShop.Application.Services;
 
 public class PaymentService(IShepaRialContext shepaRialContext) : IPaymentService
 {
-    public async Task<ShepaPaymentResult?> RequestShepaPayment(long amount, string mobile, string email)
+    public async Task<ShepaPaymentRequestResult?> RequestShepaPayment(long amount, string mobile, string email)
     {
-        string result = await shepaRialContext.GetBankUrl(amount, mobile, email, "NiceShop Payment");
+        string result = await shepaRialContext.Request(amount, mobile, email, "NiceShop Payment");
 
-        ShepaPaymentResult? shepaPaymentResult = JsonSerializer.Deserialize<ShepaPaymentResult>(result);
+        ShepaPaymentRequestResult? shepaPaymentResult = JsonSerializer.Deserialize<ShepaPaymentRequestResult>(result);
+
+        return shepaPaymentResult;
+    }
+    
+    public async Task<ShepaPaymentVerifyResult?> VerifyShepaPayment(string token, long amount)
+    {
+        string result = await shepaRialContext.Verify(token, amount);
+
+        ShepaPaymentVerifyResult? shepaPaymentResult = JsonSerializer.Deserialize<ShepaPaymentVerifyResult>(result);
 
         return shepaPaymentResult;
     }

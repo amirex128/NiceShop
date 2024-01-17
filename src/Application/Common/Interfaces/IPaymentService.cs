@@ -4,5 +4,7 @@ namespace NiceShop.Application.Common.Interfaces;
 
 public interface IPaymentService
 {
-    public Task<ShepaPaymentResult?> RequestShepaPayment(long amount, string mobile, string email);
+    public Task<ShepaPaymentRequestResult?> RequestShepaPayment(long amount, string mobile, string email);
+    public Task<ShepaPaymentVerifyResult?> VerifyShepaPayment(string token, long amount);
+
 }

@@ -12,7 +12,7 @@ using NiceShop.Infrastructure.Data;
 namespace NiceShop.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240116220338_Initial")]
+    [Migration("20240117151322_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -340,19 +340,19 @@ namespace NiceShop.Infrastructure.Migrations
                     b.Property<DateTimeOffset>("Created")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<long>("FinalPrice")
-                        .HasColumnType("bigint");
-
                     b.Property<DateTimeOffset>("LastModified")
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("RawQuantityPrice")
+                    b.Property<long>("TotalCouponPrice")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("TotalCouponPrice")
+                    b.Property<long>("TotalPrice")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("TotalQuantityPrice")
                         .HasColumnType("bigint");
 
                     b.Property<string>("UserId")
@@ -9561,6 +9561,9 @@ namespace NiceShop.Infrastructure.Migrations
                     b.Property<int?>("AddressId")
                         .HasColumnType("int");
 
+                    b.Property<int>("BasketId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Courier")
                         .HasColumnType("int");
 
@@ -9589,13 +9592,13 @@ namespace NiceShop.Infrastructure.Migrations
                     b.Property<string>("PackageSize")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("TotalDiscountPrice")
+                    b.Property<long>("TotalCouponPrice")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("TotalFinalPrice")
+                    b.Property<long>("TotalPrice")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("TotalProductPrice")
+                    b.Property<long>("TotalQuantityPrice")
                         .HasColumnType("bigint");
 
                     b.Property<long>("TotalSendPrice")
@@ -9617,6 +9620,9 @@ namespace NiceShop.Infrastructure.Migrations
 
                     b.HasIndex("AddressId");
 
+                    b.HasIndex("BasketId")
+                        .IsUnique();
+
                     b.HasIndex("UserId");
 
                     b.ToTable("Orders");
@@ -9630,17 +9636,8 @@ namespace NiceShop.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Count")
-                        .HasColumnType("int");
-
                     b.Property<DateTimeOffset>("Created")
                         .HasColumnType("datetimeoffset");
-
-                    b.Property<long>("DiscountPrice")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("FinalPrice")
-                        .HasColumnType("bigint");
 
                     b.Property<DateTimeOffset>("LastModified")
                         .HasColumnType("datetimeoffset");
@@ -9651,7 +9648,7 @@ namespace NiceShop.Infrastructure.Migrations
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
-                    b.Property<long>("PriceWithCount")
+                    b.Property<long>("Price")
                         .HasColumnType("bigint");
 
                     b.Property<int?>("ProductId")
@@ -9660,10 +9657,10 @@ namespace NiceShop.Infrastructure.Migrations
                     b.Property<int?>("ProductVariantId")
                         .HasColumnType("int");
 
-                    b.Property<long>("RawPrice")
-                        .HasColumnType("bigint");
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
 
-                    b.Property<long>("RawPriceVariant")
+                    b.Property<long>("QuantityPrice")
                         .HasColumnType("bigint");
 
                     b.Property<string>("UserId")
@@ -10618,7 +10615,13 @@ namespace NiceShop.Infrastructure.Migrations
                     b.HasOne("NiceShop.Domain.Entities.Address", "Address")
                         .WithMany()
                         .HasForeignKey("AddressId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.NoAction);
+
+                    b.HasOne("NiceShop.Domain.Entities.Basket", "Basket")
+                        .WithOne()
+                        .HasForeignKey("NiceShop.Domain.Entities.Order", "BasketId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
                     b.HasOne("NiceShop.Domain.Entities.User", "User")
                         .WithMany("Orders")
@@ -10626,6 +10629,8 @@ namespace NiceShop.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("Address");
+
+                    b.Navigation("Basket");
 
                     b.Navigation("User");
                 });
@@ -10635,7 +10640,7 @@ namespace NiceShop.Infrastructure.Migrations
                     b.HasOne("NiceShop.Domain.Entities.Order", "Order")
                         .WithMany("OrderItems")
                         .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("NiceShop.Domain.Entities.Product", "Product")

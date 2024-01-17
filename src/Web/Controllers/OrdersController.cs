@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NiceShop.Application.Common.Models;
 using NiceShop.Application.Features.Orders.Commands.Create;
+using NiceShop.Application.Features.Orders.Commands.Verify;
 using NiceShop.Application.Features.Products.Queries.GetWithPagination;
 using NiceShop.Application.Features.Wishlists.Commands.Create;
 using NiceShop.Application.Features.Wishlists.Commands.Delete;
@@ -25,6 +26,13 @@ public class OrdersController(IMediator mediator) : ApiController
     [HttpPost]
     [Authorize(Policy = ACL.CanCreate)]
     public async Task<ActionResult<Result>> Create([FromBody] CreateOrderCommand command)
+    {
+        return await mediator.Send(command);
+    }
+    
+    [HttpPost]
+    [Authorize(Policy = ACL.CanCreate)]
+    public async Task<ActionResult<Result>> Verify([FromBody] VerifyOrderCommand command)
     {
         return await mediator.Send(command);
     }

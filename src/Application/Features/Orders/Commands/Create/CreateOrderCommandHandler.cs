@@ -17,28 +17,34 @@ public class CreateOrderCommandHandler(
     {
         var basket = await context.Baskets
             .Include(x => x.BasketItems)
+            .ThenInclude(x => x.Product)
             .Include(x => x.Coupon)
-            .SingleOrDefaultAsync(x => x.Id == request.BasketId, cancellationToken: cancellationToken);
+            .SingleOrDefaultAsync(x => x.Id == request.BasketId, cancellationToken);
         var address =
             await context.Addresses.SingleOrDefaultAsync(x => x.Id == request.AddressId,
                 cancellationToken: cancellationToken);
         var order = await context.Orders.Where(x => x.BasketId == request.BasketId)
             .SingleOrDefaultAsync(cancellationToken);
 
+        var products = basket!.BasketItems.Select(x => x.Product).ToList();
+        var isFreeSend = products.All(x => x!.FreeSend);
+
         User user = (await identityService.GetUserAsync())!;
         if (order is null)
         {
             order = new Order();
-            order.TotalQuantityPrice = basket!.TotalQuantityPrice;
+            order.TotalQuantityPrice = basket.TotalQuantityPrice;
             order.TotalCouponPrice = basket.TotalCouponPrice;
-            order.TotalPrice = basket.TotalPrice;
             order.TotalTaxPrice = 0;
-            order.TotalSendPrice = 0;
             order.Description = request.Description;
             order.Ip = httpContextAccessor.HttpContext?.Connection?.RemoteIpAddress?.ToString();
             order.Basket = basket;
+            order.Coupon = basket.Coupon;
             order.OrderStatus = OrderStatusEnum.WaitForPay;
             order.Address = address;
+            order.TotalSendPrice = isFreeSend ? 0 : 10000;
+            order.TotalPrice = basket.TotalPrice + order.TotalSendPrice + order.TotalTaxPrice;
+            
             var orderItems = new List<OrderItem>();
             foreach (var basketItem in basket.BasketItems)
             {
@@ -57,14 +63,16 @@ public class CreateOrderCommandHandler(
         {
             order.TotalQuantityPrice = basket!.TotalQuantityPrice;
             order.TotalCouponPrice = basket.TotalCouponPrice;
-            order.TotalPrice = basket.TotalPrice;
             order.TotalTaxPrice = 0;
-            order.TotalSendPrice = 0;
             order.Description = request.Description;
             order.Ip = httpContextAccessor.HttpContext?.Connection?.RemoteIpAddress?.ToString();
             order.Basket = basket;
+            order.Coupon = basket.Coupon;
             order.OrderStatus = OrderStatusEnum.WaitForPay;
             order.Address = address;
+            order.TotalSendPrice = isFreeSend ? 0 : 10000;
+            order.TotalPrice = basket.TotalPrice + order.TotalSendPrice + order.TotalTaxPrice;
+
             var orderItems = new List<OrderItem>();
             foreach (var basketItem in basket.BasketItems)
             {
@@ -77,8 +85,8 @@ public class CreateOrderCommandHandler(
                 orderItems.Add(orderItem);
             }
 
-            context.OrderItems.RemoveRange(context.OrderItems.Where(x => x.OrderId == order.Id));
             order.OrderItems.Clear();
+            await context.OrderItems.Where(x => x.OrderId == order.Id).ExecuteDeleteAsync(cancellationToken);
             order.OrderItems.AddRange(orderItems);
         }
 

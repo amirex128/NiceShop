@@ -477,9 +477,9 @@ namespace NiceShop.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    RawQuantityPrice = table.Column<long>(type: "bigint", nullable: false),
+                    TotalQuantityPrice = table.Column<long>(type: "bigint", nullable: false),
                     TotalCouponPrice = table.Column<long>(type: "bigint", nullable: false),
-                    FinalPrice = table.Column<long>(type: "bigint", nullable: false),
+                    TotalPrice = table.Column<long>(type: "bigint", nullable: false),
                     CouponId = table.Column<int>(type: "int", nullable: true),
                     Created = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
@@ -696,47 +696,6 @@ namespace NiceShop.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Orders",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    TotalProductPrice = table.Column<long>(type: "bigint", nullable: false),
-                    TotalDiscountPrice = table.Column<long>(type: "bigint", nullable: false),
-                    TotalTaxPrice = table.Column<long>(type: "bigint", nullable: false),
-                    TotalSendPrice = table.Column<long>(type: "bigint", nullable: false),
-                    TotalFinalPrice = table.Column<long>(type: "bigint", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PackageSize = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    TrackingCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Courier = table.Column<int>(type: "int", nullable: false),
-                    LastStatusUpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Weight = table.Column<int>(type: "int", nullable: false),
-                    Ip = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    OrderStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AddressId = table.Column<int>(type: "int", nullable: true),
-                    Created = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    LastModified = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
-                    LastModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Orders", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Orders_Addresses_AddressId",
-                        column: x => x.AddressId,
-                        principalTable: "Addresses",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.SetNull);
-                    table.ForeignKey(
-                        name: "FK_Orders_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "MediaProduct",
                 columns: table => new
                 {
@@ -758,6 +717,52 @@ namespace NiceShop.Infrastructure.Migrations
                         principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Orders",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TotalQuantityPrice = table.Column<long>(type: "bigint", nullable: false),
+                    TotalCouponPrice = table.Column<long>(type: "bigint", nullable: false),
+                    TotalPrice = table.Column<long>(type: "bigint", nullable: false),
+                    TotalTaxPrice = table.Column<long>(type: "bigint", nullable: false),
+                    TotalSendPrice = table.Column<long>(type: "bigint", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PackageSize = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Weight = table.Column<int>(type: "int", nullable: false),
+                    TrackingCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Courier = table.Column<int>(type: "int", nullable: false),
+                    LastStatusUpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Ip = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BasketId = table.Column<int>(type: "int", nullable: false),
+                    OrderStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AddressId = table.Column<int>(type: "int", nullable: true),
+                    Created = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    LastModified = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
+                    LastModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Orders", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Orders_Addresses_AddressId",
+                        column: x => x.AddressId,
+                        principalTable: "Addresses",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Orders_Baskets_BasketId",
+                        column: x => x.BasketId,
+                        principalTable: "Baskets",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Orders_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -810,12 +815,9 @@ namespace NiceShop.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Count = table.Column<int>(type: "int", nullable: false),
-                    RawPrice = table.Column<long>(type: "bigint", nullable: false),
-                    RawPriceVariant = table.Column<long>(type: "bigint", nullable: false),
-                    PriceWithCount = table.Column<long>(type: "bigint", nullable: false),
-                    DiscountPrice = table.Column<long>(type: "bigint", nullable: false),
-                    FinalPrice = table.Column<long>(type: "bigint", nullable: false),
+                    Quantity = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<long>(type: "bigint", nullable: false),
+                    QuantityPrice = table.Column<long>(type: "bigint", nullable: false),
                     OrderId = table.Column<int>(type: "int", nullable: false),
                     ProductId = table.Column<int>(type: "int", nullable: true),
                     ProductVariantId = table.Column<int>(type: "int", nullable: true),
@@ -831,8 +833,7 @@ namespace NiceShop.Infrastructure.Migrations
                         name: "FK_OrderItems_Orders_OrderId",
                         column: x => x.OrderId,
                         principalTable: "Orders",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_OrderItems_ProductVariants_ProductVariantId",
                         column: x => x.ProductVariantId,
@@ -2193,6 +2194,12 @@ namespace NiceShop.Infrastructure.Migrations
                 column: "AddressId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Orders_BasketId",
+                table: "Orders",
+                column: "BasketId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Orders_UserId",
                 table: "Orders",
                 column: "UserId");
@@ -2364,9 +2371,6 @@ namespace NiceShop.Infrastructure.Migrations
                 name: "UserTokens");
 
             migrationBuilder.DropTable(
-                name: "Baskets");
-
-            migrationBuilder.DropTable(
                 name: "Medias");
 
             migrationBuilder.DropTable(
@@ -2374,9 +2378,6 @@ namespace NiceShop.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "Roles");
-
-            migrationBuilder.DropTable(
-                name: "Coupon");
 
             migrationBuilder.DropTable(
                 name: "Articles");
@@ -2394,16 +2395,22 @@ namespace NiceShop.Infrastructure.Migrations
                 name: "Addresses");
 
             migrationBuilder.DropTable(
+                name: "Baskets");
+
+            migrationBuilder.DropTable(
                 name: "Products");
 
             migrationBuilder.DropTable(
                 name: "Cities");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "Coupon");
 
             migrationBuilder.DropTable(
                 name: "Provinces");
+
+            migrationBuilder.DropTable(
+                name: "Users");
         }
     }
 }

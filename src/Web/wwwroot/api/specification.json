@@ -1444,6 +1444,43 @@
         ]
       }
     },
+    "/api/Orders/Verify": {
+      "post": {
+        "tags": [
+          "Orders"
+        ],
+        "operationId": "Orders_Verify",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerifyOrderCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
     "/api/ProductAttributes/Create": {
       "get": {
         "tags": [
@@ -2081,6 +2118,36 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Result"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Users/Info": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "operationId": "Users_Info",
+        "parameters": [
+          {
+            "name": "userInfoQuery",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/UserInfoQuery"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
                 }
               }
             }
@@ -3178,10 +3245,6 @@
               "courier": {
                 "$ref": "#/components/schemas/CourierEnum"
               },
-              "lastStatusUpdatedAt": {
-                "type": "string",
-                "format": "date-time"
-              },
               "ip": {
                 "type": "string",
                 "nullable": true
@@ -3196,6 +3259,19 @@
                 "oneOf": [
                   {
                     "$ref": "#/components/schemas/Basket"
+                  }
+                ]
+              },
+              "couponId": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "coupon": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/Coupon"
                   }
                 ]
               },
@@ -3582,9 +3658,16 @@
             "format": "int32",
             "nullable": true
           },
+          "order": {
+            "type": "integer",
+            "format": "int32"
+          },
           "description": {
             "type": "string",
             "nullable": true
+          },
+          "slug": {
+            "type": "string"
           },
           "seoTags": {
             "type": "array",
@@ -4258,6 +4341,20 @@
           }
         }
       },
+      "VerifyOrderCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "orderId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "token": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
       "CreateProductAttributeCommand": {
         "type": "object",
         "additionalProperties": false,
@@ -4622,6 +4719,58 @@
             "format": "int32"
           }
         }
+      },
+      "UserDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "nationalCode": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "isActive": {
+            "$ref": "#/components/schemas/StatusEnum"
+          },
+          "isAdmin": {
+            "type": "boolean"
+          },
+          "lastModified": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastModifiedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "UserInfoQuery": {
+        "type": "object",
+        "additionalProperties": false
       },
       "CreateWishlistCommand": {
         "type": "object",

@@ -25,14 +25,16 @@ public class WishlistsController(IMediator mediator) : ApiController
     [Authorize(Policy = ACL.CanCreate)]
     public async Task<ActionResult<Result>> Create([FromBody] CreateWishlistCommand command)
     {
-        return await mediator.Send(command);
+        var result = await mediator.Send(command);
+        return result.Succeeded ? Ok(result) : StatusCode(400, result);
     }
-    
+
 
     [HttpDelete("{id}")]
     [Authorize(Policy = ACL.CanDelete)]
-    public async Task<Result> Delete(int id)
+    public async Task<ActionResult<Result>> Delete(int id)
     {
-        return await mediator.Send(new DeleteWishlistCommand(id));
+        var result = await mediator.Send(new DeleteWishlistCommand(id));
+        return result.Succeeded ? Ok(result) : StatusCode(400, result);
     }
 }

@@ -1,22 +1,23 @@
 # This is a generated file. Not intended for manual editing.
 version: "3.8"
 services:
-  consumer:
+  web:
     build:
-      context: "D:\\programming\\Projects\\self\\NiceShop\\src\\Consumers"
+      context: "D:\\programming\\Projects\\self\\NiceShop\\src\\Web"
       dockerfile: "Dockerfile"
       target: "base"
     command: []
     entrypoint:
     - "dotnet"
-    - "/app/bin/Debug/net8.0/Consumers.dll"
+    - "/app/bin/Debug/net8.0/NiceShop.Web.dll"
     environment:
-      DOTNET_ENVIRONMENT: "Development"
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_STATICWEBASSETS: "/app/bin/Debug/net8.0/NiceShop.Web.staticwebassets.runtime.CT.json"
       DOTNET_USE_POLLING_FILE_WATCHER: "true"
-    image: "consumers:dev"
+    image: "web:dev"
     ports: []
     volumes:
     - "C:\\Users\\_Amirex_\\.nuget\\packages:/home/app/.nuget/packages"
-    - "D:\\programming\\Projects\\self\\NiceShop\\src\\Consumers:/app:rw"
+    - "D:\\programming\\Projects\\self\\NiceShop\\src\\Web:/app:rw"
     - "D:\\programming\\Projects\\self\\NiceShop:/src:rw"
     working_dir: "/app"

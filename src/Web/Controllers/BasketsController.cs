@@ -31,22 +31,25 @@ public class BasketsController(IMediator mediator) : ApiController
 
     [HttpPost]
     [Authorize(Policy = ACL.CanCreate)]
-    public async Task<Result> Create([FromBody] CreateBasketCommand command)
+    public async Task<ActionResult<Result>> Create([FromBody] CreateBasketCommand command)
     {
-        return await mediator.Send(command);
+        var result = await mediator.Send(command);
+        return result.Succeeded ? Ok(result) : StatusCode(400, result);
     }
 
     [HttpPut]
     [Authorize(Policy = ACL.CanUpdate)]
-    public async Task<Result> Update([FromBody] UpdateBasketCommand command)
+    public async Task<ActionResult<Result>> Update([FromBody] UpdateBasketCommand command)
     {
-        return await mediator.Send(command);
+        var result = await mediator.Send(command);
+        return result.Succeeded ? Ok(result) : StatusCode(400, result);
     }
 
     [HttpDelete("{id}")]
     [Authorize(Policy = ACL.CanDelete)]
-    public async Task<Result> Delete(int id)
+    public async Task<ActionResult<Result>> Delete(int id)
     {
-        return await mediator.Send(new DeleteBasketCommand(id));
+        var result = await mediator.Send(new DeleteBasketCommand(id));
+        return result.Succeeded ? Ok(result) : StatusCode(400, result);
     }
 }

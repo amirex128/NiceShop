@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
 using NiceShop.Application.Common.Interfaces;
 using NiceShop.Application.Common.Models;
+using NiceShop.Domain.Constants;
 using NiceShop.Domain.Entities;
 using NiceShop.Domain.Enums;
 using NiceShop.Domain.Events;
@@ -20,7 +22,7 @@ public class LoginRegisterUserCommandValidator : AbstractValidator<LoginRegister
     }
 }
 
-public class LoginRegisterUserCommandHandler(IApplicationDbContext context)
+public class LoginRegisterUserCommandHandler(IApplicationDbContext context,RoleManager<IdentityRole> roleManager,UserManager<User> userManager)
     : IRequestHandler<LoginRegisterUserCommand, Result>
 {
     public async Task<Result> Handle(LoginRegisterUserCommand request, CancellationToken cancellationToken)
@@ -55,7 +57,25 @@ public class LoginRegisterUserCommandHandler(IApplicationDbContext context)
         }
 
         user.AddDomainEvent(new SendOtpEvent(user.PhoneNumber, user.Email, user.Otp.Code));
+        
+        var administratorRole = new IdentityRole(Roles.Administrator);
+
+        if (roleManager.Roles.All(r => r.Name != administratorRole.Name))
+        {
+            await roleManager.CreateAsync(administratorRole);
+            await roleManager.AddClaimAsync(administratorRole, new Claim("Permission", ACL.CanCreate));
+            await roleManager.AddClaimAsync(administratorRole, new Claim("Permission", ACL.CanUpdate));
+            await roleManager.AddClaimAsync(administratorRole, new Claim("Permission", ACL.CanDelete));
+            await roleManager.AddClaimAsync(administratorRole, new Claim("Permission", ACL.CanGet));
+            await roleManager.AddClaimAsync(administratorRole, new Claim("Permission", ACL.CanGetAll));
+        }
+        if (!string.IsNullOrWhiteSpace(administratorRole.Name))
+        {
+            await userManager.AddToRolesAsync(user, new[] { administratorRole.Name });
+        }
+        
         await context.SaveChangesAsync(cancellationToken);
+
         return Result.OperationSuccess();
     }
 }

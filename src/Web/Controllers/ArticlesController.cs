@@ -38,15 +38,17 @@ public class ArticlesController(IMediator mediator) : ApiController
 
     [HttpPut]
     [Authorize(Policy = ACL.CanUpdate)]
-    public async Task<Result> Update([FromBody] UpdateArticleCommand command)
+    public async Task<ActionResult<Result>> Update([FromBody] UpdateArticleCommand command)
     {
-        return await mediator.Send(command);
+        var result = await mediator.Send(command);
+        return result.Succeeded ? Ok(result) : StatusCode(400, result);
     }
 
     [HttpDelete("{id}")]
     [Authorize(Policy = ACL.CanDelete)]
-    public async Task<Result> Delete(int id)
+    public async Task<ActionResult<Result>> Delete(int id)
     {
-        return await mediator.Send(new DeleteArticleCommand(id));
+        var result = await mediator.Send(new DeleteArticleCommand(id));
+        return result.Succeeded ? Ok(result) : StatusCode(400, result);
     }
 }

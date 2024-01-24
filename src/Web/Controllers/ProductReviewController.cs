@@ -25,36 +25,41 @@ public class ProductReviewController(IMediator mediator) : ApiController
 
     [HttpPost]
     [Authorize(Policy = ACL.CanCreate)]
-    public async Task<Result> Create([FromBody] CreateProductReviewCommand command)
+    public async Task<ActionResult<Result>> Create([FromBody] CreateProductReviewCommand command)
     {
-        return await mediator.Send(command);
+        var result = await mediator.Send(command);
+        return result.Succeeded ? Ok(result) : StatusCode(400, result);
     }
 
     [HttpDelete("{id}")]
     [Authorize(Policy = ACL.CanDelete)]
-    public async Task<Result> Delete(int id)
+    public async Task<ActionResult<Result>> Delete(int id)
     {
-        return await mediator.Send(new DeleteProductReviewCommand(id));
+        var result = await mediator.Send(new DeleteProductReviewCommand(id));
+        return result.Succeeded ? Ok(result) : StatusCode(400, result);
     }
 
     [HttpPost]
     [Authorize(Policy = ACL.CanCreate)]
-    public async Task<Result> Reaction([FromBody] ReactionProductReviewCommand command)
+    public async Task<ActionResult<Result>> Reaction([FromBody] ReactionProductReviewCommand command)
     {
-        return await mediator.Send(command);
+        var result = await mediator.Send(command);
+        return result.Succeeded ? Ok(result) : StatusCode(400, result);
     }
 
     [HttpPost]
     [Authorize(Policy = ACL.CanCreate)]
-    public async Task<Result> Approve([FromBody] ApproveProductReviewCommand command)
+    public async Task<ActionResult<Result>> Approve([FromBody] ApproveProductReviewCommand command)
     {
-        return await mediator.Send(command);
+        var result = await mediator.Send(command);
+        return result.Succeeded ? Ok(result) : StatusCode(400, result);
     }
 
     [HttpPut]
     [Authorize(Policy = ACL.CanUpdate)]
-    public async Task<Result> Update([FromBody] UpdateProductReviewCommand command)
+    public async Task<ActionResult<Result>> Update([FromBody] UpdateProductReviewCommand command)
     {
-        return await mediator.Send(command);
+        var result = await mediator.Send(command);
+        return result.Succeeded ? Ok(result) : StatusCode(400, result);
     }
 }

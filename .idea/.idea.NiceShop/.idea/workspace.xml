@@ -34,18 +34,21 @@
     <option name="projectConfigVersion" value="5" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-1095f0ad.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-1805cbe2.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-c25fcfe7.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-c25fcfe7.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-1095f0ad.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-1805cbe2.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-c25fcfe7.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-c25fcfe7.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-790ec47c.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-9c0a0ab0.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-dd5041b4.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-dd5041b4.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-f6106ea6.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-790ec47c.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-9c0a0ab0.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-dd5041b4.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-dd5041b4.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-f6106ea6.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/3f1acb59718cadf111a0a796681e3d3509bb3381/src/Identity/Core/src/Data/LoginRequest.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/3f1acb59718cadf111a0a796681e3d3509bb3381/src/Identity/Core/src/SignInManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/3f1acb59718cadf111a0a796681e3d3509bb3381/src/Identity/EntityFrameworkCore/src/IdentityDbContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/3f1acb59718cadf111a0a796681e3d3509bb3381/src/Identity/Extensions.Stores/src/IdentityRole.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/3f1acb59718cadf111a0a796681e3d3509bb3381/src/Identity/Extensions.Stores/src/IdentityUser.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/5535e31a712343a63f5d7d796cd874e563e5ac14/src/libraries/Microsoft.Extensions.DependencyInjection.Abstractions/src/ServiceProviderServiceExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0c53ee5c91f047f387400d094b3581c4267420/bb/35e7eca7/DbSet`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3c307def2c1a469eaebcd5196371f24a39c00/ec/07d74c72/IOnlinePayment.cs" root0="SKIP_HIGHLIGHTING" />
@@ -57,6 +60,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e5d298d967ec428eb092ac24eff857568c00/5e/1db3b40b/ZarinPalInvoice.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e5d298d967ec428eb092ac24eff857568c00/fd/b975ac79/ZarinPalGatewayInvoiceBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ec55df3594154f728a9c9b0e5753a310158a0/4c/3d018566/IdentityUser`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ec55df3594154f728a9c9b0e5753a310b0a0/19/e84fdc43/IdentityUser.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ec55df3594154f728a9c9b0e5753a310b0a0/ca/2cecde97/IdentityUser`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6744c0786e7232ace9d3768478ce2726dec8464711057552bb6dd53f626d9c0/GuardAgainstNotFoundExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/78c860a4a0696d27b2942ef6996b8ceec84aec6b56a4221bd8ce81cc42954d/RequestHandlerWrapper.cs" root0="SKIP_HIGHLIGHTING" />
@@ -94,6 +98,7 @@
     &quot;Docker.docker-compose.yml.elasticsearch: Compose Deployment.executor&quot;: &quot;Run&quot;,
     &quot;Docker.docker-compose.yml.seq: Compose Deployment.executor&quot;: &quot;Run&quot;,
     &quot;Docker.docker-compose.yml.sqlserver: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.web: Compose Deployment.executor&quot;: &quot;Run&quot;,
     &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -156,6 +161,16 @@
         <option name="Build" />
       </method>
     </configuration>
+    <configuration name="Web/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="contextFolderPath" value="$PROJECT_DIR$" />
+          <option name="sourceFilePath" value="src/Web/Dockerfile" />
+        </settings>
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings />
@@ -179,15 +194,33 @@
       <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
       <method v="2" />
     </configuration>
+    <configuration name="docker-compose.yml.web: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="web" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue=".NET Launch Settings Profile.Consumers" />
       <item itemvalue=".NET Launch Settings Profile.Web" />
+      <item itemvalue="Docker.Web/Dockerfile" />
+      <item itemvalue="Docker.docker-compose.yml.web: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue=".NET Launch Settings Profile.Web" />
+        <item itemvalue="Docker.docker-compose.yml.web: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+        <item itemvalue="Docker.Web/Dockerfile" />
         <item itemvalue=".NET Launch Settings Profile.Consumers" />
       </list>
     </recent_temporary>
@@ -281,7 +314,17 @@
       <workItem from="1705485398722" duration="7000" />
       <workItem from="1705488666752" duration="12027000" />
       <workItem from="1705520769149" duration="11000" />
-      <workItem from="1705520796429" duration="6268000" />
+      <workItem from="1705520796429" duration="6500000" />
+      <workItem from="1705585428949" duration="22000" />
+      <workItem from="1705660564117" duration="2621000" />
+      <workItem from="1705665581460" duration="388000" />
+      <workItem from="1705666075603" duration="3381000" />
+      <workItem from="1705669937171" duration="4103000" />
+      <workItem from="1705693931911" duration="507000" />
+      <workItem from="1705694539368" duration="4368000" />
+      <workItem from="1705930820393" duration="537000" />
+      <workItem from="1706039150153" duration="302000" />
+      <workItem from="1706039565800" duration="5631000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="fix init">
       <option name="closed" value="true" />
@@ -453,13 +496,31 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۲۳" />
       <updated>1705504177685</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL‎−۰۰۰۲۴" summary="first step of payment">
+      <option name="closed" value="true" />
+      <created>1705531653649</created>
+      <option name="number" value="LOCAL‎−۰۰۰۲۴" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۲۴" />
+      <updated>1705531653649</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -486,7 +547,8 @@
     <MESSAGE value="add eita otp sneder" />
     <MESSAGE value="fix user login" />
     <MESSAGE value="add order" />
-    <option name="LAST_COMMIT_MESSAGE" value="add order" />
+    <MESSAGE value="first step of payment" />
+    <option name="LAST_COMMIT_MESSAGE" value="first step of payment" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

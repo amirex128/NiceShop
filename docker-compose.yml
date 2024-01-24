@@ -2,6 +2,7 @@ version: '3.8'
 services:
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2022-latest
+    
     environment:
       SA_PASSWORD: "dgd4f45ds4f5@fds#$"
       ACCEPT_EULA: "Y"
@@ -66,30 +67,31 @@ services:
     networks:
       - app-network
 
-  seq:
-    image: datalust/seq:latest
-    environment:
-      ACCEPT_EULA: "Y"
-    ports:
-      - "5342:80"
-      - "5341:5341"
-    networks:
-      - app-network
-
-#  web:
-#    build:
-#      context: ./src/Web
-#      dockerfile: Dockerfile
-#    depends_on:
-#      - sqlserver
-#      - rabbitmq
-#      - elasticsearch
-#      - redis
-#      - seq
+#  seq:
+#    image: datalust/seq:latest
+#    environment:
+#      ACCEPT_EULA: "Y"
 #    ports:
-#      - "8000:8080"
+#      - "5342:80"
+#      - "5341:5341"
 #    networks:
 #      - app-network
+
+  web:
+    build:
+      context: ./src/Web
+      dockerfile: Dockerfile
+    volumes:
+      - ./https/aspnetapp.pfx:/https/aspnetapp.pfx
+    depends_on:
+      - sqlserver
+      - rabbitmq
+      - redis
+    ports:
+      - "8000:80"
+      - "8001:443"
+    networks:
+      - app-network
 
   consumer:
     build:
@@ -99,7 +101,6 @@ services:
       - sqlserver
       - rabbitmq
       - redis
-      - seq
     networks:
       - app-network
 

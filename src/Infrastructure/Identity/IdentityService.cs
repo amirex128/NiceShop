@@ -69,11 +69,11 @@ public class IdentityService(
 
         var claims = new List<Claim>
         {
-            new(ClaimTypes.Name, user.UserName ?? throw new InvalidOperationException("Username is null")),
-            new(ClaimTypes.NameIdentifier, user.Id ?? throw new InvalidOperationException("User Id is null")),
+            new(ClaimTypes.Name, user.UserName ?? String.Empty),
+            new(ClaimTypes.NameIdentifier, user.Id ?? String.Empty),
             new(ClaimTypes.MobilePhone,
-                user.PhoneNumber ?? throw new InvalidOperationException("User Phone Number is null")),
-            new(ClaimTypes.Email, user.Email ?? throw new InvalidOperationException("User Email is null")),
+                user.PhoneNumber ?? String.Empty),
+            new(ClaimTypes.Email, user.Email ?? String.Empty),
             new(ClaimTypes.Surname, user.IsAdmin ? "Yes" : "No"),
         };
 

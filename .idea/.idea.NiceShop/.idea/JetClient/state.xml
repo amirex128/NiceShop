@@ -350,7 +350,7 @@
                     <requestState>
                       <option name="body">
                         <bodyState>
-                          <option name="raw" value="{&#10;  &quot;name&quot;: &quot;test&quot;,&#10;  &quot;description&quot;: &quot;11&quot;,&#10;  &quot;Slug&quot;:&quot;dsdsafd&quot;,&#10;  &quot;seoTags&quot;: [&#10;    &quot;dsfdsafsdf&quot;&#10;  ],&#10;  &quot;medias&quot;: [&#10;    &#10;  ]&#10;}" />
+                          <option name="raw" value="{&#10;  &quot;name&quot;: &quot;test&quot;,&#10;  &quot;description&quot;: &quot;11&quot;,&#10;  &quot;Slug&quot;:&quot;sddsdsadsadsadasgfdsgdfgdfgdfgdfgrdfgdrfsgdfsgsfdsgdfgdfgdfgdfsgdfgfgfdgsdfgdfgdfgdf&quot;,&#10;  &quot;seoTags&quot;: [&#10;    &quot;dsfdsafsdf&quot;&#10;  ],&#10;  &quot;medias&quot;: [&#10;    &#10;  ]&#10;}" />
                           <option name="type" value="JSON" />
                         </bodyState>
                       </option>
@@ -653,7 +653,7 @@
                     <requestState>
                       <option name="body">
                         <bodyState>
-                          <option name="raw" value="{&#10;  &quot;phone&quot;: &quot;09024809750&quot;,&#10;  &quot;otp&quot;: 9852&#10;}" />
+                          <option name="raw" value="{&#10;  &quot;phone&quot;: &quot;09024809750&quot;,&#10;  &quot;otp&quot;: 6416&#10;}" />
                           <option name="type" value="JSON" />
                         </bodyState>
                       </option>
@@ -670,6 +670,27 @@
                       <option name="method" value="POST" />
                       <option name="name" value="/api/Users/ApproveOtp" />
                       <option name="url" value="{{baseUrl}}/api/Users/ApproveOtp" />
+                    </requestState>
+                    <requestState>
+                      <option name="body">
+                        <bodyState>
+                          <option name="raw" value="{}" />
+                          <option name="type" value="JSON" />
+                        </bodyState>
+                      </option>
+                      <option name="description" value="Users_Info" />
+                      <option name="headers">
+                        <list>
+                          <headerState>
+                            <option name="key" value="Content-Type" />
+                            <option name="value" value="application/json" />
+                          </headerState>
+                        </list>
+                      </option>
+                      <option name="id" value="54231587-d802-4220-af41-14b544dfa449" />
+                      <option name="method" value="GET" />
+                      <option name="name" value="/api/Users/Info" />
+                      <option name="url" value="{{baseUrl}}/api/Users/Info" />
                     </requestState>
                   </list>
                 </option>
@@ -984,7 +1005,7 @@
                           </queryParamState>
                         </list>
                       </option>
-                      <option name="url" value="{{baseUrl}}/api/Orders/GetAll" />
+                      <option name="url" value="{{baseUrl}}/api/Orders/GetAll?PageNumber&amp;PageSize" />
                     </requestState>
                     <requestState>
                       <option name="body">
@@ -1006,6 +1027,19 @@
                       <option name="method" value="POST" />
                       <option name="name" value="/api/Orders/Create" />
                       <option name="url" value="{{baseUrl}}/api/Orders/Create" />
+                    </requestState>
+                    <requestState>
+                      <option name="body">
+                        <bodyState>
+                          <option name="raw" value="{&#10;  &quot;orderId&quot;: 0,&#10;  &quot;token&quot;: &quot;&quot;&#10;}" />
+                          <option name="type" value="JSON" />
+                        </bodyState>
+                      </option>
+                      <option name="description" value="Orders_Verify" />
+                      <option name="id" value="36f1f24e-09b1-4d04-9a62-ebc77425af2c" />
+                      <option name="method" value="POST" />
+                      <option name="name" value="/api/Orders/Verify" />
+                      <option name="url" value="{{baseUrl}}/api/Orders/Verify" />
                     </requestState>
                   </list>
                 </option>
@@ -1032,7 +1066,7 @@
                           </queryParamState>
                         </list>
                       </option>
-                      <option name="url" value="{{baseUrl}}/api/Wishlists/GetAll" />
+                      <option name="url" value="{{baseUrl}}/api/Wishlists/GetAll?PageNumber&amp;PageSize" />
                     </requestState>
                     <requestState>
                       <option name="body">

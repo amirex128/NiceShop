@@ -12,7 +12,10 @@ public class
     public async Task<Pagination<CategoryDto>> Handle(GetCategoriesWithPaginationQuery request,
         CancellationToken cancellationToken)
     {
-        var paginatedList = await context.Categories.PaginatedListAsync(request.PageNumber, request.PageSize);
+        var paginatedList = await context.Categories
+            .Include(x=>x.Medias)
+            
+            .PaginatedListAsync(request.PageNumber, request.PageSize);
         return mapper.Map<Pagination<CategoryDto>>(paginatedList);
     }
 }

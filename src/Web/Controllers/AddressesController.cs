@@ -35,25 +35,28 @@ public class AddressesController(IMediator mediator) : ApiController
 
     [HttpPost]
     [Authorize(Policy = ACL.CanCreate)]
-    public async Task<Result> Create([FromBody] CreateAddressCommand command)
+    public async Task<ActionResult<Result>> Create([FromBody] CreateAddressCommand command)
     {
-        return await mediator.Send(command);
+        var result = await mediator.Send(command);
+        return result.Succeeded ? Ok(result) : StatusCode(400, result);
     }
 
     [HttpPut]
     [Authorize(Policy = ACL.CanUpdate)]
-    public async Task<Result> Update([FromBody] UpdateAddressCommand command)
+    public async Task<ActionResult<Result>> Update([FromBody] UpdateAddressCommand command)
     {
-        return await mediator.Send(command);
+        var result = await mediator.Send(command);
+        return result.Succeeded ? Ok(result) : StatusCode(400, result);
     }
 
     [HttpDelete("{id}")]
     [Authorize(Policy = ACL.CanDelete)]
-    public async Task<Result> Delete(int id)
+    public async Task<ActionResult<Result>> Delete(int id)
     {
-        return await mediator.Send(new DeleteAddressCommand(id));
+        var result = await mediator.Send(new DeleteAddressCommand(id));
+        return result.Succeeded ? Ok(result) : StatusCode(400, result);
     }
-    
+
     [HttpGet]
     [Authorize(Policy = ACL.CanGetAll)]
     public async Task<ActionResult<List<City>>> GetCities([FromQuery] GetCitiesByNameQuery query)

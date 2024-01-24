@@ -27,13 +27,15 @@ public class OrdersController(IMediator mediator) : ApiController
     [Authorize(Policy = ACL.CanCreate)]
     public async Task<ActionResult<Result>> Create([FromBody] CreateOrderCommand command)
     {
-        return await mediator.Send(command);
+        var result = await mediator.Send(command);
+        return result.Succeeded ? Ok(result) : StatusCode(400, result);
     }
-    
+
     [HttpPost]
     [Authorize(Policy = ACL.CanCreate)]
     public async Task<ActionResult<Result>> Verify([FromBody] VerifyOrderCommand command)
     {
-        return await mediator.Send(command);
+        var result = await mediator.Send(command);
+        return result.Succeeded ? Ok(result) : StatusCode(400, result);
     }
 }

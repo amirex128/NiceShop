@@ -24,7 +24,10 @@ public static class DependencyInjection
         {
             option.AddPolicy("CorsPolicy", policy =>
             {
-                policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("*");
+               policy.WithOrigins("*","http://localhost:3000")
+                              .AllowAnyMethod()
+                              .AllowAnyHeader();
+
             });
         });
         

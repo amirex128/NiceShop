@@ -33,29 +33,33 @@ public class CategoriesController(IMediator mediator) : ApiController
 
     [HttpPost]
     [Authorize(Policy = ACL.CanCreate)]
-    public async Task<Result> Create([FromBody] CreateCategoryCommand command)
+    public async Task<ActionResult<Result>> Create([FromBody] CreateCategoryCommand command)
     {
-        return await mediator.Send(command);
+        var result = await mediator.Send(command);
+        return result.Succeeded ? Ok(result) : StatusCode(400, result);
     }
 
     [HttpPost]
     [Authorize(Policy = ACL.CanCreate)]
-    public async Task<Result> Reorder([FromBody] ReorderCategoryCommand command)
+    public async Task<ActionResult<Result>> Reorder([FromBody] ReorderCategoryCommand command)
     {
-        return await mediator.Send(command);
+        var result = await mediator.Send(command);
+        return result.Succeeded ? Ok(result) : StatusCode(400, result);
     }
 
     [HttpPut]
     [Authorize(Policy = ACL.CanUpdate)]
-    public async Task<Result> Update([FromBody] UpdateCategoryCommand command)
+    public async Task<ActionResult<Result>> Update([FromBody] UpdateCategoryCommand command)
     {
-        return await mediator.Send(command);
+        var result = await mediator.Send(command);
+        return result.Succeeded ? Ok(result) : StatusCode(400, result);
     }
 
     [HttpDelete("{id}")]
     [Authorize(Policy = ACL.CanDelete)]
-    public async Task<Result> Delete(int id)
+    public async Task<ActionResult<Result>> Delete(int id)
     {
-        return await mediator.Send(new DeleteCategoryCommand(id));
+        var result = await mediator.Send(new DeleteCategoryCommand(id));
+        return result.Succeeded ? Ok(result) : StatusCode(400, result);
     }
 }

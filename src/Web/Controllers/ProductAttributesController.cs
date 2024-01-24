@@ -13,15 +13,17 @@ public class ProductAttributesController(IMediator mediator) : ApiController
 {
     [HttpGet()]
     [Authorize(Policy = ACL.CanCreate)]
-    public async Task<Result> Create([FromBody] CreateProductAttributeCommand command)
+    public async Task<ActionResult<Result>> Create([FromBody] CreateProductAttributeCommand command)
     {
-        return await mediator.Send(command);
+        var result = await mediator.Send(command);
+        return result.Succeeded ? Ok(result) : StatusCode(400, result);
     }
 
     [HttpDelete("{id}")]
     [Authorize(Policy = ACL.CanDelete)]
-    public async Task<Result> Delete(int id)
+    public async Task<ActionResult<Result>> Delete(int id)
     {
-        return await mediator.Send(new DeleteProductAttributeCommand(id));
+        var result = await mediator.Send(new DeleteProductAttributeCommand(id));
+        return result.Succeeded ? Ok(result) : StatusCode(400, result);
     }
 }

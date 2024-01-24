@@ -2,6 +2,11 @@
 USER $APP_UID
 WORKDIR /app
 
+ENV ASPNETCORE_URLS=http://+:80;https://+:443
+ENV ASPNETCORE_HTTPS_PORT=443 
+ENV ASPNETCORE_Kestrel__Certificates__Default__Password="amirex128"
+ENV ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src

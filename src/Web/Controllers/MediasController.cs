@@ -32,23 +32,26 @@ public class MediasController(IMediator mediator) : ApiController
 
     [HttpPut("{id}")]
     [Authorize(Policy = ACL.CanUpdate)]
-    public async Task<Result> UpdateCategory([FromBody] UpdateMediaCommand command)
+    public async Task<ActionResult<Result>> UpdateCategory([FromBody] UpdateMediaCommand command)
     {
-        return await mediator.Send(command);
+        var result = await mediator.Send(command);
+        return result.Succeeded ? Ok(result) : StatusCode(400, result);
     }
 
 
     [HttpPost]
     [Authorize(Policy = ACL.CanCreate)]
-    public async Task<Result> Create(CreateMediaCommand command)
+    public async Task<ActionResult<Result>> Create(CreateMediaCommand command)
     {
-        return await mediator.Send(command);
+        var result = await mediator.Send(command);
+        return result.Succeeded ? Ok(result) : StatusCode(400, result);
     }
 
     [HttpDelete("{id}")]
     [Authorize(Policy = ACL.CanDelete)]
-    public async Task<Result> Delete(int id)
+    public async Task<ActionResult<Result>> Delete(int id)
     {
-        return await mediator.Send(new DeleteMediaCommand(id));
+        var result = await mediator.Send(new DeleteMediaCommand(id));
+        return result.Succeeded ? Ok(result) : StatusCode(400, result);
     }
 }

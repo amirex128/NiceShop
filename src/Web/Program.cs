@@ -22,7 +22,7 @@ Log.Logger = new LoggerConfiguration()
     .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day, fileSizeLimitBytes: 1000000).MinimumLevel
     .Information()
     .WriteTo.Seq(builder.Configuration["Seq:Host"] ?? string.Empty).MinimumLevel.Warning()
-    .CreateLogger();    
+    .CreateLogger();
 
 builder.Logging.ClearProviders();
 builder.Logging.AddSerilog(Log.Logger, dispose: true);
@@ -39,20 +39,22 @@ var app = builder.Build();
 app.UseSerilogRequestLogging();
 
 // app.UseAllElasticApm(builder.Configuration);
+// await app.InitialiseDatabaseAsync();
+
 if (app.Environment.EnvironmentName == "Local")
 {
-    await app.InitialiseDatabaseAsync();
 }
 else
 {
     app.UseHsts();
+    app.UseHttpsRedirection();
 }
 
 app.UseHealthChecks("/health");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-app.UseCors();
+app.UseCors("CorsPolicy");
 
 app.UseOpenApi();
 

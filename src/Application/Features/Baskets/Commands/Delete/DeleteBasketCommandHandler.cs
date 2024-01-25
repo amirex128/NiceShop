@@ -7,7 +7,7 @@ public class DeleteBasketCommandHandler(IApplicationDbContext context) : IReques
 {
     public async Task<Result> Handle(DeleteBasketCommand request, CancellationToken cancellationToken)
     {
-        var result = await context.Baskets.Where(b => b.Id < 3).ExecuteDeleteAsync(cancellationToken);
+        var result = await context.Baskets.Where(b => b.Id == request.Id).ExecuteDeleteAsync(cancellationToken);
         return result > 0 ? Result.Deleted() : Result.FailedDelete();
     }
 }

@@ -2068,7 +2068,7 @@
         ],
         "operationId": "Users_LoginRegister",
         "requestBody": {
-          "x-name": "loginRegister",
+          "x-name": "command",
           "content": {
             "application/json": {
               "schema": {
@@ -2100,7 +2100,7 @@
         ],
         "operationId": "Users_ApproveOtp",
         "requestBody": {
-          "x-name": "loginRegister",
+          "x-name": "command",
           "content": {
             "application/json": {
               "schema": {

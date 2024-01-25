@@ -8,10 +8,7 @@ public class DeleteProductVariantCommandHandler(IApplicationDbContext context) :
 {
     public async Task<Result> Handle(DeleteProductVariantCommand request, CancellationToken cancellationToken)
     {
-        var article = await context.ProductVariants.FindAsync(request.Id);
-        Guard.Against.NotFound(request.Id, article);
-        context.ProductVariants.Remove(article);
-        var result = await context.SaveChangesAsync(cancellationToken);
+        var result = await context.ProductVariants.Where(b => b.Id == request.Id).ExecuteDeleteAsync(cancellationToken);
         return result > 0 ? Result.Deleted() : Result.FailedDelete();
     }
 }

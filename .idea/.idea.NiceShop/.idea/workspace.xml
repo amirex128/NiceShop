@@ -36,13 +36,17 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///pre-request-script-790ec47c.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///pre-request-script-9c0a0ab0.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-9c0a0ab0.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///pre-request-script-dd5041b4.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///pre-request-script-dd5041b4.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///pre-request-script-f3499e45.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///pre-request-script-f6106ea6.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///test-script-790ec47c.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///test-script-9c0a0ab0.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-9c0a0ab0.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///test-script-dd5041b4.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///test-script-dd5041b4.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///test-script-f3499e45.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///test-script-f6106ea6.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/3f1acb59718cadf111a0a796681e3d3509bb3381/src/Identity/Core/src/Data/LoginRequest.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/3f1acb59718cadf111a0a796681e3d3509bb3381/src/Identity/Core/src/SignInManager.cs" root0="SKIP_HIGHLIGHTING" />
@@ -324,7 +328,8 @@
       <workItem from="1705694539368" duration="4368000" />
       <workItem from="1705930820393" duration="537000" />
       <workItem from="1706039150153" duration="302000" />
-      <workItem from="1706039565800" duration="5631000" />
+      <workItem from="1706039565800" duration="10341000" />
+      <workItem from="1706168288601" duration="517000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="fix init">
       <option name="closed" value="true" />
@@ -503,7 +508,14 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۲۴" />
       <updated>1705531653649</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL‎−۰۰۰۲۵" summary="fix problem in result">
+      <option name="closed" value="true" />
+      <created>1706118090459</created>
+      <option name="number" value="LOCAL‎−۰۰۰۲۵" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۲۵" />
+      <updated>1706118090459</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -548,7 +560,8 @@
     <MESSAGE value="fix user login" />
     <MESSAGE value="add order" />
     <MESSAGE value="first step of payment" />
-    <option name="LAST_COMMIT_MESSAGE" value="first step of payment" />
+    <MESSAGE value="fix problem in result" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix problem in result" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

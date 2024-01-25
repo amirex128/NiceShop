@@ -7,10 +7,7 @@ public class DeleteProductCommandHandler(IApplicationDbContext context) : IReque
 {
     public async Task<Result> Handle(DeleteProductCommand request, CancellationToken cancellationToken)
     {
-        var article = await context.Products.FindAsync(request.Id);
-        Guard.Against.NotFound(request.Id, article);
-        context.Products.Remove(article);
-        var result = await context.SaveChangesAsync(cancellationToken);
+        var result = await context.Products.Where(b => b.Id == request.Id).ExecuteDeleteAsync(cancellationToken);
         return result > 0 ? Result.Deleted() : Result.FailedDelete();
     }
 }

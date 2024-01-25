@@ -350,7 +350,7 @@
                     <requestState>
                       <option name="body">
                         <bodyState>
-                          <option name="raw" value="{&#10;  &quot;name&quot;: &quot;test&quot;,&#10;  &quot;description&quot;: &quot;11&quot;,&#10;  &quot;Slug&quot;:&quot;sddsdsadsadsadasgfdsgdfgdfgdfgdfgrdfgdrfsgdfsgsfdsgdfgdfgdfgdfsgdfgfgfdgsdfgdfgdfgdf&quot;,&#10;  &quot;seoTags&quot;: [&#10;    &quot;dsfdsafsdf&quot;&#10;  ],&#10;  &quot;medias&quot;: [&#10;    &#10;  ]&#10;}" />
+                          <option name="raw" value="{&#10;  &quot;name&quot;: &quot;test&quot;,&#10;  &quot;description&quot;: &quot;11&quot;,&#10;  &quot;Slug&quot;:&quot;fdgfd&quot;,&#10;  &quot;seoTags&quot;: [&#10;    &quot;dsfdsafsdf&quot;&#10;  ],&#10;  &quot;medias&quot;: [&#10;    1,2&#10;  ]&#10;}" />
                           <option name="type" value="JSON" />
                         </bodyState>
                       </option>

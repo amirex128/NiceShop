@@ -7,7 +7,7 @@ public class DeleteProductReviewCommandHandler(IApplicationDbContext context) : 
 {
     public async Task<Result> Handle(DeleteProductReviewCommand request, CancellationToken cancellationToken)
     {
-        var result = await context.ProductReviews.Where(b => b.Id < 3).ExecuteDeleteAsync(cancellationToken);
+        var result = await context.ProductReviews.Where(b => b.Id == request.Id).ExecuteDeleteAsync(cancellationToken);
         return result > 0 ? Result.Deleted() : Result.FailedDelete();
     }
 }

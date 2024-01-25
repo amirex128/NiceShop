@@ -7,7 +7,7 @@ public class DeleteArticleCommandHandler(IApplicationDbContext context) : IReque
 {
     public async Task<Result> Handle(DeleteArticleCommand request, CancellationToken cancellationToken)
     {
-        var result = await context.Articles.Where(b => b.Id < 3).ExecuteDeleteAsync(cancellationToken);
+        var result = await context.Articles.Where(b => b.Id == request.Id).ExecuteDeleteAsync(cancellationToken);
         return result > 0 ? Result.Deleted() : Result.FailedDelete();
     }
 }

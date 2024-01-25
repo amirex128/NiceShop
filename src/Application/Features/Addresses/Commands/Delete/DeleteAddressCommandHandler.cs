@@ -7,7 +7,7 @@ public class DeleteAddressCommandHandler(IApplicationDbContext context) : IReque
 {
     public async Task<Result> Handle(DeleteAddressCommand request, CancellationToken cancellationToken)
     {
-        var result = await context.Addresses.Where(b => b.Id < 3).ExecuteDeleteAsync(cancellationToken);
+        var result = await context.Addresses.Where(b => b.Id == request.Id).ExecuteDeleteAsync(cancellationToken);
         return result > 0 ? Result.Deleted() : Result.FailedDelete();
     }
 }

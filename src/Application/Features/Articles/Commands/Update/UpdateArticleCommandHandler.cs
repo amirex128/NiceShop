@@ -9,7 +9,9 @@ public class UpdateArticleCommandHandler(IApplicationDbContext context)
 {
     public async Task<Result> Handle(UpdateArticleCommand request, CancellationToken cancellationToken)
     {
-        var entity = await context.Articles.Include(x => x.Categories)
+        var entity = await context.Articles
+            .Include(x => x.Categories)
+            .Include(x => x.Medias)
             .FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
         Guard.Against.NotFound(request.Id, entity);
 

@@ -30,9 +30,9 @@ public class MediasController(IMediator mediator) : ApiController
         return await mediator.Send(new GetMediaByIdQuery(id));
     }
 
-    [HttpPut("{id}")]
+    [HttpPut]
     [Authorize(Policy = ACL.CanUpdate)]
-    public async Task<ActionResult<Result>> UpdateCategory([FromBody] UpdateMediaCommand command)
+    public async Task<ActionResult<Result>> Update([FromBody] UpdateMediaCommand command)
     {
         var result = await mediator.Send(command);
         return result.Succeeded ? Ok(result) : StatusCode(400, result);

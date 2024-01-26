@@ -479,6 +479,6 @@ $RECYCLE.BIN/
 # Vim temporary swap files
 *.swp
 
-.idea/
-.idea/*
-**/.idea/**/*
+.idea/**/*
+
+src/Web/wwwroot/media/**/*

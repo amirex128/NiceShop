@@ -8,7 +8,9 @@ public class UpdateCouponCommandHandler(IApplicationDbContext context) : IReques
 {
     public async Task<Result> Handle(UpdateCouponCommand request, CancellationToken cancellationToken)
     {
-        var entity = await context.Coupon.FindAsync(request.Id);
+        var entity = await context.Coupon
+            .Include(x => x.Products)
+            .SingleOrDefaultAsync(x => x.Id == request.Id, cancellationToken: cancellationToken);
         Guard.Against.NotFound(request.Id, entity);
 
         entity.Code = request.Code ?? entity.Code;

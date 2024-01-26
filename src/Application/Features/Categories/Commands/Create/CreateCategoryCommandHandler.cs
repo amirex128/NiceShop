@@ -18,17 +18,17 @@ public class CreateCategoryCommandHandler(IApplicationDbContext context)
 
         var category = new Category
         {
-            Name = request.Name,
+            Name = request.Name!,
             ParentCategoryId = request.ParentCategoryId,
             Description = request.Description,
             SeoTags = request.SeoTags,
-            Slug = request.Slug,
+            Slug = request.Slug!,
             Order = lastOrder is null ? 1 : lastOrder.Order + 1
         };
 
         if (request.Medias is not null && request.Medias.Any())
         {
-            category.Medias = await context.Medias.Where(c => request.Medias.Contains(c.Id)).ToListAsync();
+            category.Medias = await context.Medias.Where(c => request.Medias.Contains(c.Id)).ToListAsync(cancellationToken: cancellationToken);
         }
 
         await context.Categories.AddAsync(category, cancellationToken);

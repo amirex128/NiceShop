@@ -32,7 +32,22 @@ public class CustomExceptionHandler : IExceptionHandler
             return true;
         }
 
-        return false;
+        await HandleInternalException(httpContext, exception);
+        return true;
+    }
+
+    private async Task HandleInternalException(HttpContext httpContext, Exception ex)
+    {
+
+        httpContext.Response.StatusCode = StatusCodes.Status503ServiceUnavailable;
+
+        await httpContext.Response.WriteAsJsonAsync(new ProblemDetails()
+        {
+            Status = StatusCodes.Status503ServiceUnavailable,
+            Type = "https://tools.ietf.org/html/rfc7231#section-6.5.4",
+            Title = "مشکلی در سرور پیش اماده است",
+            Detail = ex.Message
+        });
     }
 
     private async Task HandleValidationException(HttpContext httpContext, Exception ex)

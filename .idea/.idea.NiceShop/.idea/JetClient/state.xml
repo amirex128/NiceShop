@@ -4,27 +4,17 @@
     <option name="folders">
       <list>
         <folderState>
-          <option name="auth">
-            <authState>
-              <option name="bearer">
-                <ji>
-                  <option name="token" value="{{token}}" />
-                </ji>
-              </option>
-              <option name="type" value="BEARER" />
-            </authState>
-          </option>
           <option name="folders">
             <list>
               <folderState>
                 <option name="icon" value="GENERATED_FOLDER" />
-                <option name="id" value="c32e2624-7a14-420f-9d26-8ee7a225af15" />
+                <option name="id" value="4b0f95b8-56f2-40ef-943a-4df39e84e8e1" />
                 <option name="name" value="Addresses" />
                 <option name="requests">
                   <list>
                     <requestState>
                       <option name="description" value="Addresses_GetAll" />
-                      <option name="id" value="e37a2e5c-821b-4363-8776-ebc95d8ca530" />
+                      <option name="id" value="2bb1f592-5bdd-4e3d-a84b-41369da0d7b8" />
                       <option name="method" value="GET" />
                       <option name="name" value="/api/Addresses/GetAll" />
                       <option name="queryParams">
@@ -37,11 +27,11 @@
                           </queryParamState>
                         </list>
                       </option>
-                      <option name="url" value="{{baseUrl}}/api/Addresses/GetAll?PageNumber&amp;PageSize" />
+                      <option name="url" value="{{baseUrl}}/api/Addresses/GetAll" />
                     </requestState>
                     <requestState>
                       <option name="description" value="Addresses_Get" />
-                      <option name="id" value="06782f72-5c42-40d5-a1b1-0bad2842b7eb" />
+                      <option name="id" value="dfe96b2e-c58c-4046-a876-776d363363fe" />
                       <option name="method" value="GET" />
                       <option name="name" value="/api/Addresses/Get/{id}" />
                       <option name="pathVariables">
@@ -61,7 +51,7 @@
                         </bodyState>
                       </option>
                       <option name="description" value="Addresses_Create" />
-                      <option name="id" value="2cfc883a-d43e-494e-a6af-5f98f793d4f8" />
+                      <option name="id" value="4238b595-8001-4933-b394-674db9705f9a" />
                       <option name="method" value="POST" />
                       <option name="name" value="/api/Addresses/Create" />
                       <option name="url" value="{{baseUrl}}/api/Addresses/Create" />
@@ -74,14 +64,14 @@
                         </bodyState>
                       </option>
                       <option name="description" value="Addresses_Update" />
-                      <option name="id" value="a0dd40f3-b146-4bbc-9f71-93b55c8142ee" />
+                      <option name="id" value="f214c448-d317-4aa0-8bdd-cedf2f2c05b1" />
                       <option name="method" value="PUT" />
                       <option name="name" value="/api/Addresses/Update" />
                       <option name="url" value="{{baseUrl}}/api/Addresses/Update" />
                     </requestState>
                     <requestState>
                       <option name="description" value="Addresses_Delete" />
-                      <option name="id" value="203358c5-ac36-4204-840c-8019d967f0ce" />
+                      <option name="id" value="1b2c83a2-38cf-430e-9f07-723fb5344e99" />
                       <option name="method" value="DELETE" />
                       <option name="name" value="/api/Addresses/Delete/{id}" />
                       <option name="pathVariables">
@@ -95,37 +85,34 @@
                     </requestState>
                     <requestState>
                       <option name="description" value="Addresses_GetCities" />
-                      <option name="id" value="43de2986-0b30-4330-9aca-0ef25a091397" />
+                      <option name="id" value="b2be74bc-5183-4d56-8a94-675a5efb050e" />
                       <option name="method" value="GET" />
                       <option name="name" value="/api/Addresses/GetCities" />
                       <option name="queryParams">
                         <list>
                           <queryParamState>
                             <option name="key" value="Name" />
-                            <option name="value" value="نی" />
                           </queryParamState>
                           <queryParamState>
                             <option name="key" value="ProvinceId" />
-                            <option name="value" value="11" />
                           </queryParamState>
                         </list>
                       </option>
-                      <option name="url" value="{{baseUrl}}/api/Addresses/GetCities?Name=نی&amp;ProvinceId=11" />
+                      <option name="url" value="{{baseUrl}}/api/Addresses/GetCities" />
                     </requestState>
                     <requestState>
                       <option name="description" value="Addresses_GetProvinces" />
-                      <option name="id" value="3cebb680-89f9-4617-9be0-acab275fbdc7" />
+                      <option name="id" value="fc42db2e-5bd8-451f-aa9b-014d1d643725" />
                       <option name="method" value="GET" />
                       <option name="name" value="/api/Addresses/GetProvinces" />
                       <option name="queryParams">
                         <list>
                           <queryParamState>
                             <option name="key" value="Name" />
-                            <option name="value" value="خراسان" />
                           </queryParamState>
                         </list>
                       </option>
-                      <option name="url" value="{{baseUrl}}/api/Addresses/GetProvinces?Name=خراسان" />
+                      <option name="url" value="{{baseUrl}}/api/Addresses/GetProvinces" />
                     </requestState>
                   </list>
                 </option>
@@ -133,13 +120,13 @@
               </folderState>
               <folderState>
                 <option name="icon" value="GENERATED_FOLDER" />
-                <option name="id" value="bce18100-e839-4d24-a7bf-5f5466a9c8f3" />
+                <option name="id" value="b1e90704-6a2f-4cda-bf2b-a8cbe3e64bae" />
                 <option name="name" value="Articles" />
                 <option name="requests">
                   <list>
                     <requestState>
                       <option name="description" value="Articles_GetAll" />
-                      <option name="id" value="12c5f379-f5a8-4a57-b3d7-11b620ea6732" />
+                      <option name="id" value="669225d0-de1b-4b17-a9c1-f023427c57e7" />
                       <option name="method" value="GET" />
                       <option name="name" value="/api/Articles/GetAll" />
                       <option name="queryParams">
@@ -152,11 +139,11 @@
                           </queryParamState>
                         </list>
                       </option>
-                      <option name="url" value="{{baseUrl}}/api/Articles/GetAll?PageNumber&amp;PageSize" />
+                      <option name="url" value="{{baseUrl}}/api/Articles/GetAll" />
                     </requestState>
                     <requestState>
                       <option name="description" value="Articles_Get" />
-                      <option name="id" value="c7a2eecc-61df-45bd-ba8f-87ce5f61566a" />
+                      <option name="id" value="7379736a-8d7d-4dab-acff-2f92e6fc8a96" />
                       <option name="method" value="GET" />
                       <option name="name" value="/api/Articles/Get/{id}" />
                       <option name="pathVariables">
@@ -171,12 +158,12 @@
                     <requestState>
                       <option name="body">
                         <bodyState>
-                          <option name="raw" value="{&#10;  &quot;title&quot;: &quot;&quot;,&#10;  &quot;description&quot;: &quot;&quot;,&#10;  &quot;body&quot;: &quot;&quot;,&#10;  &quot;slug&quot;: &quot;&quot;,&#10;  &quot;medias&quot;: [&#10;    0&#10;  ],&#10;  &quot;categories&quot;: [&#10;    0&#10;  ]&#10;}" />
+                          <option name="raw" value="{&#10;  &quot;title&quot;: &quot;&quot;,&#10;  &quot;description&quot;: &quot;&quot;,&#10;  &quot;body&quot;: &quot;&quot;,&#10;  &quot;slug&quot;: &quot;&quot;,&#10;  &quot;seoTags&quot;: [&#10;    &quot;&quot;&#10;  ],&#10;  &quot;medias&quot;: [&#10;    0&#10;  ],&#10;  &quot;categories&quot;: [&#10;    0&#10;  ]&#10;}" />
                           <option name="type" value="JSON" />
                         </bodyState>
                       </option>
                       <option name="description" value="Articles_Create" />
-                      <option name="id" value="8c735c88-4ef9-403d-9d86-5969d985ac99" />
+                      <option name="id" value="dddc4a42-d3da-4d99-9055-b2c7359f783e" />
                       <option name="method" value="POST" />
                       <option name="name" value="/api/Articles/Create" />
                       <option name="url" value="{{baseUrl}}/api/Articles/Create" />
@@ -184,19 +171,19 @@
                     <requestState>
                       <option name="body">
                         <bodyState>
-                          <option name="raw" value="{&#10;  &quot;id&quot;: 0,&#10;  &quot;title&quot;: &quot;&quot;,&#10;  &quot;description&quot;: &quot;&quot;,&#10;  &quot;body&quot;: &quot;&quot;,&#10;  &quot;slug&quot;: &quot;&quot;,&#10;  &quot;medias&quot;: [&#10;    0&#10;  ],&#10;  &quot;categories&quot;: [&#10;    0&#10;  ]&#10;}" />
+                          <option name="raw" value="{&#10;  &quot;id&quot;: 0,&#10;  &quot;title&quot;: &quot;&quot;,&#10;  &quot;description&quot;: &quot;&quot;,&#10;  &quot;body&quot;: &quot;&quot;,&#10;  &quot;slug&quot;: &quot;&quot;,&#10;  &quot;seoTags&quot;: [&#10;    &quot;&quot;&#10;  ],&#10;  &quot;medias&quot;: [&#10;    0&#10;  ],&#10;  &quot;categories&quot;: [&#10;    0&#10;  ]&#10;}" />
                           <option name="type" value="JSON" />
                         </bodyState>
                       </option>
                       <option name="description" value="Articles_Update" />
-                      <option name="id" value="4407d5da-d134-47e3-876f-e5f90002a35e" />
+                      <option name="id" value="b70d4426-132f-412c-9c06-0f8822baa943" />
                       <option name="method" value="PUT" />
                       <option name="name" value="/api/Articles/Update" />
                       <option name="url" value="{{baseUrl}}/api/Articles/Update" />
                     </requestState>
                     <requestState>
                       <option name="description" value="Articles_Delete" />
-                      <option name="id" value="0d8cd23e-5396-4bcf-b3de-637f33ad27d9" />
+                      <option name="id" value="e6e55dac-8368-40a6-8bf5-416a12af9b2e" />
                       <option name="method" value="DELETE" />
                       <option name="name" value="/api/Articles/Delete/{id}" />
                       <option name="pathVariables">
@@ -214,13 +201,13 @@
               </folderState>
               <folderState>
                 <option name="icon" value="GENERATED_FOLDER" />
-                <option name="id" value="5e8ee2a8-2969-459c-8c45-ef2e1b892ba0" />
+                <option name="id" value="f4659479-4051-49a4-bbce-98de4b3ec6f8" />
                 <option name="name" value="Baskets" />
                 <option name="requests">
                   <list>
                     <requestState>
                       <option name="description" value="Baskets_GetAll" />
-                      <option name="id" value="cc426668-cf0f-4712-aa79-0f6aeff00f2f" />
+                      <option name="id" value="c7c82bc4-3bea-42e4-92a7-64c75c823a65" />
                       <option name="method" value="GET" />
                       <option name="name" value="/api/Baskets/GetAll" />
                       <option name="queryParams">
@@ -233,18 +220,17 @@
                           </queryParamState>
                         </list>
                       </option>
-                      <option name="url" value="{{baseUrl}}/api/Baskets/GetAll?PageNumber&amp;PageSize" />
+                      <option name="url" value="{{baseUrl}}/api/Baskets/GetAll" />
                     </requestState>
                     <requestState>
                       <option name="description" value="Baskets_Get" />
-                      <option name="id" value="5754e2b6-27e4-41eb-a48e-e356502de3f4" />
+                      <option name="id" value="1bc6b2f8-5be5-4362-b97f-d8aa953a7c85" />
                       <option name="method" value="GET" />
                       <option name="name" value="/api/Baskets/Get/{id}" />
                       <option name="pathVariables">
                         <list>
                           <pathVariableState>
                             <option name="key" value="id" />
-                            <option name="value" value="1011" />
                           </pathVariableState>
                         </list>
                       </option>
@@ -253,20 +239,12 @@
                     <requestState>
                       <option name="body">
                         <bodyState>
-                          <option name="raw" value="{&#10;  &quot;basketItems&quot;: [&#10;    {&#10;      &quot;quantity&quot;: 1,&#10;      &quot;productId&quot;: 1,&#10;      &quot;productVariantId&quot;: 1&#10;    },&#10;    {&#10;      &quot;quantity&quot;: 1,&#10;      &quot;productId&quot;: 1,&#10;      &quot;productVariantId&quot;: 2&#10;    },&#10;    {&#10;      &quot;quantity&quot;: 1,&#10;      &quot;productId&quot;: 2,&#10;      &quot;productVariantId&quot;: 3&#10;    },&#10;    {&#10;      &quot;quantity&quot;: 1,&#10;      &quot;productId&quot;: 2,&#10;      &quot;productVariantId&quot;: 4&#10;    }&#10;  ]&#10;}" />
+                          <option name="raw" value="{&#10;  &quot;basketItems&quot;: [&#10;    {&#10;      &quot;quantity&quot;: 0,&#10;      &quot;productId&quot;: 0,&#10;      &quot;productVariantId&quot;: 0&#10;    }&#10;  ]&#10;}" />
                           <option name="type" value="JSON" />
                         </bodyState>
                       </option>
                       <option name="description" value="Baskets_Create" />
-                      <option name="headers">
-                        <list>
-                          <headerState>
-                            <option name="key" value="Content-Type" />
-                            <option name="value" value="application/json" />
-                          </headerState>
-                        </list>
-                      </option>
-                      <option name="id" value="b0e969cc-d9b5-4cc2-8f03-629c6acc9f59" />
+                      <option name="id" value="3cca1700-0244-4f83-b0c4-1b355428fa66" />
                       <option name="method" value="POST" />
                       <option name="name" value="/api/Baskets/Create" />
                       <option name="url" value="{{baseUrl}}/api/Baskets/Create" />
@@ -274,27 +252,19 @@
                     <requestState>
                       <option name="body">
                         <bodyState>
-                          <option name="raw" value="{&#10;  &quot;id&quot;: 20,&#10;  &quot;basketItems&quot;: [&#10;    {&#10;      &quot;quantity&quot;: 1,&#10;      &quot;productId&quot;: 1,&#10;      &quot;productVariantId&quot;: 1&#10;    },&#10;    {&#10;      &quot;quantity&quot;: 1,&#10;      &quot;productId&quot;: 2,&#10;      &quot;productVariantId&quot;: 3&#10;    }&#10;  ]&#10;}" />
+                          <option name="raw" value="{&#10;  &quot;id&quot;: 0,&#10;  &quot;basketItems&quot;: [&#10;    {&#10;      &quot;quantity&quot;: 0,&#10;      &quot;productId&quot;: 0,&#10;      &quot;productVariantId&quot;: 0&#10;    }&#10;  ]&#10;}" />
                           <option name="type" value="JSON" />
                         </bodyState>
                       </option>
                       <option name="description" value="Baskets_Update" />
-                      <option name="headers">
-                        <list>
-                          <headerState>
-                            <option name="key" value="Content-Type" />
-                            <option name="value" value="application/json" />
-                          </headerState>
-                        </list>
-                      </option>
-                      <option name="id" value="b20f81c9-c048-4e9a-80ed-af5a34e8029b" />
+                      <option name="id" value="57f2c7fe-8a4b-4bed-adb3-de6768a4a687" />
                       <option name="method" value="PUT" />
                       <option name="name" value="/api/Baskets/Update" />
                       <option name="url" value="{{baseUrl}}/api/Baskets/Update" />
                     </requestState>
                     <requestState>
                       <option name="description" value="Baskets_Delete" />
-                      <option name="id" value="ffae62bd-aea4-406c-b806-0914c243e903" />
+                      <option name="id" value="69f64abf-adbc-4f07-ab9f-cd37c802e044" />
                       <option name="method" value="DELETE" />
                       <option name="name" value="/api/Baskets/Delete/{id}" />
                       <option name="pathVariables">
@@ -312,13 +282,13 @@
               </folderState>
               <folderState>
                 <option name="icon" value="GENERATED_FOLDER" />
-                <option name="id" value="0ef76789-0ef0-4adf-af85-129898d30da5" />
+                <option name="id" value="04d1d3e3-2631-4d82-b7a0-b4ffb2fb6282" />
                 <option name="name" value="Categories" />
                 <option name="requests">
                   <list>
                     <requestState>
                       <option name="description" value="Categories_GetAll" />
-                      <option name="id" value="dd5041b4-80c0-49b2-ba1d-38940e4d950c" />
+                      <option name="id" value="d483995b-f3a3-4741-b4ec-a4a3ca10de58" />
                       <option name="method" value="GET" />
                       <option name="name" value="/api/Categories/GetAll" />
                       <option name="queryParams">
@@ -331,11 +301,11 @@
                           </queryParamState>
                         </list>
                       </option>
-                      <option name="url" value="{{baseUrl}}/api/Categories/GetAll?PageNumber&amp;PageSize" />
+                      <option name="url" value="{{baseUrl}}/api/Categories/GetAll" />
                     </requestState>
                     <requestState>
                       <option name="description" value="Categories_Get" />
-                      <option name="id" value="0d4796d9-2964-46ec-937d-ff8dbb8431b6" />
+                      <option name="id" value="a49e2be8-0161-4ab7-9011-60f78f147593" />
                       <option name="method" value="GET" />
                       <option name="name" value="/api/Categories/Get/{id}" />
                       <option name="pathVariables">
@@ -350,7 +320,7 @@
                     <requestState>
                       <option name="body">
                         <bodyState>
-                          <option name="raw" value="{&#10;  &quot;name&quot;: &quot;test&quot;,&#10;  &quot;description&quot;: &quot;11&quot;,&#10;  &quot;Slug&quot;:&quot;fdgfd&quot;,&#10;  &quot;seoTags&quot;: [&#10;    &quot;dsfdsafsdf&quot;&#10;  ],&#10;  &quot;medias&quot;: [&#10;    1,2&#10;  ]&#10;}" />
+                          <option name="raw" value="{&#10;  &quot;name&quot;: &quot;&quot;,&#10;  &quot;parentCategoryId&quot;: 0,&#10;  &quot;description&quot;: &quot;&quot;,&#10;  &quot;seoTags&quot;: [&#10;    &quot;&quot;&#10;  ],&#10;  &quot;slug&quot;: &quot;&quot;,&#10;  &quot;medias&quot;: [&#10;    0&#10;  ]&#10;}" />
                           <option name="type" value="JSON" />
                         </bodyState>
                       </option>
@@ -363,7 +333,7 @@
                           </headerState>
                         </list>
                       </option>
-                      <option name="id" value="9c0a0ab0-5384-4100-b00d-fda5097bfaa1" />
+                      <option name="id" value="f398d229-9620-4512-95a5-e4420b2dfc1a" />
                       <option name="method" value="POST" />
                       <option name="name" value="/api/Categories/Create" />
                       <option name="url" value="{{baseUrl}}/api/Categories/Create" />
@@ -371,7 +341,20 @@
                     <requestState>
                       <option name="body">
                         <bodyState>
-                          <option name="raw" value="{&#10;  &quot;id&quot;: 0,&#10;  &quot;name&quot;: &quot;&quot;,&#10;  &quot;description&quot;: &quot;&quot;,&#10;  &quot;seoTags&quot;: [&#10;    &quot;&quot;&#10;  ],&#10;  &quot;medias&quot;: [&#10;    0&#10;  ]&#10;}" />
+                          <option name="raw" value="{&#10;  &quot;id&quot;: 0,&#10;  &quot;order&quot;: 0&#10;}" />
+                          <option name="type" value="JSON" />
+                        </bodyState>
+                      </option>
+                      <option name="description" value="Categories_Reorder" />
+                      <option name="id" value="ce3a5fb3-6fb9-4070-8f78-d906e9cd0e49" />
+                      <option name="method" value="POST" />
+                      <option name="name" value="/api/Categories/Reorder" />
+                      <option name="url" value="{{baseUrl}}/api/Categories/Reorder" />
+                    </requestState>
+                    <requestState>
+                      <option name="body">
+                        <bodyState>
+                          <option name="raw" value="{&#10;  &quot;id&quot;: 0,&#10;  &quot;name&quot;: &quot;&quot;,&#10;  &quot;description&quot;: &quot;&quot;,&#10;  &quot;slug&quot;: &quot;&quot;,&#10;  &quot;seoTags&quot;: [&#10;    &quot;&quot;&#10;  ],&#10;  &quot;medias&quot;: [&#10;    0&#10;  ]&#10;}" />
                           <option name="type" value="JSON" />
                         </bodyState>
                       </option>
@@ -384,14 +367,14 @@
                           </headerState>
                         </list>
                       </option>
-                      <option name="id" value="f6106ea6-a2d9-4e55-9b38-f26336a65bce" />
+                      <option name="id" value="7012cd1c-a869-4a9a-b286-a8b40a441f66" />
                       <option name="method" value="PUT" />
                       <option name="name" value="/api/Categories/Update" />
                       <option name="url" value="{{baseUrl}}/api/Categories/Update" />
                     </requestState>
                     <requestState>
                       <option name="description" value="Categories_Delete" />
-                      <option name="id" value="790ec47c-3829-4fa8-99ca-861e84f42025" />
+                      <option name="id" value="1bd5e979-823d-474d-a915-a7b8a27b0c44" />
                       <option name="method" value="DELETE" />
                       <option name="name" value="/api/Categories/Delete/{id}" />
                       <option name="pathVariables">
@@ -403,40 +386,113 @@
                       </option>
                       <option name="url" value="{{baseUrl}}/api/Categories/Delete/{id}" />
                     </requestState>
-                    <requestState>
-                      <option name="body">
-                        <bodyState>
-                          <option name="raw" value="{&#10;  &quot;id&quot;: 11,&#10;  &quot;order&quot;: 12&#10;}" />
-                          <option name="type" value="JSON" />
-                        </bodyState>
-                      </option>
-                      <option name="description" value="Categories_Reorder" />
-                      <option name="headers">
-                        <list>
-                          <headerState>
-                            <option name="key" value="Content-Type" />
-                            <option name="value" value="application/json" />
-                          </headerState>
-                        </list>
-                      </option>
-                      <option name="id" value="834c9dcc-46c6-4b95-93a1-d5899288304d" />
-                      <option name="method" value="POST" />
-                      <option name="name" value="/api/Categories/Reorder" />
-                      <option name="url" value="{{baseUrl}}/api/Categories/Reorder" />
-                    </requestState>
                   </list>
                 </option>
                 <option name="sortWeight" value="4000000" />
               </folderState>
               <folderState>
                 <option name="icon" value="GENERATED_FOLDER" />
-                <option name="id" value="2822fbab-8ffd-4e20-86ff-5a64ac4a37e6" />
+                <option name="id" value="effdec7a-122e-4217-aef5-9763959af3a1" />
+                <option name="name" value="Coupons" />
+                <option name="requests">
+                  <list>
+                    <requestState>
+                      <option name="description" value="Coupons_GetAll" />
+                      <option name="id" value="0e8d2848-6ce5-4e73-8d72-d43c8c5aa5b5" />
+                      <option name="method" value="GET" />
+                      <option name="name" value="/api/Coupons/GetAll" />
+                      <option name="queryParams">
+                        <list>
+                          <queryParamState>
+                            <option name="key" value="PageNumber" />
+                          </queryParamState>
+                          <queryParamState>
+                            <option name="key" value="PageSize" />
+                          </queryParamState>
+                        </list>
+                      </option>
+                      <option name="url" value="{{baseUrl}}/api/Coupons/GetAll" />
+                    </requestState>
+                    <requestState>
+                      <option name="description" value="Coupons_Get" />
+                      <option name="id" value="6fbede44-f367-47e3-a4c5-e15170a1b480" />
+                      <option name="method" value="GET" />
+                      <option name="name" value="/api/Coupons/Get/{id}" />
+                      <option name="pathVariables">
+                        <list>
+                          <pathVariableState>
+                            <option name="key" value="id" />
+                          </pathVariableState>
+                        </list>
+                      </option>
+                      <option name="url" value="{{baseUrl}}/api/Coupons/Get/{id}" />
+                    </requestState>
+                    <requestState>
+                      <option name="body">
+                        <bodyState>
+                          <option name="raw" value="{&#10;  &quot;code&quot;: &quot;&quot;,&#10;  &quot;quantity&quot;: 0,&#10;  &quot;expiryDate&quot;: &quot;۲۰۲۴-۰۱-۲۵T۱۳:۳۷:۱۲Z&quot;,&#10;  &quot;type&quot;: 0,&#10;  &quot;value&quot;: 0,&#10;  &quot;products&quot;: [&#10;    0&#10;  ]&#10;}" />
+                          <option name="type" value="JSON" />
+                        </bodyState>
+                      </option>
+                      <option name="description" value="Coupons_Create" />
+                      <option name="id" value="ae79d2da-cbb7-4a80-9122-110a167dc840" />
+                      <option name="method" value="POST" />
+                      <option name="name" value="/api/Coupons/Create" />
+                      <option name="url" value="{{baseUrl}}/api/Coupons/Create" />
+                    </requestState>
+                    <requestState>
+                      <option name="body">
+                        <bodyState>
+                          <option name="raw" value="{&#10;  &quot;id&quot;: 0,&#10;  &quot;code&quot;: &quot;&quot;,&#10;  &quot;quantity&quot;: 0,&#10;  &quot;expiryDate&quot;: &quot;۲۰۲۴-۰۱-۲۵T۱۳:۳۷:۱۲Z&quot;,&#10;  &quot;type&quot;: 0,&#10;  &quot;value&quot;: 0,&#10;  &quot;products&quot;: [&#10;    0&#10;  ]&#10;}" />
+                          <option name="type" value="JSON" />
+                        </bodyState>
+                      </option>
+                      <option name="description" value="Coupons_Update" />
+                      <option name="id" value="c9394a48-9c3b-4409-b71e-3f11978b6f13" />
+                      <option name="method" value="PUT" />
+                      <option name="name" value="/api/Coupons/Update" />
+                      <option name="url" value="{{baseUrl}}/api/Coupons/Update" />
+                    </requestState>
+                    <requestState>
+                      <option name="description" value="Coupons_Delete" />
+                      <option name="id" value="c4b5a2bf-bfa7-4bfc-ac4c-7a05049275bd" />
+                      <option name="method" value="DELETE" />
+                      <option name="name" value="/api/Coupons/Delete/{id}" />
+                      <option name="pathVariables">
+                        <list>
+                          <pathVariableState>
+                            <option name="key" value="id" />
+                          </pathVariableState>
+                        </list>
+                      </option>
+                      <option name="url" value="{{baseUrl}}/api/Coupons/Delete/{id}" />
+                    </requestState>
+                    <requestState>
+                      <option name="body">
+                        <bodyState>
+                          <option name="raw" value="{&#10;  &quot;code&quot;: &quot;&quot;,&#10;  &quot;basketId&quot;: 0&#10;}" />
+                          <option name="type" value="JSON" />
+                        </bodyState>
+                      </option>
+                      <option name="description" value="Coupons_Check" />
+                      <option name="id" value="ead3a79c-7ae1-4935-97b8-90452bfe2681" />
+                      <option name="method" value="POST" />
+                      <option name="name" value="/api/Coupons/Check" />
+                      <option name="url" value="{{baseUrl}}/api/Coupons/Check" />
+                    </requestState>
+                  </list>
+                </option>
+                <option name="sortWeight" value="5000000" />
+              </folderState>
+              <folderState>
+                <option name="icon" value="GENERATED_FOLDER" />
+                <option name="id" value="517416e4-7063-465c-b1fb-dc347287de2b" />
                 <option name="name" value="Medias" />
                 <option name="requests">
                   <list>
                     <requestState>
                       <option name="description" value="Medias_GetAll" />
-                      <option name="id" value="f3499e45-42ad-4925-8e91-6fa8b9da33a9" />
+                      <option name="id" value="a9852048-0bed-4672-b879-180e964d976e" />
                       <option name="method" value="GET" />
                       <option name="name" value="/api/Medias/GetAll" />
                       <option name="queryParams">
@@ -449,17 +505,18 @@
                           </queryParamState>
                         </list>
                       </option>
-                      <option name="url" value="{{baseUrl}}/api/Medias/GetAll?PageNumber&amp;PageSize" />
+                      <option name="url" value="{{baseUrl}}/api/Medias/GetAll" />
                     </requestState>
                     <requestState>
                       <option name="description" value="Medias_Get" />
-                      <option name="id" value="8379291b-94d6-4f63-8b5d-77a8a89b1f1a" />
+                      <option name="id" value="534757e6-ee80-4bb5-8135-cdf8d5c19fda" />
                       <option name="method" value="GET" />
                       <option name="name" value="/api/Medias/Get/{id}" />
                       <option name="pathVariables">
                         <list>
                           <pathVariableState>
                             <option name="key" value="id" />
+                            <option name="value" value="30" />
                           </pathVariableState>
                         </list>
                       </option>
@@ -472,10 +529,18 @@
                           <option name="type" value="JSON" />
                         </bodyState>
                       </option>
-                      <option name="description" value="Medias_UpdateCategory" />
-                      <option name="id" value="549b8c1b-450f-47eb-a935-512351be204a" />
+                      <option name="description" value="Medias_Update" />
+                      <option name="headers">
+                        <list>
+                          <headerState>
+                            <option name="key" value="Content-Type" />
+                            <option name="value" value="application/json" />
+                          </headerState>
+                        </list>
+                      </option>
+                      <option name="id" value="01de7942-1487-4ee6-8b4d-906eea217dca" />
                       <option name="method" value="PUT" />
-                      <option name="name" value="/api/Medias/UpdateCategory/{id}" />
+                      <option name="name" value="/api/Medias/Update/{id}" />
                       <option name="pathVariables">
                         <list>
                           <pathVariableState>
@@ -483,7 +548,7 @@
                           </pathVariableState>
                         </list>
                       </option>
-                      <option name="url" value="{{baseUrl}}/api/Medias/UpdateCategory/{id}" />
+                      <option name="url" value="{{baseUrl}}/api/Medias/Update/{id}" />
                     </requestState>
                     <requestState>
                       <option name="body">
@@ -499,7 +564,7 @@
                         </bodyState>
                       </option>
                       <option name="description" value="Medias_Create" />
-                      <option name="id" value="65cbe82d-b584-4898-a5a9-9c478df1ffd9" />
+                      <option name="id" value="98effdef-7d4b-4905-92c3-30026e30a2ed" />
                       <option name="method" value="POST" />
                       <option name="name" value="/api/Medias/Create" />
                       <option name="queryParams">
@@ -509,11 +574,11 @@
                           </queryParamState>
                         </list>
                       </option>
-                      <option name="url" value="{{baseUrl}}/api/Medias/Create?Alt" />
+                      <option name="url" value="{{baseUrl}}/api/Medias/Create" />
                     </requestState>
                     <requestState>
                       <option name="description" value="Medias_Delete" />
-                      <option name="id" value="057d054f-4d0c-47c4-a562-41929e0738c1" />
+                      <option name="id" value="bb5afc31-1c8b-4e41-a9f0-b3a4e38f9cb8" />
                       <option name="method" value="DELETE" />
                       <option name="name" value="/api/Medias/Delete/{id}" />
                       <option name="pathVariables">
@@ -531,15 +596,15 @@
               </folderState>
               <folderState>
                 <option name="icon" value="GENERATED_FOLDER" />
-                <option name="id" value="e7c6236a-4b0f-471f-ae23-b8dfc1e8555f" />
-                <option name="name" value="Products" />
+                <option name="id" value="a5f0f731-450b-437c-bba0-6df894c04aa9" />
+                <option name="name" value="Orders" />
                 <option name="requests">
                   <list>
                     <requestState>
-                      <option name="description" value="Products_GetAll" />
-                      <option name="id" value="16fbb7c4-ab88-46c8-baf2-609935ea497e" />
+                      <option name="description" value="Orders_GetAll" />
+                      <option name="id" value="e117c107-6ebd-4df5-ada0-ca1836d001d4" />
                       <option name="method" value="GET" />
-                      <option name="name" value="/api/Products/GetAll" />
+                      <option name="name" value="/api/Orders/GetAll" />
                       <option name="queryParams">
                         <list>
                           <queryParamState>
@@ -550,69 +615,33 @@
                           </queryParamState>
                         </list>
                       </option>
-                      <option name="url" value="{{baseUrl}}/api/Products/GetAll?PageNumber&amp;PageSize" />
-                    </requestState>
-                    <requestState>
-                      <option name="description" value="Products_Get" />
-                      <option name="id" value="7bf8e790-be9f-461d-b4e6-d82e2332d294" />
-                      <option name="method" value="GET" />
-                      <option name="name" value="/api/Products/Get/{id}" />
-                      <option name="pathVariables">
-                        <list>
-                          <pathVariableState>
-                            <option name="key" value="id" />
-                          </pathVariableState>
-                        </list>
-                      </option>
-                      <option name="url" value="{{baseUrl}}/api/Products/Get/{id}" />
+                      <option name="url" value="{{baseUrl}}/api/Orders/GetAll" />
                     </requestState>
                     <requestState>
                       <option name="body">
                         <bodyState>
-                          <option name="raw" value="{&#10;  &quot;name&quot;: &quot;aaaaaaaaaaaa&quot;,&#10;  &quot;description&quot;: &quot;&quot;,&#10;  &quot;price&quot;: 400000,&#10;  &quot;stock&quot;: 10,&#10;  &quot;status&quot;: 1,&#10;  &quot;slug&quot;:&quot;d&quot;,&#10;  &quot;categories&quot;: [&#10;    1&#10;  ],&#10;  &quot;productVariants&quot;: [&#10;    &#10;  ],&#10;  &quot;medias&quot;: [&#10;    &#10;  ],&#10;  &quot;productAttributes&quot;: [&#10;    &#10;  ],&#10;  &quot;productReviews&quot;: [&#10;    &#10;  ]&#10;}" />
+                          <option name="raw" value="{&#10;  &quot;basketId&quot;: 0,&#10;  &quot;addressId&quot;: 0,&#10;  &quot;description&quot;: &quot;&quot;&#10;}" />
                           <option name="type" value="JSON" />
                         </bodyState>
                       </option>
-                      <option name="description" value="Products_Create" />
-                      <option name="headers">
-                        <list>
-                          <headerState>
-                            <option name="key" value="Content-Type" />
-                            <option name="value" value="application/json" />
-                          </headerState>
-                        </list>
-                      </option>
-                      <option name="id" value="031f88cc-88f9-402a-a75a-9f3a611e667d" />
+                      <option name="description" value="Orders_Create" />
+                      <option name="id" value="9c83575b-b3c3-41a7-94fa-402033fc0c70" />
                       <option name="method" value="POST" />
-                      <option name="name" value="/api/Products/Create" />
-                      <option name="url" value="{{baseUrl}}/api/Products/Create" />
+                      <option name="name" value="/api/Orders/Create" />
+                      <option name="url" value="{{baseUrl}}/api/Orders/Create" />
                     </requestState>
                     <requestState>
                       <option name="body">
                         <bodyState>
-                          <option name="raw" value="{&#10;  &quot;id&quot;: 0,&#10;  &quot;name&quot;: &quot;&quot;,&#10;  &quot;description&quot;: &quot;&quot;,&#10;  &quot;price&quot;: 0,&#10;  &quot;stock&quot;: 0,&#10;  &quot;status&quot;: 0,&#10;  &quot;categories&quot;: [&#10;    0&#10;  ],&#10;  &quot;productVariants&quot;: [&#10;    0&#10;  ],&#10;  &quot;medias&quot;: [&#10;    0&#10;  ],&#10;  &quot;productAttributes&quot;: [&#10;    0&#10;  ],&#10;  &quot;productReviews&quot;: [&#10;    0&#10;  ]&#10;}" />
+                          <option name="raw" value="{&#10;  &quot;orderId&quot;: 0,&#10;  &quot;token&quot;: &quot;&quot;&#10;}" />
                           <option name="type" value="JSON" />
                         </bodyState>
                       </option>
-                      <option name="description" value="Products_Update" />
-                      <option name="id" value="5ee6fa7e-ecb4-4afa-b4e7-dfd2b28ac79c" />
-                      <option name="method" value="PUT" />
-                      <option name="name" value="/api/Products/Update" />
-                      <option name="url" value="{{baseUrl}}/api/Products/Update" />
-                    </requestState>
-                    <requestState>
-                      <option name="description" value="Products_Delete" />
-                      <option name="id" value="8080a6d1-1723-4b3e-b2ba-7c6a9dd95617" />
-                      <option name="method" value="DELETE" />
-                      <option name="name" value="/api/Products/Delete/{id}" />
-                      <option name="pathVariables">
-                        <list>
-                          <pathVariableState>
-                            <option name="key" value="id" />
-                          </pathVariableState>
-                        </list>
-                      </option>
-                      <option name="url" value="{{baseUrl}}/api/Products/Delete/{id}" />
+                      <option name="description" value="Orders_Verify" />
+                      <option name="id" value="9d4af247-9572-419c-8d2d-d70bb5fad837" />
+                      <option name="method" value="POST" />
+                      <option name="name" value="/api/Orders/Verify" />
+                      <option name="url" value="{{baseUrl}}/api/Orders/Verify" />
                     </requestState>
                   </list>
                 </option>
@@ -620,187 +649,7 @@
               </folderState>
               <folderState>
                 <option name="icon" value="GENERATED_FOLDER" />
-                <option name="id" value="81518bf1-0d95-473b-9695-d52f3f18f6f0" />
-                <option name="name" value="Users" />
-                <option name="requests">
-                  <list>
-                    <requestState>
-                      <option name="auth">
-                        <authState>
-                          <option name="type" value="NO_AUTH" />
-                        </authState>
-                      </option>
-                      <option name="body">
-                        <bodyState>
-                          <option name="raw" value="{&#10;  &quot;phone&quot;: &quot;09024809750&quot;&#10;}" />
-                          <option name="type" value="JSON" />
-                        </bodyState>
-                      </option>
-                      <option name="description" value="Users_LoginRegister" />
-                      <option name="headers">
-                        <list>
-                          <headerState>
-                            <option name="key" value="Content-Type" />
-                            <option name="value" value="application/json" />
-                          </headerState>
-                        </list>
-                      </option>
-                      <option name="id" value="c25fcfe7-b4f9-48d1-af44-c47661e43fff" />
-                      <option name="method" value="POST" />
-                      <option name="name" value="/api/Users/LoginRegister" />
-                      <option name="url" value="{{baseUrl}}/api/Users/LoginRegister" />
-                    </requestState>
-                    <requestState>
-                      <option name="body">
-                        <bodyState>
-                          <option name="raw" value="{&#10;  &quot;phone&quot;: &quot;09024809750&quot;,&#10;  &quot;otp&quot;: 6416&#10;}" />
-                          <option name="type" value="JSON" />
-                        </bodyState>
-                      </option>
-                      <option name="description" value="Users_ApproveOtp" />
-                      <option name="headers">
-                        <list>
-                          <headerState>
-                            <option name="key" value="Content-Type" />
-                            <option name="value" value="application/json" />
-                          </headerState>
-                        </list>
-                      </option>
-                      <option name="id" value="1095f0ad-1283-4833-a859-cb3ddd95e8d2" />
-                      <option name="method" value="POST" />
-                      <option name="name" value="/api/Users/ApproveOtp" />
-                      <option name="url" value="{{baseUrl}}/api/Users/ApproveOtp" />
-                    </requestState>
-                    <requestState>
-                      <option name="body">
-                        <bodyState>
-                          <option name="raw" value="{}" />
-                          <option name="type" value="JSON" />
-                        </bodyState>
-                      </option>
-                      <option name="description" value="Users_Info" />
-                      <option name="headers">
-                        <list>
-                          <headerState>
-                            <option name="key" value="Content-Type" />
-                            <option name="value" value="application/json" />
-                          </headerState>
-                        </list>
-                      </option>
-                      <option name="id" value="54231587-d802-4220-af41-14b544dfa449" />
-                      <option name="method" value="GET" />
-                      <option name="name" value="/api/Users/Info" />
-                      <option name="url" value="{{baseUrl}}/api/Users/Info" />
-                    </requestState>
-                  </list>
-                </option>
-                <option name="sortWeight" value="8000000" />
-              </folderState>
-              <folderState>
-                <option name="icon" value="GENERATED_FOLDER" />
-                <option name="id" value="6d5d9bbf-0e7b-4d4b-b110-aed87524ae06" />
-                <option name="name" value="Coupons" />
-                <option name="requests">
-                  <list>
-                    <requestState>
-                      <option name="description" value="Coupons_GetAll" />
-                      <option name="id" value="add03cac-8560-4465-b393-7057dc30be03" />
-                      <option name="method" value="GET" />
-                      <option name="name" value="/api/Coupons/GetAll" />
-                      <option name="queryParams">
-                        <list>
-                          <queryParamState>
-                            <option name="key" value="PageNumber" />
-                          </queryParamState>
-                          <queryParamState>
-                            <option name="key" value="PageSize" />
-                          </queryParamState>
-                        </list>
-                      </option>
-                      <option name="url" value="{{baseUrl}}/api/Coupons/GetAll?PageNumber&amp;PageSize" />
-                    </requestState>
-                    <requestState>
-                      <option name="description" value="Coupons_Get" />
-                      <option name="id" value="b28bd187-f44c-497c-858b-ed2b469baeef" />
-                      <option name="method" value="GET" />
-                      <option name="name" value="/api/Coupons/Get/{id}" />
-                      <option name="pathVariables">
-                        <list>
-                          <pathVariableState>
-                            <option name="key" value="id" />
-                          </pathVariableState>
-                        </list>
-                      </option>
-                      <option name="url" value="{{baseUrl}}/api/Coupons/Get/{id}" />
-                    </requestState>
-                    <requestState>
-                      <option name="body">
-                        <bodyState>
-                          <option name="raw" value="{&#10;  &quot;code&quot;: &quot;&quot;,&#10;  &quot;quantity&quot;: 0,&#10;  &quot;expiryDate&quot;: &quot;۲۰۲۴-۰۱-۱۱T۲۰:۲۸:۵۸Z&quot;,&#10;  &quot;type&quot;: 0,&#10;  &quot;value&quot;: 0,&#10;  &quot;products&quot;: [&#10;    0&#10;  ]&#10;}" />
-                          <option name="type" value="JSON" />
-                        </bodyState>
-                      </option>
-                      <option name="description" value="Coupons_Create" />
-                      <option name="id" value="ebd7c9da-2b2f-41d0-be1b-fc81c3904cc1" />
-                      <option name="method" value="POST" />
-                      <option name="name" value="/api/Coupons/Create" />
-                      <option name="url" value="{{baseUrl}}/api/Coupons/Create" />
-                    </requestState>
-                    <requestState>
-                      <option name="body">
-                        <bodyState>
-                          <option name="raw" value="{&#10;  &quot;id&quot;: 0,&#10;  &quot;code&quot;: &quot;&quot;,&#10;  &quot;quantity&quot;: 0,&#10;  &quot;expiryDate&quot;: &quot;۲۰۲۴-۰۱-۱۱T۲۰:۲۸:۵۸Z&quot;,&#10;  &quot;type&quot;: 0,&#10;  &quot;value&quot;: 0,&#10;  &quot;products&quot;: [&#10;    0&#10;  ]&#10;}" />
-                          <option name="type" value="JSON" />
-                        </bodyState>
-                      </option>
-                      <option name="description" value="Coupons_Update" />
-                      <option name="id" value="8dcd6cd0-ca88-4039-9552-e98590f4d7b1" />
-                      <option name="method" value="PUT" />
-                      <option name="name" value="/api/Coupons/Update" />
-                      <option name="url" value="{{baseUrl}}/api/Coupons/Update" />
-                    </requestState>
-                    <requestState>
-                      <option name="description" value="Coupons_Delete" />
-                      <option name="id" value="76c6a8d6-b62f-443d-ac3d-71d9b4296e3b" />
-                      <option name="method" value="DELETE" />
-                      <option name="name" value="/api/Coupons/Delete/{id}" />
-                      <option name="pathVariables">
-                        <list>
-                          <pathVariableState>
-                            <option name="key" value="id" />
-                          </pathVariableState>
-                        </list>
-                      </option>
-                      <option name="url" value="{{baseUrl}}/api/Coupons/Delete/{id}" />
-                    </requestState>
-                    <requestState>
-                      <option name="body">
-                        <bodyState>
-                          <option name="raw" value="{&#10;  &quot;code&quot;: &quot;asd&quot;,&#10;  &quot;basketId&quot;: 1011&#10;}" />
-                          <option name="type" value="JSON" />
-                        </bodyState>
-                      </option>
-                      <option name="description" value="Coupons_Check" />
-                      <option name="headers">
-                        <list>
-                          <headerState>
-                            <option name="key" value="Content-Type" />
-                            <option name="value" value="application/json" />
-                          </headerState>
-                        </list>
-                      </option>
-                      <option name="id" value="300568d3-3b2b-47fd-9dac-78e1511c8bda" />
-                      <option name="method" value="POST" />
-                      <option name="name" value="/api/Coupons/Check" />
-                      <option name="url" value="{{baseUrl}}/api/Coupons/Check" />
-                    </requestState>
-                  </list>
-                </option>
-                <option name="sortWeight" value="5000000" />
-              </folderState>
-              <folderState>
-                <option name="icon" value="GENERATED_FOLDER" />
-                <option name="id" value="c2c86adc-e867-41b9-9c12-10299e8cf489" />
+                <option name="id" value="28aa593c-7bc3-4f9d-a7ad-ff3ad8ad9b7c" />
                 <option name="name" value="ProductAttributes" />
                 <option name="requests">
                   <list>
@@ -812,22 +661,14 @@
                         </bodyState>
                       </option>
                       <option name="description" value="ProductAttributes_Create" />
-                      <option name="headers">
-                        <list>
-                          <headerState>
-                            <option name="key" value="Content-Type" />
-                            <option name="value" value="application/json" />
-                          </headerState>
-                        </list>
-                      </option>
-                      <option name="id" value="930648dc-6f41-435d-a7f8-6f65a2820404" />
+                      <option name="id" value="4ca6c1e3-9657-4775-b60f-472d8ad83801" />
                       <option name="method" value="GET" />
                       <option name="name" value="/api/ProductAttributes/Create" />
                       <option name="url" value="{{baseUrl}}/api/ProductAttributes/Create" />
                     </requestState>
                     <requestState>
                       <option name="description" value="ProductAttributes_Delete" />
-                      <option name="id" value="4e502aed-bc8f-4490-80ac-46732de2739f" />
+                      <option name="id" value="89946f61-4aea-446d-a225-26a120d4abc4" />
                       <option name="method" value="DELETE" />
                       <option name="name" value="/api/ProductAttributes/Delete/{id}" />
                       <option name="pathVariables">
@@ -841,17 +682,17 @@
                     </requestState>
                   </list>
                 </option>
-                <option name="sortWeight" value="7000000" />
+                <option name="sortWeight" value="8000000" />
               </folderState>
               <folderState>
                 <option name="icon" value="GENERATED_FOLDER" />
-                <option name="id" value="0bf54ecb-f44a-4073-9cfe-0da394000d8e" />
+                <option name="id" value="c8e07414-208d-4109-bd82-edac10106fc9" />
                 <option name="name" value="ProductReview" />
                 <option name="requests">
                   <list>
                     <requestState>
                       <option name="description" value="ProductReview_GetAll" />
-                      <option name="id" value="e926c72e-2ec1-4702-addd-d964042f4efa" />
+                      <option name="id" value="8b32a9d3-8a77-4f59-9fde-bb910a0c40b7" />
                       <option name="method" value="GET" />
                       <option name="name" value="/api/ProductReview/GetAll" />
                       <option name="queryParams">
@@ -867,7 +708,7 @@
                           </queryParamState>
                         </list>
                       </option>
-                      <option name="url" value="{{baseUrl}}/api/ProductReview/GetAll?PageNumber&amp;PageSize&amp;ProductId" />
+                      <option name="url" value="{{baseUrl}}/api/ProductReview/GetAll" />
                     </requestState>
                     <requestState>
                       <option name="body">
@@ -877,14 +718,14 @@
                         </bodyState>
                       </option>
                       <option name="description" value="ProductReview_Create" />
-                      <option name="id" value="171a5a67-0c32-45d6-99cd-6b765d93ccf0" />
+                      <option name="id" value="4ab54318-9397-4211-8e34-cc72c92a4b78" />
                       <option name="method" value="POST" />
                       <option name="name" value="/api/ProductReview/Create" />
                       <option name="url" value="{{baseUrl}}/api/ProductReview/Create" />
                     </requestState>
                     <requestState>
                       <option name="description" value="ProductReview_Delete" />
-                      <option name="id" value="ba6a2140-781b-4d60-9b01-28f19c7933f5" />
+                      <option name="id" value="c520e616-0a14-400e-b9f5-392b0c833be0" />
                       <option name="method" value="DELETE" />
                       <option name="name" value="/api/ProductReview/Delete/{id}" />
                       <option name="pathVariables">
@@ -904,7 +745,7 @@
                         </bodyState>
                       </option>
                       <option name="description" value="ProductReview_Reaction" />
-                      <option name="id" value="dfad7f8a-7fc4-490d-a467-8f52f7afa850" />
+                      <option name="id" value="5ee28585-5ffc-4bda-9084-6abda7bfa9ec" />
                       <option name="method" value="POST" />
                       <option name="name" value="/api/ProductReview/Reaction" />
                       <option name="url" value="{{baseUrl}}/api/ProductReview/Reaction" />
@@ -917,7 +758,7 @@
                         </bodyState>
                       </option>
                       <option name="description" value="ProductReview_Approve" />
-                      <option name="id" value="4b5a42eb-f2f7-4624-a3e5-eb5ebd7ad8a2" />
+                      <option name="id" value="c00f5fab-b595-4f98-9a27-eba67b0cde0f" />
                       <option name="method" value="POST" />
                       <option name="name" value="/api/ProductReview/Approve" />
                       <option name="url" value="{{baseUrl}}/api/ProductReview/Approve" />
@@ -930,45 +771,118 @@
                         </bodyState>
                       </option>
                       <option name="description" value="ProductReview_Update" />
-                      <option name="id" value="6c6f28c7-6d4b-4d95-b4c5-8442c576db8c" />
+                      <option name="id" value="c3d504ea-21be-4c42-b0b6-462efd84407b" />
                       <option name="method" value="PUT" />
                       <option name="name" value="/api/ProductReview/Update" />
                       <option name="url" value="{{baseUrl}}/api/ProductReview/Update" />
                     </requestState>
                   </list>
                 </option>
-                <option name="sortWeight" value="8000000" />
+                <option name="sortWeight" value="9000000" />
               </folderState>
               <folderState>
                 <option name="icon" value="GENERATED_FOLDER" />
-                <option name="id" value="584db5e6-76b9-47af-82eb-9ef3800595aa" />
+                <option name="id" value="a73cb05f-8e00-4aff-96fb-7538a3dd0017" />
+                <option name="name" value="Products" />
+                <option name="requests">
+                  <list>
+                    <requestState>
+                      <option name="description" value="Products_GetAll" />
+                      <option name="id" value="6801b912-3701-42eb-9670-2c248f2fc517" />
+                      <option name="method" value="GET" />
+                      <option name="name" value="/api/Products/GetAll" />
+                      <option name="queryParams">
+                        <list>
+                          <queryParamState>
+                            <option name="key" value="PageNumber" />
+                          </queryParamState>
+                          <queryParamState>
+                            <option name="key" value="PageSize" />
+                          </queryParamState>
+                        </list>
+                      </option>
+                      <option name="url" value="{{baseUrl}}/api/Products/GetAll" />
+                    </requestState>
+                    <requestState>
+                      <option name="description" value="Products_Get" />
+                      <option name="id" value="ada96ad3-61af-4e2b-8ca0-7f4f5b1b719f" />
+                      <option name="method" value="GET" />
+                      <option name="name" value="/api/Products/Get/{id}" />
+                      <option name="pathVariables">
+                        <list>
+                          <pathVariableState>
+                            <option name="key" value="id" />
+                          </pathVariableState>
+                        </list>
+                      </option>
+                      <option name="url" value="{{baseUrl}}/api/Products/Get/{id}" />
+                    </requestState>
+                    <requestState>
+                      <option name="body">
+                        <bodyState>
+                          <option name="raw" value="{&#10;  &quot;name&quot;: &quot;&quot;,&#10;  &quot;description&quot;: &quot;&quot;,&#10;  &quot;discountPercent&quot;: 0,&#10;  &quot;weight&quot;: 0,&#10;  &quot;freeSend&quot;: false,&#10;  &quot;hasGuarantee&quot;: false,&#10;  &quot;longDescription&quot;: &quot;&quot;,&#10;  &quot;barcode&quot;: &quot;&quot;,&#10;  &quot;slug&quot;: &quot;&quot;,&#10;  &quot;seoTags&quot;: [&#10;    &quot;&quot;&#10;  ],&#10;  &quot;status&quot;: 0,&#10;  &quot;categories&quot;: [&#10;    0&#10;  ],&#10;  &quot;productVariants&quot;: [&#10;    0&#10;  ],&#10;  &quot;medias&quot;: [&#10;    0&#10;  ],&#10;  &quot;productAttributes&quot;: [&#10;    0&#10;  ]&#10;}" />
+                          <option name="type" value="JSON" />
+                        </bodyState>
+                      </option>
+                      <option name="description" value="Products_Create" />
+                      <option name="id" value="e3eaf4b3-481a-44c9-8104-4362301038fb" />
+                      <option name="method" value="POST" />
+                      <option name="name" value="/api/Products/Create" />
+                      <option name="url" value="{{baseUrl}}/api/Products/Create" />
+                    </requestState>
+                    <requestState>
+                      <option name="body">
+                        <bodyState>
+                          <option name="raw" value="{&#10;  &quot;id&quot;: 0,&#10;  &quot;name&quot;: &quot;&quot;,&#10;  &quot;description&quot;: &quot;&quot;,&#10;  &quot;discountPercent&quot;: 0,&#10;  &quot;weight&quot;: 0,&#10;  &quot;freeSend&quot;: false,&#10;  &quot;hasGuarantee&quot;: false,&#10;  &quot;longDescription&quot;: &quot;&quot;,&#10;  &quot;barcode&quot;: &quot;&quot;,&#10;  &quot;slug&quot;: &quot;&quot;,&#10;  &quot;seoTags&quot;: [&#10;    &quot;&quot;&#10;  ],&#10;  &quot;status&quot;: 0,&#10;  &quot;categories&quot;: [&#10;    0&#10;  ],&#10;  &quot;productVariants&quot;: [&#10;    0&#10;  ],&#10;  &quot;medias&quot;: [&#10;    0&#10;  ],&#10;  &quot;productAttributes&quot;: [&#10;    0&#10;  ]&#10;}" />
+                          <option name="type" value="JSON" />
+                        </bodyState>
+                      </option>
+                      <option name="description" value="Products_Update" />
+                      <option name="id" value="1872d435-6a4f-4301-8951-2adca69be359" />
+                      <option name="method" value="PUT" />
+                      <option name="name" value="/api/Products/Update" />
+                      <option name="url" value="{{baseUrl}}/api/Products/Update" />
+                    </requestState>
+                    <requestState>
+                      <option name="description" value="Products_Delete" />
+                      <option name="id" value="2be3e1b2-8535-4e33-9791-bda980cccebf" />
+                      <option name="method" value="DELETE" />
+                      <option name="name" value="/api/Products/Delete/{id}" />
+                      <option name="pathVariables">
+                        <list>
+                          <pathVariableState>
+                            <option name="key" value="id" />
+                          </pathVariableState>
+                        </list>
+                      </option>
+                      <option name="url" value="{{baseUrl}}/api/Products/Delete/{id}" />
+                    </requestState>
+                  </list>
+                </option>
+                <option name="sortWeight" value="10000000" />
+              </folderState>
+              <folderState>
+                <option name="icon" value="GENERATED_FOLDER" />
+                <option name="id" value="df5e2a35-e4e6-4bcc-b5a9-1be223379962" />
                 <option name="name" value="ProductVariant" />
                 <option name="requests">
                   <list>
                     <requestState>
                       <option name="body">
                         <bodyState>
-                          <option name="raw" value="{&#10;  &quot;productId&quot;: 2,&#10;  &quot;name&quot;: &quot;red&quot;,&#10;  &quot;price&quot;: 100000,&#10;  &quot;stock&quot;: 20&#10;}" />
+                          <option name="raw" value="{&#10;  &quot;productId&quot;: 0,&#10;  &quot;name&quot;: &quot;&quot;,&#10;  &quot;price&quot;: 0,&#10;  &quot;stock&quot;: 0&#10;}" />
                           <option name="type" value="JSON" />
                         </bodyState>
                       </option>
                       <option name="description" value="ProductVariant_Create" />
-                      <option name="headers">
-                        <list>
-                          <headerState>
-                            <option name="key" value="Content-Type" />
-                            <option name="value" value="application/json" />
-                          </headerState>
-                        </list>
-                      </option>
-                      <option name="id" value="f2c37b14-bf06-4a5c-a663-b01f98b7db5a" />
+                      <option name="id" value="dba7d9c0-3d06-48a4-9ee9-5fcfffffd082" />
                       <option name="method" value="GET" />
                       <option name="name" value="/api/ProductVariant/Create" />
                       <option name="url" value="{{baseUrl}}/api/ProductVariant/Create" />
                     </requestState>
                     <requestState>
                       <option name="description" value="ProductVariant_Delete" />
-                      <option name="id" value="0f7415ae-dea1-4401-aadc-476ab2826307" />
+                      <option name="id" value="eaee33fd-187f-4e29-ac32-11f3909a19a0" />
                       <option name="method" value="DELETE" />
                       <option name="name" value="/api/ProductVariant/Delete/{id}" />
                       <option name="pathVariables">
@@ -982,78 +896,67 @@
                     </requestState>
                   </list>
                 </option>
-                <option name="sortWeight" value="10000000" />
+                <option name="sortWeight" value="11000000" />
               </folderState>
               <folderState>
                 <option name="icon" value="GENERATED_FOLDER" />
-                <option name="id" value="dcb56615-db2b-41a2-a4dd-f87870c14c03" />
-                <option name="name" value="Orders" />
+                <option name="id" value="a93c88e8-68f9-489a-8a1f-e91ea975dd23" />
+                <option name="name" value="Users" />
                 <option name="requests">
                   <list>
                     <requestState>
-                      <option name="description" value="Orders_GetAll" />
-                      <option name="id" value="21090c26-198f-405f-9ed8-2cbcda7a30f3" />
+                      <option name="body">
+                        <bodyState>
+                          <option name="raw" value="{&#10;  &quot;phone&quot;: &quot;&quot;&#10;}" />
+                          <option name="type" value="JSON" />
+                        </bodyState>
+                      </option>
+                      <option name="description" value="Users_LoginRegister" />
+                      <option name="id" value="f1b37ddb-8242-41f7-8635-785738f51d24" />
+                      <option name="method" value="POST" />
+                      <option name="name" value="/api/Users/LoginRegister" />
+                      <option name="url" value="{{baseUrl}}/api/Users/LoginRegister" />
+                    </requestState>
+                    <requestState>
+                      <option name="body">
+                        <bodyState>
+                          <option name="raw" value="{&#10;  &quot;phone&quot;: &quot;&quot;,&#10;  &quot;otp&quot;: 0&#10;}" />
+                          <option name="type" value="JSON" />
+                        </bodyState>
+                      </option>
+                      <option name="description" value="Users_ApproveOtp" />
+                      <option name="id" value="cb77a92d-2579-4e69-af19-81c993df4a2b" />
+                      <option name="method" value="POST" />
+                      <option name="name" value="/api/Users/ApproveOtp" />
+                      <option name="url" value="{{baseUrl}}/api/Users/ApproveOtp" />
+                    </requestState>
+                    <requestState>
+                      <option name="description" value="Users_Info" />
+                      <option name="id" value="3c73d23e-4b2b-446d-bd36-250eddb2dddc" />
                       <option name="method" value="GET" />
-                      <option name="name" value="/api/Orders/GetAll" />
+                      <option name="name" value="/api/Users/Info" />
                       <option name="queryParams">
                         <list>
                           <queryParamState>
-                            <option name="key" value="PageNumber" />
-                          </queryParamState>
-                          <queryParamState>
-                            <option name="key" value="PageSize" />
+                            <option name="key" value="userInfoQuery" />
                           </queryParamState>
                         </list>
                       </option>
-                      <option name="url" value="{{baseUrl}}/api/Orders/GetAll?PageNumber&amp;PageSize" />
-                    </requestState>
-                    <requestState>
-                      <option name="body">
-                        <bodyState>
-                          <option name="raw" value="{}" />
-                          <option name="type" value="JSON" />
-                        </bodyState>
-                      </option>
-                      <option name="description" value="Orders_Create" />
-                      <option name="headers">
-                        <list>
-                          <headerState>
-                            <option name="key" value="Content-Type" />
-                            <option name="value" value="application/json" />
-                          </headerState>
-                        </list>
-                      </option>
-                      <option name="id" value="1805cbe2-f7c5-4afe-8cab-078e514c73bb" />
-                      <option name="method" value="POST" />
-                      <option name="name" value="/api/Orders/Create" />
-                      <option name="url" value="{{baseUrl}}/api/Orders/Create" />
-                    </requestState>
-                    <requestState>
-                      <option name="body">
-                        <bodyState>
-                          <option name="raw" value="{&#10;  &quot;orderId&quot;: 0,&#10;  &quot;token&quot;: &quot;&quot;&#10;}" />
-                          <option name="type" value="JSON" />
-                        </bodyState>
-                      </option>
-                      <option name="description" value="Orders_Verify" />
-                      <option name="id" value="36f1f24e-09b1-4d04-9a62-ebc77425af2c" />
-                      <option name="method" value="POST" />
-                      <option name="name" value="/api/Orders/Verify" />
-                      <option name="url" value="{{baseUrl}}/api/Orders/Verify" />
+                      <option name="url" value="{{baseUrl}}/api/Users/Info" />
                     </requestState>
                   </list>
                 </option>
-                <option name="sortWeight" value="7000000" />
+                <option name="sortWeight" value="12000000" />
               </folderState>
               <folderState>
                 <option name="icon" value="GENERATED_FOLDER" />
-                <option name="id" value="ba991ff9-92eb-4a01-9abf-eb20933bf8a3" />
+                <option name="id" value="02f894a2-bc84-4f01-89cb-778cf296f0b1" />
                 <option name="name" value="Wishlists" />
                 <option name="requests">
                   <list>
                     <requestState>
                       <option name="description" value="Wishlists_GetAll" />
-                      <option name="id" value="af81f57e-c6ab-4ac0-a598-5e1834a338e1" />
+                      <option name="id" value="7e5d9c7c-4fb3-44d2-9799-256a8a98c74e" />
                       <option name="method" value="GET" />
                       <option name="name" value="/api/Wishlists/GetAll" />
                       <option name="queryParams">
@@ -1066,7 +969,7 @@
                           </queryParamState>
                         </list>
                       </option>
-                      <option name="url" value="{{baseUrl}}/api/Wishlists/GetAll?PageNumber&amp;PageSize" />
+                      <option name="url" value="{{baseUrl}}/api/Wishlists/GetAll" />
                     </requestState>
                     <requestState>
                       <option name="body">
@@ -1076,14 +979,14 @@
                         </bodyState>
                       </option>
                       <option name="description" value="Wishlists_Create" />
-                      <option name="id" value="08c04fe9-fff2-445e-829e-c5ae5d7ae336" />
+                      <option name="id" value="07fe1921-c319-466d-a219-c31763904588" />
                       <option name="method" value="POST" />
                       <option name="name" value="/api/Wishlists/Create" />
                       <option name="url" value="{{baseUrl}}/api/Wishlists/Create" />
                     </requestState>
                     <requestState>
                       <option name="description" value="Wishlists_Delete" />
-                      <option name="id" value="3578f7f8-3eea-46ce-8e6d-6c79753f5e3b" />
+                      <option name="id" value="12176b99-4e87-4440-a9f0-af129b2c9422" />
                       <option name="method" value="DELETE" />
                       <option name="name" value="/api/Wishlists/Delete/{id}" />
                       <option name="pathVariables">
@@ -1102,7 +1005,7 @@
             </list>
           </option>
           <option name="icon" value="GENERATED_SOURCE_ROOT" />
-          <option name="id" value="3e56200d-9d10-44df-a81a-a2348fd4d25a" />
+          <option name="id" value="9ff98a40-734e-4d92-abae-99be14804dee" />
           <option name="integrationProperties">
             <integrationProperties>
               <option name="framework" value="OPEN_API" />
@@ -1113,7 +1016,7 @@
               </option>
             </integrationProperties>
           </option>
-          <option name="name" value="niceShop" />
+          <option name="name" value="niceshop" />
           <option name="sortWeight" value="1000000" />
           <option name="syncProperties">
             <synchronizationPropertiesState>

@@ -11,7 +11,8 @@ public class UpdateCategoryCommandHandler(IApplicationDbContext context)
         CancellationToken cancellationToken)
     {
         var entity = await context.Categories
-            .FindAsync(request.Id);
+            .Include(x => x.Medias)
+            .SingleOrDefaultAsync(x => x.Id == request.Id, cancellationToken: cancellationToken);
 
         Guard.Against.NotFound(request.Id, entity);
 
@@ -22,7 +23,9 @@ public class UpdateCategoryCommandHandler(IApplicationDbContext context)
 
         if (request.Medias is not null && request.Medias.Any())
         {
-            entity.Medias = await context.Medias.Where(c => request.Medias.Contains(c.Id)).ToListAsync(cancellationToken: cancellationToken);
+            entity.Medias?.Clear();
+            entity.Medias = await context.Medias.Where(c => request.Medias.Contains(c.Id))
+                .ToListAsync(cancellationToken: cancellationToken);
         }
 
         context.Categories.Update(entity);

@@ -1225,23 +1225,12 @@
         ]
       }
     },
-    "/api/Medias/UpdateCategory/{id}": {
+    "/api/Medias/Update": {
       "put": {
         "tags": [
           "Medias"
         ],
-        "operationId": "Medias_UpdateCategory",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 2
-          }
-        ],
+        "operationId": "Medias_Update",
         "requestBody": {
           "x-name": "command",
           "content": {
@@ -3925,7 +3914,8 @@
         "additionalProperties": false,
         "properties": {
           "name": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "parentCategoryId": {
             "type": "integer",
@@ -3944,7 +3934,8 @@
             }
           },
           "slug": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "medias": {
             "type": "array",
@@ -4201,6 +4192,30 @@
           "id": {
             "type": "integer",
             "format": "int32"
+          },
+          "fileName": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullPath": {
+            "type": "string",
+            "nullable": true
+          },
+          "relativePath": {
+            "type": "string",
+            "nullable": true
+          },
+          "alt": {
+            "type": "string",
+            "nullable": true
+          },
+          "extension": {
+            "type": "string",
+            "nullable": true
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },

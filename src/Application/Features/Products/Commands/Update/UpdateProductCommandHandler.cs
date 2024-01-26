@@ -9,7 +9,13 @@ public class UpdateProductCommandHandler(IApplicationDbContext context) : IReque
 {
     public async Task<Result> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
     {
-        var entity = await context.Products.FindAsync(request.Id);
+        var entity = await context.Products
+            .Include(x => x.Categories)
+            .Include(x => x.ProductVariants)
+            .Include(x => x.Medias)
+            .Include(x => x.ProductAttributes)
+            .FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
+
         Guard.Against.NotFound(request.Id, entity);
 
         entity.Name = request.Name ?? entity.Name;
@@ -25,14 +31,16 @@ public class UpdateProductCommandHandler(IApplicationDbContext context) : IReque
         entity.Status = request.Status ?? entity.Status;
 
         if (request.Categories is not null && request.Categories.Any())
-            entity.Categories = await context.Categories.Where(x => request.Categories.Contains(x.Id)).ToListAsync(cancellationToken: cancellationToken);
+            entity.Categories = await context.Categories.Where(x => request.Categories.Contains(x.Id))
+                .ToListAsync(cancellationToken: cancellationToken);
 
         if (request.ProductVariants is not null && request.ProductVariants.Any())
             entity.ProductVariants = await context.ProductVariants.Where(x => request.ProductVariants.Contains(x.Id))
                 .ToListAsync(cancellationToken: cancellationToken);
 
         if (request.Medias is not null && request.Medias.Any())
-            entity.Medias = await context.Medias.Where(x => request.Medias.Contains(x.Id)).ToListAsync(cancellationToken: cancellationToken);
+            entity.Medias = await context.Medias.Where(x => request.Medias.Contains(x.Id))
+                .ToListAsync(cancellationToken: cancellationToken);
 
         if (request.ProductAttributes is not null && request.ProductAttributes.Any())
             entity.ProductAttributes = await context.ProductAttributes

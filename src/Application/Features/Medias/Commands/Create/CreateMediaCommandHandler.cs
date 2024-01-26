@@ -14,7 +14,7 @@ public class CreateMediaCommandHandler(IApplicationDbContext context, IWebHostEn
         var fileInfo = new FileInfo(request.File.FileName);
         string fileExtension = fileInfo.Extension;
         string fileName = Guid.NewGuid() + fileExtension;
-        string relativePath = Path.Combine("media", Guid.NewGuid() + fileExtension);
+        string relativePath = Path.Combine("media",fileName);
         string fullPath = Path.Combine(filePath, fileName);
 
         await using (var stream = new FileStream(fullPath, FileMode.Create))

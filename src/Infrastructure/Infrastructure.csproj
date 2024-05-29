@@ -18,6 +18,7 @@
     <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" />
     <PackageReference Include="NEST" />
     <PackageReference Include="Newtonsoft.Json" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" />
     <PackageReference Include="Quartz" />
     <PackageReference Include="RabbitMQ.Client" />
   </ItemGroup>

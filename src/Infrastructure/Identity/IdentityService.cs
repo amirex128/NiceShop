@@ -4,6 +4,7 @@ using System.Text;
 using NiceShop.Application.Common.Interfaces;
 using NiceShop.Application.Common.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -16,9 +17,9 @@ public class IdentityService(
     UserManager<User> userManager,
     IUserClaimsPrincipalFactory<User> userClaimsPrincipalFactory,
     IAuthorizationService authorizationService,
-    IUser currentUser,
+    IHttpContextAccessor httpContextAccessor,
     IConfiguration configuration)
-    : IIdentityService
+    : IIdentityService,NiceShop.Application.AI.Common.Interfaces.IIdentityService
 {
     public async Task<string?> GetUserNameAsync(string userId)
     {
@@ -52,7 +53,9 @@ public class IdentityService(
 
     public async Task<User?> GetUserAsync()
     {
-        return await userManager.Users.SingleOrDefaultAsync(u => u.Id == currentUser.Id);
+        string? findFirstValue = httpContextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+        return await userManager.Users.SingleOrDefaultAsync(u => u.Id == findFirstValue);
     }
 
     public string GenerateJwtToken(User user)

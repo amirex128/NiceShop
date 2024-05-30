@@ -24,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Application.AI\Application.AI.csproj" />
     <ProjectReference Include="..\Application\Application.csproj" />
   </ItemGroup>
 

@@ -12,7 +12,7 @@ using NiceShop.Domain.Attributes;
 namespace NiceShop.Infrastructure.Data;
 
 public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-    : IdentityDbContext<User>(options), IApplicationDbContext
+    : IdentityDbContext<User>(options), IApplicationDbContext,NiceShop.Application.AI.Common.Interfaces.IApplicationDbContext
 {
     public DbSet<Address> Addresses => Set<Address>();
     public DbSet<Article> Articles => Set<Article>();
